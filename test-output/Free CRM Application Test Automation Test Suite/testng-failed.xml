@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Free CRM Application Test Automation Test Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener"/>
+  </listeners>
+  <test name="Free CRM Test (failed)">
+    <classes>
+      <class name="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality">
+        <methods>
+          <include name="Test_LogoutfromOrion_IsSuccess"/>
+          <include name="Test_IfSaveMessage_IsDisplayed"/>
+          <include name="Test_IfEditTimeSheetPage_Isdisplayed"/>
+          <include name="Test_LoginToOrion_IsSuccess"/>
+          <include name="Test_IfDataSavedCorrectly"/>
+          <include name="CloseObjects"/>
+          <include name="InitObjects"/>
+        </methods>
+      </class> <!-- com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality -->
+    </classes>
+  </test> <!-- Free CRM Test (failed) -->
+</suite> <!-- Failed suite [Free CRM Application Test Automation Test Suite] -->

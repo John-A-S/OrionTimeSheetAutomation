@@ -1,0 +1,53 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Orion TimeSheet Application Test Automation Test Suite">
+
+	<listeners>
+		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
+	</listeners>
+
+	<test
+		name="TestNGOrionTimeSheet_Chrome_Test_NewTimeSheet_CancelFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class name="com.orion.qa.testcases.Test_NewTimeSheet_CancelFunctionality" />
+		</classes>
+	</test>
+
+	<test
+		name="TestNGOrionTimeSheet_Chrome_Test_NewTimeSheet_SaveFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class name="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality" />
+		</classes>
+	</test>
+
+
+	
+<!--  
+	<test
+		name="TestNGOrionTimeSheet_Chrome_Test_DraftTimeSheet_SaveFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class name="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality" />
+		</classes>
+	</test>
+	
+	 <test name="TestNGOrionTimeSheet_Chrome_Test_DraftTimeSheet_CancelFunctionality"> 
+		<parameter name="Browser" value="chrome" /> 
+		<classes> 
+			<class name="com.orion.qa.testcases.Test_DraftTimeSheet_CancelFunctionality" /> 
+		</classes> 
+		</test> <test name="TestNGOrionTimeSheet_Chrome_Test_ApprovedTimeSheet_SaveFunctionality"> 
+		<parameter name="Browser" value="chrome" /> 
+		<classes> 
+			<class name="com.orion.qa.testcases.Test_ApprovedTimeSheet_SaveFunctionality" /> 
+		</classes> 
+		</test> <test name="TestNGOrionTimeSheet_Chrome_Test_ApprovedTimeSheet_CancelFunctionality"> 
+		<parameter name="Browser" value="chrome" /> 
+		<classes> 
+			<class name="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality" /> 
+		</classes> 
+		</test> 
+		-->
+
+</suite>

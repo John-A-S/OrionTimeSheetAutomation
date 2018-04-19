@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2018-04-18T20:52:29Z" name="Default suite" finished-at="2018-04-18T20:53:00Z" duration-ms="31048">
+    <groups>
+    </groups>
+    <test started-at="2018-04-18T20:52:29Z" name="Default test" finished-at="2018-04-18T20:53:00Z" duration-ms="31048">
+      <class name="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality">
+        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5ab9e72c]" started-at="2018-04-18T16:52:29Z" name="InitObjects" finished-at="2018-04-18T16:52:38Z" duration-ms="8821" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- InitObjects -->
+        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5ab9e72c]" started-at="2018-04-18T16:52:38Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-04-18T16:52:40Z" duration-ms="2063" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[john]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[infomatics@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_LoginToOrion_IsSuccess -->
+        <test-method signature="Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5ab9e72c]" started-at="2018-04-18T16:52:40Z" name="Test_IfNewTimeSheetPage_Isdisplayed" finished-at="2018-04-18T16:52:41Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="1339" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_IfNewTimeSheetPage_Isdisplayed -->
+        <test-method signature="Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5ab9e72c]" started-at="2018-04-18T16:52:41Z" name="Test_IfSubmitMessage_IsDisplayed" finished-at="2018-04-18T16:52:46Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed" duration-ms="4741" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_IfSubmitMessage_IsDisplayed -->
+        <test-method signature="Test_IfDataSavedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5ab9e72c]" started-at="2018-04-18T16:52:46Z" name="Test_IfDataSavedCorrectly" finished-at="2018-04-18T16:52:59Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed" duration-ms="12569" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_IfDataSavedCorrectly -->
+        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5ab9e72c]" started-at="2018-04-18T16:52:59Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-04-18T16:52:59Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSavedCorrectly" duration-ms="465" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
+        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5ab9e72c]" started-at="2018-04-18T16:52:59Z" name="CloseObjects" finished-at="2018-04-18T16:53:00Z" duration-ms="859" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CloseObjects -->
+      </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

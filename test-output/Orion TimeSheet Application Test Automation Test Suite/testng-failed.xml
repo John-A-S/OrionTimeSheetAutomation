@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Orion TimeSheet Application Test Automation Test Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener"/>
+  </listeners>
+  <test name="TestNGOrionTimeSheet_Chrome_Test_NewTimeSheet_SaveFunctionality(failed)">
+    <parameter name="Browser" value="chrome"/>
+    <classes>
+      <class name="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality">
+        <methods>
+          <include name="Test_LogoutfromOrion_IsSuccess"/>
+          <include name="InitObjects"/>
+          <include name="CloseObjects"/>
+          <include name="Test_LoginToOrion_IsSuccess"/>
+          <include name="Test_IfDataSavedCorrectly"/>
+          <include name="Test_IfSaveMessage_IsDisplayed"/>
+          <include name="Test_IfNewTimeSheetPage_Isdisplayed"/>
+        </methods>
+      </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality -->
+    </classes>
+  </test> <!-- TestNGOrionTimeSheet_Chrome_Test_NewTimeSheet_SaveFunctionality(failed) -->
+</suite> <!-- Failed suite [Orion TimeSheet Application Test Automation Test Suite] -->
