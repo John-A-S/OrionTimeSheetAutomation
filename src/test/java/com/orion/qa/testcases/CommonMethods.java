@@ -60,7 +60,7 @@ public class CommonMethods {
 
 	public static boolean CompareFilesbyByte(String file1, String file2) {
 		try {
-		
+			System.out.println("Base File: "+ file1+ " Second file : "+file2);
 			File f1 = new File(file1);
 			File f2 = new File(file2);
 			FileInputStream fis1 = new FileInputStream(f1);

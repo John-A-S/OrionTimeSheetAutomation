@@ -91,7 +91,7 @@ public class TimeSheetEditPage {
 	}
 
 	public static WebElement grd_txtComment(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='comment']"));
+		element = driver.findElement(By.xpath("//textarea[@id='comment']"));
 		return element;
 	}
 
@@ -112,6 +112,16 @@ public class TimeSheetEditPage {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void ScrollScreenToElement(WebDriver driver, JavascriptExecutor jse, WebElement element) {
+		try {
+			jse.executeScript("arguments[0].scrollIntoView(true);", element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	
 	
 	public static void ScrollScreenToSubmitButtonAndClick(WebDriver driver, JavascriptExecutor jse) {
 		try {

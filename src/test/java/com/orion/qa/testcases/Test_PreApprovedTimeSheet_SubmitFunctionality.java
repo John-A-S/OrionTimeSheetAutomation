@@ -1,8 +1,10 @@
 package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -12,9 +14,13 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -26,7 +32,7 @@ import com.orion.qa.pages.LoginPage;
 import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
 
-public class Test_PreApprovedTimeSheet_CancelFunctionality {
+public class Test_PreApprovedTimeSheet_SubmitFunctionality {
 	WebDriver driver;
 	WebDriverWait wait;
 	Actions act;
@@ -39,25 +45,55 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality {
 	int RowNumb;
 	int AttachmentRowNo;
 
+	boolean isSameFiles;
 	@Parameters("Browser")
 
 	@BeforeClass
 	public void InitObjects(String Browser) {
 		try {
 
-			System.out.println("********** Test_PreApprovedTimeSheet_CancelFunctionality ************* ");
+			System.out.println("********** Test_PreApprovedTimeSheet_SubmitFunctionality ************* ");
 
 			CommonMethods.readExcel_Paths();
 
 			if (Browser.equalsIgnoreCase("firefox")) {
-				driver = new FirefoxDriver();
-			}else if (Browser.equalsIgnoreCase("ie")) { 
-				System.setProperty(IEbrowser, CommonMethods.IE_Browser_Location);
+				FirefoxProfile profile = new FirefoxProfile();
+				DesiredCapabilities dc = DesiredCapabilities.firefox();
+				profile.setAcceptUntrustedCertificates(false);
+				profile.setAssumeUntrustedCertificateIssuer(true);
+				profile.setPreference("browser.download.folderList", 2);
+				profile.setPreference("browser.helperApps.alwaysAsk.force", false);
+				profile.setPreference("browser.download.manager.showWhenStarting", false);
+				profile.setPreference("browser.download.dir", CommonMethods.Attachment_File_Download_Location);
+				profile.setPreference("browser.download.downloadDir", CommonMethods.Attachment_File_Download_Location);
+				profile.setPreference("browser.download.defaultFolder",
+						CommonMethods.Attachment_File_Download_Location);
+				profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
+						"application/plain, application/msword");
+				dc = DesiredCapabilities.firefox();
+				dc.setCapability(FirefoxDriver.PROFILE, profile);
+				driver = new FirefoxDriver(dc);
+			} else if (Browser.equalsIgnoreCase("ie")) {
 				driver = new InternetExplorerDriver();
-			}else if (Browser.equalsIgnoreCase("chrome")) { 
-				//System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
-				driver = new ChromeDriver();
-			} 
+			} else if (Browser.equalsIgnoreCase("chrome")) {
+				// System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
+				/* following code is to download files using Chrome browser */
+				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+				chromePrefs.put("profile.default_content_settings.popups", 0);
+				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
+				ChromeOptions options = new ChromeOptions();
+				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
+				options.setExperimentalOption("prefs", chromePrefs);
+				options.addArguments("--test-type");
+				options.addArguments("--disable-extensions"); // to disable browser extension popup
+				DesiredCapabilities cap = DesiredCapabilities.chrome();
+				cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
+				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+				cap.setCapability(ChromeOptions.CAPABILITY, options);
+				driver = new ChromeDriver(cap);
+			}
+
+			
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -78,7 +114,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality {
 		if (!driver.toString().contains("null")) {
 			driver.quit();
 		}
-		System.out.println("********** Test_PreApprovedTimeSheet_CancelFunctionality ************* ");
+		System.out.println("********** Test_PreApprovedTimeSheet_SubmitFunctionality ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
@@ -116,35 +152,82 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality {
 	}
 
 	@Test(priority = 3, dependsOnMethods = { "Test_IfEditTimeSheetPage_Isdisplayed" })
-	public  void Test_CancelButton_IsDisplayed() {
+	public  void Test_SubmitButton_IsDisplayed() {
 		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
-		assertEquals(TimeSheetEditPage.verifyCancelButtonExists(driver), true);
+		assertEquals(TimeSheetEditPage.verifySubmitButtonExists(driver), true);
 	}
 	
-	@Test(priority = 4, dependsOnMethods = { "Test_CancelButton_IsDisplayed" })
-	public  void Test_CancelButton_InjectTestDataandVerify() {
-		strExistingComment = ReadCurrentData();
+	@Test(priority = 4, dependsOnMethods = {"Test_SubmitButton_IsDisplayed"} )
+	public void Test_VerifyGridisDisabled() {
+		// to confirm the grid is disabled as of now we just check one column
+		assertFalse(TimeSheetEditPage.grd_ColMonday(driver).isEnabled());
+	}
+	
+	@Test(priority = 5, dependsOnMethods = { "Test_VerifyGridisDisabled" })
+	public  void Test_SubmitButton_InjectTestDataandVerify() throws InterruptedException {
+		//strExistingComment = ReadCurrentData();
 		InjectTestData();
-		TimeSheetEditPage.ScrollScreenToCancelButtonAndClick(driver, jse);
+		TimeSheetEditPage.ScrollScreenToSubmitButtonAndClick(driver, jse);
+		
+		Thread.sleep(1000);
+
+		act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSubmit_OK(driver, wait)).click().build().perform();
+		
+		Thread.sleep(1000);
+		WebElement ElementMsg1 = TimeSheetEditPage.Wait_Msg_TimeSheetSave(driver, wait);
+
+		String strSaveMsg1 = ElementMsg1.getText();
+
+		act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSave_OK(driver, wait)).click().build().perform();
+		
+		assertEquals(strSaveMsg1, "Time Sheet Submitted Successfully.");
+		
 	}
 	
-	@Test(priority = 5, dependsOnMethods = { "Test_CancelButton_InjectTestDataandVerify" })
-	public void Test_IfUpdatedDataisCancelled() {
+	@Test(priority = 5, dependsOnMethods = { "Test_SubmitButton_InjectTestDataandVerify" })
+	public void Test_IfUpdatedDataisSubmitted() {
 		try {
-			clicklink(RowNumb);
-			TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
-			/* ChkTestFileisCancelled - To ensure uploaded file is not saved
-			 !(strOldComment.equals("This is from Inject Data method") - To ensure test data is not saved */
-			if (ChkTestFileisCancelled() && !(strExistingComment.equals("This is from Inject Data method"))) {
-      			assertTrue(true);
-			}
 			
+			System.out.println("Row Number : " + RowNumb);
+			clicklink(RowNumb);
+			
+			TimeSheetEditPage.ScrollScreenToElement(driver, jse, TimeSheetEditPage.grd_txtComment(driver));
+			
+			String comment = TimeSheetEditPage.grd_txtComment(driver).getAttribute("value");
+			
+			boolean isCommentTextSame = comment.equals("This is from Inject Data method");
+			
+			System.out.println("isCommentTextSame "+isCommentTextSame);
+			DownloadfileAndComparewithTestFile();
+			
+			assertEquals( (isCommentTextSame && isSameFiles), true);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void DownloadfileAndComparewithTestFile() {
+		try {
+			String TempFileName = getLatestUploadFile();
+			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
+			driver.findElement(By.linkText(TempFileName)).click();
+			TempFileName = TempFileName.replace("/", "_");
+			Thread.sleep(5000);
+			System.out.println("Sample file name "+ CommonMethods.Sample_FileNamewithPath + "Attachment File :" + CommonMethods.Attachment_File_Download_Location + TempFileName);	
+			if (CommonMethods.CompareFilesbyByte(CommonMethods.Sample_FileNamewithPath,
+					CommonMethods.Attachment_File_Download_Location + TempFileName) == true) {
+				isSameFiles = true;
+			} else {
+				isSameFiles = false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	@Test(priority = 6, dependsOnMethods = { "Test_IfUpdatedDataisCancelled" })
+
+	@Test(priority = 6, dependsOnMethods = { "Test_IfUpdatedDataisSubmitted" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
 			act.moveToElement(CommonMethods.lbl_UserIcon(driver)).click().perform();
@@ -170,14 +253,18 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality {
 	public String getLatestUploadFile() {
 		try {
 			List<WebElement> Rows = TimeSheetEditPage.grd_AttachmentData(driver).findElements(By.tagName("tr"));
+			System.out.println("Row Size"+ Rows.size()+ " AttachmentRow No: " + AttachmentRowNo);
 			int RowValue = 1;
 			if (Rows.size() >= 1) {
 				RowValue = Rows.size();
 				/* AttachmentRowNo is the row id where test file is uploaded */	
+				System.out.println("Row Value " + RowValue+" AttachmentRowNo " + AttachmentRowNo);
 				if (RowValue == AttachmentRowNo)
 				{
+					System.out.println("Inside RowValue == AttachmentRowno");
 					List<WebElement> Cols = Rows.get(RowValue - 1).findElements(By.tagName("td"));
-					Cols.get(0).getText();
+					System.out.println(Cols.get(0).getText());
+					return Cols.get(0).getText();
 				}
 			}
 			return "";
