@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.orion.qa.testcases.CommonMethods;
+import com.orion.qa.utils.CommonMethods;
 
 public class TimeSheetEditPage {
 	private static WebElement element = null;
@@ -28,6 +28,11 @@ public class TimeSheetEditPage {
 	
 	public static WebElement wait_btn_AddAttachclickable(WebDriver driver, WebDriverWait wait) {
 		element = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Add Attachment")));
+		return element;
+	}
+	
+	public static WebElement AddAttachclickable(WebDriver driver) {
+		element = driver.findElement(By.linkText("Add Attachment"));
 		return element;
 	}
 	

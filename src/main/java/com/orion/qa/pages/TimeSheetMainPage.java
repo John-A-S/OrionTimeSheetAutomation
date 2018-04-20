@@ -31,6 +31,13 @@ public class TimeSheetMainPage {
 		element = driver.findElement(By.xpath(".//*[@id='no-more-tables']/table/tbody"));
 		return element;
 	}
+	
+	public static WebElement lbl_TimeSheet(WebDriver driver) {
+		element = driver.findElement(By.tagName("h3"));
+		return element;
+	}
+	
+
 
 	public static int ReadMonthlyDatafromGridtoElement(WebDriver driver, char strStatus) {
 		int i = 0;

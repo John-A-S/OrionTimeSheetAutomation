@@ -1,6 +1,7 @@
 package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.util.concurrent.TimeUnit;
@@ -22,6 +23,7 @@ import org.testng.annotations.Test;
 import com.orion.qa.pages.LoginPage;
 import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
+import com.orion.qa.utils.CommonMethods;
 
 public class Test_SubmittedTimeSheet_SubmitFunctionality {
 	WebDriver driver;
@@ -94,7 +96,7 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality {
 
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
-		// RowNumb will have the row number of draft timesheet //
+		// RowNumb will have the row number of Submitted timesheet //
 		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'S');
 		if (RowNumb <= 0)  {
 			assertTrue(false, "No record to process");
@@ -111,14 +113,31 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality {
 				"TimeSheet Edit Time Sheet");
 	}
 
-	@Test(priority = 3, dependsOnMethods = { "Test_IfEditTimeSheetPage_Isdisplayed" })
+	@Test(priority=3, dependsOnMethods = {"Test_IfEditTimeSheetPage_Isdisplayed"}) 
+	public void Test_VerifyUserCanEnterTime() {
+		
+		assertFalse(TimeSheetEditPage.grd_ColMonday(driver).isEnabled());
+	}
+	
+	
+	@Test(priority=4, dependsOnMethods = {"Test_VerifyUserCanEnterTime"}) 
+	public void Test_VerifyUserAddAttachment() {
+		assertFalse(TimeSheetEditPage.AddAttachclickable(driver).isEnabled());
+	}
+	
+
+	@Test(priority=5, dependsOnMethods = {"Test_VerifyUserAddAttachment"}) 
+	public void Test_VerifyUserAddcomment() {
+		assertFalse(TimeSheetEditPage.grd_txtComment(driver).isEnabled());
+	}
+	
+	@Test(priority = 6, dependsOnMethods = { "Test_VerifyUserAddcomment" })
 	public  void Test_SubmitButton_IsDisplayed() {
 		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
 		assertEquals(TimeSheetEditPage.verifySubmitButtonExists(driver), false);
 	}
 
-
-	@Test(priority = 4, dependsOnMethods = { "Test_SubmitButton_IsDisplayed" })
+	@Test(priority = 7, dependsOnMethods = { "Test_SubmitButton_IsDisplayed" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
 			act.moveToElement(CommonMethods.lbl_UserIcon(driver)).click().perform();

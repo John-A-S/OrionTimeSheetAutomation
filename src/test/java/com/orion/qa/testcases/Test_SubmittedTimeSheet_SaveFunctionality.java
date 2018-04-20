@@ -1,6 +1,7 @@
 package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.util.concurrent.TimeUnit;
@@ -22,6 +23,7 @@ import org.testng.annotations.Test;
 import com.orion.qa.pages.LoginPage;
 import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
+import com.orion.qa.utils.CommonMethods;
 
 public class Test_SubmittedTimeSheet_SaveFunctionality {
 	WebDriver driver;
@@ -110,15 +112,32 @@ public class Test_SubmittedTimeSheet_SaveFunctionality {
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
 				"TimeSheet Edit Time Sheet");
 	}
+	
+	
+	@Test(priority=3, dependsOnMethods = {"Test_IfEditTimeSheetPage_Isdisplayed"}) 
+	public void Test_VerifyUserCanEnterTime() {
+		assertFalse(TimeSheetEditPage.grd_ColMonday(driver).isEnabled());
+	}
+	
+	
+	@Test(priority=4, dependsOnMethods = {"Test_VerifyUserCanEnterTime"}) 
+	public void Test_VerifyUserAddAttachment() {
+		assertFalse(TimeSheetEditPage.AddAttachclickable(driver).isEnabled());
+	}
+	
 
-	@Test(priority = 3, dependsOnMethods = { "Test_IfEditTimeSheetPage_Isdisplayed" })
+	@Test(priority=5, dependsOnMethods = {"Test_VerifyUserAddAttachment"}) 
+	public void Test_VerifyUserAddcomment() {
+		assertFalse(TimeSheetEditPage.grd_txtComment(driver).isEnabled());
+	}
+	
+	@Test(priority = 6, dependsOnMethods = { "Test_VerifyUserAddcomment" })
 	public  void Test_SaveButton_IsDisplayed() {
 		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
 		assertEquals(TimeSheetEditPage.verifySaveButtonExists(driver), false);
 	}
 
-
-	@Test(priority = 4, dependsOnMethods = { "Test_SaveButton_IsDisplayed" })
+	@Test(priority = 7, dependsOnMethods = { "Test_SaveButton_IsDisplayed" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
 			act.moveToElement(CommonMethods.lbl_UserIcon(driver)).click().perform();

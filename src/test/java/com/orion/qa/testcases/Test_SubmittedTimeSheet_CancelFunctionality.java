@@ -1,6 +1,7 @@
 package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.util.concurrent.TimeUnit;
@@ -24,7 +25,7 @@ import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
 import com.orion.qa.utils.CommonMethods;
 
-public class Test_PreApprovedTimeSheet_SaveFunctionality {
+public class Test_SubmittedTimeSheet_CancelFunctionality {
 	WebDriver driver;
 	WebDriverWait wait;
 	Actions act;
@@ -40,7 +41,9 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality {
 	@BeforeClass
 	public void InitObjects(String Browser) {
 		try {
-			System.out.println("********** Test_PreApprovedTimeSheet_SaveFunctionality ************* ");
+			
+			System.out.println("********** Test_SubmittedTimeSheet_CancelFunctionality ************* ");
+
 			CommonMethods.readExcel_Paths();
 
 			if (Browser.equalsIgnoreCase("firefox")) {
@@ -49,7 +52,7 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality {
 				System.setProperty(IEbrowser, CommonMethods.IE_Browser_Location);
 				driver = new InternetExplorerDriver();
 			}else if (Browser.equalsIgnoreCase("chrome")) { 
-				System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
+				//System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
 				driver = new ChromeDriver();
 			} 
 			driver.manage().deleteAllCookies();
@@ -72,7 +75,7 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality {
 		if (!driver.toString().contains("null")) {
 			driver.quit();
 		}
-		System.out.println("********** Test_PreApprovedTimeSheet_SaveFunctionality ************* ");
+		System.out.println("********** Test_SubmittedTimeSheet_CancelFunctionality ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
@@ -93,8 +96,8 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality {
 
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
-		// RowNumb will have the row number of pre-approved timesheet //
-		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'P');
+		// RowNumb will have the row number of Submitted timesheet //
+		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'S');
 		if (RowNumb <= 0)  {
 			assertTrue(false, "No record to process");
 		} 
@@ -110,13 +113,38 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality {
 				"TimeSheet Edit Time Sheet");
 	}
 
-	@Test(priority = 3, dependsOnMethods = { "Test_IfEditTimeSheetPage_Isdisplayed" })
-	public void Test_SaveButton_IsDisplayed() {
-		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
-		assertEquals(TimeSheetEditPage.verifySaveButtonExists(driver), false);
+	@Test(priority=3, dependsOnMethods = {"Test_IfEditTimeSheetPage_Isdisplayed"}) 
+	public void Test_VerifyUserCanEnterTime() {		
+		assertFalse(TimeSheetEditPage.grd_ColMonday(driver).isEnabled());
 	}
+	
+	
+	@Test(priority=4, dependsOnMethods = {"Test_VerifyUserCanEnterTime"}) 
+	public void Test_VerifyUserAddAttachment() {
+		assertTrue(TimeSheetEditPage.AddAttachclickable(driver).isEnabled());
+	}
+	
 
-	@Test(priority = 4, dependsOnMethods = { "Test_SaveButton_IsDisplayed" })
+	@Test(priority=5, dependsOnMethods = {"Test_VerifyUserAddAttachment"}) 
+	public void Test_VerifyUserAddcomment() {
+		assertFalse(TimeSheetEditPage.grd_txtComment(driver).isEnabled());
+	}
+	
+	@Test(priority = 6, dependsOnMethods = { "Test_VerifyUserAddcomment" })
+	public  void Test_CancelButton_IsDisplayed() {
+		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
+		assertTrue(TimeSheetEditPage.verifyCancelButtonExists(driver));
+	}
+	
+	@Test(priority = 7, dependsOnMethods = { "Test_CancelButton_IsDisplayed" })
+	public  void Test_VerifyCancelClick(){
+
+		TimeSheetEditPage.ScrollScreenToCancelButtonAndClick_Draft(driver, jse);
+		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.lbl_TimeSheet(driver))).getText(),
+				"Time Sheet");
+	}
+	
+	@Test(priority = 8, dependsOnMethods = { "Test_VerifyCancelClick" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
 			act.moveToElement(CommonMethods.lbl_UserIcon(driver)).click().perform();

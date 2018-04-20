@@ -1,4 +1,4 @@
-package com.orion.qa.testcases;
+package com.orion.qa.utils;
 
 import java.io.*;
 import java.util.Arrays;
