@@ -17,34 +17,27 @@ public class TimeSheetEditPage {
 	private static ArrayList<String> objTempGridData;;
 
 	public static WebElement lbl_TimeSheet(WebDriver driver) {
-		element = driver.findElement(By.tagName("h3"));
-		return element;
+		return(driver.findElement(By.tagName("h3")));
 	}
 	
 	public static WebElement lbl_ReportDate(WebDriver driver) {
-		element = driver.findElement(By.id("reportperiod"));
-		return element;
+		return(driver.findElement(By.id("reportperiod")));
 	}
 	
 	public static WebElement wait_btn_AddAttachclickable(WebDriver driver, WebDriverWait wait) {
-		element = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Add Attachment")));
-		return element;
+		return(wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Add Attachment"))));
 	}
 	
 	public static WebElement AddAttachclickable(WebDriver driver) {
-		element = driver.findElement(By.linkText("Add Attachment"));
-		return element;
+		return(driver.findElement(By.linkText("Add Attachment")));
 	}
 	
 	public static WebElement grd_clickReportPeriodLink(WebDriver driver, String RptPeriod) {
-		element = driver.findElement(By.linkText(RptPeriod));
-		return element;
+		return(driver.findElement(By.linkText(RptPeriod)));
 	}
 
 	public static WebElement grd_AttachmentData(WebDriver driver) {
-		//element = driver.findElement(By.xpath(".//*[@id='timeSheet_save_form']/div/div/div/div[4]/div/table/tbody"));
-		element = driver.findElement(By.xpath("//table[@class='table table-bordered table-hover']/tbody"));
-		return element;
+		return(driver.findElement(By.xpath("//table[@class='table table-bordered table-hover']/tbody")));
 	}
 
 	public static WebElement wait_grd_AddAttachclickable(WebDriver driver, int RowValue) {
@@ -55,49 +48,39 @@ public class TimeSheetEditPage {
 	}
 
 	public static WebElement Wait_Msg_TimeSheetSave(WebDriver driver, WebDriverWait wait) {
-		element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='bootbox-body']")));
-		return element;
+		return(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='bootbox-body']"))));
 	}
 
 	public static WebElement Msg_TimeSheetSave(WebDriver driver) {
-		element = driver.findElement(By.xpath("//div[@class='bootbox-body']"));
-		return element;
+		return(driver.findElement(By.xpath("//div[@class='bootbox-body']")));
 	}
 
 	public static WebElement Wait_Msg_TimeSheetSave_OK(WebDriver driver, WebDriverWait wait) {
-		element = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@data-bb-handler='ok']")));
-		return element;
+		return(wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@data-bb-handler='ok']"))));
 	}
 	
+	public static WebElement Msg_TimeSheetSave_OK(WebDriver driver) {
+		return(driver.findElement(By.xpath("//button[@data-bb-handler='ok']")));
+	}
 	
 	public static WebElement Wait_Msg_TimeSheetSubmit_OK(WebDriver driver, WebDriverWait wait) {
-		element = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@data-bb-handler='confirm']")));
-		return element;
+		return(wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@data-bb-handler='confirm']"))));
 	}
 	
-
-	public static WebElement Msg_TimeSheetSave_OK(WebDriver driver) {
-		element = driver.findElement(By.xpath("//button[@data-bb-handler='ok']"));
-		return element;
-	}
-
 	public static WebElement grd_ColSunday(WebDriver driver) {
-		element = driver.findElement(By.xpath("//td[@data-title='sun']//input"));
+		return(driver.findElement(By.xpath("//td[@data-title='sun']//input")));
 				//By.xpath(".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input"));
-		return element;
 	}
 
 	public static WebElement grd_ColMonday(WebDriver driver) {
-		element = driver.findElement(By.xpath("//td[@data-title='mon']//input"));
+		return(driver.findElement(By.xpath("//td[@data-title='mon']//input")));
 				//By.xpath(".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[5]/input"));
-		return element;
 	}
 
 	public static WebElement grd_txtComment(WebDriver driver) {
-		element = driver.findElement(By.xpath("//textarea[@id='comment']"));
-		return element;
+		return(driver.findElement(By.xpath("//textarea[@id='comment']")));
 	}
 
 	public static void grd_AttachmentDataExist(WebDriver driver) {
@@ -106,18 +89,18 @@ public class TimeSheetEditPage {
 				By.xpath("//table[@class='table table-bordered table-hover']/tbody/tr/td[1]/input"));
 	}
 
-	public static void ScrollScreenToSaveButtonAndClick(WebDriver driver, JavascriptExecutor jse) {
-		try {
-			//element = driver.findElement(By.xpath(
-			//		".//*[@ng-controller='newTimeSheetCtrl']/section[@id='main-content']/section/div/div/div/div/div/div/div[2]/button[1]"));
-			element = driver.findElement(By.xpath("//button[text()='Save']"));
-			jse.executeScript("arguments[0].scrollIntoView(true);", element);
-			element.click();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public static WebElement btn_Save(WebDriver driver) {
+		return(driver.findElement(By.xpath("//button[text()='Save']")));
 	}
-	
+
+	public static WebElement btn_Submit(WebDriver driver) {
+		return(driver.findElement(By.xpath("//button[contains(text(), 'Submit')]")));
+	}
+
+	public static WebElement btn_Cancel(WebDriver driver) {
+		return(driver.findElement(By.xpath("//button[text()='Cancel']")));
+	}
+
 	public static void ScrollScreenToElement(WebDriver driver, JavascriptExecutor jse, WebElement element) {
 		try {
 			jse.executeScript("arguments[0].scrollIntoView(true);", element);
@@ -125,14 +108,25 @@ public class TimeSheetEditPage {
 			e.printStackTrace();
 		}
 	}
-
 	
+	public static void ScrollScreenToSaveButtonAndClick(WebDriver driver, JavascriptExecutor jse) {
+		try {
+			//element = driver.findElement(By.xpath(
+			//		".//*[@ng-controller='newTimeSheetCtrl']/section[@id='main-content']/section/div/div/div/div/div/div/div[2]/button[1]"));
+			//element = driver.findElement(By.xpath("//button[text()='Save']"));
+			jse.executeScript("arguments[0].scrollIntoView(true);", btn_Save(driver));
+			element.click();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void ScrollScreenToSubmitButtonAndClick(WebDriver driver, JavascriptExecutor jse) {
 		try {
 			//element = driver.findElement(By.xpath(
 			//		".//*[@ng-controller='newTimeSheetCtrl']/section[@id='main-content']/section/div/div/div/div/div/div/div[2]/button[1]"));
-			element = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
+			// element = driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
+			element = btn_Submit(driver);
 			jse.executeScript("arguments[0].scrollIntoView(true);", element);
 			element.click();
 		} catch (Exception e) {
@@ -144,7 +138,7 @@ public class TimeSheetEditPage {
 	public static void ScrollScreenToCancelButtonAndClick(WebDriver driver, JavascriptExecutor jse) {
 		try {
 //			element = driver.findElement(By.xpath(".//*[@ng-controller='newTimeSheetCtrl']/section[@id='main-content']/section/div/div/div/div/div/div/div[2]/button[2]"));
-			element = driver.findElement(By.xpath("//button[text()='Cancel']"));
+		    element = btn_Cancel(driver);
 			jse.executeScript("arguments[0].scrollIntoView(true);", element);
 			element.click();
 		} catch (Exception e) {
@@ -152,7 +146,7 @@ public class TimeSheetEditPage {
 		}
 	}
 
-	public static void ScrollScreenToCancelButtonAndClick_Draft(WebDriver driver, JavascriptExecutor jse) {
+/*	public static void ScrollScreenToCancelButtonAndClick_Draft(WebDriver driver, JavascriptExecutor jse) {
 		try {
 			element = driver.findElement(By.xpath("//button[text()='Cancel']"));
 			jse.executeScript("arguments[0].scrollIntoView(true);", element);
@@ -172,7 +166,7 @@ public class TimeSheetEditPage {
 			e.printStackTrace();
 		}
 	}
-
+*/
 	public static void ScrollToSUBMITSAVECANCEL(WebDriver driver, JavascriptExecutor jse) {
 		try {
 			element = driver.findElement(By.xpath("//button[contains(text(),'Cancel')]"));

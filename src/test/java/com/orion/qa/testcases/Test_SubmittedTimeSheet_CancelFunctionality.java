@@ -85,7 +85,7 @@ public class Test_SubmittedTimeSheet_CancelFunctionality {
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
 			LoginPage.btnLogin(driver).click();
 			try {
-				assertEquals(true, TimeSheetMainPage.lbl_LoginUserIcon(driver).isDisplayed());
+				assertEquals(true, CommonMethods.lbl_LoginUserIcon(driver).isDisplayed());
 			} catch (NoSuchElementException e) {
 				assertEquals(false, true);
 			}
@@ -139,7 +139,7 @@ public class Test_SubmittedTimeSheet_CancelFunctionality {
 	@Test(priority = 7, dependsOnMethods = { "Test_CancelButton_IsDisplayed" })
 	public  void Test_VerifyCancelClick(){
 
-		TimeSheetEditPage.ScrollScreenToCancelButtonAndClick_Draft(driver, jse);
+		TimeSheetEditPage.ScrollScreenToCancelButtonAndClick(driver, jse);
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.lbl_TimeSheet(driver))).getText(),
 				"Time Sheet");
 	}
@@ -147,7 +147,7 @@ public class Test_SubmittedTimeSheet_CancelFunctionality {
 	@Test(priority = 8, dependsOnMethods = { "Test_VerifyCancelClick" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
-			act.moveToElement(CommonMethods.lbl_UserIcon(driver)).click().perform();
+			act.moveToElement(CommonMethods.lbl_LoginUserIcon(driver)).click().perform();
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
 			CommonMethods.btn_Logout(driver).click();

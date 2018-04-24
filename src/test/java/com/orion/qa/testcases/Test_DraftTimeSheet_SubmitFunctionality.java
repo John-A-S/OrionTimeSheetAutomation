@@ -125,7 +125,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality {
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
 			LoginPage.btnLogin(driver).click();
 			try {
-				assertEquals(true, TimeSheetMainPage.lbl_LoginUserIcon(driver).isDisplayed());
+				assertEquals(true, CommonMethods.lbl_LoginUserIcon(driver).isDisplayed());
 			} catch (NoSuchElementException e) {
 				assertEquals(false, true);
 			}
@@ -193,7 +193,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality {
 	@Test(priority = 6, dependsOnMethods = { "Test_IfDataSavedCorrectly" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
-			act.moveToElement(CommonMethods.lbl_UserIcon(driver)).click().perform();
+			act.moveToElement(CommonMethods.lbl_LoginUserIcon(driver)).click().perform();
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
 			CommonMethods.btn_Logout(driver).click();

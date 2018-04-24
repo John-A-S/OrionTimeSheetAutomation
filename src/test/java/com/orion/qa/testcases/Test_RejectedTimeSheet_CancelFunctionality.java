@@ -28,7 +28,7 @@ import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
 import com.orion.qa.utils.CommonMethods;
 
-public class Test_DraftTimeSheet_CancelFunctionality {
+public class Test_RejectedTimeSheet_CancelFunctionality {
 	WebDriver driver;
 	WebDriverWait wait;
 	Actions act;
@@ -43,10 +43,9 @@ public class Test_DraftTimeSheet_CancelFunctionality {
 	int AttachmentRowId;
 
 	@Parameters("Browser")
-
 	@BeforeClass
 	public void InitObjects(String Browser) {
-		System.out.println("********** Test_DraftTimeSheet_CancelFunctionality ************* ");
+		System.out.println("********** Test_RejectedTimeSheet_CancelFunctionality ************* ");
 
 		try {
 			CommonMethods.readExcel_Paths();
@@ -82,7 +81,7 @@ public class Test_DraftTimeSheet_CancelFunctionality {
 		if (!driver.toString().contains("null")) {
 			driver.quit();
 		}
-		System.out.println("********** Test_DraftTimeSheet_CancelFunctionality ************* ");
+		System.out.println("********** Test_RejectedTimeSheet_CancelFunctionality ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
@@ -104,7 +103,7 @@ public class Test_DraftTimeSheet_CancelFunctionality {
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
 		// RowNumb will have the row number of draft timesheet //
-		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'D');
+		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'R');
 		if (RowNumb <= 0) {
 			assertTrue(false, "No record to process");
 		}
@@ -119,10 +118,13 @@ public class Test_DraftTimeSheet_CancelFunctionality {
 				"TimeSheet Edit Time Sheet");
 	}
 
-	public void Test_InjectTestDataandCancel() {
+	public void Test_InjectTestDataandCancel() throws InterruptedException {
 		objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
 		InjectTestData();
+		System.out.println("InjectTestData");
+		Thread.sleep(5000);
 		TimeSheetEditPage.ScrollScreenToCancelButtonAndClick(driver, jse);
+		System.out.println("After ScrollScreenToCancelButtonAndClick");
 	}
 
 	@Test(priority = 3, dependsOnMethods = { "Test_IfEditTimeSheetPage_Isdisplayed" })

@@ -42,13 +42,14 @@ public class CommonMethods {
 			e.printStackTrace();
 		}
 	}
-
+	
+	// These two elements are common to all the pages, hence kept it here
 	public static WebElement btn_Logout(WebDriver driver) {
 		element = driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
 		return element;
 	}
 
-	public static WebElement lbl_UserIcon(WebDriver driver) {
+	public static WebElement lbl_LoginUserIcon(WebDriver driver) {
 		element = driver.findElement(By.xpath("//i[@class='material-icons' and contains(text(), 'perm_identity')]"));
 		return element;
 	}
@@ -60,7 +61,6 @@ public class CommonMethods {
 
 	public static boolean CompareFilesbyByte(String file1, String file2) {
 		try {
-			System.out.println("Base File: "+ file1+ " Second file : "+file2);
 			File f1 = new File(file1);
 			File f2 = new File(file2);
 			FileInputStream fis1 = new FileInputStream(f1);
@@ -78,9 +78,6 @@ public class CommonMethods {
 					fis1.read(b1);
 					fis2.read(b2);
 					if (Arrays.equals(b1, b2) == false) {
-						System.out.println(file1 + " :\n\n " + new String(b1));
-						System.out.println();
-						System.out.println(file2 + " : \n\n" + new String(b2));
 						fis1.close();
 						fis2.close();
 						f2.delete(); // deleting the downloaded file
@@ -155,6 +152,4 @@ public class CommonMethods {
 			e.printStackTrace();
 		}
 	}
-	
-	
 }

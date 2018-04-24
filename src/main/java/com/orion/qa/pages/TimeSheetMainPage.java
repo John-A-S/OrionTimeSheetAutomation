@@ -8,37 +8,18 @@ import org.openqa.selenium.WebElement;
 
 public class TimeSheetMainPage {
 
-	private static WebElement element = null;
-
 	public static WebElement btn_NewTimeSheet(WebDriver driver) {
-//		element = driver.findElement(By.xpath(".//*[@id='main-content']/section/div[1]/div[1]/div/fieldset/form/div/a[1]"));
-		element = driver.findElement(By.xpath("//a[@class='btn btn-sm btn-default']"));
-		return element;
+		return(driver.findElement(By.xpath("//a[@class='btn btn-sm btn-default']")));
 	}
 	
-	public static WebElement btn_Logout(WebDriver driver) {
-		element = driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
-		return element;
-	}
-	
-	public static WebElement lbl_LoginUserIcon(WebDriver driver) {
-		element = driver.findElement(By.xpath("//i[@class='material-icons' and contains(text(), 'perm_identity')]"));
-		return element;
-	}
-
-
 	public static WebElement grd_MonthlyData(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='no-more-tables']/table/tbody"));
-		return element;
+		return(driver.findElement(By.xpath(".//*[@id='no-more-tables']/table/tbody")));
 	}
 	
 	public static WebElement lbl_TimeSheet(WebDriver driver) {
-		element = driver.findElement(By.tagName("h3"));
-		return element;
+		return (driver.findElement(By.tagName("h3")));
 	}
 	
-
-
 	public static int ReadMonthlyDatafromGridtoElement(WebDriver driver, char strStatus) {
 		int i = 0;
 		boolean RowFound = false;
@@ -86,13 +67,11 @@ public class TimeSheetMainPage {
 	}
 
 	public static WebElement getGrdElement(WebDriver driver, int RowNum) {
-		element = driver.findElement(By.xpath(".//*[@id='no-more-tables']/table/tbody/tr[" + RowNum + "]/td[1]/a"));
-		return element;
+		return(driver.findElement(By.xpath(".//*[@id='no-more-tables']/table/tbody/tr[" + RowNum + "]/td[1]/a")));
 	}
 	
 	public static WebElement grd_clickReportPeriodLink(WebDriver driver, String RptPeriod) {
-		element =  grd_MonthlyData(driver).findElement(By.linkText(RptPeriod));
-		return element;
+		return(grd_MonthlyData(driver).findElement(By.linkText(RptPeriod)));
 	}
 
 }

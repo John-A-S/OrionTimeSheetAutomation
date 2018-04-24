@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-04-20T18:04:31Z" name="Default suite" finished-at="2018-04-20T18:04:47Z" duration-ms="15285">
+  <suite started-at="2018-04-24T19:00:46Z" name="Default suite" finished-at="2018-04-24T19:01:19Z" duration-ms="32761">
     <groups>
     </groups>
-    <test started-at="2018-04-20T18:04:31Z" name="Default test" finished-at="2018-04-20T18:04:47Z" duration-ms="15285">
-      <class name="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality">
-        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:32Z" name="InitObjects" finished-at="2018-04-20T14:04:42Z" duration-ms="10070" status="PASS">
+    <test started-at="2018-04-24T19:00:46Z" name="Default test" finished-at="2018-04-24T19:01:19Z" duration-ms="32761">
+      <class name="com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality">
+        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality@f2ff811]" started-at="2018-04-24T15:00:46Z" name="InitObjects" finished-at="2018-04-24T15:00:56Z" duration-ms="10131" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- InitObjects -->
-        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:42Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-04-20T14:04:43Z" duration-ms="924" status="PASS">
+        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality@f2ff811]" started-at="2018-04-24T15:00:57Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-04-24T15:00:57Z" duration-ms="669" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,39 +34,27 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LoginToOrion_IsSuccess -->
-        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:43Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-04-20T14:04:45Z" depends-on-methods="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="2206" status="PASS">
+        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality@f2ff811]" started-at="2018-04-24T15:00:57Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-04-24T15:00:59Z" depends-on-methods="com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="2219" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
-        <test-method signature="Test_VerifyUserCanEnterTime()[pri:3, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:45Z" name="Test_VerifyUserCanEnterTime" finished-at="2018-04-20T14:04:45Z" depends-on-methods="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="31" status="PASS">
+        <test-method signature="Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality@f2ff811]" started-at="2018-04-24T15:00:59Z" name="Test_IfSubmitMessage_IsDisplayed" finished-at="2018-04-24T15:01:05Z" depends-on-methods="com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="5198" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test_VerifyUserCanEnterTime -->
-        <test-method signature="Test_VerifyUserAddAttachment()[pri:4, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:45Z" name="Test_VerifyUserAddAttachment" finished-at="2018-04-20T14:04:45Z" depends-on-methods="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality.Test_VerifyUserCanEnterTime" duration-ms="38" status="PASS">
+        </test-method> <!-- Test_IfSubmitMessage_IsDisplayed -->
+        <test-method signature="Test_IfDataSavedCorrectly()[pri:5, instance:com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality@f2ff811]" started-at="2018-04-24T15:01:05Z" name="Test_IfDataSavedCorrectly" finished-at="2018-04-24T15:01:18Z" depends-on-methods="com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed" duration-ms="13175" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test_VerifyUserAddAttachment -->
-        <test-method signature="Test_VerifyUserAddcomment()[pri:5, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:45Z" name="Test_VerifyUserAddcomment" finished-at="2018-04-20T14:04:45Z" depends-on-methods="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality.Test_VerifyUserAddAttachment" duration-ms="33" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_VerifyUserAddcomment -->
-        <test-method signature="Test_CancelButton_IsDisplayed()[pri:6, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:45Z" name="Test_CancelButton_IsDisplayed" finished-at="2018-04-20T14:04:45Z" depends-on-methods="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality.Test_VerifyUserAddcomment" duration-ms="56" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_CancelButton_IsDisplayed -->
-        <test-method signature="Test_VerifyCancelClick()[pri:7, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:45Z" name="Test_VerifyCancelClick" finished-at="2018-04-20T14:04:46Z" depends-on-methods="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality.Test_CancelButton_IsDisplayed" duration-ms="588" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_VerifyCancelClick -->
-        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:8, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:46Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-04-20T14:04:46Z" depends-on-methods="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality.Test_VerifyCancelClick" duration-ms="452" status="PASS">
+        </test-method> <!-- Test_IfDataSavedCorrectly -->
+        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality@f2ff811]" started-at="2018-04-24T15:01:18Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-04-24T15:01:18Z" depends-on-methods="com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality.Test_IfDataSavedCorrectly" duration-ms="395" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
-        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality@37f1104d]" started-at="2018-04-20T14:04:46Z" name="CloseObjects" finished-at="2018-04-20T14:04:47Z" duration-ms="763" status="PASS">
+        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality@f2ff811]" started-at="2018-04-24T15:01:18Z" name="CloseObjects" finished-at="2018-04-24T15:01:19Z" duration-ms="803" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseObjects -->
-      </class> <!-- com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality -->
+      </class> <!-- com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
