@@ -99,7 +99,7 @@ public class CommonMethods {
 			return false;
 		}
 	}
-
+	
 	@DataProvider(name = "credentials")
 	public Object[][] readExcel_Credentials() throws BiffException, IOException {
 		String strCurrentPath = System.getProperty("user.dir");
@@ -142,8 +142,8 @@ public class CommonMethods {
 			
 			URL_TimeSheet = inputData[0][1].toString();
 			Chrome_Browser_Location = inputData[1][1].toString();
-			Attachment_File_Download_Location = inputData[2][1].toString();
-			Sample_FileNamewithPath = inputData[3][1].toString();
+			Attachment_File_Download_Location = strCurrentPath + inputData[2][1].toString();
+			Sample_FileNamewithPath = strCurrentPath + inputData[3][1].toString();
 			IE_Browser_Location = inputData[4][1].toString();
 			
 		} catch (BiffException e) {
@@ -151,5 +151,34 @@ public class CommonMethods {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public static String readTestData(String SheetName, String fieldName) {
+		try {
+			String strCurrentPath = System.getProperty("user.dir");
+			File f = new File(strCurrentPath+"\\src\\main\\input\\inputdata.xls");
+			Workbook wb = Workbook.getWorkbook(f);
+			Sheet sh = wb.getSheet(SheetName);
+
+			int rows = sh.getRows();
+			int cols = sh.getColumns();
+
+			for (int i = 0; i < rows; i++) {
+				for (int j = 0; j < cols; j++) {
+					Cell cel = sh.getCell(j, i);
+					if (cel.getContents().equals(fieldName)) {
+						Cell cel2 = sh.getCell(j+1, i);
+						return cel2.getContents();
+					}
+				}
+			}
+			
+		} catch (BiffException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "";
 	}
 }

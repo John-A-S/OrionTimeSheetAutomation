@@ -4,17 +4,9 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -22,52 +14,30 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.orion.qa.base.OrionBase;
 import com.orion.qa.pages.LoginPage;
 import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
 import com.orion.qa.utils.CommonMethods;
 
-public class Test_PreApprovedTimeSheet_CancelFunctionality {
-	WebDriver driver;
-	WebDriverWait wait;
-	Actions act;
-	JavascriptExecutor jse;
-
-	String Chromebrowser = "webdriver.chrome.driver";
-	String IEbrowser = "webdriver.ie.driver";
+public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	String strExistingComment;
 
 	int RowNumb;
 	int AttachmentRowNo;
+	
+	public Test_PreApprovedTimeSheet_CancelFunctionality() {
+		super();
+	}
 
 	@Parameters("Browser")
-
 	@BeforeClass
 	public void InitObjects(String Browser) {
 		try {
 
 			System.out.println("********** Test_PreApprovedTimeSheet_CancelFunctionality ************* ");
-
-			CommonMethods.readExcel_Paths();
-
-			if (Browser.equalsIgnoreCase("firefox")) {
-				driver = new FirefoxDriver();
-			}else if (Browser.equalsIgnoreCase("ie")) { 
-				System.setProperty(IEbrowser, CommonMethods.IE_Browser_Location);
-				driver = new InternetExplorerDriver();
-			}else if (Browser.equalsIgnoreCase("chrome")) { 
-				//System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
-				driver = new ChromeDriver();
-			} 
-			driver.manage().deleteAllCookies();
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-			driver.get(CommonMethods.URL_TimeSheet);
-
-			wait = new WebDriverWait(driver, 100);
-			act = new Actions(driver);
-			jse = (JavascriptExecutor) driver;
+			
+			init(Browser, true);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -76,9 +46,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality {
 
 	@AfterClass
 	public void CloseObjects() {
-		if (!driver.toString().contains("null")) {
-			driver.quit();
-		}
+		CloseBrowser();
 		System.out.println("********** Test_PreApprovedTimeSheet_CancelFunctionality ************* ");
 	}
 
@@ -136,7 +104,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality {
 			TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
 			/* ChkTestFileisCancelled - To ensure uploaded file is not saved
 			 !(strOldComment.equals("This is from Inject Data method") - To ensure test data is not saved */
-			if (ChkTestFileisCancelled() && !(strExistingComment.equals("This is from Inject Data method"))) {
+			if (ChkTestFileisCancelled() && !(strExistingComment.equals(CommonMethods.readTestData("TestData", "comment")))) {
       			assertTrue(true);
 			}
 			
@@ -213,7 +181,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality {
 			
 			WebElement Element1 = TimeSheetEditPage.grd_txtComment(driver);
 			Element1.clear();
-			Element1.sendKeys("This is from Inject Data method");
+			Element1.sendKeys(CommonMethods.readTestData("TestData", "comment"));
 
 			UploadAttachment();
 
@@ -250,7 +218,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality {
 					.elementToBeClickable(TimeSheetEditPage.wait_grd_AddAttachclickable(driver, RowValue)));
 			// enter the file path onto the file-selection input field //
 			TimeSheetEditPage.wait_grd_AddAttachclickable(driver, RowValue)
-					.sendKeys("C:\\Users\\jasel\\FileCompare\\abc1.docx");
+				.sendKeys(CommonMethods.Sample_FileNamewithPath);
 			AttachmentRowNo = RowValue;
 		} catch (Exception e) {
 			e.printStackTrace();

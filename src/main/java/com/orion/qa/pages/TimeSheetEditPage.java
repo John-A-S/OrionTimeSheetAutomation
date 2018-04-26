@@ -113,7 +113,7 @@ public class TimeSheetEditPage {
 		try {
 			//element = driver.findElement(By.xpath(
 			//		".//*[@ng-controller='newTimeSheetCtrl']/section[@id='main-content']/section/div/div/div/div/div/div/div[2]/button[1]"));
-			//element = driver.findElement(By.xpath("//button[text()='Save']"));
+			element = btn_Save(driver);
 			jse.executeScript("arguments[0].scrollIntoView(true);", btn_Save(driver));
 			element.click();
 		} catch (Exception e) {

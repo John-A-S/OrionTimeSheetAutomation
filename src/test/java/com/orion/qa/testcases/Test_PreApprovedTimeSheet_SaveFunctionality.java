@@ -3,15 +3,7 @@ package com.orion.qa.testcases;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -19,49 +11,30 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.orion.qa.base.OrionBase;
 import com.orion.qa.pages.LoginPage;
 import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
 import com.orion.qa.utils.CommonMethods;
 
-public class Test_PreApprovedTimeSheet_SaveFunctionality {
-	WebDriver driver;
-	WebDriverWait wait;
-	Actions act;
-	JavascriptExecutor jse;
+public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 
 	String Chromebrowser = "webdriver.chrome.driver";
 	String IEbrowser = "webdriver.ie.driver";
 
 	int RowNumb;
+	
+	public Test_PreApprovedTimeSheet_SaveFunctionality() {
+		super();
+	}
 
 	@Parameters("Browser")
-
 	@BeforeClass
 	public void InitObjects(String Browser) {
 		try {
+
 			System.out.println("********** Test_PreApprovedTimeSheet_SaveFunctionality ************* ");
-			CommonMethods.readExcel_Paths();
-
-			if (Browser.equalsIgnoreCase("firefox")) {
-				driver = new FirefoxDriver();
-			}else if (Browser.equalsIgnoreCase("ie")) { 
-				System.setProperty(IEbrowser, CommonMethods.IE_Browser_Location);
-				driver = new InternetExplorerDriver();
-			}else if (Browser.equalsIgnoreCase("chrome")) { 
-				System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
-				driver = new ChromeDriver();
-			} 
-			driver.manage().deleteAllCookies();
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-			driver.get(CommonMethods.URL_TimeSheet);
-
-			wait = new WebDriverWait(driver, 100);
-			act = new Actions(driver);
-			jse = (JavascriptExecutor) driver;
-
+			init(Browser, false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -69,9 +42,7 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality {
 
 	@AfterClass
 	public void CloseObjects() {
-		if (!driver.toString().contains("null")) {
-			driver.quit();
-		}
+		CloseBrowser();
 		System.out.println("********** Test_PreApprovedTimeSheet_SaveFunctionality ************* ");
 	}
 

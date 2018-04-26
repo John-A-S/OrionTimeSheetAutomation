@@ -4,23 +4,10 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -28,24 +15,23 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.orion.qa.base.OrionBase;
 import com.orion.qa.pages.LoginPage;
 import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
 import com.orion.qa.utils.CommonMethods;
 
-public class Test_DraftTimeSheet_SubmitFunctionality {
-	WebDriver driver;
-	WebDriverWait wait;
-	Actions act;
-	JavascriptExecutor jse;
+public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 	ArrayList<String> objTest;
 	ArrayList<String> objGridData;
 
-	String Chromebrowser = "webdriver.chrome.driver";
-	String IEbrowser = "webdriver.ie.driver";
 
 	int RowNumb;
 	boolean isAttachmntExist, isSameFiles, isAttachmentdisabled;
+
+	public Test_DraftTimeSheet_SubmitFunctionality() {
+		super();
+	}
 
 	@Parameters("Browser")
 	@BeforeClass
@@ -54,54 +40,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality {
 		System.out.println("********** Test_DraftTimeSheet_SubmitFunctionality ************* ");
 		
 		try {
-			CommonMethods.readExcel_Paths();
-
-			if (Browser.equalsIgnoreCase("firefox")) {
-				FirefoxProfile profile = new FirefoxProfile();
-				DesiredCapabilities dc = DesiredCapabilities.firefox();
-				profile.setAcceptUntrustedCertificates(false);
-				profile.setAssumeUntrustedCertificateIssuer(true);
-				profile.setPreference("browser.download.folderList", 2);
-				profile.setPreference("browser.helperApps.alwaysAsk.force", false);
-				profile.setPreference("browser.download.manager.showWhenStarting", false);
-				profile.setPreference("browser.download.dir", CommonMethods.Attachment_File_Download_Location);
-				profile.setPreference("browser.download.downloadDir", CommonMethods.Attachment_File_Download_Location);
-				profile.setPreference("browser.download.defaultFolder",
-						CommonMethods.Attachment_File_Download_Location);
-				profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
-						"application/plain, application/msword");
-				dc = DesiredCapabilities.firefox();
-				dc.setCapability(FirefoxDriver.PROFILE, profile);
-				driver = new FirefoxDriver(dc);
-			} else if (Browser.equalsIgnoreCase("ie")) {
-				driver = new InternetExplorerDriver();
-			} else if (Browser.equalsIgnoreCase("chrome")) {
-				// System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
-				/* following code is to download files using Chrome browser */
-				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-				chromePrefs.put("profile.default_content_settings.popups", 0);
-				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
-				ChromeOptions options = new ChromeOptions();
-				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
-				options.setExperimentalOption("prefs", chromePrefs);
-				options.addArguments("--test-type");
-				options.addArguments("--disable-extensions"); // to disable browser extension popup
-				DesiredCapabilities cap = DesiredCapabilities.chrome();
-				cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
-				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-				cap.setCapability(ChromeOptions.CAPABILITY, options);
-				driver = new ChromeDriver(cap);
-			}
-
-			driver.manage().deleteAllCookies();
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-			driver.get(CommonMethods.URL_TimeSheet);
-
-			wait = new WebDriverWait(driver, 100);
-			act = new Actions(driver);
-			jse = (JavascriptExecutor) driver;
+			init(Browser, true);
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 
@@ -112,9 +51,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality {
 
 	@AfterClass
 	public void CloseObjects() {
-		if (!driver.toString().contains("null")) {
-			driver.quit();
-		}
+		CloseBrowser();
 		System.out.println("********** Test_DraftTimeSheet_SubmitFunctionality ************* ");
 	}
 
@@ -227,7 +164,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality {
 					.elementToBeClickable(TimeSheetEditPage.wait_grd_AddAttachclickable(driver, RowValue)));
 			// enter the file path onto the file-selection input field //
 			TimeSheetEditPage.wait_grd_AddAttachclickable(driver, RowValue)
-					.sendKeys(CommonMethods.Sample_FileNamewithPath);
+				.sendKeys(CommonMethods.Sample_FileNamewithPath);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -276,18 +213,18 @@ public class Test_DraftTimeSheet_SubmitFunctionality {
 
 			WebElement Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			Element.sendKeys("25");
-			objTest.set(1, "25");
+			Element.sendKeys(CommonMethods.readTestData("TestData", "sun"));
+			objTest.set(1, CommonMethods.readTestData("TestData", "sun"));
 
 			WebElement Element1 = TimeSheetEditPage.grd_ColMonday(driver);
 			Element1.clear();
-			Element1.sendKeys("15");
-			objTest.set(2, "15");
+			Element1.sendKeys(CommonMethods.readTestData("TestData", "mon"));
+			objTest.set(2, CommonMethods.readTestData("TestData", "mon"));
 
 			WebElement Element2 = TimeSheetEditPage.grd_txtComment(driver);
 			Element2.clear();
-			Element2.sendKeys("This is from Inject Data method");
-			objTest.set(8, "This is from Inject Data method");
+			Element2.sendKeys(CommonMethods.readTestData("TestData", "comment"));
+			objTest.set(8, CommonMethods.readTestData("TestData", "comment"));
 
 			UploadAttachment();
 

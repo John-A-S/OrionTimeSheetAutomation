@@ -3,16 +3,8 @@ package com.orion.qa.testcases;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,51 +13,28 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.orion.qa.base.OrionBase;
 import com.orion.qa.pages.LoginPage;
 import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
 import com.orion.qa.utils.CommonMethods;
 
-public class Test_ApprovedTimeSheet_SaveFunctionality {
-	WebDriver driver;
-	WebDriverWait wait;
-	Actions act;
-	JavascriptExecutor jse;
-
-	String Chromebrowser = "webdriver.chrome.driver";
-	String IEbrowser = "webdriver.ie.driver";
-
+public class Test_ApprovedTimeSheet_SaveFunctionality extends OrionBase{
+	
 	int RowNumb;
-	@Parameters("Browser")
+	
+	public Test_ApprovedTimeSheet_SaveFunctionality() {
+		super();
+	}
 
+	@Parameters("Browser")
 	@BeforeClass
 	public void InitObjects(String Browser) {
 		System.out.println("********** Test_ApprovedTimeSheet_SaveFunctionality ************* ");
 		
 		try {
-
-			CommonMethods.readExcel_Paths();
-
-			if (Browser.equalsIgnoreCase("firefox")) {
-				driver = new FirefoxDriver();
-			}else if (Browser.equalsIgnoreCase("ie")) { 
-				System.setProperty(IEbrowser, CommonMethods.IE_Browser_Location);
-				driver = new InternetExplorerDriver();
-			}else if (Browser.equalsIgnoreCase("chrome")) { 
-				// System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
-				driver = new ChromeDriver();
-			} 
+			init(Browser, false);	
 			
-			driver.manage().deleteAllCookies();
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-			driver.get(CommonMethods.URL_TimeSheet);
-
-			wait = new WebDriverWait(driver, 100);
-			act = new Actions(driver);
-			jse = (JavascriptExecutor) driver;
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,9 +42,7 @@ public class Test_ApprovedTimeSheet_SaveFunctionality {
 
 	@AfterClass
 	public void CloseObjects() {
-		if (!driver.toString().contains("null")) {
-			driver.quit();
-		}
+		CloseBrowser();
 		System.out.println("********** Test_ApprovedTimeSheet_SaveFunctionality ************* ");
 	}
 
@@ -98,9 +65,8 @@ public class Test_ApprovedTimeSheet_SaveFunctionality {
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
 		
-		/* Hardcoded to test the approved timesheet scenarios */
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		period.selectByVisibleText("October, 2017");
+		period.selectByVisibleText(CommonMethods.readTestData("TestData", "ApprovedTimeSheet"));
 
 
 		// RowNumb will have the row number of Approved timesheet //
