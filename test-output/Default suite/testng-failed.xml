@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <parameter name="Browser" value="chrome"/>
   <test name="Default test(failed)">
     <classes>
-      <class name="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality">
+      <class name="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality">
         <methods>
-          <include name="Test_LogoutfromOrion_IsSuccess"/>
-          <include name="InitObjects"/>
-          <include name="CloseObjects"/>
-          <include name="Test_LoginToOrion_IsSuccess" invocation-numbers="0"/>
-          <include name="Test_IfDataSavedCorrectly"/>
-          <include name="Test_IfSaveMessage_IsDisplayed"/>
+          <include name="Test_IfSubmitMessage_IsDisplayed"/>
           <include name="Test_IfNewTimeSheetPage_Isdisplayed"/>
+          <include name="Test_LogoutfromOrion_IsSuccess"/>
+          <include name="CloseObjects"/>
+          <include name="InitObjects"/>
+          <include name="Test_IfDataSubmittedCorrectly"/>
+          <include name="Test_LoginToOrion_IsSuccess"/>
         </methods>
-      </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality -->
+      </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/4</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/5</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Apr 26 13:55:42 EDT 2018</td>
+<td>Started on:</td><td>Thu Apr 26 16:21:32 EDT 2018</td>
 </tr>
-<tr><td>Total time:</td><td>41 seconds (41107 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (153 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -68,32 +68,24 @@ function toggleAllBoxes() {
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
 <table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_LoginToOrion_IsSuccess()'><b>Test_LoginToOrion_IsSuccess</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality<br>Parameters: john1, infomatics@123</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:134)
-	at org.testng.Assert.assertEquals(Assert.java:115)
-	at org.testng.Assert.assertEquals(Assert.java:304)
-	at org.testng.Assert.assertEquals(Assert.java:314)
-	at com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_LoginToOrion_IsSuccess(Test_NewTimeSheet_SaveFunctionality.java:68)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.InitObjects()'><b>InitObjects</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;Browser&apos; is required by BeforeClass on method InitObjects but has not been marked @Optional or defined
+in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--768675828\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:443)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:118)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:206)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
 	at org.testng.TestRunner.privateRun(TestRunner.java:744)
 	at org.testng.TestRunner.run(TestRunner.java:602)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
@@ -109,25 +101,17 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1132369181", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1132369181'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:134)
-	at org.testng.Assert.assertEquals(Assert.java:115)
-	at org.testng.Assert.assertEquals(Assert.java:304)
-	at org.testng.Assert.assertEquals(Assert.java:314)
-	at com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_LoginToOrion_IsSuccess(Test_NewTimeSheet_SaveFunctionality.java:68)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1949298838", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1949298838'><pre>org.testng.TestNGException: 
+Parameter &apos;Browser&apos; is required by BeforeClass on method InitObjects but has not been marked @Optional or defined
+in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--768675828\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:443)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:118)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:206)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
 	at org.testng.TestRunner.privateRun(TestRunner.java:744)
 	at org.testng.TestRunner.run(TestRunner.java:602)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
@@ -144,8 +128,21 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>30</td>
-<td>com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@60bd273d</td></tr>
+<td>0</td>
+<td>com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.CloseObjects()'><b>CloseObjects</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td></td>
+<td>0</td>
+<td>com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -155,8 +152,8 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_IfDataSavedCorrectly()'><b>Test_IfDataSavedCorrectly</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality</td>
-<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SaveFunctionality.Test_IfDataSavedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@60bd273d] depends on not successfully finished methods
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly()'><b>Test_IfDataSubmittedCorrectly</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -175,52 +172,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1069584108", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1069584108'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SaveFunctionality.Test_IfDataSavedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@60bd273d] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>null</td></tr>
-<tr>
-<td title='com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_IfNewTimeSheetPage_Isdisplayed()'><b>Test_IfNewTimeSheetPage_Isdisplayed</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality</td>
-<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SaveFunctionality.Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@60bd273d] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1370224403", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1370224403'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SaveFunctionality.Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@60bd273d] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace1896232624", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1896232624'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -243,8 +196,8 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>null</td></tr>
 <tr>
-<td title='com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_IfSaveMessage_IsDisplayed()'><b>Test_IfSaveMessage_IsDisplayed</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality</td>
-<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SaveFunctionality.Test_IfSaveMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@60bd273d] depends on not successfully finished methods
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed()'><b>Test_IfNewTimeSheetPage_Isdisplayed</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -263,8 +216,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1296910502", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1296910502'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SaveFunctionality.Test_IfSaveMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@60bd273d] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace2052910813", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2052910813'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -287,8 +240,8 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>null</td></tr>
 <tr>
-<td title='com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_LogoutfromOrion_IsSuccess()'><b>Test_LogoutfromOrion_IsSuccess</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality</td>
-<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SaveFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@60bd273d] depends on not successfully finished methods
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed()'><b>Test_IfSubmitMessage_IsDisplayed</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -307,8 +260,108 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2063786038", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2063786038'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SaveFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@60bd273d] depends on not successfully finished methods
+</pre></div><a href='#' onClick='toggleBox("stack-trace1534694976", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1534694976'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess()'><b>Test_LoginToOrion_IsSuccess</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;Browser&apos; is required by BeforeClass on method InitObjects but has not been marked @Optional or defined
+in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--768675828\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:443)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:118)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:206)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace116734858", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace116734858'><pre>org.testng.TestNGException: 
+Parameter &apos;Browser&apos; is required by BeforeClass on method InitObjects but has not been marked @Optional or defined
+in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--768675828\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:443)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:118)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:206)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e</td></tr>
+<tr>
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_LogoutfromOrion_IsSuccess()'><b>Test_LogoutfromOrion_IsSuccess</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace716487794", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace716487794'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@5a45133e] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)

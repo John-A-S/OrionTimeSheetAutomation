@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="17" passed="17" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-04-26T19:53:45Z" name="Orion TimeSheet Automation Test Suite" finished-at="2018-04-26T19:55:35Z" duration-ms="110146">
+  <suite started-at="2018-04-26T20:23:37Z" name="Orion TimeSheet Automation Test Suite" finished-at="2018-04-26T20:24:16Z" duration-ms="39680">
     <groups>
     </groups>
-    <test started-at="2018-04-26T19:53:45Z" name="OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality" finished-at="2018-04-26T19:54:29Z" duration-ms="43931">
-      <class name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality">
-        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@4f80542f]" started-at="2018-04-26T15:53:45Z" name="InitObjects" finished-at="2018-04-26T15:53:52Z" duration-ms="7566" status="PASS">
+    <test started-at="2018-04-26T20:23:37Z" name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality" finished-at="2018-04-26T20:24:16Z" duration-ms="39680">
+      <class name="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality">
+        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-04-26T16:23:37Z" name="InitObjects" finished-at="2018-04-26T16:23:52Z" duration-ms="15367" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- InitObjects -->
-        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@4f80542f]" started-at="2018-04-26T15:53:53Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-04-26T15:53:54Z" duration-ms="1725" status="PASS">
+        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-04-26T16:23:52Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-04-26T16:23:54Z" duration-ms="1586" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,137 +34,27 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LoginToOrion_IsSuccess -->
-        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@4f80542f]" started-at="2018-04-26T15:53:54Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-04-26T15:53:56Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="1366" status="PASS">
+        <test-method signature="Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-04-26T16:23:54Z" name="Test_IfNewTimeSheetPage_Isdisplayed" finished-at="2018-04-26T16:23:55Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="1209" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
-        <test-method signature="Test_CancelButton_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@4f80542f]" started-at="2018-04-26T15:53:56Z" name="Test_CancelButton_IsDisplayed" finished-at="2018-04-26T15:53:56Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="73" status="PASS">
+        </test-method> <!-- Test_IfNewTimeSheetPage_Isdisplayed -->
+        <test-method signature="Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-04-26T16:23:55Z" name="Test_IfSubmitMessage_IsDisplayed" finished-at="2018-04-26T16:23:59Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed" duration-ms="4620" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test_CancelButton_IsDisplayed -->
-        <test-method signature="Test_CancelButton_InjectTestDataandVerify()[pri:4, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@4f80542f]" started-at="2018-04-26T15:53:56Z" name="Test_CancelButton_InjectTestDataandVerify" finished-at="2018-04-26T15:53:57Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_CancelButton_IsDisplayed" duration-ms="1222" status="PASS">
+        </test-method> <!-- Test_IfSubmitMessage_IsDisplayed -->
+        <test-method signature="Test_IfDataSubmittedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-04-26T16:23:59Z" name="Test_IfDataSubmittedCorrectly" finished-at="2018-04-26T16:24:15Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed" duration-ms="15516" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test_CancelButton_InjectTestDataandVerify -->
-        <test-method signature="Test_IfUpdatedDataisCancelled()[pri:5, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@4f80542f]" started-at="2018-04-26T15:53:57Z" name="Test_IfUpdatedDataisCancelled" finished-at="2018-04-26T15:54:28Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_CancelButton_InjectTestDataandVerify" duration-ms="30476" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_IfUpdatedDataisCancelled -->
-        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@4f80542f]" started-at="2018-04-26T15:54:28Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-04-26T15:54:28Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_IfUpdatedDataisCancelled" duration-ms="544" status="PASS">
+        </test-method> <!-- Test_IfDataSubmittedCorrectly -->
+        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-04-26T16:24:15Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-04-26T16:24:15Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly" duration-ms="459" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
-        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@4f80542f]" started-at="2018-04-26T15:54:28Z" name="CloseObjects" finished-at="2018-04-26T15:54:29Z" duration-ms="778" status="PASS">
+        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-04-26T16:24:15Z" name="CloseObjects" finished-at="2018-04-26T16:24:16Z" duration-ms="773" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseObjects -->
-      </class> <!-- com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality -->
-    </test> <!-- OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality -->
-    <test started-at="2018-04-26T19:54:29Z" name="OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SaveFunctionality" finished-at="2018-04-26T19:55:11Z" duration-ms="41689">
-      <class name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality">
-        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality@1a942c18]" started-at="2018-04-26T15:54:29Z" name="InitObjects" finished-at="2018-04-26T15:54:36Z" duration-ms="6990" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- InitObjects -->
-        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality@1a942c18]" started-at="2018-04-26T15:54:36Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-04-26T15:54:37Z" duration-ms="933" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[john]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[infomatics@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_LoginToOrion_IsSuccess -->
-        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality@1a942c18]" started-at="2018-04-26T15:54:37Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-04-26T15:54:39Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="2206" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
-        <test-method signature="Test_SaveButton_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality@1a942c18]" started-at="2018-04-26T15:54:39Z" name="Test_SaveButton_IsDisplayed" finished-at="2018-04-26T15:55:09Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="30072" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_SaveButton_IsDisplayed -->
-        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:4, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality@1a942c18]" started-at="2018-04-26T15:55:09Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-04-26T15:55:10Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality.Test_SaveButton_IsDisplayed" duration-ms="583" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
-        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality@1a942c18]" started-at="2018-04-26T15:55:10Z" name="CloseObjects" finished-at="2018-04-26T15:55:11Z" duration-ms="775" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CloseObjects -->
-      </class> <!-- com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality -->
-    </test> <!-- OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SaveFunctionality -->
-    <test started-at="2018-04-26T19:55:11Z" name="OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SubmitFunctionality" finished-at="2018-04-26T19:55:35Z" duration-ms="24470">
-      <class name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality">
-        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality@2ddc9a9f]" started-at="2018-04-26T15:55:11Z" name="InitObjects" finished-at="2018-04-26T15:55:17Z" duration-ms="6426" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- InitObjects -->
-        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality@2ddc9a9f]" started-at="2018-04-26T15:55:17Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-04-26T15:55:19Z" duration-ms="1375" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[john]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[infomatics@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_LoginToOrion_IsSuccess -->
-        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality@2ddc9a9f]" started-at="2018-04-26T15:55:19Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-04-26T15:55:20Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="1308" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
-        <test-method signature="Test_SubmitButton_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality@2ddc9a9f]" started-at="2018-04-26T15:55:20Z" name="Test_SubmitButton_IsDisplayed" finished-at="2018-04-26T15:55:20Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="49" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_SubmitButton_IsDisplayed -->
-        <test-method signature="Test_VerifyGridisDisabled()[pri:4, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality@2ddc9a9f]" started-at="2018-04-26T15:55:20Z" name="Test_VerifyGridisDisabled" finished-at="2018-04-26T15:55:20Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality.Test_SubmitButton_IsDisplayed" duration-ms="31" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_VerifyGridisDisabled -->
-        <test-method signature="Test_SubmitButton_InjectTestDataandVerify()[pri:5, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality@2ddc9a9f]" started-at="2018-04-26T15:55:20Z" name="Test_SubmitButton_InjectTestDataandVerify" finished-at="2018-04-26T15:55:23Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality.Test_VerifyGridisDisabled" duration-ms="3164" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_SubmitButton_InjectTestDataandVerify -->
-        <test-method signature="Test_IfUpdatedDataisSubmitted()[pri:5, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality@2ddc9a9f]" started-at="2018-04-26T15:55:23Z" name="Test_IfUpdatedDataisSubmitted" finished-at="2018-04-26T15:55:34Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality.Test_SubmitButton_InjectTestDataandVerify" duration-ms="10719" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_IfUpdatedDataisSubmitted -->
-        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality@2ddc9a9f]" started-at="2018-04-26T15:55:34Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-04-26T15:55:34Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality.Test_IfUpdatedDataisSubmitted" duration-ms="441" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
-        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality@2ddc9a9f]" started-at="2018-04-26T15:55:34Z" name="CloseObjects" finished-at="2018-04-26T15:55:35Z" duration-ms="817" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CloseObjects -->
-      </class> <!-- com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality -->
-    </test> <!-- OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SubmitFunctionality -->
+      </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality -->
+    </test> <!-- OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality -->
   </suite> <!-- Orion TimeSheet Automation Test Suite -->
 </testng-results>

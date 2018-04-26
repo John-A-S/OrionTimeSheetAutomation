@@ -47,7 +47,6 @@
 		</classes>
 	</test>
 
-
 	<!-- SUBMITTED TIMESHEET CANCEL -->
 	<test
 		name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_CancelFunctionality">
@@ -77,5 +76,4 @@
 		</classes>
 	</test>
 	
-
 </suite>

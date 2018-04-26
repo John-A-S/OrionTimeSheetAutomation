@@ -5,7 +5,6 @@ import static org.testng.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -94,12 +93,6 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
 			NewReportPeriod = ele.getText();
-			System.out.println(NewReportPeriod);
-			
-			JavascriptExecutor jse = (JavascriptExecutor)driver;
-			String script = "return document.getElementById(\"reportperiod\").label;";
-			String a = (String) jse.executeScript(script);
-			System.out.println(a);
 			
 			InjectTestData();
 			TimeSheetEditPage.ScrollScreenToSubmitButtonAndClick(driver, jse);
@@ -135,7 +128,6 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			 * clicklink(Rows.size());
 			 */
 			Thread.sleep(3000);
-			System.out.println(NewReportPeriod);
 			TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
 
 			objGridData.clear();
