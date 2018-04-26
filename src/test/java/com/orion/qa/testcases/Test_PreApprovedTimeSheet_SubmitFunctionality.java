@@ -33,13 +33,12 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 		super();
 	}
 
-	
 	@Parameters("Browser")
 	@BeforeClass
 	public void InitObjects(String Browser) {
 		try {
 
-			System.out.println("********** Test_PreApprovedTimeSheet_SubmitFunctionality ************* ");
+			System.out.println("********** Test_PreApprovedTimeSheet_SubmitFunctionality START ************* ");
 			init(Browser, true);
 
 
@@ -51,7 +50,7 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_PreApprovedTimeSheet_SubmitFunctionality ************* ");
+		System.out.println("********** Test_PreApprovedTimeSheet_SubmitFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)

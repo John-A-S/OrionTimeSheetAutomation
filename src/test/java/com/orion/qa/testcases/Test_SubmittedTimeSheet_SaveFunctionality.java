@@ -33,7 +33,7 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 
 		try {
 			
-			System.out.println("********** Test_SubmittedTimeSheet_SaveFunctionality ************* ");
+			System.out.println("********** Test_SubmittedTimeSheet_SaveFunctionality START ************* ");
 			
 			init(Browser, false);
 
@@ -46,7 +46,7 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_SubmittedTimeSheet_SaveFunctionality ************* ");
+		System.out.println("********** Test_SubmittedTimeSheet_SaveFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)

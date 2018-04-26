@@ -37,7 +37,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 	@BeforeClass
 	public void InitObjects(String Browser) {
 
-		System.out.println("********** Test_DraftTimeSheet_SubmitFunctionality ************* ");
+		System.out.println("********** Test_DraftTimeSheet_SubmitFunctionality START ************* ");
 		
 		try {
 			init(Browser, true);
@@ -52,7 +52,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_DraftTimeSheet_SubmitFunctionality ************* ");
+		System.out.println("********** Test_DraftTimeSheet_SubmitFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)

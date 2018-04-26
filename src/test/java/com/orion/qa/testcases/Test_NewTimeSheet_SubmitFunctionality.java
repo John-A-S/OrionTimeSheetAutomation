@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -44,16 +45,6 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			init(Browser, true);
 
 			objTest = new ArrayList<String>();
-			/* initialize ObjTest for Test data */
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
 			objGridData = new ArrayList<String>();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,7 +54,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_DraftTimeSheet_SaveFunctionality ************* ");
+		System.out.println("********** Test_NewTimeSheet_SubmitFunctionality ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
@@ -103,7 +94,13 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
 			NewReportPeriod = ele.getText();
-
+			System.out.println(NewReportPeriod);
+			
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			String script = "return document.getElementById(\"reportperiod\").label;";
+			String a = (String) jse.executeScript(script);
+			System.out.println(a);
+			
 			InjectTestData();
 			TimeSheetEditPage.ScrollScreenToSubmitButtonAndClick(driver, jse);
 			Thread.sleep(1000);
@@ -137,7 +134,8 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			 * List<WebElement> Rows = TableData.findElements(By.tagName("tr"));
 			 * clicklink(Rows.size());
 			 */
-			Thread.sleep(3000);	
+			Thread.sleep(3000);
+			System.out.println(NewReportPeriod);
 			TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
 
 			objGridData.clear();
@@ -233,37 +231,37 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 					".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input");
 
 			// populate default value to the test data
-			objTest.set(0, CommonMethods.readTestData("TestData", "company"));
+			objTest.add(0, CommonMethods.readTestData("TestData", "company"));
 				
 			WebElement Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
 			Element.sendKeys(CommonMethods.readTestData("TestData", "sun"));
-			objTest.set(1, CommonMethods.readTestData("TestData", "sun"));
+			objTest.add(1, CommonMethods.readTestData("TestData", "sun"));
 
 			WebElement Element1 = TimeSheetEditPage.grd_ColMonday(driver);
 			Element1.clear();
 			Element1.sendKeys(CommonMethods.readTestData("TestData", "mon"));
-			objTest.set(2, CommonMethods.readTestData("TestData", "mon"));
+			objTest.add(2, CommonMethods.readTestData("TestData", "mon"));
 
 			// populate default value to the test data
-			objTest.set(3, CommonMethods.readTestData("TestData", "tue"));
+			objTest.add(3, CommonMethods.readTestData("TestData", "tue"));
 
 			// populate default value to the test data
-			objTest.set(4, CommonMethods.readTestData("TestData", "wed"));
+			objTest.add(4, CommonMethods.readTestData("TestData", "wed"));
 
 			// populate default value to the test data
-			objTest.set(5, CommonMethods.readTestData("TestData", "thu"));
+			objTest.add(5, CommonMethods.readTestData("TestData", "thu"));
 
 			// populate default value to the test data
-			objTest.set(6, CommonMethods.readTestData("TestData", "fri"));
+			objTest.add(6, CommonMethods.readTestData("TestData", "fri"));
 
 			// populate default value to the test data
-			objTest.set(7, CommonMethods.readTestData("TestData", "sat"));
+			objTest.add(7, CommonMethods.readTestData("TestData", "sat"));
 
 			WebElement Element2 = TimeSheetEditPage.grd_txtComment(driver);
 			Element2.clear();
 			Element2.sendKeys(CommonMethods.readTestData("TestData", "comment"));
-			objTest.set(8, CommonMethods.readTestData("TestData", "comment"));
+			objTest.add(8, CommonMethods.readTestData("TestData", "comment"));
 
 			UploadAttachment();
 

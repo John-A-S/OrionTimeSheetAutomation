@@ -35,7 +35,7 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 	@Parameters("Browser")
 	@BeforeClass
 	public void InitObjects(String Browser) {
-		System.out.println("********** Test_RejectedTimeSheet_CancelFunctionality ************* ");
+		System.out.println("********** Test_RejectedTimeSheet_CancelFunctionality START ************* ");
 
 		try {
 			
@@ -50,7 +50,7 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 
 	@AfterClass
 	public void CloseObjects() {
-		System.out.println("********** Test_RejectedTimeSheet_CancelFunctionality ************* ");
+		System.out.println("********** Test_RejectedTimeSheet_CancelFunctionality END ************* ");
 		CloseBrowser();
 	}
 
@@ -144,7 +144,7 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 					.elementToBeClickable(TimeSheetEditPage.wait_grd_AddAttachclickable(driver, AttachmentRowId)));
 			// enter the file path onto the file-selection input field //
 			TimeSheetEditPage.wait_grd_AddAttachclickable(driver, AttachmentRowId)
-				.sendKeys(System.getProperty("user.dir") + CommonMethods.Sample_FileNamewithPath);
+				.sendKeys(CommonMethods.Sample_FileNamewithPath);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -174,18 +174,18 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 
 			WebElement Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			Element.sendKeys("5");
-			objTest.set(1, "5");
+			Element.sendKeys(CommonMethods.readTestData("TestData", "sun"));
+			objTest.set(1, CommonMethods.readTestData("TestData", "sun"));
 
 			WebElement Element1 = TimeSheetEditPage.grd_ColMonday(driver);
 			Element1.clear();
-			Element1.sendKeys("1");
-			objTest.set(2, "1");
+			Element1.sendKeys(CommonMethods.readTestData("TestData", "mon"));
+			objTest.set(2, CommonMethods.readTestData("TestData", "mon"));
 
 			WebElement Element2 = TimeSheetEditPage.grd_txtComment(driver);
 			Element2.clear();
-			Element2.sendKeys("This is from Inject Data method - Draft Cancel Functionality ");
-			objTest.set(8, "This is from Inject Data method - Draft Cancel Functionality ");
+			Element2.sendKeys(CommonMethods.readTestData("TestData", "comment"));
+			objTest.set(8, CommonMethods.readTestData("TestData", "comment"));
 
 			UploadAttachment();
 

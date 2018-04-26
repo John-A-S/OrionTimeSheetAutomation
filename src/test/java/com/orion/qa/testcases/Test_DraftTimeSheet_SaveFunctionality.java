@@ -35,7 +35,7 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 	@Parameters("Browser")
 	@BeforeClass
 	public void InitObjects(String Browser) {
-		System.out.println("********** Test_DraftTimeSheet_SaveFunctionality ************* ");
+		System.out.println("********** Test_DraftTimeSheet_SaveFunctionality START ************* ");
 		try {
 			init(Browser, true);
 			objTest = new ArrayList<String>();
@@ -49,10 +49,7 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-/*		if (!driver.toString().contains("null")) {
-			driver.quit();
-		}
-*/		System.out.println("********** Test_DraftTimeSheet_SaveFunctionality ************* ");
+		System.out.println("********** Test_DraftTimeSheet_SaveFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)

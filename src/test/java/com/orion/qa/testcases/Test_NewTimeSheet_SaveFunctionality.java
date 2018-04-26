@@ -39,21 +39,11 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 	public void InitObjects(String Browser) {
 		try {
 
-			System.out.println("********** Test_NewTimeSheet_SaveFunctionality ************* ");
+			System.out.println("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
 			
 			init(Browser, true);
 
 			objTest = new ArrayList<String>();
-			/* initialize ObjTest for Test data */
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
-			objTest.add(" ");
 			objGridData = new ArrayList<String>();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,7 +53,7 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_DraftTimeSheet_SaveFunctionality ************* ");
+		System.out.println("********** Test_NewTimeSheet_SaveFunctionalitY END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
@@ -136,6 +126,8 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
+			System.out.println(objTest.toString());
+			System.out.println(objGridData.toString());
 			DownloadfileAndComparewithTestFile();
 			assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
 		} catch (Exception e) {
@@ -230,40 +222,40 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 					".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input");
 
 			// populate default value to the test data
-			objTest.set(0, CommonMethods.readTestData("TestData", "company"));
+			objTest.add(0, CommonMethods.readTestData("TestData", "company"));
 
 			Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
 			String strSun = CommonMethods.readTestData("TestData", "sun");
 			Element.sendKeys(strSun);
-			objTest.set(1, strSun);
+			objTest.add(1, strSun);
 
 			Element = TimeSheetEditPage.grd_ColMonday(driver);
 			Element.clear();
 			String strMon = CommonMethods.readTestData("TestData", "mon");
 			Element.sendKeys(strMon);
-			objTest.set(2, strMon);
+			objTest.add(2, strMon);
 
 			// populate default value to the test data
-			objTest.set(3, CommonMethods.readTestData("TestData", "tue"));
+			objTest.add(3, CommonMethods.readTestData("TestData", "tue"));
 
 			// populate default value to the test data
-			objTest.set(4, CommonMethods.readTestData("TestData", "wed"));
+			objTest.add(4, CommonMethods.readTestData("TestData", "wed"));
 
 			// populate default value to the test data
-			objTest.set(5, CommonMethods.readTestData("TestData", "thu"));
+			objTest.add(5, CommonMethods.readTestData("TestData", "thu"));
 
 			// populate default value to the test data
-			objTest.set(6, CommonMethods.readTestData("TestData", "fri"));
+			objTest.add(6, CommonMethods.readTestData("TestData", "fri"));
 
 			// populate default value to the test data
-			objTest.set(7, CommonMethods.readTestData("TestData", "sat"));
+			objTest.add(7, CommonMethods.readTestData("TestData", "sat"));
 
 			Element = TimeSheetEditPage.grd_txtComment(driver);
 			Element.clear();
 			String strComment = CommonMethods.readTestData("TestData", "comment"); 
 			Element.sendKeys(strComment);
-			objTest.set(8, strComment);
+			objTest.add(8, strComment);
 
 			UploadAttachment();
 

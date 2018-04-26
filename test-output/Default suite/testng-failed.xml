@@ -4,19 +4,17 @@
   <parameter name="Browser" value="chrome"/>
   <test name="Default test(failed)">
     <classes>
-      <class name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality">
+      <class name="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality">
         <methods>
-          <include name="Test_SubmitButton_IsDisplayed"/>
-          <include name="Test_LoginToOrion_IsSuccess"/>
-          <include name="Test_SubmitButton_InjectTestDataandVerify"/>
-          <include name="Test_IfUpdatedDataisSubmitted"/>
-          <include name="CloseObjects"/>
-          <include name="InitObjects"/>
-          <include name="Test_VerifyGridisDisabled"/>
           <include name="Test_LogoutfromOrion_IsSuccess"/>
-          <include name="Test_IfEditTimeSheetPage_Isdisplayed"/>
+          <include name="InitObjects"/>
+          <include name="CloseObjects"/>
+          <include name="Test_LoginToOrion_IsSuccess" invocation-numbers="0"/>
+          <include name="Test_IfDataSavedCorrectly"/>
+          <include name="Test_IfSaveMessage_IsDisplayed"/>
+          <include name="Test_IfNewTimeSheetPage_Isdisplayed"/>
         </methods>
-      </class> <!-- com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality -->
+      </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

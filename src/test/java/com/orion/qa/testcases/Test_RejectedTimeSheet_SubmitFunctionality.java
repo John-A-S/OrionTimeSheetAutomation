@@ -37,7 +37,7 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 	@BeforeClass
 	public void InitObjects(String Browser) {
 
-		System.out.println("********** Test_RejectedTimeSheet_SubmitFunctionality ************* ");
+		System.out.println("********** Test_RejectedTimeSheet_SubmitFunctionality START ************* ");
 		
 		try {
 			init(Browser, true);
@@ -55,7 +55,7 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 		if (!driver.toString().contains("null")) {
 			driver.quit();
 		}
-		System.out.println("********** Test_RejectedTimeSheet_SubmitFunctionality ************* ");
+		System.out.println("********** Test_RejectedTimeSheet_SubmitFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
@@ -216,18 +216,18 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 
 			WebElement Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			Element.sendKeys("25");
-			objTest.set(1, "25");
+			Element.sendKeys(CommonMethods.readTestData("TestData", "sun"));
+			objTest.set(1, CommonMethods.readTestData("TestData", "sun"));
 
 			WebElement Element1 = TimeSheetEditPage.grd_ColMonday(driver);
 			Element1.clear();
-			Element1.sendKeys("15");
-			objTest.set(2, "15");
+			Element1.sendKeys(CommonMethods.readTestData("TestData", "mon"));
+			objTest.set(2, CommonMethods.readTestData("TestData", "mon"));
 
 			WebElement Element2 = TimeSheetEditPage.grd_txtComment(driver);
 			Element2.clear();
-			Element2.sendKeys("This is from Inject Data method");
-			objTest.set(8, "This is from Inject Data method");
+			Element2.sendKeys(CommonMethods.readTestData("TestData", "comment"));
+			objTest.set(8, CommonMethods.readTestData("TestData", "comment"));
 
 			UploadAttachment();
 

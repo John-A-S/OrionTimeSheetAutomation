@@ -36,7 +36,7 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 	@Parameters("Browser")
 	@BeforeClass
 	public void InitObjects(String Browser) {
-		System.out.println("********** Test_DraftTimeSheet_CancelFunctionality ************* ");
+		System.out.println("********** Test_DraftTimeSheet_CancelFunctionality START ************* ");
 
 		try {
 			init(Browser, true);	
@@ -53,7 +53,7 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_DraftTimeSheet_CancelFunctionality ************* ");
+		System.out.println("********** Test_DraftTimeSheet_CancelFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)

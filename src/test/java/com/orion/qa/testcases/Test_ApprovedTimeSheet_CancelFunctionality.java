@@ -29,7 +29,7 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	@Parameters("Browser")
 	@BeforeClass
 	public void InitObjects(String Browser) {
-		System.out.println("********** Test_ApprovedTimeSheet_CancelFunctionality ************* ");
+		System.out.println("********** Test_ApprovedTimeSheet_CancelFunctionality START ************* ");
 		try {
 			init(Browser, false);
 		} catch (Exception e) {
@@ -40,7 +40,7 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_ApprovedTimeSheet_CancelFunctionality ************* ");
+		System.out.println("********** Test_ApprovedTimeSheet_CancelFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)

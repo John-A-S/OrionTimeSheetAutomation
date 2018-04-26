@@ -24,7 +24,6 @@ import com.orion.qa.utils.CommonMethods;
 public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 	ArrayList<String> objTest;
 
-
 	int RowNumb;
 	int AttachmentRowId;
 
@@ -36,12 +35,8 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 	@BeforeClass
 	public void InitObjects(String Browser) {
 		try {
-			
-			System.out.println("********** Test_NewTimeSheet_SaveFunctionality ************* ");
-			
+			System.out.println("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
 			init(Browser, true);
-
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,7 +45,7 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_DraftTimeSheet_SaveFunctionality ************* ");
+		System.out.println("********** Test_NewTimeSheet_SaveFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
