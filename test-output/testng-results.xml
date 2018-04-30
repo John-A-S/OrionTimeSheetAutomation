@@ -2,22 +2,22 @@
 <testng-results ignored="0" total="5" passed="0" failed="0" skipped="5">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-04-30T18:33:13Z" name="Default suite" finished-at="2018-04-30T18:33:13Z" duration-ms="244">
+  <suite started-at="2018-04-30T18:51:33Z" name="Default suite" finished-at="2018-04-30T18:51:33Z" duration-ms="203">
     <groups>
     </groups>
-    <test started-at="2018-04-30T18:33:13Z" name="Default test" finished-at="2018-04-30T18:33:13Z" duration-ms="244">
+    <test started-at="2018-04-30T18:51:33Z" name="Default test" finished-at="2018-04-30T18:51:33Z" duration-ms="203">
       <class name="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality">
-        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:33:13Z" name="InitObjects" finished-at="2018-04-30T14:33:13Z" duration-ms="0" status="FAIL">
+        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:51:33Z" name="InitObjects" finished-at="2018-04-30T14:51:33Z" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
 Parameter 'Browser' is required by BeforeClass on method InitObjects but has not been marked @Optional or defined
-in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsuite.xml]]>
+in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--853399325\testng-customsuite.xml]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.testng.TestNGException: 
 Parameter 'Browser' is required by BeforeClass on method InitObjects but has not been marked @Optional or defined
-in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsuite.xml
+in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--853399325\testng-customsuite.xml
 	at org.testng.internal.Parameters.createParameters(Parameters.java:199)
 	at org.testng.internal.Parameters.createParameters(Parameters.java:443)
 	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:118)
@@ -46,17 +46,17 @@ in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsui
           <reporter-output>
           </reporter-output>
         </test-method> <!-- InitObjects -->
-        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:33:13Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-04-30T14:33:13Z" duration-ms="0" status="SKIP">
+        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:51:33Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-04-30T14:51:33Z" duration-ms="0" status="SKIP">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
 Parameter 'Browser' is required by BeforeClass on method InitObjects but has not been marked @Optional or defined
-in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsuite.xml]]>
+in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--853399325\testng-customsuite.xml]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.testng.TestNGException: 
 Parameter 'Browser' is required by BeforeClass on method InitObjects but has not been marked @Optional or defined
-in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsuite.xml
+in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--853399325\testng-customsuite.xml
 	at org.testng.internal.Parameters.createParameters(Parameters.java:199)
 	at org.testng.internal.Parameters.createParameters(Parameters.java:443)
 	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:118)
@@ -85,7 +85,7 @@ in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsui
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LoginToOrion_IsSuccess -->
-        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:33:13Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-04-30T14:33:13Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="0" status="SKIP">
+        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:51:33Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-04-30T14:51:33Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
               <![CDATA[Method Test_ApprovedTimeSheet_CancelFunctionality.Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6] depends on not successfully finished methods]]>
@@ -116,7 +116,7 @@ in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsui
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
-        <test-method signature="Test_EditTimesheetScreenComponents_AreDisabled()[pri:3, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:33:13Z" name="Test_EditTimesheetScreenComponents_AreDisabled" finished-at="2018-04-30T14:33:13Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="0" status="SKIP">
+        <test-method signature="Test_EditTimesheetScreenComponents_AreDisabled()[pri:3, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:51:33Z" name="Test_EditTimesheetScreenComponents_AreDisabled" finished-at="2018-04-30T14:51:33Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
               <![CDATA[Method Test_ApprovedTimeSheet_CancelFunctionality.Test_EditTimesheetScreenComponents_AreDisabled()[pri:3, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6] depends on not successfully finished methods]]>
@@ -147,7 +147,7 @@ in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsui
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_EditTimesheetScreenComponents_AreDisabled -->
-        <test-method signature="Test_ClickCancelExists()[pri:4, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:33:13Z" name="Test_ClickCancelExists" finished-at="2018-04-30T14:33:13Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality.Test_EditTimesheetScreenComponents_AreDisabled" duration-ms="0" status="SKIP">
+        <test-method signature="Test_ClickCancelExists()[pri:4, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:51:33Z" name="Test_ClickCancelExists" finished-at="2018-04-30T14:51:33Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality.Test_EditTimesheetScreenComponents_AreDisabled" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
               <![CDATA[Method Test_ApprovedTimeSheet_CancelFunctionality.Test_ClickCancelExists()[pri:4, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6] depends on not successfully finished methods]]>
@@ -178,7 +178,7 @@ in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsui
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_ClickCancelExists -->
-        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:33:13Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-04-30T14:33:13Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality.Test_ClickCancelExists" duration-ms="0" status="SKIP">
+        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:51:33Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-04-30T14:51:33Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality.Test_ClickCancelExists" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
               <![CDATA[Method Test_ApprovedTimeSheet_CancelFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6] depends on not successfully finished methods]]>
@@ -209,7 +209,7 @@ in C:\Users\jasel\AppData\Local\Temp\testng-eclipse--1665986237\testng-customsui
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
-        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:33:13Z" name="CloseObjects" finished-at="2018-04-30T14:33:13Z" duration-ms="0" status="SKIP">
+        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality@52b1beb6]" started-at="2018-04-30T14:51:33Z" name="CloseObjects" finished-at="2018-04-30T14:51:33Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseObjects -->

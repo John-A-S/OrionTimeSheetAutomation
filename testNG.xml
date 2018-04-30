@@ -1,0 +1,79 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Orion TimeSheet Automation Test Suite">
+	<listeners>
+		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
+	</listeners>
+
+	<!-- DONT CHANGE THE BELOW ORDER -->	
+	<!-- NEW TIMESHEET CANCEL  -->
+	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_CancelFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class name="com.orion.qa.testcases.Test_NewTimeSheet_CancelFunctionality" />
+		</classes>
+	</test>
+	
+	<!-- NEW TIMESHEET SAVE  -->
+	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SaveFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class name="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality" />
+		</classes>
+	</test>
+
+	<!-- DRAFT TIMESHEET SAVE  -->
+	<test name="OrionTimeSheet_Chrome_Test_DraftTimeSheet_SaveFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class name="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality" />
+		</classes>
+	</test>
+
+	<!-- DRAFT TIMESHEET CANCEL -->
+	<test name="OrionTimeSheet_Chrome_Test_DraftTimeSheet_CancelFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class
+				name="com.orion.qa.testcases.Test_DraftTimeSheet_CancelFunctionality" />
+		</classes>
+	</test>
+
+	<!-- DRAFT TIMESHEET SUBMITTED -->
+	<test name="OrionTimeSheet_Chrome_Test_DraftTimeSheet_SubmitFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class
+				name="com.orion.qa.testcases.Test_DraftTimeSheet_SubmitFunctionality" />
+		</classes>
+	</test>
+
+	<!-- SUBMITTED TIMESHEET CANCEL -->
+	<test
+		name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_CancelFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class
+				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality" />
+		</classes>
+	</test>
+
+	<!-- SUBMITTED TIMESHEET SAVE -->
+	<test name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SaveFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class
+				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SaveFunctionality" />
+		</classes>
+	</test>
+
+	<!-- SUBMITTED TIMESHEET SUBMIT -->
+	<test
+		name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SubmittedFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<classes>
+			<class
+				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SubmitFunctionality" />
+		</classes>
+	</test>
+	
+</suite>
