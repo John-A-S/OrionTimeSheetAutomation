@@ -124,7 +124,8 @@ public class CommonMethods {
 	public static void readExcel_Paths() {
 		try {
 			String strCurrentPath = System.getProperty("user.dir");
-			File f = new File(strCurrentPath+"\\src\\main\\input\\inputdata.xls");
+			//File f = new File(strCurrentPath+"\\src\\main\\input\\inputdata.xls");
+			File f = new File(strCurrentPath+"//src//main//input//inputdata.xls");
 			Workbook wb = Workbook.getWorkbook(f);
 			Sheet sh = wb.getSheet("paths");
 
