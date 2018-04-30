@@ -12,9 +12,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    	<suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile>
+		<suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile>
 	</properties>
-	
+
 
 	<dependencies>
 
@@ -118,7 +118,7 @@
 
 
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -132,8 +132,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		</build>			
-	
-	
-	
+	</build>
+
+
+
 </project>
