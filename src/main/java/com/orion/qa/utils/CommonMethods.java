@@ -126,6 +126,9 @@ public class CommonMethods {
 			String strCurrentPath = System.getProperty("user.dir");
 			//File f = new File(strCurrentPath+"\\src\\main\\input\\inputdata.xls");
 			File f = new File(strCurrentPath+"//src//main//input//inputdata.xls");
+			File f1 = new File(strCurrentPath+"//src//main//input//");
+			System.out.println("File Name : "+ f.getName());
+			System.out.println("Folder Name : " + f1.getName());
 			Workbook wb = Workbook.getWorkbook(f);
 			Sheet sh = wb.getSheet("paths");
 
