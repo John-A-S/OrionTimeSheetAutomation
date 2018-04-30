@@ -12,7 +12,6 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile>
 	</properties>
 
 
@@ -127,7 +126,7 @@
 				<version>2.19.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile>
+						<suiteXmlFile>src/main/resources/testNG_New_Submit.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
