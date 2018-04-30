@@ -127,7 +127,7 @@
 				<version>2.19.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>testNG.xml</suiteXmlFile>
+						<suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
