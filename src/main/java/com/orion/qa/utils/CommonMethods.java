@@ -103,7 +103,9 @@ public class CommonMethods {
 	@DataProvider(name = "credentials")
 	public Object[][] readExcel_Credentials() throws BiffException, IOException {
 		String strCurrentPath = System.getProperty("user.dir");
-		File f = new File(strCurrentPath+"\\src\\main\\input\\inputdata.xls");
+	//	File f = new File(strCurrentPath+"\\src\\main\\input\\inputdata.xls");
+		File f = new File(strCurrentPath+"//src//main//input//inputdata.xls");
+		System.out.println("Inside readExcel_Credentials "+ f.getAbsolutePath());
 		Workbook wb = Workbook.getWorkbook(f);
 		Sheet sh = wb.getSheet("credentials");
 
@@ -126,6 +128,7 @@ public class CommonMethods {
 			String strCurrentPath = System.getProperty("user.dir");
 			//File f = new File(strCurrentPath+"\\src\\main\\input\\inputdata.xls");
 			File f = new File(strCurrentPath+"//src//main//input//inputdata.xls");
+			System.out.println("Inside ReadExcel_Paths");	
 			System.out.println("File Name : "+ f.getAbsolutePath());
 			Workbook wb = Workbook.getWorkbook(f);
 			Sheet sh = wb.getSheet("paths");
@@ -159,7 +162,11 @@ public class CommonMethods {
 	public static String readTestData(String SheetName, String fieldName) {
 		try {
 			String strCurrentPath = System.getProperty("user.dir");
-			File f = new File(strCurrentPath+"\\src\\main\\input\\inputdata.xls");
+			//File f = new File(strCurrentPath+"\\src\\main\\input\\inputdata.xls");
+			
+			File f = new File(strCurrentPath+"//src//main//input//inputdata.xls");
+			System.out.println("Inside readTestData "+ f.getAbsolutePath());
+
 			Workbook wb = Workbook.getWorkbook(f);
 			Sheet sh = wb.getSheet(SheetName);
 
