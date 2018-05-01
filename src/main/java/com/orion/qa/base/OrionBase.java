@@ -65,6 +65,7 @@ public class OrionBase {
 				
 				options.setBinary(System.getProperty("user.dir")+"/src/main/input/chromedriver");
 				
+				
 				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
 				options.setExperimentalOption("prefs", chromePrefs);
 				options.addArguments("--test-type");
@@ -75,6 +76,9 @@ public class OrionBase {
 				cap.setCapability(ChromeOptions.CAPABILITY, options);
 				// System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
+				System.setProperty("webdriver.chrome.logfile", System.getProperty("user.dir")+"//src//main//input//chromedriver.log");
+				System.setProperty("webdriver.chrome.verboseLogging", "true");
+
 				driver = new ChromeDriver(cap);
 			}
 			else {
