@@ -39,7 +39,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 	public void InitObjects(String Browser) {
 		try {
 
-			System.out.println("********** Test_NewTimeSheet_SaveFunctionality ************* ");
+			System.out.println("********** Test_NewTimeSheet_SubmitFunctionality START ************* ");
 			
 			init(Browser, true);
 
@@ -53,7 +53,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_NewTimeSheet_SubmitFunctionality ************* ");
+		System.out.println("********** Test_NewTimeSheet_SubmitFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
