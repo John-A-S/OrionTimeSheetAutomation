@@ -70,11 +70,13 @@ public class OrionBase {
 				cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 				cap.setCapability(ChromeOptions.CAPABILITY, options);
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+				// System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				driver = new ChromeDriver(cap);
 			}
 			else
-				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+				// System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				driver = new ChromeDriver();
 		}
 
