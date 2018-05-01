@@ -55,16 +55,15 @@ public class OrionBase {
 		} else if (Browser.equalsIgnoreCase("ie")) {
 			driver = new InternetExplorerDriver();
 		} else if (Browser.equalsIgnoreCase("chrome")) {
-		/*	john if (isDownloadReq) {
+			if (isDownloadReq) {
 				// System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
 				/* following code is to download files using Chrome browser */
-		/* john		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("profile.default_content_settings.popups", 0);
 				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
 				ChromeOptions options = new ChromeOptions();
 				//for linux
 				options.setBinary(System.getProperty("user.dir")+"/src/main/input/chromedriver");
-				
 				
 				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
 				options.setExperimentalOption("prefs", chromePrefs);
@@ -80,13 +79,10 @@ public class OrionBase {
 			}
 			else {
 				 //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-			    john */ System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
-			    ChromeOptions options = new ChromeOptions();
-			    options.setBinary(System.getProperty("user.dir")+"//src//main//input//chromedriver");
-
-				driver = new ChromeDriver(options);
+			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
+				driver = new ChromeDriver();
 			}
-		// john}
+		}
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
