@@ -64,6 +64,7 @@ public class OrionBase {
 				ChromeOptions options = new ChromeOptions();
 				
 				options.setBinary(System.getProperty("user.dir")+"/src/main/input/chromedriver");
+				
 				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
 				options.setExperimentalOption("prefs", chromePrefs);
 				options.addArguments("--test-type");
@@ -77,7 +78,7 @@ public class OrionBase {
 				driver = new ChromeDriver(cap);
 			}
 			else {
-				// System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+				 //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				driver = new ChromeDriver();
 			}
