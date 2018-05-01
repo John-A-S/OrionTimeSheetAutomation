@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-05-01T18:22:38Z" name="Orion TimeSheet Automation Test Suite" finished-at="2018-05-01T18:23:13Z" duration-ms="34459">
+  <suite started-at="2018-05-01T19:20:27Z" name="Orion TimeSheet Automation Test Suite" finished-at="2018-05-01T19:21:03Z" duration-ms="35978">
     <groups>
     </groups>
-    <test started-at="2018-05-01T18:22:38Z" name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality" finished-at="2018-05-01T18:23:13Z" duration-ms="34459">
+    <test started-at="2018-05-01T19:20:27Z" name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality" finished-at="2018-05-01T19:21:03Z" duration-ms="35978">
       <class name="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality">
-        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T14:22:38Z" name="InitObjects" finished-at="2018-05-01T14:22:48Z" duration-ms="9608" status="PASS">
+        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T15:20:27Z" name="InitObjects" finished-at="2018-05-01T15:20:38Z" duration-ms="10713" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- InitObjects -->
-        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T14:22:48Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-05-01T14:22:49Z" duration-ms="769" status="PASS">
+        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T15:20:38Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-05-01T15:20:40Z" duration-ms="1406" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,23 +34,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LoginToOrion_IsSuccess -->
-        <test-method signature="Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T14:22:49Z" name="Test_IfNewTimeSheetPage_Isdisplayed" finished-at="2018-05-01T14:22:51Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="2135" status="PASS">
+        <test-method signature="Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T15:20:40Z" name="Test_IfNewTimeSheetPage_Isdisplayed" finished-at="2018-05-01T15:20:42Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="2353" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_IfNewTimeSheetPage_Isdisplayed -->
-        <test-method signature="Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T14:22:51Z" name="Test_IfSubmitMessage_IsDisplayed" finished-at="2018-05-01T14:22:56Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed" duration-ms="4638" status="PASS">
+        <test-method signature="Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T15:20:42Z" name="Test_IfSubmitMessage_IsDisplayed" finished-at="2018-05-01T15:20:47Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed" duration-ms="4631" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_IfSubmitMessage_IsDisplayed -->
-        <test-method signature="Test_IfDataSubmittedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T14:22:56Z" name="Test_IfDataSubmittedCorrectly" finished-at="2018-05-01T14:23:12Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed" duration-ms="15852" status="PASS">
+        <test-method signature="Test_IfDataSubmittedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T15:20:47Z" name="Test_IfDataSubmittedCorrectly" finished-at="2018-05-01T15:21:02Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed" duration-ms="15380" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_IfDataSubmittedCorrectly -->
-        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T14:23:12Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-05-01T14:23:12Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly" duration-ms="454" status="PASS">
+        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T15:21:02Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-05-01T15:21:02Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly" duration-ms="478" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
-        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T14:23:12Z" name="CloseObjects" finished-at="2018-05-01T14:23:13Z" duration-ms="811" status="PASS">
+        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@130c12b7]" started-at="2018-05-01T15:21:02Z" name="CloseObjects" finished-at="2018-05-01T15:21:03Z" duration-ms="835" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseObjects -->
