@@ -55,14 +55,14 @@ public class OrionBase {
 		} else if (Browser.equalsIgnoreCase("ie")) {
 			driver = new InternetExplorerDriver();
 		} else if (Browser.equalsIgnoreCase("chrome")) {
-			if (isDownloadReq) {
+		/*	john if (isDownloadReq) {
 				// System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
 				/* following code is to download files using Chrome browser */
-				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+		/* john		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("profile.default_content_settings.popups", 0);
 				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
 				ChromeOptions options = new ChromeOptions();
-				
+				//for linux
 				options.setBinary(System.getProperty("user.dir")+"/src/main/input/chromedriver");
 				
 				
@@ -76,17 +76,14 @@ public class OrionBase {
 				cap.setCapability(ChromeOptions.CAPABILITY, options);
 				// System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
-				System.setProperty("webdriver.chrome.logfile", System.getProperty("user.dir")+"//src//main//input//chromedriver.log");
-				System.setProperty("webdriver.chrome.verboseLogging", "true");
-
 				driver = new ChromeDriver(cap);
 			}
 			else {
 				 //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
+			    john */ System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				driver = new ChromeDriver();
 			}
-		}
+		// john}
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
