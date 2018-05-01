@@ -58,13 +58,12 @@ public class OrionBase {
 			if (isDownloadReq) {
 				// System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
 				/* following code is to download files using Chrome browser */
-				System.out.println("Inside Chrome - OrionBase.java");
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("profile.default_content_settings.popups", 0);
 				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
 				ChromeOptions options = new ChromeOptions();
-				System.out.println(System.getProperty("user.dir")+"//src//main//input//chromedriver");
-				options.setBinary(System.getProperty("user.dir")+"//src//main//input//chromedriver");
+				
+				options.setBinary(System.getProperty("user.dir")+"/src/main/input/chromedriver");
 				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
 				options.setExperimentalOption("prefs", chromePrefs);
 				options.addArguments("--test-type");
@@ -77,10 +76,11 @@ public class OrionBase {
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				driver = new ChromeDriver(cap);
 			}
-			else
+			else {
 				// System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
+			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				driver = new ChromeDriver();
+			}
 		}
 
 		driver.manage().deleteAllCookies();

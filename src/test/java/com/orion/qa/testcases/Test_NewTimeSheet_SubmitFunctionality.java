@@ -1,6 +1,7 @@
 package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,7 +129,14 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			 * clicklink(Rows.size());
 			 */
 			Thread.sleep(3000);
-			TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
+
+			try {
+				TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
+			} catch (NoSuchElementException e) {
+				assertTrue(false);
+			}
+
+			//TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
 
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
