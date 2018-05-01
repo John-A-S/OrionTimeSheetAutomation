@@ -81,7 +81,10 @@ public class OrionBase {
 			else {
 				 //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 			    john */ System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
-				driver = new ChromeDriver();
+			    ChromeOptions options = new ChromeOptions();
+			    options.setBinary(System.getProperty("user.dir")+"//src//main//input//chromedriver");
+
+				driver = new ChromeDriver(options);
 			}
 		// john}
 
