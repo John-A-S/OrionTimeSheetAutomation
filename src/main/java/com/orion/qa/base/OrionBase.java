@@ -1,5 +1,6 @@
 package com.orion.qa.base;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -56,6 +57,7 @@ public class OrionBase {
 			driver = new InternetExplorerDriver();
 		} else if (Browser.equalsIgnoreCase("chrome")) {
 			if (isDownloadReq) {
+				org.apache.log4j.BasicConfigurator.configure();	
 				// System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
 				/* following code is to download files using Chrome browser */
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -63,28 +65,27 @@ public class OrionBase {
 				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
 				ChromeOptions options = new ChromeOptions();
 				//for linux
-				options.setBinary(System.getProperty("user.dir")+"/src/main/input/chromedriver");
+				// options.setBinary(System.getProperty("user.dir")+"/src/main/input/chromedriver");
 				
 				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
 				options.setExperimentalOption("prefs", chromePrefs);
 				
-				options.addArguments("--log-level=3");
-				options.addArguments("--silent");
-				
-				//options.addArguments("--no-sandbox");
 				options.addArguments("--test-type");
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 				DesiredCapabilities cap = DesiredCapabilities.chrome();
+				
+	//			cap.setCapability("webdriver.chrome.args", Arrays.asList("--whitelisted-ips=127.0.0.1"));
+				
 				cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 				cap.setCapability(ChromeOptions.CAPABILITY, options);
-				// System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				driver = new ChromeDriver(cap);
 			}
 			else {
-				// System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
+				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+			    //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				driver = new ChromeDriver();
 			}
 		}
