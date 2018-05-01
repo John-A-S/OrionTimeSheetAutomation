@@ -57,7 +57,7 @@ public class OrionBase {
 			driver = new InternetExplorerDriver();
 		} else if (Browser.equalsIgnoreCase("chrome")) {
 			if (isDownloadReq) {
-				org.apache.log4j.BasicConfigurator.configure();	
+				 // org.apache.log4j.BasicConfigurator.configure();	
 				// System.setProperty(Chromebrowser, CommonMethods.Chrome_Browser_Location);
 				/* following code is to download files using Chrome browser */
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -74,7 +74,7 @@ public class OrionBase {
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 				DesiredCapabilities cap = DesiredCapabilities.chrome();
 				
-	//			cap.setCapability("webdriver.chrome.args", Arrays.asList("--whitelisted-ips=127.0.0.1"));
+				cap.setCapability("webdriver.chrome.args", Arrays.asList("--whitelisted-ips=127.0.0.1"));
 				
 				cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);

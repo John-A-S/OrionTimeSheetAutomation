@@ -5,6 +5,8 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.Level;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -42,7 +44,11 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 
 			System.out.println("********** Test_NewTimeSheet_SubmitFunctionality START ************* ");
 			
+	/*		org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Test_NewTimeSheet_SubmitFunctionality.class);
+			logger.setLevel(Level.OFF);
+*/
 			init(Browser, true);
+
 
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
