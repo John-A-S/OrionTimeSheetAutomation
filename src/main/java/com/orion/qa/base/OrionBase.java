@@ -67,7 +67,11 @@ public class OrionBase {
 				
 				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
 				options.setExperimentalOption("prefs", chromePrefs);
-				options.addArguments("--no-sandbox");
+				
+				options.addArguments("--log-level=3");
+				options.addArguments("--silent");
+				
+				//options.addArguments("--no-sandbox");
 				options.addArguments("--test-type");
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 				DesiredCapabilities cap = DesiredCapabilities.chrome();
