@@ -18,15 +18,15 @@ public class LinuxTest {
 	
 	@BeforeMethod()
 	public void init() {
-		/*System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 		
 		ChromeOptions options = new ChromeOptions();
 		options.setBinary(chromeDriverPath);
 
 		driver = new ChromeDriver(options);
 		driver.get("http://www.google.com");
-*/	
-	System.out.println("Inside init - Before Method");	
+
+	// System.out.println("Inside init - Before Method");	
 	}
 
 	@Test()
