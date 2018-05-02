@@ -6,6 +6,7 @@
       <class name="com.orion.qa.testcases.LinuxTest">
         <methods>
           <include name="init"/>
+          <include name="closeBrowser"/>
           <include name="verifyURL"/>
         </methods>
       </class> <!-- com.orion.qa.testcases.LinuxTest -->

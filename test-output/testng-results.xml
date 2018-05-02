@@ -1,60 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-05-02T19:23:47Z" name="Orion TimeSheet Automation Test Suite" finished-at="2018-05-02T19:24:22Z" duration-ms="34834">
+  <suite started-at="2018-05-02T19:58:03Z" name="Orion TimeSheet Automation Test Suite" finished-at="2018-05-02T19:58:49Z" duration-ms="46230">
     <groups>
     </groups>
-    <test started-at="2018-05-02T19:23:47Z" name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality" finished-at="2018-05-02T19:24:22Z" duration-ms="34834">
-      <class name="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality">
-        <test-method is-config="true" signature="InitObjects(java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@2c1b194a]" started-at="2018-05-02T15:23:47Z" name="InitObjects" finished-at="2018-05-02T15:23:57Z" duration-ms="10360" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2018-05-02T19:58:03Z" name="Sample_Linux_Test" finished-at="2018-05-02T19:58:49Z" duration-ms="46230">
+      <class name="com.orion.qa.testcases.LinuxTest">
+        <test-method is-config="true" signature="init()[pri:0, instance:com.orion.qa.testcases.LinuxTest@5aebe890]" started-at="2018-05-02T15:58:03Z" name="init" finished-at="2018-05-02T15:58:49Z" duration-ms="46157" status="FAIL">
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[Timed out waiting 45 seconds for Firefox to start.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-FKH366F', ip: '192.168.1.61', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.1'
+Driver info: driver.version: FirefoxDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: Timed out waiting 45 seconds for Firefox to start.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-FKH366F', ip: '192.168.1.61', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.1'
+Driver info: driver.version: FirefoxDriver
+	at org.openqa.selenium.firefox.XpiDriverService.waitUntilAvailable(XpiDriverService.java:131)
+	at org.openqa.selenium.firefox.XpiDriverService.start(XpiDriverService.java:116)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:79)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:209)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:132)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:120)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:98)
+	at com.orion.qa.testcases.LinuxTest.init(LinuxTest.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.net.UrlChecker$TimeoutException: Timed out waiting for [http://localhost:33217/hub/status] to be available after 45008 ms
+	at org.openqa.selenium.net.UrlChecker.waitUntilAvailable(UrlChecker.java:100)
+	at org.openqa.selenium.firefox.XpiDriverService.waitUntilAvailable(XpiDriverService.java:129)
+	... 35 more
+Caused by: java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(Unknown Source)
+	at com.google.common.util.concurrent.SimpleTimeLimiter.callWithTimeout(SimpleTimeLimiter.java:148)
+	at org.openqa.selenium.net.UrlChecker.waitUntilAvailable(UrlChecker.java:75)
+	... 36 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- InitObjects -->
-        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@2c1b194a]" started-at="2018-05-02T15:23:57Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-05-02T15:23:59Z" duration-ms="1652" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[john]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[infomatics@123]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- init -->
+        <test-method signature="verifyURL()[pri:0, instance:com.orion.qa.testcases.LinuxTest@5aebe890]" started-at="2018-05-02T15:58:49Z" name="verifyURL" finished-at="2018-05-02T15:58:49Z" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[Timed out waiting 45 seconds for Firefox to start.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-FKH366F', ip: '192.168.1.61', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.1'
+Driver info: driver.version: FirefoxDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: Timed out waiting 45 seconds for Firefox to start.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-FKH366F', ip: '192.168.1.61', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.1'
+Driver info: driver.version: FirefoxDriver
+	at org.openqa.selenium.firefox.XpiDriverService.waitUntilAvailable(XpiDriverService.java:131)
+	at org.openqa.selenium.firefox.XpiDriverService.start(XpiDriverService.java:116)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:79)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:209)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:132)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:120)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:98)
+	at com.orion.qa.testcases.LinuxTest.init(LinuxTest.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.net.UrlChecker$TimeoutException: Timed out waiting for [http://localhost:33217/hub/status] to be available after 45008 ms
+	at org.openqa.selenium.net.UrlChecker.waitUntilAvailable(UrlChecker.java:100)
+	at org.openqa.selenium.firefox.XpiDriverService.waitUntilAvailable(XpiDriverService.java:129)
+	... 35 more
+Caused by: java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(Unknown Source)
+	at com.google.common.util.concurrent.SimpleTimeLimiter.callWithTimeout(SimpleTimeLimiter.java:148)
+	at org.openqa.selenium.net.UrlChecker.waitUntilAvailable(UrlChecker.java:75)
+	... 36 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test_LoginToOrion_IsSuccess -->
-        <test-method signature="Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@2c1b194a]" started-at="2018-05-02T15:23:59Z" name="Test_IfNewTimeSheetPage_Isdisplayed" finished-at="2018-05-02T15:24:00Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="1240" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_IfNewTimeSheetPage_Isdisplayed -->
-        <test-method signature="Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@2c1b194a]" started-at="2018-05-02T15:24:00Z" name="Test_IfSubmitMessage_IsDisplayed" finished-at="2018-05-02T15:24:05Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed" duration-ms="4533" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_IfSubmitMessage_IsDisplayed -->
-        <test-method signature="Test_IfDataSubmittedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@2c1b194a]" started-at="2018-05-02T15:24:05Z" name="Test_IfDataSubmittedCorrectly" finished-at="2018-05-02T15:24:20Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed" duration-ms="15693" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_IfDataSubmittedCorrectly -->
-        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@2c1b194a]" started-at="2018-05-02T15:24:20Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-05-02T15:24:21Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly" duration-ms="457" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
-        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@2c1b194a]" started-at="2018-05-02T15:24:21Z" name="CloseObjects" finished-at="2018-05-02T15:24:22Z" duration-ms="695" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CloseObjects -->
-      </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality -->
-    </test> <!-- OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality -->
+        </test-method> <!-- verifyURL -->
+      </class> <!-- com.orion.qa.testcases.LinuxTest -->
+    </test> <!-- Sample_Linux_Test -->
   </suite> <!-- Orion TimeSheet Automation Test Suite -->
 </testng-results>
