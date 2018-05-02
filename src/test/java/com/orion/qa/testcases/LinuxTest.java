@@ -18,25 +18,30 @@ public class LinuxTest {
 	
 	@BeforeMethod()
 	public void init() {
-		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+		/*System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 		
 		ChromeOptions options = new ChromeOptions();
 		options.setBinary(chromeDriverPath);
 
 		driver = new ChromeDriver(options);
 		driver.get("http://www.google.com");
+*/	
+	System.out.println("Inside init - Before Method");	
 	}
 
 	@Test()
 	public void verifyURL(){
-		String title = driver.getTitle();
+	/*	String title = driver.getTitle();
 		System.out.println(title);
 		assertEquals(title, "Google");
-	}
+	*/System.out.println("Inside verifyURL ");	
+	
+		}
 	
 	@AfterMethod()
 	public void closeBrowser() {
-		driver.quit();
+//		driver.quit();
+		System.out.println("Inside close browser");
 	}
 
 }
