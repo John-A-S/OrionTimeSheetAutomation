@@ -1,6 +1,5 @@
 package com.orion.qa.testcases;
 
-import static org.testng.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,7 +20,7 @@ public class LinuxTest {
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 		
 		ChromeOptions options = new ChromeOptions();
-		options.setBinary(chromeDriverPath);
+		options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
 
 		driver = new ChromeDriver(options);
 		driver.get("http://www.google.com");
