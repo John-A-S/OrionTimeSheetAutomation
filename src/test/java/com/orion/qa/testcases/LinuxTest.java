@@ -9,9 +9,10 @@ import org.testng.annotations.Test;
 
 public class LinuxTest {
 
-	public static String chromeDriverPath = System.getProperty("user.dir")+"/src/main/input/chromedriver.exe";
+	// public static String chromeDriverPath = System.getProperty("user.dir")+"/src/main/input/chromedriver.exe";
 	//Below is for linux
 	//public static String chromeDriverPath = "/usr/bin/chromedriver";
+	public static String chromeDriverPath = System.getProperty("user.dir")+"/src/main/input/chromedriver";
 	public WebDriver driver;
 	
 	@BeforeMethod()
