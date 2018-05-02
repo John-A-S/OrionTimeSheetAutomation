@@ -44,14 +44,9 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 
 			System.out.println("********** Test_NewTimeSheet_SubmitFunctionality START ************* ");
 			
-	 /*		org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Test_NewTimeSheet_SubmitFunctionality.class);
-			logger.setLevel(Level.OFF);
-	 */
-			System.out.println(System.getProperty("user.dir") + "/src/main/resources/log4j.properties");
 			PropertyConfigurator.configure(System.getProperty("user.dir") + "/src/main/resources/log4j.properties");
 			
 			init(Browser, true);
-
 
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();

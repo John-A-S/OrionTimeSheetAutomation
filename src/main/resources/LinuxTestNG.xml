@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Orion TimeSheet Automation Test Suite">
+
+	<test name="Sample_Linux_Test">
+		<classes>
+			<class name="com.orion.qa.testcases.LinuxTest"/>
+		</classes>
+	</test>
+	
+</suite>
+
+
