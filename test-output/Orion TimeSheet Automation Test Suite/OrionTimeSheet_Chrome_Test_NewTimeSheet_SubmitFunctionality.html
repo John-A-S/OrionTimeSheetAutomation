@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/1/1</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/1/3</td>
 </tr><tr>
-<td>Started on:</td><td>Tue May 01 20:17:40 EDT 2018</td>
+<td>Started on:</td><td>Wed May 02 10:30:18 EDT 2018</td>
 </tr>
-<tr><td>Total time:</td><td>56 seconds (56013 ms)</td>
+<tr><td>Total time:</td><td>12 seconds (12622 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,16 +75,18 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly()'><b>Test_IfDataSubmittedCorrectly</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly(Test_NewTimeSheet_SubmitFunctionality.java:145)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1987354705", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1987354705'><pre>java.lang.AssertionError: expected [true] but found [false]
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed()'><b>Test_IfNewTimeSheetPage_Isdisplayed</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td><div><pre>java.lang.AssertionError: expected [TimeSheet New Time Sheet] but found [Time Sheet]
+	at com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed(Test_NewTimeSheet_SubmitFunctionality.java:95)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1293252487", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1293252487'><pre>java.lang.AssertionError: expected [TimeSheet New Time Sheet] but found [Time Sheet]
 	at org.testng.Assert.fail(Assert.java:93)
 	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertTrue(Assert.java:41)
-	at org.testng.Assert.assertTrue(Assert.java:51)
-	at com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly(Test_NewTimeSheet_SubmitFunctionality.java:145)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:134)
+	at org.testng.Assert.assertEquals(Assert.java:115)
+	at org.testng.Assert.assertEquals(Assert.java:189)
+	at org.testng.Assert.assertEquals(Assert.java:199)
+	at com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed(Test_NewTimeSheet_SubmitFunctionality.java:95)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -111,7 +113,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>33</td>
+<td>1</td>
 <td>com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -122,19 +124,9 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfNewTimeSheetPage_Isdisplayed()'><b>Test_IfNewTimeSheetPage_Isdisplayed</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
-<td></td>
-<td>1</td>
-<td>com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587</td></tr>
-<tr>
-<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed()'><b>Test_IfSubmitMessage_IsDisplayed</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
-<td></td>
-<td>5</td>
-<td>com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587</td></tr>
-<tr>
 <td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess()'><b>Test_LoginToOrion_IsSuccess</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality<br>Parameters: john, infomatics@123</td>
 <td></td>
-<td>2</td>
+<td>0</td>
 <td>com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
@@ -145,10 +137,62 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly()'><b>Test_IfDataSubmittedCorrectly</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1424439581", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1424439581'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfDataSubmittedCorrectly()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed()'><b>Test_IfSubmitMessage_IsDisplayed</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
+<td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1829966070", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1829966070'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_IfSubmitMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
 <td title='com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality.Test_LogoutfromOrion_IsSuccess()'><b>Test_LogoutfromOrion_IsSuccess</b><br>Test class: com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality</td>
 <td><div><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587] depends on not successfully finished methods
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1733619456", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1733619456'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace626626764", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace626626764'><pre>java.lang.Throwable: Method Test_NewTimeSheet_SubmitFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality@201a4587] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)

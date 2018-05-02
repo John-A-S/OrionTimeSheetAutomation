@@ -65,6 +65,10 @@ public class OrionBase {
 				chromePrefs.put("profile.default_content_settings.popups", 0);
 				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
 				ChromeOptions options = new ChromeOptions();
+				  
+			    options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
+
+				
 				//for linux
 			    options.setBinary(System.getProperty("user.dir")+"/src/main/input/chromedriver");
 				System.out.println("after set binary ");
