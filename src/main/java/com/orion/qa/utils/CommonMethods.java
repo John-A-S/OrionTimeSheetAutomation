@@ -61,6 +61,8 @@ public class CommonMethods {
 
 	public static boolean CompareFilesbyByte(String file1, String file2) {
 		try {
+			System.out.println("file1 : " + file1);
+			System.out.println("file2 : " + file2);
 			File f1 = new File(file1);
 			File f2 = new File(file2);
 			FileInputStream fis1 = new FileInputStream(f1);
@@ -80,19 +82,19 @@ public class CommonMethods {
 					if (Arrays.equals(b1, b2) == false) {
 						fis1.close();
 						fis2.close();
-						f2.delete(); // deleting the downloaded file
+						// f2.delete(); // deleting the downloaded file
 						return false;
 					}
 				}
 			} else {
 				fis1.close();
 				fis2.close();
-			    f2.delete(); // deleting the downloaded file
+			    // f2.delete(); // deleting the downloaded file
 				return false;
 			}
 			fis1.close();
 			fis2.close();
-			f2.delete(); // deleting the downloaded file
+			// f2.delete(); // deleting the downloaded file
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
