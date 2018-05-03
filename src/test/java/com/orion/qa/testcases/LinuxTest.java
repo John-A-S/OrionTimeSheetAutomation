@@ -28,7 +28,7 @@ public class LinuxTest {
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
 		ChromeOptions options = new ChromeOptions(); 
-		options.setBinary("/usr/bin/chromium/chrome");
+		options.setBinary("/usr/bin/chromium");
 
 		driver = new ChromeDriver(options);
 		driver.get("http://www.google.com");
