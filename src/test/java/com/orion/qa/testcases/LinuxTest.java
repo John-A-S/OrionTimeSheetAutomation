@@ -28,6 +28,13 @@ public class LinuxTest {
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
 		ChromeOptions options = new ChromeOptions(); 
+		
+		 options.addArguments("--disable-extensions");
+		 options.addArguments("--headless");
+		 options.addArguments("--disable-gpu");
+		 options.addArguments("--no-sandbox");
+
+		
 		options.setBinary("/usr/bin/chromium");
 
 		driver = new ChromeDriver(options);
