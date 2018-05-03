@@ -13,14 +13,7 @@ public class LinuxTest {
 
 	public WebDriver driver;
 
-	// public static String chromeDriverPath =
-	// System.getProperty("user.dir")+"/src/main/input/chromedriver.exe";
-	// Below is for linux
-	// public static String chromeDriverPath = "/usr/bin/chromedriver";
 	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver";
-
-	// public static String firefoxpath =
-	// System.getProperty("user.dir")+"/src/main/input/geckodriver.exe";
 
 	@BeforeMethod()
 	public void init() {
@@ -31,22 +24,13 @@ public class LinuxTest {
 		
 		 options.addArguments("--disable-extensions");
 		 options.addArguments("--headless");
-//		 options.addArguments("--disable-gpu");
 		 options.addArguments("--no-sandbox");
 
-		
-	//	options.setBinary("/usr/bin/chromium");
+		 //	options.addArguments("--disable-gpu");
+		 //	options.setBinary("/usr/bin/chromium");
 
 		driver = new ChromeDriver(options);
 		driver.get("http://www.google.com");
-
-		/*
-		 * FireFox System.setProperty("webdriver.firefox.marionette", firefoxpath);
-		 * 
-		 * driver = new FirefoxDriver(); driver.get("http://www.google.com");
-		 * 
-		 * // System.out.println("Inside init - Before Method");
-		 */
 	}
 
 	@Test()
