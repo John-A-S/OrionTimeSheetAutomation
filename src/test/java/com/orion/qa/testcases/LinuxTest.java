@@ -22,11 +22,10 @@ public class LinuxTest {
 
 		ChromeOptions options = new ChromeOptions(); 
 		
-		 //options.addArguments("--headless");
-		 options.addArguments("--no-sandbox");
+		 options.addArguments("--headless");
+		 //options.addArguments("--no-sandbox");
 		 
 		 //	options.addArguments("--disable-extensions");
-
 		 //	options.addArguments("--disable-gpu");
 		 //	options.setBinary("/usr/bin/chromium");
 
