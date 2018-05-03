@@ -35,7 +35,7 @@ public class LinuxTest {
 		 options.addArguments("--no-sandbox");
 
 		
-		options.setBinary("/usr/bin/chromium");
+	//	options.setBinary("/usr/bin/chromium");
 
 		driver = new ChromeDriver(options);
 		driver.get("http://www.google.com");
