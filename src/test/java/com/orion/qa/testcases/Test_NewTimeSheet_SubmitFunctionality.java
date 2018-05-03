@@ -245,7 +245,9 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 		try {
 			String TempFileName = getLatestUploadFile();
 			log.info("Temp File Name : "+ TempFileName);
+			Thread.sleep(5000);
 			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
+			System.out.println("Temp file name :" + TempFileName);
 			driver.findElement(By.linkText(TempFileName)).click();
 			Thread.sleep(20000);
 			// Linux TempFileName = TempFileName.replace("/", "_");

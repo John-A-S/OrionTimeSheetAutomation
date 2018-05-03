@@ -72,6 +72,7 @@ public class OrionBase {
 				/* following code is to download files using Chrome browser */
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("profile.default_content_settings.popups", 0);
+				chromePrefs.put("Browser.setDownloadBehavior", "allow");
 				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
 				ChromeOptions options = new ChromeOptions();
 				//for linux
