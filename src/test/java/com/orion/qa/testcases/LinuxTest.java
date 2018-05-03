@@ -22,7 +22,7 @@ public class LinuxTest {
 
 		ChromeOptions options = new ChromeOptions(); 
 		
-		 options.addArguments("--disable-extensions");
+//		 options.addArguments("--disable-extensions");
 		 options.addArguments("--headless");
 		 options.addArguments("--no-sandbox");
 
