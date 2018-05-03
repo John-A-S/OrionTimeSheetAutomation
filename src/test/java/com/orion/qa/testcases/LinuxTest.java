@@ -30,7 +30,7 @@ public class LinuxTest {
 		ChromeOptions options = new ChromeOptions(); 
 		options.setBinary("/usr/bin/chromium/chrome");
 
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
 		driver.get("http://www.google.com");
 
 		/*
