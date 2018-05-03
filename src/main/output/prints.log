@@ -1,0 +1,76 @@
+14:16:23.309 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Before calling readExcel Paths
+14:16:23.542 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - After calling readExcel Paths
+14:16:23.542 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - After calling Base class
+14:16:23.660 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside InitObjects
+14:16:23.660 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Browser : chrome
+14:16:23.661 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Orion base Init
+14:16:23.661 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Setting Chrome driver property
+14:16:30.652 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Deleted all cookies
+14:16:31.801 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Windows Maximized
+14:16:37.650 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_LoginToOrion_IsSuccess method
+14:16:37.651 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Setting User Credentials
+14:16:38.297 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Login button click
+14:16:38.614 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Login success
+14:16:38.619 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_IfNewTimeSheetPage_Isdisplayed method
+14:16:38.620 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - New Timesheet button click
+14:16:40.173 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - New timesheet button successfully clicked
+14:16:41.258 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - New Time Sheet page is displayed
+14:16:41.431 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - New Report Period 04/29/2018 - 05/05/2018
+14:16:41.431 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Sending test data to the fields
+14:16:42.951 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Upload Attachment
+14:16:42.951 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Add Attach button click
+14:16:43.181 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Add Attachment
+14:16:43.230 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Submit button click
+14:16:44.331 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Warning message: OK click
+14:16:45.530 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Timesheet submitted successfully: OK click
+14:16:45.863 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - TimeSheet submitted successfully
+14:16:45.867 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_IfDataSubmittedCorrectly to verify data is submitted correctly
+14:16:48.868 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Verfiy ReportPeriod 04/29/2018 - 05/05/2018. Click link
+14:16:49.944 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside DownloadfileAndComparewithTestFile
+14:16:49.944 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside getLatestUploadFile
+14:17:01.286 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Timesheet data submitted correctly
+14:17:01.289 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_LogoutfromOrion_IsSuccess
+14:17:01.289 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Identifying loginUserIcon for logout
+14:17:01.400 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Logout button click
+14:17:01.698 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Logout successfully
+14:17:01.700 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Close Browser
+14:17:02.451 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Browser closed
+14:20:23.513 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Before calling readExcel Paths
+14:20:23.745 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - After calling readExcel Paths
+14:20:23.745 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - After calling Base class
+14:20:23.847 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - ********** Test_NewTimeSheet_SubmitFunctionality START ************* 
+14:20:23.847 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside InitObjects
+14:20:23.848 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Browser parameter value: chrome
+14:20:23.848 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Orion base Init
+14:20:23.848 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Setting Chrome driver property
+14:20:29.733 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Deleted all cookies
+14:20:30.930 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Windows Maximized
+14:20:33.831 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_LoginToOrion_IsSuccess method
+14:20:33.831 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Setting User Credentials
+14:20:34.283 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Login button click
+14:20:34.536 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Login success
+14:20:34.544 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_IfNewTimeSheetPage_Isdisplayed method
+14:20:34.544 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - New Timesheet button click
+14:20:35.465 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - New timesheet button successfully clicked
+14:20:36.564 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - New Time Sheet page is displayed
+14:20:36.737 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - New Report Period 04/29/2018 - 05/05/2018
+14:20:36.737 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Sending test data to the fields
+14:20:38.236 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Upload Attachment
+14:20:38.236 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Add Attach button click
+14:20:38.463 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Add Attachment
+14:20:38.513 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Submit button click
+14:20:39.629 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Warning message: OK click
+14:20:40.829 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Timesheet submitted successfully: OK click
+14:20:41.130 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - TimeSheet submitted successfully
+14:20:41.136 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_IfDataSubmittedCorrectly to verify data is submitted correctly
+14:20:44.137 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Verfiy ReportPeriod 04/29/2018 - 05/05/2018. Click link
+14:20:45.167 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside DownloadfileAndComparewithTestFile
+14:20:45.167 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside getLatestUploadFile
+14:20:56.475 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Timesheet data submitted correctly
+14:20:56.479 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_LogoutfromOrion_IsSuccess
+14:20:56.479 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Identifying loginUserIcon for logout
+14:20:56.594 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Logout button click
+14:20:56.863 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Logout successfully
+14:20:56.864 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Close Browser
+14:20:57.627 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Browser closed
+14:20:57.628 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - ********** Test_NewTimeSheet_SubmitFunctionality END *************

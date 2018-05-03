@@ -6,7 +6,6 @@ import static org.testng.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -34,78 +33,88 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 
 	public Test_NewTimeSheet_SubmitFunctionality() {
 		super();
+		log.info("After calling Base class");
 	}
-
 	
 	@Parameters("Browser")
 	@BeforeClass
 	public void InitObjects(String Browser) {
 		try {
-
 			System.out.println("********** Test_NewTimeSheet_SubmitFunctionality START ************* ");
-			
-			PropertyConfigurator.configure(System.getProperty("user.dir") + "/src/main/resources/log4j.properties");
-			
+			log.info("********** Test_NewTimeSheet_SubmitFunctionality START ************* ");
+			log.info("Inside InitObjects");	
+			log.info("Browser parameter value: "+Browser);
 			init(Browser, true);
 
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method InitObjects "+ e.getMessage());
 		}
 	}
 
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_NewTimeSheet_SubmitFunctionality END ************* ");
+		System.out.println("********** Test_NewTimeSheet_SubmitFunctionality END *************");
+		log.info("********** Test_NewTimeSheet_SubmitFunctionality END *************");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
 	public void Test_LoginToOrion_IsSuccess(String UserID, String Password) {
 		try {
+			log.info("Inside Test_LoginToOrion_IsSuccess method");
+			log.debug("Setting User Credentials");
 			LoginPage.txtbx_UserName(driver).sendKeys(UserID);
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
+			log.debug("Login button click");
 			LoginPage.btnLogin(driver).click();
 			try {
 				assertEquals(true, CommonMethods.lbl_LoginUserIcon(driver).isDisplayed());
+				log.info("Login success");
 			} catch (NoSuchElementException e) {
+				log.error("Exception : Login button not found; Error occured: "+ e.getMessage());
 				assertEquals(false, true);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
 		}
 	}
 
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfNewTimeSheetPage_Isdisplayed() {
-
+		log.info("Inside Test_IfNewTimeSheetPage_Isdisplayed method");
 		clickNewTimeSheetlink();
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_IfNewTimeSheetPage_Isdisplayed : "+e.getMessage());
 		}
 
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
 				"TimeSheet New Time Sheet");
+		log.info("New Time Sheet page is displayed");
 	}
 
 	@Test(priority = 3, dependsOnMethods = { "Test_IfNewTimeSheetPage_Isdisplayed" })
 	public void Test_IfSubmitMessage_IsDisplayed() {
 		try {
-
+				
 			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
 			NewReportPeriod = ele.getText();
-			
+			log.info("New Report Period " + NewReportPeriod);
 			InjectTestData();
+			log.debug("Submit button click");
 			TimeSheetEditPage.ScrollScreenToSubmitButtonAndClick(driver, jse);
 			Thread.sleep(1000);
 			//WebElement ElementMsg = TimeSheetEditPage.Wait_Msg_TimeSheetSave(driver, wait);
 
 			// String strSaveMsg = ElementMsg.getText();
-
+			log.debug("Warning message: OK click");	
 			act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSubmit_OK(driver, wait)).click().build().perform();
 			
 			Thread.sleep(1000);
@@ -113,18 +122,22 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 
 			String strSaveMsg1 = ElementMsg1.getText();
 
+			log.debug("Timesheet submitted successfully: OK click");	
 			act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSave_OK(driver, wait)).click().build().perform();
 			
 			//assertEquals(strSaveMsg1, "Warning: No modification is allowed after submission. Please use \"Contact Us\" form if you did that in error.");
 			assertEquals(strSaveMsg1, "Time Sheet Submitted Successfully.");
+			log.info("TimeSheet submitted successfully");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_IfSubmitMessage_IsDisplayed " + e.getMessage());
 		}
 	}
 
 	@Test(priority = 4, dependsOnMethods = { "Test_IfSubmitMessage_IsDisplayed" })
 	public void Test_IfDataSubmittedCorrectly() {
 		try {
+			log.info("Inside Test_IfDataSubmittedCorrectly to verify data is submitted correctly");
 
 			// Get the last row which is added as New timesheet
 			/*
@@ -135,9 +148,12 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			Thread.sleep(3000);
 
 			try {
+				log.debug("Verfiy ReportPeriod "+ NewReportPeriod + ". Click link");
 				TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
 			} catch (NoSuchElementException e) {
+				log.error("Link "+NewReportPeriod+" not found.  Error :"+e.getMessage());
 				assertTrue(false);
+				
 			}
 
 			//TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
@@ -146,37 +162,47 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
 			DownloadfileAndComparewithTestFile();
 			assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			log.info("Timesheet data submitted correctly");
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method "+ e.getMessage());
 		}
 	}
 
 	@Test(priority = 5, dependsOnMethods = { "Test_IfDataSubmittedCorrectly" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
-
+			log.info("Inside Test_LogoutfromOrion_IsSuccess");
+			log.debug("Identifying loginUserIcon for logout");
 			act.moveToElement(CommonMethods.lbl_LoginUserIcon(driver)).click().perform();
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
+			log.debug("Logout button click");
 			CommonMethods.btn_Logout(driver).click();
 			assertEquals(true, LoginPage.btnLogin(driver).isDisplayed());
-
+			log.info("Logout successfully");	
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_LogoutfromOrion_IsSuccess " + e.getMessage());
 		}
 	}
 
 	public void clickNewTimeSheetlink() {
 		try {
+			log.debug("New Timesheet button click");
 			act.moveToElement(wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.btn_NewTimeSheet(driver))))
 					.click().build().perform();
+			log.info("New timesheet button successfully clicked");
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Error occured during new timesheet button click "+ e.getMessage());
 		}
 	}
 
 	public void UploadAttachment() {
 		try {
+			log.info("Inside Upload Attachment");
+			log.debug("Add Attach button click");
 			TimeSheetEditPage.wait_btn_AddAttachclickable(driver, wait).click();
 
 			WebElement TableData = TimeSheetEditPage.grd_AttachmentData(driver);
@@ -188,14 +214,17 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			wait.until(ExpectedConditions
 					.elementToBeClickable(TimeSheetEditPage.wait_grd_AddAttachclickable(driver, RowValue)));
 			// enter the file path onto the file-selection input field //
+			log.debug("Add Attachment");
 			TimeSheetEditPage.wait_grd_AddAttachclickable(driver, RowValue)
 				.sendKeys(CommonMethods.Sample_FileNamewithPath);
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method UploadAttachment "+ e.getMessage());
 		}
 	}
 
 	public String getLatestUploadFile() {
+		log.info("Inside getLatestUploadFile");
 		try {
 			List<WebElement> Rows = TimeSheetEditPage.grd_AttachmentData(driver).findElements(By.tagName("tr"));
 			int RowValue = 1;
@@ -206,11 +235,13 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			return Cols.get(0).getText();
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method getLatestUploadFile "+ e.getMessage());
 			return "Inside getLatestUploadFile Exception";
 		}
 	}
 
 	public void DownloadfileAndComparewithTestFile() {
+		log.info("Inside DownloadfileAndComparewithTestFile");
 		try {
 			String TempFileName = getLatestUploadFile();
 			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
@@ -225,12 +256,13 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method DownloadfileAndComparewithTestFile "+e.getMessage());
 		}
 	}
 
 	public void InjectTestData() {
 		try {
-
+			log.debug("Sending test data to the fields");
 			CommonMethods.ScrollScreenToElement(driver, jse,
 					".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input");
 
@@ -271,10 +303,12 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method InjectTestData " + e.getMessage());
 		}
 	}
 
 	public void clicklink(int RowNo) {
+		log.debug("Inside clicklink");
 		try {
 			act.moveToElement(
 					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()

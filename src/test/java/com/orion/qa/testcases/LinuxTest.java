@@ -1,5 +1,6 @@
 package com.orion.qa.testcases;
 
+import org.apache.logging.log4j.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,16 +18,21 @@ public class LinuxTest {
 	
 	//public static String firefoxpath = System.getProperty("user.dir")+"/src/main/input/geckodriver.exe";
 	public WebDriver driver;
+
+	public static Logger log;
 	
 	@BeforeMethod()
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 		
+		log = LogManager.getLogger(LinuxTest.class.getName());
+
+		System.out.println(LinuxTest.class.getName());
 		/*ChromeOptions options = new ChromeOptions();
 		options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");*/
 
-		driver = new ChromeDriver();
-		driver.get("http://www.google.com");
+	//	driver = new ChromeDriver();
+	//	driver.get("http://www.google.com");
 	/*	System.setProperty("webdriver.firefox.marionette", firefoxpath);
 
 		driver = new FirefoxDriver();
@@ -35,6 +41,16 @@ public class LinuxTest {
 	// System.out.println("Inside init - Before Method");*/	
 	}
 
+	@Test()
+	public void log4jMethod() {
+		log.debug("Debugging message");
+		log.info("Info Message");
+		log.error("error message");
+		log.warn("Warning message");
+		log.fatal("fatal message");
+		
+	}
+	
 	@Test()
 	public void verifyURL(){
 	/*	String title = driver.getTitle();
