@@ -60,7 +60,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 		System.out.println("********** Test_NewTimeSheet_SubmitFunctionality END *************");
 		log.info("********** Test_NewTimeSheet_SubmitFunctionality END *************");
 	}
-
+	
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
 	public void Test_LoginToOrion_IsSuccess(String UserID, String Password) {
 		try {
@@ -248,7 +248,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
 			driver.findElement(By.linkText(TempFileName)).click();
 			Thread.sleep(20000);
-			TempFileName = TempFileName.replace("/", "_");
+			// Linux TempFileName = TempFileName.replace("/", "_");
 			log.debug("File comparison :"+ CommonMethods.Sample_FileNamewithPath + "Downloaded file : " + CommonMethods.Attachment_File_Download_Location + TempFileName );
 			
 			if (CommonMethods.CompareFilesbyByte(CommonMethods.Sample_FileNamewithPath,
