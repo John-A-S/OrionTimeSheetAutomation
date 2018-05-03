@@ -65,6 +65,11 @@ public class CommonMethods {
 			System.out.println("file2 : " + file2);
 			File f1 = new File(file1);
 			File f2 = new File(file2);
+			System.out.println("file1 : " + f1.getAbsolutePath());
+			System.out.println("file2 : " + f2.getAbsolutePath());
+
+			System.out.println("file1 : " + f1.exists());
+			System.out.println("file2 : " +f2.exists());
 			FileInputStream fis1 = new FileInputStream(f1);
 			FileInputStream fis2 = new FileInputStream(f2);
 			Thread.sleep(2000);
