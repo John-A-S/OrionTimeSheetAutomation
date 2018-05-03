@@ -244,10 +244,13 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 		log.info("Inside DownloadfileAndComparewithTestFile");
 		try {
 			String TempFileName = getLatestUploadFile();
+			log.info("Temp File Name : "+ TempFileName);
 			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
 			driver.findElement(By.linkText(TempFileName)).click();
-			Thread.sleep(9000);
+			Thread.sleep(20000);
 			TempFileName = TempFileName.replace("/", "_");
+			log.debug("File comparison :"+ CommonMethods.Sample_FileNamewithPath + "Downloaded file : " + CommonMethods.Attachment_File_Download_Location + TempFileName );
+			
 			if (CommonMethods.CompareFilesbyByte(CommonMethods.Sample_FileNamewithPath,
 					CommonMethods.Attachment_File_Download_Location + TempFileName) == true) {
 				isSameFiles = true;
