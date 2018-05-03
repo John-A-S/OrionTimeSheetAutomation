@@ -18,7 +18,6 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.orion.qa.testcases.LinuxTest;
 import com.orion.qa.utils.CommonMethods;
 
 public class OrionBase {
