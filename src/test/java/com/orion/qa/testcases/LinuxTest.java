@@ -32,7 +32,7 @@ public class LinuxTest {
 		 options.addArguments("--disable-extensions");
 		 options.addArguments("--headless");
 //		 options.addArguments("--disable-gpu");
-//		 options.addArguments("--no-sandbox");
+		 options.addArguments("--no-sandbox");
 
 		
 		options.setBinary("/usr/bin/chromium");
