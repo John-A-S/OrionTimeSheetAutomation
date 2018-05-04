@@ -95,9 +95,9 @@ public class OrionBase {
 				options.addArguments("--headless");
 				options.addArguments("--no-sandbox");
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
-/*
+
 				driverService = ChromeDriverService.createDefaultService();
-				driver = new ChromeDriver(driverService, options);*/
+				driver = new ChromeDriver(driverService, options);
 
 			/*	Map<String, Object> commandParams = new HashMap<String, Object>();
 				commandParams.put("cmd", "Page.setDownloadBehavior");
@@ -116,7 +116,7 @@ public class OrionBase {
 		        httpClient.execute(request);
 */
 				
-				
+				/*
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("browser.setDownloadBehavior", "allow");
 				chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -137,10 +137,10 @@ public class OrionBase {
 				cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 				cap.setCapability(ChromeOptions.CAPABILITY, options);
-				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");*/
+				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 		        
 		        
-				driver = new ChromeDriver(cap);
+				driver = new ChromeDriver(cap); */
 				//driver = new ChromeDriver(options);
 			}
 			else {
