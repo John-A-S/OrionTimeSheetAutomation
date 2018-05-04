@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,6 +23,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.orion.qa.utils.CommonMethods;
 
 public class LinuxTest {
 
@@ -57,7 +60,7 @@ public class LinuxTest {
 
 	@Test()
 	public void downloadfile() throws ClientProtocolException, IOException {
-
+		
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
 		ChromeOptions options = new ChromeOptions();
@@ -77,7 +80,6 @@ public class LinuxTest {
 		commandParams.put("params", params);
 		
 		ObjectMapper objectMapper = new ObjectMapper();
-		
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
         String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";

@@ -25,6 +25,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -32,7 +33,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.orion.qa.utils.CommonMethods;
 
 public class OrionBase {
-	public static WebDriver driver;
+	//public static WebDriver driver;
+	public static ChromeDriver driver;
+	
 	public static WebDriverWait wait;
 	public static Actions act;
 	public static JavascriptExecutor jse;
@@ -70,13 +73,14 @@ public class OrionBase {
 						"application/plain, application/msword");
 				dc = DesiredCapabilities.firefox();
 				dc.setCapability(FirefoxDriver.PROFILE, profile);
-				driver = new FirefoxDriver(dc);
+				//driver = new FirefoxDriver(dc);
 			}
 			else
-				driver = new FirefoxDriver();
+				log.info("FireFoxDriver");
+				//driver = new FirefoxDriver();
 		} else if (Browser.equalsIgnoreCase("ie")) {
 			log.debug("Setting IE driver property");
-			driver = new InternetExplorerDriver();
+			//driver = new InternetExplorerDriver();
 		} else if (Browser.equalsIgnoreCase("chrome")) {
 			if (isDownloadReq) {
 				log.debug("Setting Chrome driver property");
@@ -91,7 +95,7 @@ public class OrionBase {
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 
 				ChromeDriverService driverService = ChromeDriverService.createDefaultService();
-				ChromeDriver driver = new ChromeDriver(driverService, options);
+				driver = new ChromeDriver(driverService, options);
 
 				Map<String, Object> commandParams = new HashMap<String, Object>();
 				commandParams.put("cmd", "Page.setDownloadBehavior");
