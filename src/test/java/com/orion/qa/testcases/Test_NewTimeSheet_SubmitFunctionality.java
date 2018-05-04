@@ -268,6 +268,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			
 
 			driver.findElement(By.linkText(TempFileName)).click();
+			System.out.println("After downloadfile click ");
 			Thread.sleep(20000);
 			TempFileName = TempFileName.replace("/", "_");
 			System.out.println("File comparison :"+ CommonMethods.Sample_FileNamewithPath + "\n  Downloaded file : " + CommonMethods.Attachment_File_Download_Location + TempFileName );
