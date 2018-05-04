@@ -116,9 +116,9 @@ public class LinuxTest {
 		
 		System.out.println("After 04/29/2018 - 05/05/2018");
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		
-		driver.findElement(By.linkText("John Joseph_04/29/2018 - 05/05/2018_0.docx")).click();
+		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		
 		Thread.sleep(5000);
 		
