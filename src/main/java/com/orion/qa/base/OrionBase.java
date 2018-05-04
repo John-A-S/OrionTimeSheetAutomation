@@ -1,14 +1,23 @@
 package com.orion.qa.base;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -18,6 +27,8 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.orion.qa.utils.CommonMethods;
 
 public class OrionBase {
@@ -39,7 +50,7 @@ public class OrionBase {
 
 	}
 
-	public static void init(String Browser, Boolean isDownloadReq) {
+	public static void init(String Browser, Boolean isDownloadReq) throws ClientProtocolException, IOException {
 		log.info("Inside Orion base Init" );
 		if (Browser.equalsIgnoreCase("firefox")) {
 			if (isDownloadReq) {
@@ -71,13 +82,35 @@ public class OrionBase {
 				log.debug("Setting Chrome driver property");
 				/* following code is to download files using Chrome browser */
 				
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
+				
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--test-type");
 				options.addArguments("--headless");
 				options.addArguments("--no-sandbox");
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 
+				ChromeDriverService driverService = ChromeDriverService.createDefaultService();
+				ChromeDriver driver = new ChromeDriver(driverService, options);
+
+				Map<String, Object> commandParams = new HashMap<String, Object>();
+				commandParams.put("cmd", "Page.setDownloadBehavior");
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("behavior", "allow");
+				params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
+				commandParams.put("params", params);
 				
+				ObjectMapper objectMapper = new ObjectMapper();
+				HttpClient httpClient = HttpClientBuilder.create().build();
+		        String command = objectMapper.writeValueAsString(commandParams);
+		        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
+		        HttpPost request = new HttpPost(u);
+		        request.addHeader("content-type", "application/json");
+		        request.setEntity(new StringEntity(command));
+		        httpClient.execute(request);
+
+				
+				/*
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("browser.setDownloadBehavior", "allow");
 				// chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -98,9 +131,10 @@ public class OrionBase {
 				cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 				cap.setCapability(ChromeOptions.CAPABILITY, options);
-				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
-				driver = new ChromeDriver(cap);
+				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");*/
+		        
+		        
+				//driver = new ChromeDriver(cap);
 				//driver = new ChromeDriver(options);
 			}
 			else {
