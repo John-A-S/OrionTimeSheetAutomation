@@ -61,6 +61,7 @@ public class LinuxTest {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--test-type");
 		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-extensions"); // to disable browser extension popup
 
 		ChromeDriverService driverService = ChromeDriverService.createDefaultService();
