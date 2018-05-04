@@ -81,10 +81,10 @@ public class LinuxTest {
         String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
         System.out.println("u "+u);
         HttpPost request = new HttpPost(u);
-        request.addHeader("content-type", "application/json");
+        request.addHeader("content-type", "application/docx");
         if (a) {
             //request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
-        	request.addHeader("Content-Disposition", "inline; filename=\"" + filename + "\"" );
+        	request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"" );
             System.out.println("Content Dispostion :"+ "attachment; filename=\"" + filename + "\"");
         } 
 
