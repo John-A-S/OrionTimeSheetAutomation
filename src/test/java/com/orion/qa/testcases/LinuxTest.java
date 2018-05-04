@@ -9,7 +9,9 @@ import java.util.Map;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -96,11 +98,12 @@ public class LinuxTest {
 
 		System.out.println("Before get" + driver.toString());
 
-        
+     /*   
         driver.get("http://www.seleniumhq.org/download/");
 		System.out.println("After get" + driver.toString());
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
 		System.out.println("After linkText " + driver.toString());
+		*/
 		
 		driver.get("http://192.168.1.226/orion-web/app/");
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
@@ -111,14 +114,24 @@ public class LinuxTest {
 		
 		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
 		
+		System.out.println("After 04/29/2018 - 05/05/2018");
+		
 		Thread.sleep(3000);
 		
 		driver.findElement(By.linkText("John Joseph_04/29/2018 - 05/05/2018_0.docx")).click();
 		
 		Thread.sleep(5000);
 		
-		
 	}
+	
+	public static void ScrollScreenToElement(WebDriver driver, JavascriptExecutor jse, WebElement element) {
+		try {
+			jse.executeScript("arguments[0].scrollIntoView(true);", element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 
 	@AfterMethod()
 	public void closeBrowser() {
