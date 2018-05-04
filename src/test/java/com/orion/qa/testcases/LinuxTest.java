@@ -90,6 +90,7 @@ public class LinuxTest {
         request.addHeader("content-type", "application/json");
         if (a) {
             request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
+            System.out.println("Content Dispostion :"+ "attachment; filename=\"" + filename + "\"");
         } 
 
         request.setEntity(new StringEntity(command));
