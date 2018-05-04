@@ -1,9 +1,6 @@
 package com.orion.qa.testcases;
 
-import static org.testng.Assert.assertEquals;
-
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,8 +13,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -26,7 +21,6 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.orion.qa.utils.CommonMethods;
 
@@ -145,7 +139,7 @@ public class LinuxTest {
 		
 		*/
 	
-		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", true);
+		setDownloadSettings("John Joseph_04_29_2018 - 05_05_2018_0.docx", true);
 		
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		
