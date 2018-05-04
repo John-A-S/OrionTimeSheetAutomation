@@ -73,7 +73,9 @@ public class LinuxTest {
 
 		ChromeDriverService driverService = ChromeDriverService.createDefaultService();
 		ChromeDriver driver = new ChromeDriver(driverService, options);
-
+		
+		System.out.println(driver.toString());
+		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		Map<String, String> params = new HashMap<String, String>();
@@ -92,8 +94,13 @@ public class LinuxTest {
         request.setEntity(new StringEntity(command));
         httpClient.execute(request);
 
+		System.out.println("Before get" + driver.toString());
+
+        
         driver.get("http://www.seleniumhq.org/download/");
+		System.out.println("After get" + driver.toString());
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
+		System.out.println("After linkText " + driver.toString());
 
 	}
 
