@@ -30,7 +30,7 @@ public class LinuxTest {
 	public static ChromeDriverService driverService;
 	public static ChromeDriver driver;
 	public static ChromeOptions options;
-	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver";
+	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver.exe";
 	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
 	
 	@BeforeMethod()
@@ -68,7 +68,8 @@ public class LinuxTest {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("behavior", "allow");
 		
-		params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
+		//params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
+		params.put("downloadPath", "C:\\Eclipse\\Eclipse-Workspace\\OrionTimeSheetTestJob\\src\\main\\input\\download\\");
 		//params.put("downloadPath", chromeDownloadPath);
 		commandParams.put("params", params);
 		
@@ -81,10 +82,10 @@ public class LinuxTest {
         String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
         System.out.println("u "+u);
         HttpPost request = new HttpPost(u);
-        request.addHeader("content-type", "application/octet-stream");
+        request.addHeader("content-type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
         if (a) {
             //request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
-        	request.addHeader("Content-disposition", "attachment; filename=\"" + filename + "\"" );
+        	request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"" );
             System.out.println("Content Dispostion :"+ "attachment; filename=\"" + filename + "\"");
         } 
 
@@ -99,8 +100,8 @@ public class LinuxTest {
 
 		options = new ChromeOptions();
 		options.addArguments("--test-type");
-		options.addArguments("--headless");
-		options.addArguments("--no-sandbox");
+		//options.addArguments("--headless");
+		//options.addArguments("--no-sandbox");
 		options.addArguments("--disable-extensions"); // to disable browser extension popup
 
 		
@@ -131,20 +132,20 @@ public class LinuxTest {
 
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
 
-		/*setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
+		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
 		
         driver.get("http://www.seleniumhq.org/download/");
 		System.out.println("After get" + driver.toString());
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
 		System.out.println("After linkText " + driver.toString());
 		
-		*/
-	
+		
+	/*
 		//setDownloadSettings("John Joseph_04_29_2018 - 05_05_2018_0.docx", true);
 		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", true);
 		
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
-		
+		*/
 		Thread.sleep(5000);
 		
 		System.out.println("After download");
