@@ -277,7 +277,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			} else {
 				isSameFiles = false;
 				log.info("File comparison completed successfully.  Both files mis-matches");
-			}*/
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method DownloadfileAndComparewithTestFile "+e.getMessage());
