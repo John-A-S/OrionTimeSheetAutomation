@@ -249,6 +249,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
 			System.out.println("Temp file name :" + TempFileName);
 			
+			log.debug("setting Downloadproperties..");
 			setDownloadProperties();
 			
 			driver.findElement(By.linkText(TempFileName)).click();
