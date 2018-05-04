@@ -3,6 +3,7 @@ package com.orion.qa.testcases;
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,12 +25,17 @@ import org.testng.annotations.Test;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.orion.qa.utils.CommonMethods;
 
 public class LinuxTest {
 
-	public WebDriver driver;
+	//public WebDriver driver;
+	public static ChromeDriverService driverService;
+	public static ChromeDriver driver;
+	
 
 	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver";
 	
@@ -61,23 +67,9 @@ public class LinuxTest {
 		System.out.println(title);
 		assertEquals(title, "Google"); */
 	}
+	
+	public static void setDownloadSettings(String filename, boolean a) throws ClientProtocolException, IOException {
 
-	@Test()
-	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
-		
-		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--test-type");
-		options.addArguments("--headless");
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-extensions"); // to disable browser extension popup
-
-		ChromeDriverService driverService = ChromeDriverService.createDefaultService();
-		ChromeDriver driver = new ChromeDriver(driverService, options);
-		
-		System.out.println(driver.toString());
-		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		Map<String, String> params = new HashMap<String, String>();
@@ -93,9 +85,34 @@ public class LinuxTest {
         String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/json");
+        if (a) {
+            request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
+        } 
+
         request.setEntity(new StringEntity(command));
         httpClient.execute(request);
+	}
 
+	@Test()
+	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--test-type");
+		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-extensions"); // to disable browser extension popup
+
+		
+		ChromeDriverService driverService = ChromeDriverService.createDefaultService();
+		ChromeDriver driver = new ChromeDriver(driverService, options);
+
+		
+		System.out.println(driver.toString());
+		
+		
+		
 		System.out.println("Before get" + driver.toString());
 
 		driver.get("http://192.168.1.226/orion-web/app/");
@@ -115,18 +132,22 @@ public class LinuxTest {
 		
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
 
-     
+		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
+		
         driver.get("http://www.seleniumhq.org/download/");
 		System.out.println("After get" + driver.toString());
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
 		System.out.println("After linkText " + driver.toString());
-	
 		
+		
+	
+		// setDownloadSettings('John Joseph_04/29/2018 - 05/05/2018_0.docx', true);
 		
 //		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		
 		Thread.sleep(5000);
 		
+		System.out.println("After download");
 	}
 	
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
