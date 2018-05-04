@@ -76,6 +76,9 @@ public class LinuxTest {
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("behavior", "allow");
+		
+		System.out.println("CommonMethods.Attachment_File_Download_Location "+ CommonMethods.Attachment_File_Download_Location);
+		System.out.println("chromeDownloadPath "+ chromeDownloadPath);
 		params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
 		//params.put("downloadPath", chromeDownloadPath);
 		commandParams.put("params", params);
