@@ -75,18 +75,18 @@ public class LinuxTest {
 		params.put("behavior", "allow");
 		params.put("downloadPath", chromeDownloadPath);
 		commandParams.put("params", params);
+		
 		ObjectMapper objectMapper = new ObjectMapper();
 		
-		
-		 HttpClient httpClient = HttpClientBuilder.create().build();
-         String command = objectMapper.writeValueAsString(commandParams);
-         String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
-         HttpPost request = new HttpPost(u);
-         request.addHeader("content-type", "application/json");
-         request.setEntity(new StringEntity(command));
-         httpClient.execute(request);
+		HttpClient httpClient = HttpClientBuilder.create().build();
+        String command = objectMapper.writeValueAsString(commandParams);
+        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
+        HttpPost request = new HttpPost(u);
+        request.addHeader("content-type", "application/json");
+        request.setEntity(new StringEntity(command));
+        httpClient.execute(request);
 
-         driver.get("http://www.seleniumhq.org/download/");
+        driver.get("http://www.seleniumhq.org/download/");
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
 
 	}

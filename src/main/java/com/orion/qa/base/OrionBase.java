@@ -72,18 +72,17 @@ public class OrionBase {
 				/* following code is to download files using Chrome browser */
 				
 				ChromeOptions options = new ChromeOptions();
-				options.setBinary("/usr/bin/chromium");
+				options.addArguments("--test-type");
 				options.addArguments("--headless");
 				options.addArguments("--no-sandbox");
-				options.addArguments("--test-type");
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 
 				
-				System.out.println("Download location "+CommonMethods.Attachment_File_Download_Location);
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("browser.setDownloadBehavior", "allow");
-				chromePrefs.put("profile.default_content_settings.popups", 0);
-				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
+				// chromePrefs.put("profile.default_content_settings.popups", 0);
+				System.out.println("Download location "+CommonMethods.Attachment_File_Download_Location);
+				chromePrefs.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
 
 				//ChromeOptions options = new ChromeOptions();
 				//for linux
