@@ -49,6 +49,8 @@ public class LinuxTest {
 
 		driver = new ChromeDriver(options);
 		driver.get("http://www.google.com");*/
+		
+		CommonMethods.readExcel_Paths();
 	}
 
 	@Test()
