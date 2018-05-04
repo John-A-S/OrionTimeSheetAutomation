@@ -35,6 +35,8 @@ import com.orion.qa.utils.CommonMethods;
 public class OrionBase {
 	//public static WebDriver driver;
 	public static ChromeDriver driver;
+	public static ChromeOptions options;
+	public static ChromeDriverService driverService;
 	
 	public static WebDriverWait wait;
 	public static Actions act;
@@ -88,16 +90,16 @@ public class OrionBase {
 				
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				
-				ChromeOptions options = new ChromeOptions();
+				options = new ChromeOptions();
 				options.addArguments("--test-type");
 				options.addArguments("--headless");
 				options.addArguments("--no-sandbox");
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 
-				ChromeDriverService driverService = ChromeDriverService.createDefaultService();
+				driverService = ChromeDriverService.createDefaultService();
 				driver = new ChromeDriver(driverService, options);
 
-				Map<String, Object> commandParams = new HashMap<String, Object>();
+			/*	Map<String, Object> commandParams = new HashMap<String, Object>();
 				commandParams.put("cmd", "Page.setDownloadBehavior");
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("behavior", "allow");
@@ -112,7 +114,7 @@ public class OrionBase {
 		        request.addHeader("content-type", "application/json");
 		        request.setEntity(new StringEntity(command));
 		        httpClient.execute(request);
-
+*/
 				
 				/*
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -174,5 +176,27 @@ public class OrionBase {
 		log.info("Browser closed");		
 		}
 	}
+	
+	public static void setDownloadProperties() throws ClientProtocolException, IOException {
+		log.info("Inside setDownloadProperties" );
+		Map<String, Object> commandParams = new HashMap<String, Object>();
+		commandParams.put("cmd", "Page.setDownloadBehavior");
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("behavior", "allow");
+		params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
+		commandParams.put("params", params);
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		HttpClient httpClient = HttpClientBuilder.create().build();
+        String command = objectMapper.writeValueAsString(commandParams);
+        System.out.println("Inside setDownloadProperties - command from Json" + command);
+        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
+        System.out.println("Inside setDownloadProperties - value of u" + u);
+        HttpPost request = new HttpPost(u);
+        request.addHeader("content-type", "application/json");
+        request.setEntity(new StringEntity(command));
+        httpClient.execute(request);
+	}
+	
 
 }
