@@ -140,8 +140,8 @@ public class LinuxTest {
 		
 		*/
 	
-		//setDownloadSettings("John Joseph_04_29_2018 - 05_05_2018_0.docx", true);
-		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", true);
+		setDownloadSettings("John Joseph_04_29_2018 - 05_05_2018_0.docx", true);
+		//setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", true);
 		
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		
