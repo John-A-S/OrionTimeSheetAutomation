@@ -248,6 +248,8 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			log.info("Temp File Name : "+ TempFileName);
 
 			log.debug("setting Downloadproperties..");
+			
+			
 			setDownloadProperties(TempFileName);
 			
 			System.out.println(driver.toString());
@@ -258,7 +260,8 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			driver.findElement(By.linkText("32 bit Windows IE")).click();
 */
 			
-
+			TempFileName = TempFileName.replace(" ", "%20");
+			System.out.println("TempFileName after %20 "+ TempFileName);
 			Thread.sleep(5000);
 			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
 			System.out.println("Temp file name :" + TempFileName);
