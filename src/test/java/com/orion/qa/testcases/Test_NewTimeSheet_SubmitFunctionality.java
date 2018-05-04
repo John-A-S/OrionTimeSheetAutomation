@@ -254,15 +254,13 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			
 			System.out.println(driver.toString());
 			
-/*	        driver.get("http://www.seleniumhq.org/download/");
+	        driver.get("http://www.seleniumhq.org/download/");
 	        System.out.println("After Selenium dowload : "+ driver.toString());
 	        Thread.sleep(5000);
 			driver.findElement(By.linkText("32 bit Windows IE")).click();
-*/
+
 			
-			TempFileName = TempFileName.replace(" ", "%20");
-			System.out.println("TempFileName after %20 "+ TempFileName);
-			Thread.sleep(5000);
+/*			Thread.sleep(5000);
 			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
 			System.out.println("Temp file name :" + TempFileName);
 			
@@ -279,7 +277,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			} else {
 				isSameFiles = false;
 				log.info("File comparison completed successfully.  Both files mis-matches");
-			}
+			}*/
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method DownloadfileAndComparewithTestFile "+e.getMessage());
