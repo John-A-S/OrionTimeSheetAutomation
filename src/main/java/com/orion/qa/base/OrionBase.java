@@ -199,8 +199,15 @@ public class OrionBase {
         System.out.println("Inside setDownloadProperties - value of u " + u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/json");
-        //request.addHeader("Content-Disposition","attachment; filename=\"" + filename + "\"");
+        // header( 'Content-Disposition: attachment;filename="'.$filename.'"');
+        // response.setHeader("Content-Disposition", "attachment; filename=" + zipFile.getFileName());
+        //request.setHeader("Content-Disposition","attachment; filename=" + filename );
+
+        request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
+
         request.setEntity(new StringEntity(command));
+        
+        System.out.println(request.toString());
         
         httpClient.execute(request);
         
