@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test name="Default test(failed)">
+<suite name="Failed suite [Orion TimeSheet Automation Test Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener"/>
+  </listeners>
+  <test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality(failed)">
+    <parameter name="Browser" value="chrome"/>
     <classes>
       <class name="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality">
         <methods>
@@ -15,5 +19,5 @@
         </methods>
       </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality(failed) -->
+</suite> <!-- Failed suite [Orion TimeSheet Automation Test Suite] -->
