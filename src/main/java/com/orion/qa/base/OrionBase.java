@@ -179,12 +179,17 @@ public class OrionBase {
 	
 	public static void setDownloadProperties() throws ClientProtocolException, IOException {
 		log.info("Inside setDownloadProperties" );
+		
+		System.out.println("Inside setDownloadProperties" + driver.getCurrentUrl());
+		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("behavior", "allow");
 		params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
 		commandParams.put("params", params);
+
+		System.out.println("Inside setDownloadProperties"  + driver.toString());
 		
 		ObjectMapper objectMapper = new ObjectMapper();
 		HttpClient httpClient = HttpClientBuilder.create().build();

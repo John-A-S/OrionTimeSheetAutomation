@@ -160,6 +160,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
+			System.out.println(driver.getCurrentUrl());
 			DownloadfileAndComparewithTestFile();
 			assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
 			log.info("Timesheet data submitted correctly");
