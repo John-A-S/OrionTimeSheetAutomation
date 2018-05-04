@@ -35,10 +35,7 @@ public class LinuxTest {
 	//public WebDriver driver;
 	public static ChromeDriverService driverService;
 	public static ChromeDriver driver;
-	
-
 	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver";
-	
 	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
 	
 	@BeforeMethod()
@@ -69,7 +66,8 @@ public class LinuxTest {
 	}
 	
 	public static void setDownloadSettings(String filename, boolean a) throws ClientProtocolException, IOException {
-
+		
+		System.out.println("Inside setDownloadSettings");
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		Map<String, String> params = new HashMap<String, String>();
@@ -79,10 +77,13 @@ public class LinuxTest {
 		//params.put("downloadPath", chromeDownloadPath);
 		commandParams.put("params", params);
 		
+		System.out.println("Filename : "+filename);
 		ObjectMapper objectMapper = new ObjectMapper();
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
+        System.out.println(command);
         String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
+        System.out.println("u "+u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/json");
         if (a) {
