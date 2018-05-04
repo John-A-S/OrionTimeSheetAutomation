@@ -120,14 +120,17 @@ public class LinuxTest {
 		
 		System.out.println(driver.findElement(By.xpath("//h3")).getText());
 		
+		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
+		
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		
 		Thread.sleep(5000);
 		
 	}
 	
-	public static void ScrollScreenToElement(WebDriver driver, JavascriptExecutor jse, WebElement element) {
+	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
 		try {
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			jse.executeScript("arguments[0].scrollIntoView(true);", element);
 		} catch (Exception e) {
 			e.printStackTrace();
