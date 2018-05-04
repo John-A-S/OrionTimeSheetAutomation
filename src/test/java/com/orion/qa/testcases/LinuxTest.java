@@ -118,6 +118,8 @@ public class LinuxTest {
 		
 		Thread.sleep(5000);
 		
+		System.out.println(driver.findElement(By.xpath("//h3")).getText());
+		
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		
 		Thread.sleep(5000);
