@@ -154,7 +154,7 @@
 				<version>2.19.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/main/resources/LinuxTestNG.xml</suiteXmlFile>
+						<suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
