@@ -79,7 +79,7 @@ public class OrionBase {
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 
 				
-				
+				System.out.println("Download location "+CommonMethods.Attachment_File_Download_Location);
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("browser.setDownloadBehavior", "allow");
 				chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -94,15 +94,15 @@ public class OrionBase {
 				//options.addArguments("--test-type");
 				//options.addArguments("--disable-extensions"); // to disable browser extension popup
   
-				//HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
-				//DesiredCapabilities cap = DesiredCapabilities.chrome();
-				//cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
-				//cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-				//cap.setCapability(ChromeOptions.CAPABILITY, options);
+				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
+				DesiredCapabilities cap = DesiredCapabilities.chrome();
+				cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
+				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+				cap.setCapability(ChromeOptions.CAPABILITY, options);
 				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
-				//driver = new ChromeDriver(cap);
-				driver = new ChromeDriver(options);
+				driver = new ChromeDriver(cap);
+				//driver = new ChromeDriver(options);
 			}
 			else {
 				log.debug("Setting Chrome driver property");
