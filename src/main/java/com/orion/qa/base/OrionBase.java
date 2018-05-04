@@ -36,7 +36,7 @@ public class OrionBase {
 	public static WebDriver driver;
 	///*public static ChromeDriver driver;
 	public static ChromeOptions options;
-	//public static ChromeDriverService driverService;
+	public static ChromeDriverService driverService;
 
 	public static WebDriverWait wait;
 	public static Actions act;
@@ -195,14 +195,14 @@ public class OrionBase {
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
         System.out.println("Inside setDownloadProperties - command from Json " + command);
-        /*String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
-      //  System.out.println("Inside setDownloadProperties - value of u " + u);
+        String u = driverService.getUrl().toString() + "/session/" + ((RemoteWebDriver) driver).getSessionId() + "/chromium/send_command";
+        System.out.println("Inside setDownloadProperties - value of u " + u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/json");
         request.addHeader("Content-Disposition","attachment; filename=\"" + filename + "\"");
         request.setEntity(new StringEntity(command));
         
-        httpClient.execute(request);*/
+        httpClient.execute(request);
         
         
 	}
