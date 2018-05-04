@@ -250,7 +250,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			log.debug("setting Downloadproperties..");
 			
 			
-			setDownloadProperties(TempFileName);
+			//setDownloadProperties(TempFileName);
 			
 			System.out.println(driver.toString());
 			

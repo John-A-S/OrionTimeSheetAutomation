@@ -33,11 +33,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.orion.qa.utils.CommonMethods;
 
 public class OrionBase {
-	//public static WebDriver driver;
-	public static ChromeDriver driver;
+	public static WebDriver driver;
+	///*public static ChromeDriver driver;
 	public static ChromeOptions options;
-	public static ChromeDriverService driverService;
-	
+	//public static ChromeDriverService driverService;
+
 	public static WebDriverWait wait;
 	public static Actions act;
 	public static JavascriptExecutor jse;
@@ -95,9 +95,9 @@ public class OrionBase {
 				options.addArguments("--headless");
 				options.addArguments("--no-sandbox");
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
-
+/*
 				driverService = ChromeDriverService.createDefaultService();
-				driver = new ChromeDriver(driverService, options);
+				driver = new ChromeDriver(driverService, options);*/
 
 			/*	Map<String, Object> commandParams = new HashMap<String, Object>();
 				commandParams.put("cmd", "Page.setDownloadBehavior");
@@ -116,10 +116,10 @@ public class OrionBase {
 		        httpClient.execute(request);
 */
 				
-				/*
+				
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("browser.setDownloadBehavior", "allow");
-				// chromePrefs.put("profile.default_content_settings.popups", 0);
+				chromePrefs.put("profile.default_content_settings.popups", 0);
 				System.out.println("Download location "+CommonMethods.Attachment_File_Download_Location);
 				chromePrefs.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
 
@@ -140,7 +140,7 @@ public class OrionBase {
 				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");*/
 		        
 		        
-				//driver = new ChromeDriver(cap);
+				driver = new ChromeDriver(cap);
 				//driver = new ChromeDriver(options);
 			}
 			else {
@@ -195,14 +195,14 @@ public class OrionBase {
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
         System.out.println("Inside setDownloadProperties - command from Json " + command);
-        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
-        System.out.println("Inside setDownloadProperties - value of u " + u);
+        /*String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
+      //  System.out.println("Inside setDownloadProperties - value of u " + u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/json");
         request.addHeader("Content-Disposition","attachment; filename=\"" + filename + "\"");
         request.setEntity(new StringEntity(command));
         
-        httpClient.execute(request);
+        httpClient.execute(request);*/
         
         
 	}
