@@ -111,8 +111,6 @@ public class LinuxTest {
 		
 		System.out.println(driver.toString());
 		
-		
-		
 		System.out.println("Before get" + driver.toString());
 
 		driver.get("http://192.168.1.226:8080/orion-web/app/");
@@ -130,6 +128,8 @@ public class LinuxTest {
 		
 		System.out.println(driver.findElement(By.xpath("//h3")).getText());
 		
+		Thread.sleep(5000);
+
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
 
 		/*setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
