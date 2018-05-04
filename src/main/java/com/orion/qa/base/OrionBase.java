@@ -177,7 +177,7 @@ public class OrionBase {
 		}
 	}
 	
-	public static void setDownloadProperties() throws ClientProtocolException, IOException {
+	public static void setDownloadProperties(String filename) throws ClientProtocolException, IOException {
 		log.info("Inside setDownloadProperties" );
 		
 		System.out.println("Inside setDownloadProperties" + driver.getCurrentUrl());
@@ -199,7 +199,9 @@ public class OrionBase {
         System.out.println("Inside setDownloadProperties - value of u " + u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/json");
+        request.addHeader("Content-Disposition","attachment; filename=\"" + filename + "\"");
         request.setEntity(new StringEntity(command));
+        
         httpClient.execute(request);
         
         
