@@ -208,6 +208,7 @@ public class OrionBase {
         request.setEntity(new StringEntity(command));
         
         System.out.println(request.toString());
+        System.out.println(request.headerIterator().toString());
         
         httpClient.execute(request);
         
