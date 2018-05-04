@@ -256,8 +256,10 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			if (CommonMethods.CompareFilesbyByte(CommonMethods.Sample_FileNamewithPath,
 					CommonMethods.Attachment_File_Download_Location + TempFileName) == true) {
 				isSameFiles = true;
+				log.info("File comparison completed successfully.  Both files matches");
 			} else {
 				isSameFiles = false;
+				log.info("File comparison completed successfully.  Both files mis-matches");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

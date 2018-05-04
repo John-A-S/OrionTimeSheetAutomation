@@ -75,7 +75,11 @@ public class OrionBase {
 				options.setBinary("/usr/bin/chromium");
 				options.addArguments("--headless");
 				options.addArguments("--no-sandbox");
+				options.addArguments("--test-type");
+				options.addArguments("--disable-extensions"); // to disable browser extension popup
 
+				
+				
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("browser.setDownloadBehavior", "allow");
 				chromePrefs.put("profile.default_content_settings.popups", 0);
