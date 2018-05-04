@@ -115,7 +115,7 @@ public class LinuxTest {
 		
 		System.out.println("Before get" + driver.toString());
 
-		driver.get("http://192.168.1.226/orion-web/app/");
+		driver.get("http://192.168.1.226:8080/orion-web/app/");
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
 		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
@@ -132,18 +132,18 @@ public class LinuxTest {
 		
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
 
-		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
+		/*setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
 		
         driver.get("http://www.seleniumhq.org/download/");
 		System.out.println("After get" + driver.toString());
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
 		System.out.println("After linkText " + driver.toString());
-		
+		*/
 		
 	
-		// setDownloadSettings('John Joseph_04/29/2018 - 05/05/2018_0.docx', true);
+		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", true);
 		
-//		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
+		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		
 		Thread.sleep(5000);
 		
