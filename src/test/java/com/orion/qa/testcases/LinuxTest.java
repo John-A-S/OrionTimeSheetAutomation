@@ -35,6 +35,7 @@ public class LinuxTest {
 	//public WebDriver driver;
 	public static ChromeDriverService driverService;
 	public static ChromeDriver driver;
+	public static ChromeOptions options;
 	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver";
 	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
 	
@@ -82,6 +83,7 @@ public class LinuxTest {
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
         System.out.println(command);
+        
         String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
         System.out.println("u "+u);
         HttpPost request = new HttpPost(u);
@@ -99,15 +101,15 @@ public class LinuxTest {
 		
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
-		ChromeOptions options = new ChromeOptions();
+		options = new ChromeOptions();
 		options.addArguments("--test-type");
 		options.addArguments("--headless");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-extensions"); // to disable browser extension popup
 
 		
-		ChromeDriverService driverService = ChromeDriverService.createDefaultService();
-		ChromeDriver driver = new ChromeDriver(driverService, options);
+		driverService = ChromeDriverService.createDefaultService();
+		driver = new ChromeDriver(driverService, options);
 
 		
 		System.out.println(driver.toString());
