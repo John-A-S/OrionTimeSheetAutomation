@@ -27,7 +27,9 @@ public class LinuxTest {
 	public WebDriver driver;
 
 	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver";
-
+	
+	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
+	
 	@BeforeMethod()
 	public void init() {
 		/* Chrome driver 
@@ -71,7 +73,7 @@ public class LinuxTest {
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("behavior", "allow");
-		params.put("downloadPath", chromeDriverPath);
+		params.put("downloadPath", chromeDownloadPath);
 		commandParams.put("params", params);
 		ObjectMapper objectMapper = new ObjectMapper();
 		
@@ -91,7 +93,7 @@ public class LinuxTest {
 
 	@AfterMethod()
 	public void closeBrowser() {
-		driver.quit();
+		//driver.quit();
 	}
 
 }
