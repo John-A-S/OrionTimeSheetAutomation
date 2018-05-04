@@ -81,7 +81,7 @@ public class LinuxTest {
         String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
         System.out.println("u "+u);
         HttpPost request = new HttpPost(u);
-        request.addHeader("content-type", "application/msword");
+        request.addHeader("content-type", "application/zip");
         if (a) {
             //request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
         	request.addHeader("Content-disposition", "attachment; filename=\"" + filename + "\"" );
