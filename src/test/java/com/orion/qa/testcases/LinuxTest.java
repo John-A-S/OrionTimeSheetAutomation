@@ -61,7 +61,7 @@ public class LinuxTest {
 	}
 
 	@Test()
-	public void downloadfile() throws ClientProtocolException, IOException {
+	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
 		
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
@@ -101,7 +101,23 @@ public class LinuxTest {
 		System.out.println("After get" + driver.toString());
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
 		System.out.println("After linkText " + driver.toString());
-
+		
+		driver.get("http://192.168.1.226/orion-web/app/");
+		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
+		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
+		driver.findElement(By.xpath("//button[text()='Login']")).click();
+		
+		Thread.sleep(5000);
+		
+		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.linkText("John Joseph_04/29/2018 - 05/05/2018_0.docx")).click();
+		
+		Thread.sleep(5000);
+		
+		
 	}
 
 	@AfterMethod()
