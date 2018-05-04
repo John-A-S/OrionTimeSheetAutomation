@@ -254,17 +254,17 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			
 			System.out.println(driver.toString());
 			
+			
+			Thread.sleep(5000);
+			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
+			System.out.println("Temp file name exists :" + TempFileName);
+			
 	        driver.get("http://www.seleniumhq.org/download/");
 	        System.out.println("After Selenium dowload : "+ driver.toString());
 	        Thread.sleep(5000);
 			driver.findElement(By.linkText("32 bit Windows IE")).click();
 
-			
-/*			Thread.sleep(5000);
-			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
-			System.out.println("Temp file name :" + TempFileName);
-			
-			
+/*			
 			driver.findElement(By.linkText(TempFileName)).click();
 			Thread.sleep(20000);
 			// Linux TempFileName = TempFileName.replace("/", "_");
