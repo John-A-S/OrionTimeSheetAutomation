@@ -189,7 +189,7 @@ public class OrionBase {
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("behavior", "allow");
-		params.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
+		params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
 		commandParams.put("params", params);
 
 		System.out.println("Inside setDownloadProperties"  + driver.toString());
@@ -202,9 +202,11 @@ public class OrionBase {
         System.out.println("Inside setDownloadProperties - value of u " + u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/json");
+        // header( 'Content-Disposition: attachment;filename="'.$filename.'"');
+        // response.setHeader("Content-Disposition", "attachment; filename=" + zipFile.getFileName());
+        //request.setHeader("Content-Disposition","attachment; filename=" + filename );
 
-        System.out.println("attachment; filename=\"" + filename + "\"");
-        request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
+        //request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
 
         request.setEntity(new StringEntity(command));
         
