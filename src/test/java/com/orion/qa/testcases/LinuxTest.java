@@ -178,7 +178,7 @@ public class LinuxTest {
 	    }
 */
 
-		String Filename = DownDir + "John%20Joseph_04_29_2018%20-%2005_05_2018_0.docx";
+		String Filename = DownDir + "John Joseph_04_29_2018 - 05_05_2018_0.docx";
 		
 		System.out.println("FileName : "+ Filename);
 	    String downloadFilepath = DownDir;
