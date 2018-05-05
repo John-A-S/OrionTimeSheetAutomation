@@ -265,6 +265,40 @@ public class LinuxTest {
 
 		System.out.println("Before get" + driver.toString());
 
+		
+		//***********************************************************************************************
+
+		driver.get("http://192.168.1.226:8080/orion-web/app/");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
+		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
+		driver.findElement(By.xpath("//button[text()='Login']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println(driver.findElement(By.xpath("//h3")).getText());
+		
+		Thread.sleep(2000);
+
+		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
+
+		setDownloadSettings("");
+
+		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
+	    System.out.println("After final click");
+		
+		File f = new File(chromeDownloadPath + "John Joseph_04_29_2018 - 05_05_2018_0.docx");
+
+		if (f.exists()) {
+			System.out.println("Successfully downloaded");
+		
+		
+		//***********************************************************************************************
+		/*
 		driver.get("http://www.cvtemplatemaster.com");
 		Thread.sleep(2000);
 		System.out.println("Got it :" + driver.findElement(By.linkText("Got it!")).isDisplayed());
@@ -295,8 +329,12 @@ public class LinuxTest {
 		Thread.sleep(2000);
 		
 		File f = new File(chromeDownloadPath + "CV_Template_A4_Prof.docx");
+
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
+		*/
+		//***********************************************************************************************
+
 		}
 	}
 }
