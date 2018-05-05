@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.orion.qa.testcases.LinuxTest">
+      <class name="com.orion.qa.testcases.WinTest">
         <methods>
-          <include name="downloadfile"/>
-          <include name="init"/>
           <include name="closeBrowser"/>
+          <include name="init"/>
+          <include name="downloadfile"/>
         </methods>
-      </class> <!-- com.orion.qa.testcases.LinuxTest -->
+      </class> <!-- com.orion.qa.testcases.WinTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

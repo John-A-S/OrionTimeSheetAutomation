@@ -32,7 +32,8 @@ public class LinuxTest {
 	public static ChromeOptions options;
 	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver.exe";
 	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
-	
+
+
 	@BeforeMethod()
 	public void init() {
 		/* Chrome driver 
@@ -63,28 +64,27 @@ public class LinuxTest {
 	public static void setDownloadSettings(String filename, boolean a) throws ClientProtocolException, IOException {
 		
 		System.out.println("Inside setDownloadSettings");
-		Map<String, Object> commandParams = new HashMap<String, Object>();
-		commandParams.put("cmd", "Page.setDownloadBehavior");
+
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("behavior", "allow");
-		
-		//params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
-		params.put("downloadPath", "C:\\Eclipse\\Eclipse-Workspace\\OrionTimeSheetTestJob\\src\\main\\input\\download\\");
-		//params.put("downloadPath", chromeDownloadPath);
+		params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
+
+		Map<String, Object> commandParams = new HashMap<String, Object>();
+		commandParams.put("cmd", "Page.setDownloadBehavior");
 		commandParams.put("params", params);
 		
 		System.out.println("Filename : "+filename);
+
 		ObjectMapper objectMapper = new ObjectMapper();
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
-        System.out.println(command);
+        System.out.println("Command : "+ command);
         
         String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
-        System.out.println("u "+u);
+        System.out.println("u : "+u);
         HttpPost request = new HttpPost(u);
-        request.addHeader("content-type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+        request.addHeader("content-type", "application/zip");
         if (a) {
-            //request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
         	request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"" );
             System.out.println("Content Dispostion :"+ "attachment; filename=\"" + filename + "\"");
         } 
@@ -100,55 +100,43 @@ public class LinuxTest {
 
 		options = new ChromeOptions();
 		options.addArguments("--test-type");
-		//options.addArguments("--headless");
-		//options.addArguments("--no-sandbox");
+		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-extensions"); // to disable browser extension popup
 
-		
 		driverService = ChromeDriverService.createDefaultService();
 		driver = new ChromeDriver(driverService, options);
 
-		
-		System.out.println(driver.toString());
-		
 		System.out.println("Before get" + driver.toString());
-
-		driver.get("http://192.168.1.226:8080/orion-web/app/");
-		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
-		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
-		driver.findElement(By.xpath("//button[text()='Login']")).click();
-		
-		Thread.sleep(5000);
-		
-		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
-		
-		System.out.println("After 04/29/2018 - 05/05/2018");
-		
-		Thread.sleep(5000);
-		
-		System.out.println(driver.findElement(By.xpath("//h3")).getText());
-		
-		Thread.sleep(5000);
-
-		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
-
-		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
 		
         driver.get("http://www.seleniumhq.org/download/");
 		System.out.println("After get" + driver.toString());
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
 		System.out.println("After linkText " + driver.toString());
+
+		/* driver.get("http://192.168.1.226:8080/orion-web/app/");
+		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
+		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
+		driver.findElement(By.xpath("//button[text()='Login']")).click();
 		
+		Thread.sleep(3000);
 		
-	/*
+		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println(driver.findElement(By.xpath("//h3")).getText());
+		
+		Thread.sleep(2000);
+
+		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
+
+		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
 		//setDownloadSettings("John Joseph_04_29_2018 - 05_05_2018_0.docx", true);
-		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", true);
-		
+
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		*/
-		Thread.sleep(5000);
 		
-		System.out.println("After download");
 	}
 	
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
