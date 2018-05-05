@@ -98,7 +98,7 @@ public class LinuxTest {
         
 	}
 
-	@Test(enabled = false)
+	@Test
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
 		
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
@@ -168,7 +168,7 @@ public class LinuxTest {
 		}
 	}
 	
-	@Test()
+	@Test(enabled = false)
 	public void callChromeDownload() throws IOException, InterruptedException {
 		chromeDownload("http://192.168.1.226:8080/orion-web/app/", 1, chromeDownloadPath);
 	}
