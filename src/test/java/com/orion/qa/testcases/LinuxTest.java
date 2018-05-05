@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -97,7 +98,7 @@ public class LinuxTest {
         
 	}
 
-	@Test()
+	@Test(enabled = false)
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
 		
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
@@ -155,6 +156,84 @@ public class LinuxTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Test()
+	public void callChromeDownload() throws IOException, InterruptedException {
+		chromeDownload("http://192.168.1.226:8080/orion-web/app/", 1, chromeDownloadPath);
+	}
+	public static void chromeDownload(String address, int Headless, String DownDir) throws IOException, InterruptedException{
+
+	    ChromeOptions options = new ChromeOptions();
+	    String downloadFilepath = DownDir;
+
+/*	    if (ValidateOS.isWindows()){
+	        System.out.println("This is a Windows system.");
+	        System.setProperty("webdriver.chrome.driver", "resources\\driver\\chromedriver.exe");
+	        //options.setBinary("C:\\Users\\Juri\\AppData\\Local\\Google\\Chrome SxS\\Application\\chrome.exe");
+	        // If this is commented, the grabber will use the main Chrome
+	    } else if (ValidateOS.isUnix()){
+	        System.out.println("This is a Unix system.");
+	        //System.setProperty("webdriver.chrome.driver", "resources/driver/chromedriver");
+	        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+	        options.setBinary("/usr/bin/google-chrome");
+	    }
+*/
+
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+        options.setBinary("/usr/bin/google-chrome");
+
+	    switch (Headless){
+	        case 1:
+	            options.addArguments("--headless --disable-gpu");
+	            break;
+	        case 2:
+	        default:
+	            options.addArguments("--window-size=1152,768");
+	            break;
+	    }
+	    options.addArguments("--test-type");
+	    options.addArguments("--disable-extension");
+
+	    ChromeDriverService driverService = ChromeDriverService.createDefaultService();
+	    ChromeDriver driver = new ChromeDriver(driverService, options);
+
+	    Map<String, Object> commandParams = new HashMap<String, Object>();
+	    commandParams.put("cmd", "Page.setDownloadBehavior");
+	    Map<String, String> params = new HashMap<String, String>();
+	    params.put("behavior", "allow");
+	    params.put("downloadPath", downloadFilepath);
+	    params.put("cmd", "Page.setDownloadBehavior");
+
+	    commandParams.put("params", params);
+	    ObjectMapper objectMapper = new ObjectMapper();
+	    CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+	    String command = objectMapper.writeValueAsString(commandParams);
+	    String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
+	    HttpPost request = new HttpPost(u);
+	    request.addHeader("content-type", "application/json");
+	    request.setEntity(new StringEntity(command));
+	    httpClient.execute(request);
+
+	    driver.get(address);
+	    
+	    Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
+		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
+		driver.findElement(By.xpath("//button[text()='Login']")).click();
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
+		
+		Thread.sleep(2000);
+		
+		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
+
+		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
+	    
+	    //driver.findElement(By.id("download")).click(); 
+	    driver.quit();
 	}
 
 
