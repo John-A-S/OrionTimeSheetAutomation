@@ -111,7 +111,7 @@ public class LinuxTest {
 
 		System.out.println("Before get" + driver.toString());
 		
-		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
+		setDownloadSettings("");
 
 		
         driver.get("http://www.seleniumhq.org/download/");
