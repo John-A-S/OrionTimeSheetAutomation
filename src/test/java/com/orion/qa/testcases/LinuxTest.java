@@ -178,6 +178,7 @@ public class LinuxTest {
 	    }
 */
 
+		String Filename = "John%20Joseph_04/29/2018%20-%2005/05/2018_0.docx";
 	    String downloadFilepath = DownDir;
 
 		System.out.println("Download File Path : "+ chromeDownloadPath);
@@ -216,10 +217,11 @@ public class LinuxTest {
 	    String command = objectMapper.writeValueAsString(commandParams);
 	    String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
 	    HttpPost request = new HttpPost(u);
-	    request.addHeader("content-type", "application/json");
+	    request.addHeader("content-type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+    	request.addHeader("Content-Disposition", "attachment; filename=\"" + Filename + "\"");
 	    request.setEntity(new StringEntity(command));
 	    httpClient.execute(request);
-
+	    
 	    driver.get(address);
 	    
 	    Thread.sleep(2000);
@@ -237,7 +239,7 @@ public class LinuxTest {
 		
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
 	    System.out.println("After ScrollScreenToElement click");
-
+	    // John Joseph_04/29/2018 - 05/05/2018_0.docx;; John%20Joseph_04_29_2018%20-%2005_05_2018_0.docx
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 	    System.out.println("After final click");
 	    //driver.findElement(By.id("download")).click(); 
