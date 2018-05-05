@@ -178,7 +178,9 @@ public class LinuxTest {
 	    }
 */
 
-		String Filename = "John%20Joseph_04/29/2018%20-%2005/05/2018_0.docx";
+		String Filename = DownDir + "John%20Joseph_04_29_2018%20-%2005_05_2018_0.docx";
+		
+		System.out.println("FileName : "+ Filename);
 	    String downloadFilepath = DownDir;
 
 		System.out.println("Download File Path : "+ chromeDownloadPath);
@@ -219,6 +221,7 @@ public class LinuxTest {
 	    HttpPost request = new HttpPost(u);
 	    request.addHeader("content-type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
     	request.addHeader("Content-Disposition", "attachment; filename=\"" + Filename + "\"");
+    	System.out.println("attachment; filename=\"" + Filename + "\"");
 	    request.setEntity(new StringEntity(command));
 	    httpClient.execute(request);
 	    
