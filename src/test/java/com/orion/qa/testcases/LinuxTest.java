@@ -30,7 +30,7 @@ public class LinuxTest {
 	public static ChromeDriverService driverService;
 	public static ChromeDriver driver;
 	public static ChromeOptions options;
-	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver.exe";
+	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver";
 	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
 
 
