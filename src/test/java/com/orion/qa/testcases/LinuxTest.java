@@ -1,5 +1,6 @@
 package com.orion.qa.testcases;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,6 +8,7 @@ import java.util.Map;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.logging.log4j.core.util.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -77,7 +79,7 @@ public class LinuxTest {
         
 	}
 
-	@Test()
+	@Test(enabled=false)
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
 		
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
@@ -244,4 +246,40 @@ public class LinuxTest {
 		//driver.quit();
 	}
 
+	
+	@Test()
+	public static void downloadExternaldocx() throws InterruptedException, ClientProtocolException, IOException {
+		
+		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+
+		options = new ChromeOptions();
+		options.addArguments("--test-type");
+		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-extensions"); // to disable browser extension popup
+
+		driverService = ChromeDriverService.createDefaultService();
+		driver = new ChromeDriver(driverService, options);
+
+		System.out.println("Before get" + driver.toString());
+
+		driver.get("http://www.cvtemplatemaster.com");
+		Thread.sleep(2000);
+		driver.findElement(By.linkText("CV templates")).click();
+		Thread.sleep(2000);
+		ScrollScreenToElement(driver, driver.findElement(By.id("subbutton")));
+		Thread.sleep(2000);
+		driver.findElement(By.id("subbutton")).click();
+		Thread.sleep(2000);
+		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
+		setDownloadSettings("CV_Template_A4_Prof.docx");
+		driver.findElement(By.linkText("Free download")).click();
+		Thread.sleep(2000);
+		
+		File f = new File(chromeDownloadPath + "CV_Template_A4_Prof.docx");
+		if (f.exists()) {
+			System.out.println("Successfully downloaded");
+		}
+		
+	}
 }
