@@ -45,7 +45,7 @@ public class LinuxTest {
 		}
 	}
 
-	public static void setDownloadSettings(String filename) throws ClientProtocolException, IOException {
+	public static void setDownloadSettings() throws ClientProtocolException, IOException {
 		
 		System.out.println("Inside setDownloadSettings");
 
@@ -57,10 +57,6 @@ public class LinuxTest {
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		commandParams.put("params", params);
 		
-		if (filename != "") {
-			System.out.println("Filename : "+filename);
-		}
-
 		ObjectMapper objectMapper = new ObjectMapper();
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
@@ -70,10 +66,6 @@ public class LinuxTest {
         System.out.println("u : "+u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/zip");
-        if (filename != "") {
-        	request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"" );
-            System.out.println("Content Dispostion :"+ "attachment; filename=\"" + filename + "\"");
-        } 
 
         request.setEntity(new StringEntity(command));
         HttpResponse res = httpClient.execute(request);
@@ -118,7 +110,7 @@ public class LinuxTest {
 
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
 
-		setDownloadSettings("");
+		setDownloadSettings();
 		
 		System.out.println("isDownload file displayed: "+ driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).isDisplayed());
 
@@ -158,7 +150,7 @@ public class LinuxTest {
 		Thread.sleep(2000);
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
 		//setDownloadSettings("CV_Template_A4_Prof.docx");
-		setDownloadSettings("");
+		setDownloadSettings();
 		driver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
 		
