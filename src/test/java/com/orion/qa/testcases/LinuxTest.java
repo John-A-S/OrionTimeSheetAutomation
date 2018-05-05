@@ -164,9 +164,6 @@ public class LinuxTest {
 	}
 	public static void chromeDownload(String address, int Headless, String DownDir) throws IOException, InterruptedException{
 
-	    ChromeOptions options = new ChromeOptions();
-	    String downloadFilepath = DownDir;
-
 /*	    if (ValidateOS.isWindows()){
 	        System.out.println("This is a Windows system.");
 	        System.setProperty("webdriver.chrome.driver", "resources\\driver\\chromedriver.exe");
@@ -179,12 +176,16 @@ public class LinuxTest {
 	        options.setBinary("/usr/bin/google-chrome");
 	    }
 */
-	    System.out.println("Download File Path : "+ downloadFilepath);
+	    System.out.println("Download File Path : "+ chromeDownloadPath);
 	    System.out.println("webdriver.chrome.driver : "+ chromeDriverPath);
 	    System.out.println("Address : " + address);
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
        
-	    switch (Headless){
+		options = new ChromeOptions();
+	    String downloadFilepath = DownDir;
+
+        
+        switch (Headless){
 	        case 1:{
 	            options.addArguments("--headless --disable-gpu");
 	    		options.addArguments("--no-sandbox");
@@ -197,14 +198,14 @@ public class LinuxTest {
 	    options.addArguments("--test-type");
 	    options.addArguments("--disable-extension");
 
-	    ChromeDriverService driverService = ChromeDriverService.createDefaultService();
-	    ChromeDriver driver = new ChromeDriver(driverService, options);
+	    driverService = ChromeDriverService.createDefaultService();
+	    driver = new ChromeDriver(driverService, options);
 
 	    Map<String, Object> commandParams = new HashMap<String, Object>();
 	    commandParams.put("cmd", "Page.setDownloadBehavior");
 	    Map<String, String> params = new HashMap<String, String>();
 	    params.put("behavior", "allow");
-	    params.put("downloadPath", downloadFilepath);
+	    params.put("downloadPath", chromeDownloadPath);
 	    params.put("cmd", "Page.setDownloadBehavior");
 
 	    commandParams.put("params", params);
