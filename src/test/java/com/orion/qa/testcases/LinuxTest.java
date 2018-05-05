@@ -184,10 +184,11 @@ public class LinuxTest {
 	    System.out.println("Address : " + address);
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         //options.setBinary("/usr/bin/chromium");
-
+       
 	    switch (Headless){
 	        case 1:
 	            options.addArguments("--headless --disable-gpu");
+	    		options.addArguments("--no-sandbox");
 	            break;
 	        case 2:
 	        default:
