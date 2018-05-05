@@ -189,7 +189,7 @@ public class LinuxTest {
         
         switch (Headless){
 	        case 1:{
-	            options.addArguments("--headless --disable-gpu");
+	            options.addArguments("--headless");
 	    		options.addArguments("--no-sandbox");
 	            break;}
 	        case 2:
