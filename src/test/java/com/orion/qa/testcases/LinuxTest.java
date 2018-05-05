@@ -61,7 +61,7 @@ public class LinuxTest {
 		assertEquals(title, "Google"); */
 	}
 	
-	public static void setDownloadSettings(String filename, boolean a) throws ClientProtocolException, IOException {
+	public static void setDownloadSettings(String filename) throws ClientProtocolException, IOException {
 		
 		System.out.println("Inside setDownloadSettings");
 
@@ -73,7 +73,9 @@ public class LinuxTest {
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		commandParams.put("params", params);
 		
-		System.out.println("Filename : "+filename);
+		if (filename != "") {
+			System.out.println("Filename : "+filename);
+		}
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		HttpClient httpClient = HttpClientBuilder.create().build();
@@ -84,7 +86,7 @@ public class LinuxTest {
         System.out.println("u : "+u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/zip");
-        if (a) {
+        if (filename != "") {
         	request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"" );
             System.out.println("Content Dispostion :"+ "attachment; filename=\"" + filename + "\"");
         } 
@@ -108,6 +110,9 @@ public class LinuxTest {
 		driver = new ChromeDriver(driverService, options);
 
 		System.out.println("Before get" + driver.toString());
+		
+		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx", false);
+
 		
         driver.get("http://www.seleniumhq.org/download/");
 		System.out.println("After get" + driver.toString());
