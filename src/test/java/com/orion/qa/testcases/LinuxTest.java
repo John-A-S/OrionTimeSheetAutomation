@@ -14,10 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -25,7 +22,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.orion.qa.utils.CommonMethods;
 
 public class LinuxTest {
 
