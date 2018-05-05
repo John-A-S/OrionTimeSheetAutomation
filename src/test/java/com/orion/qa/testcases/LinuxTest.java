@@ -105,17 +105,17 @@ public class LinuxTest {
 		
 		Thread.sleep(2000);
 
-		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
+		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John_Joseph_04/29/2018_-_05/05/2018_0.docx')]")));
 		System.out.println("After ScrollScreenToElement ");
 
 		setDownloadSettings();
 		
-		System.out.println("isDownload link displayed: "+ driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).isDisplayed());
+		System.out.println("isDownload link displayed: "+ driver.findElement(By.xpath("//a[contains(text(), 'John_Joseph_04/29/2018_-_05/05/2018_0.docx')]")).isDisplayed());
 
-		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
+		driver.findElement(By.xpath("//a[contains(text(), 'John_Joseph_04/29/2018_-_05/05/2018_0.docx')]")).click();
 	    System.out.println("After download link click");
 		
-		File f = new File(chromeDownloadPath + "John Joseph_04_29_2018 - 05_05_2018_0.docx");
+		File f = new File(chromeDownloadPath + "John Joseph_04_29_2018_-_05_05_2018_0.docx");
 
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
