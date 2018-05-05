@@ -264,13 +264,13 @@ public class LinuxTest {
 		System.out.println("Before get" + driver.toString());
 
 		driver.get("http://www.cvtemplatemaster.com");
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		driver.findElement(By.linkText("CV templates")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		ScrollScreenToElement(driver, driver.findElement(By.id("subbutton")));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.findElement(By.id("subbutton")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
 		setDownloadSettings("CV_Template_A4_Prof.docx");
 		driver.findElement(By.linkText("Free download")).click();
