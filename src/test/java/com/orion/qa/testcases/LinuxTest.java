@@ -287,6 +287,8 @@ public class LinuxTest {
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
 
 		setDownloadSettings("");
+		
+		System.out.println("isDownload file displayed: "+ driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).isDisplayed());
 
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 	    System.out.println("After final click");
