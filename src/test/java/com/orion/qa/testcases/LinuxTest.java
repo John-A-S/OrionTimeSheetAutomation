@@ -14,7 +14,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -87,7 +90,7 @@ public class LinuxTest {
 
 		
 		//***********************************************************************************************
-		
+		/*
 		driver.get("http://192.168.1.226:8080/orion-web/app/");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
@@ -120,9 +123,9 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		}
-		
+		*/
 		//***********************************************************************************************
-		/*
+		
 		driver.get("http://www.cvtemplatemaster.com");
 		Thread.sleep(2000);
 		System.out.println("Got it :" + driver.findElement(By.linkText("Got it!")).isDisplayed());
@@ -157,7 +160,7 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 			}
-		*/
+	
 		//***********************************************************************************************
 
 	}
