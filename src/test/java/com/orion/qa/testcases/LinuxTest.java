@@ -91,16 +91,17 @@ public class LinuxTest {
 
 		
 		//***********************************************************************************************
-		/*
+		
 		driver.get("http://192.168.1.226:8080/orion-web/app/");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
 		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
-		
+		System.out.println("After login button click");
 		Thread.sleep(3000);
 		
 		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
+		System.out.println("After linkText -> 04/29/2018 - 05/05/2018 click");
 		
 		Thread.sleep(2000);
 		
@@ -109,22 +110,23 @@ public class LinuxTest {
 		Thread.sleep(2000);
 
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
+		System.out.println("After ScrollScreenToElement ");
 
 		setDownloadSettings();
 		
-		System.out.println("isDownload file displayed: "+ driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).isDisplayed());
+		System.out.println("isDownload link displayed: "+ driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).isDisplayed());
 
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
-	    System.out.println("After final click");
+	    System.out.println("After download link click");
 		
 		File f = new File(chromeDownloadPath + "John Joseph_04_29_2018 - 05_05_2018_0.docx");
 
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
+		}
 		
-		*/
 		//***********************************************************************************************
-		
+		/*
 		driver.get("http://www.cvtemplatemaster.com");
 		Thread.sleep(2000);
 		System.out.println("Got it :" + driver.findElement(By.linkText("Got it!")).isDisplayed());
@@ -149,7 +151,7 @@ public class LinuxTest {
 
 		Thread.sleep(2000);
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
-		//setDownloadSettings("CV_Template_A4_Prof.docx");
+		
 		setDownloadSettings();
 		driver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
@@ -158,10 +160,10 @@ public class LinuxTest {
 
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
-		
+			}
+		*/
 		//***********************************************************************************************
 
-		}
 	}
 
 /*	@BeforeMethod()
