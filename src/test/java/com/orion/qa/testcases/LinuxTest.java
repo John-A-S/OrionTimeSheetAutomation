@@ -138,13 +138,22 @@ public class LinuxTest {
 
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
 
+		
+		setDownloadSettings("");
+        driver.get("http://www.seleniumhq.org/download/");
+		System.out.println("After get" + driver.toString());
+		driver.findElement(By.linkText("32 bit Windows IE")).click();
+		System.out.println("After linkText " + driver.toString()); 
+
+		
+		/*
 		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx");
 		//setDownloadSettings("John Joseph_04_29_2018 - 05_05_2018_0.docx", true);
 		System.out.println("Title : " + driver.getTitle()+ " Current URL : "+driver.getCurrentUrl());
 		
 		//driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		driver.findElement(By.linkText("John Joseph_04/29/2018 - 05/05/2018_0.docx")).click();
-		
+		*/
 		Thread.sleep(10000);
 		
 		System.out.println("After Download");
