@@ -183,13 +183,12 @@ public class LinuxTest {
 	    System.out.println("webdriver.chrome.driver : "+ chromeDriverPath);
 	    System.out.println("Address : " + address);
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-        //options.setBinary("/usr/bin/chromium");
        
 	    switch (Headless){
-	        case 1:
+	        case 1:{
 	            options.addArguments("--headless --disable-gpu");
 	    		options.addArguments("--no-sandbox");
-	            break;
+	            break;}
 	        case 2:
 	        default:
 	            options.addArguments("--window-size=1152,768");
