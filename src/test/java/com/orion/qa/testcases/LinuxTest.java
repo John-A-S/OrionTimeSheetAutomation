@@ -16,6 +16,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -264,15 +267,27 @@ public class LinuxTest {
 		System.out.println("Before get" + driver.toString());
 
 		driver.get("http://www.cvtemplatemaster.com");
-		Thread.sleep(10000);
-		driver.findElement(By.linkText("CV templates")).click();
+		Thread.sleep(2000);
+		System.out.println("Got it :" + driver.findElement(By.linkText("Got it!")).isDisplayed());
+		driver.findElement(By.linkText("Got it!")).click();
+		System.out.println("Got it : After click");
+		Thread.sleep(2000);
+		
+		Actions act = new Actions(driver);
+		System.out.println("Before action.movetoelement");
+		act.moveToElement(driver.findElement(By.xpath("//a[contains(text(), 'CV templates')]"))).perform();
+		System.out.println("After action.movetoelement");
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'CV templates')]")));
+		driver.findElement(By.xpath("//a[contains(text(), 'CV templates')]")).click();
+		
 		Thread.sleep(5000);
 		ScrollScreenToElement(driver, driver.findElement(By.id("subbutton")));
 		Thread.sleep(5000);
 		driver.findElement(By.id("subbutton")).click();
 		Thread.sleep(5000);
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
-		setDownloadSettings("CV_Template_A4_Prof.docx");
+		//setDownloadSettings("CV_Template_A4_Prof.docx");
 		driver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
 		
@@ -280,6 +295,8 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		}
+		
+		
 		
 	}
 }

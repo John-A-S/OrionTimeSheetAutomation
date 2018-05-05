@@ -1,5 +1,6 @@
 package com.orion.qa.testcases;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import org.openqa.selenium.By;
@@ -8,6 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -51,6 +56,38 @@ public class WinTest {
 		driver.findElement(By.linkText("32 bit Windows IE")).click();
 		System.out.println("After linkText " + driver.toString());
 		 */
+		
+		
+
+		driver.get("http://www.cvtemplatemaster.com");
+		Thread.sleep(2000);
+		System.out.println("Got it :" + driver.findElement(By.linkText("Got it!")).isDisplayed());
+		driver.findElement(By.linkText("Got it!")).click();
+		System.out.println("Got it : After click");
+		Thread.sleep(2000);
+		
+		Actions act = new Actions(driver);
+		System.out.println("Before action.movetoelement");
+		act.moveToElement(driver.findElement(By.xpath("//a[contains(text(), 'CV templates')]"))).perform();
+		System.out.println("After action.movetoelement");
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'CV templates')]")));
+		driver.findElement(By.xpath("//a[contains(text(), 'CV templates')]")).click();
+		
+		Thread.sleep(5000);
+		ScrollScreenToElement(driver, driver.findElement(By.id("subbutton")));
+		Thread.sleep(5000);
+		driver.findElement(By.id("subbutton")).click();
+		Thread.sleep(5000);
+		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
+		//setDownloadSettings("CV_Template_A4_Prof.docx");
+		driver.findElement(By.linkText("Free download")).click();
+		Thread.sleep(2000);
+		
+		File f = new File(chromeDownloadPath + "CV_Template_A4_Prof.docx");
+		if (f.exists()) {
+			System.out.println("Successfully downloaded");
+		}
 		
 		
 		
