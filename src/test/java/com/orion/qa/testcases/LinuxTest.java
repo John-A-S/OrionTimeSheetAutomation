@@ -267,7 +267,7 @@ public class LinuxTest {
 
 		
 		//***********************************************************************************************
-
+		/*
 		driver.get("http://192.168.1.226:8080/orion-web/app/");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
@@ -298,9 +298,9 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		
-		
+		*/
 		//***********************************************************************************************
-		/*
+		
 		driver.get("http://www.cvtemplatemaster.com");
 		Thread.sleep(2000);
 		System.out.println("Got it :" + driver.findElement(By.linkText("Got it!")).isDisplayed());
@@ -334,7 +334,7 @@ public class LinuxTest {
 
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
-		*/
+		
 		//***********************************************************************************************
 
 		}
