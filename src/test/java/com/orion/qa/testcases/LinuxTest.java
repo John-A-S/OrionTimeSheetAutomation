@@ -280,14 +280,17 @@ public class LinuxTest {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'CV templates')]")));
 		driver.findElement(By.xpath("//a[contains(text(), 'CV templates')]")).click();
+		System.out.println("After CV templates click");
 		
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		ScrollScreenToElement(driver, driver.findElement(By.id("subbutton")));
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		driver.findElement(By.id("subbutton")).click();
-		Thread.sleep(5000);
+		System.out.println("After subbuton click");
+
+		Thread.sleep(2000);
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
-		//setDownloadSettings("CV_Template_A4_Prof.docx");
+		setDownloadSettings("CV_Template_A4_Prof.docx");
 		driver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
 		
@@ -295,8 +298,6 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		}
-		
-		
 		
 	}
 }
