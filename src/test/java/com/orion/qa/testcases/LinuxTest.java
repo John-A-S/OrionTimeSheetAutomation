@@ -181,7 +181,7 @@ public class LinuxTest {
 */
 
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-        options.setBinary("/usr/bin/google-chrome");
+        options.setBinary("/usr/bin/chromium");
 
 	    switch (Headless){
 	        case 1:
