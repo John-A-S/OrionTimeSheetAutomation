@@ -162,6 +162,7 @@ public class LinuxTest {
 	public void callChromeDownload() throws IOException, InterruptedException {
 		chromeDownload("http://192.168.1.226:8080/orion-web/app/", 1, chromeDownloadPath);
 	}
+
 	public static void chromeDownload(String address, int Headless, String DownDir) throws IOException, InterruptedException{
 
 /*	    if (ValidateOS.isWindows()){
@@ -176,14 +177,15 @@ public class LinuxTest {
 	        options.setBinary("/usr/bin/google-chrome");
 	    }
 */
-	    System.out.println("Download File Path : "+ chromeDownloadPath);
+
+	    String downloadFilepath = DownDir;
+
+		System.out.println("Download File Path : "+ chromeDownloadPath);
 	    System.out.println("webdriver.chrome.driver : "+ chromeDriverPath);
 	    System.out.println("Address : " + address);
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
        
 		options = new ChromeOptions();
-	    String downloadFilepath = DownDir;
-
         
         switch (Headless){
 	        case 1:{
@@ -196,7 +198,7 @@ public class LinuxTest {
 	            break;
 	    }
 	    options.addArguments("--test-type");
-	    options.addArguments("--disable-extension");
+	    options.addArguments("--disable-extensions");
 
 	    driverService = ChromeDriverService.createDefaultService();
 	    driver = new ChromeDriver(driverService, options);
@@ -205,7 +207,7 @@ public class LinuxTest {
 	    commandParams.put("cmd", "Page.setDownloadBehavior");
 	    Map<String, String> params = new HashMap<String, String>();
 	    params.put("behavior", "allow");
-	    params.put("downloadPath", chromeDownloadPath);
+	    params.put("downloadPath", downloadFilepath);
 	    params.put("cmd", "Page.setDownloadBehavior");
 
 	    commandParams.put("params", params);
