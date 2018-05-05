@@ -227,16 +227,19 @@ public class LinuxTest {
 		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
 		
+		System.out.println("After login button click");
 		Thread.sleep(3000);
 		
 		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
+		System.out.println("After linkText(\"04/29/2018 - 05/05/2018\") click");
 		
 		Thread.sleep(2000);
 		
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
+	    System.out.println("After ScrollScreenToElement click");
 
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
-	    
+	    System.out.println("After final click");
 	    //driver.findElement(By.id("download")).click(); 
 	    driver.quit();
 	}
