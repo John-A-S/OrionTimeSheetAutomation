@@ -179,9 +179,11 @@ public class LinuxTest {
 	        options.setBinary("/usr/bin/google-chrome");
 	    }
 */
-
+	    System.out.println("Download File Path : "+ downloadFilepath);
+	    System.out.println("webdriver.chrome.driver : "+ chromeDriverPath);
+	    System.out.println("Address : " + address);
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-        options.setBinary("/usr/bin/chromium");
+        //options.setBinary("/usr/bin/chromium");
 
 	    switch (Headless){
 	        case 1:
