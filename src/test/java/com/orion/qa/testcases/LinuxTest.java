@@ -16,7 +16,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
+import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -92,7 +92,9 @@ public class LinuxTest {
         } 
 
         request.setEntity(new StringEntity(command));
-        httpClient.execute(request);
+        HttpResponse res = httpClient.execute(request);
+        System.out.println(res.getStatusLine().getStatusCode());
+        
 	}
 
 	@Test()
