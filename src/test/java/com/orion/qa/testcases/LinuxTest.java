@@ -139,8 +139,8 @@ public class LinuxTest {
 
 		setDownloadSettings("John Joseph_04/29/2018 - 05/05/2018_0.docx");
 		//setDownloadSettings("John Joseph_04_29_2018 - 05_05_2018_0.docx", true);
-		System.out.println(driver.getTitle());
-
+		System.out.println("Title : " + driver.getTitle()+ " Current URL : "+driver.getCurrentUrl());
+		driver.get(driver.getCurrentUrl());	
 		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
 		
 		Thread.sleep(10000);
