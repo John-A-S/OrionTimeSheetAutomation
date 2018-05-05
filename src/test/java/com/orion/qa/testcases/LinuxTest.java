@@ -251,6 +251,7 @@ public class LinuxTest {
 	@Test()
 	public static void downloadExternaldocx() throws InterruptedException, ClientProtocolException, IOException {
 		
+		System.out.println("Inside downloadExternaldocx");
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
 		options = new ChromeOptions();
