@@ -37,31 +37,10 @@ public class LinuxTest {
 
 	@BeforeMethod()
 	public void init() {
-		/* Chrome driver 
-		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-
-		ChromeOptions options = new ChromeOptions();
-
-		options.addArguments("--headless");
-		options.addArguments("--no-sandbox");
-
-		// options.addArguments("--disable-extensions");
-		// options.addArguments("--disable-gpu");
-		// options.setBinary("/usr/bin/chromium");
-
-		driver = new ChromeDriver(options);
-		driver.get("http://www.google.com");*/
 		
 		CommonMethods.readExcel_Paths();
 	}
 
-	@Test()
-	public void verifyURL() {
-		/*String title = driver.getTitle();
-		System.out.println(title);
-		assertEquals(title, "Google"); */
-	}
-	
 	public static void setDownloadSettings(String filename) throws ClientProtocolException, IOException {
 		
 		System.out.println("Inside setDownloadSettings");
@@ -98,7 +77,7 @@ public class LinuxTest {
         
 	}
 
-	@Test(enabled = false)
+	@Test()
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
 		
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
@@ -139,10 +118,10 @@ public class LinuxTest {
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
 
 		
-		setDownloadSettings("");
-        driver.get("http://www.seleniumhq.org/download/");
+		setDownloadSettings("test.docx");
+        driver.get("https://www2.le.ac.uk/Members/davidwickins/old/test.docx/view");
 		System.out.println("After get" + driver.toString());
-		driver.findElement(By.linkText("32 bit Windows IE")).click();
+		driver.findElement(By.xpath("//*[@id='content-core']/p/span/a")).click();
 		System.out.println("After linkText " + driver.toString()); 
 
 		
@@ -168,7 +147,7 @@ public class LinuxTest {
 		}
 	}
 	
-	@Test()
+	@Test(enabled=false)
 	public void callChromeDownload() throws IOException, InterruptedException {
 		chromeDownload("http://192.168.1.226:8080/orion-web/app/", 2, chromeDownloadPath);
 	}
