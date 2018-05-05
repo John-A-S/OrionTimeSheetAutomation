@@ -46,42 +46,6 @@ public class LinuxTest {
 		CommonMethods.readExcel_Paths();
 	}
 
-	public static void setDownloadSettings(String filename) throws ClientProtocolException, IOException {
-		
-		System.out.println("Inside setDownloadSettings");
-
-		Map<String, String> params = new HashMap<String, String>();
-		params.put("behavior", "allow");
-		params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
-
-		Map<String, Object> commandParams = new HashMap<String, Object>();
-		commandParams.put("cmd", "Page.setDownloadBehavior");
-		commandParams.put("params", params);
-		
-		if (filename != "") {
-			System.out.println("Filename : "+filename);
-		}
-
-		ObjectMapper objectMapper = new ObjectMapper();
-		HttpClient httpClient = HttpClientBuilder.create().build();
-        String command = objectMapper.writeValueAsString(commandParams);
-        System.out.println("Command : "+ command);
-        
-        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
-        System.out.println("u : "+u);
-        HttpPost request = new HttpPost(u);
-        request.addHeader("content-type", "application/zip");
-        if (filename != "") {
-        	request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"" );
-            System.out.println("Content Dispostion :"+ "attachment; filename=\"" + filename + "\"");
-        } 
-
-        request.setEntity(new StringEntity(command));
-        HttpResponse res = httpClient.execute(request);
-        System.out.println(res.getStatusLine().getStatusCode());
-        
-	}
-
 	@Test(enabled=false)
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
 		
@@ -248,8 +212,42 @@ public class LinuxTest {
 	public void closeBrowser() {
 		//driver.quit();
 	}
-
 	
+	public static void setDownloadSettings(String filename) throws ClientProtocolException, IOException {
+		
+		System.out.println("Inside setDownloadSettings");
+
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("behavior", "allow");
+		params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
+
+		Map<String, Object> commandParams = new HashMap<String, Object>();
+		commandParams.put("cmd", "Page.setDownloadBehavior");
+		commandParams.put("params", params);
+		
+		if (filename != "") {
+			System.out.println("Filename : "+filename);
+		}
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		HttpClient httpClient = HttpClientBuilder.create().build();
+        String command = objectMapper.writeValueAsString(commandParams);
+        System.out.println("Command : "+ command);
+        
+        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
+        System.out.println("u : "+u);
+        HttpPost request = new HttpPost(u);
+        request.addHeader("content-type", "application/zip");
+        if (filename != "") {
+        	request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"" );
+            System.out.println("Content Dispostion :"+ "attachment; filename=\"" + filename + "\"");
+        } 
+
+        request.setEntity(new StringEntity(command));
+        HttpResponse res = httpClient.execute(request);
+        System.out.println(res.getStatusLine().getStatusCode());
+	}
+
 	@Test()
 	public static void downloadExternaldocx() throws InterruptedException, ClientProtocolException, IOException {
 		
@@ -290,7 +288,8 @@ public class LinuxTest {
 
 		Thread.sleep(2000);
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
-		setDownloadSettings("CV_Template_A4_Prof.docx");
+		//setDownloadSettings("CV_Template_A4_Prof.docx");
+		setDownloadSettings("");
 		driver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
 		
@@ -298,6 +297,5 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		}
-		
 	}
 }
