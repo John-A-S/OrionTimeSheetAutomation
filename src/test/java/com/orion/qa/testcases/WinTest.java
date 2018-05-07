@@ -107,10 +107,6 @@ public class WinTest {
 			}
 	}
 	
-	
-	
-
-
 	@Test()
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
 		
@@ -128,11 +124,8 @@ public class WinTest {
 
 		driver = new ChromeDriver(options);
 
-		DownloadDocfromExternal();
-		
-		//DownloadDocfromOrion();
-		
-
+		// DownloadDocfromExternal();
+		 DownloadDocfromOrion();
 	}
 	
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {

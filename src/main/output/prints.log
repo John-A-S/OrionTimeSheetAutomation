@@ -267,3 +267,21 @@
 14:33:48.016 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Close Browser
 14:33:48.806 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Browser closed
 14:33:48.806 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - ********** Test_NewTimeSheet_SubmitFunctionality END *************
+13:12:23.911 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Calling base class from com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality to read Excel Paths
+13:12:24.164 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - After calling Base class
+13:12:24.267 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - ********** Test_NewTimeSheet_SubmitFunctionality START ************* 
+13:12:24.267 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside InitObjects
+13:12:24.268 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Browser parameter value: chrome
+13:12:24.268 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Orion base Init
+13:12:24.268 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Setting Chrome driver property
+13:12:44.876 [main] ERROR com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Exception in method InitObjects Timed out waiting for driver server to start.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-FKH366F', ip: '192.168.1.61', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.1'
+Driver info: driver.version: ChromeDriver
+13:12:45.016 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_LoginToOrion_IsSuccess method
+13:12:45.016 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Setting User Credentials
+13:12:45.058 [main] ERROR com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Exception in method Test_LoginToOrion_IsSuccess : null
+13:12:45.068 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Test_IfNewTimeSheetPage_Isdisplayed method
+13:12:45.068 [main] DEBUG com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - New Timesheet button click
+13:12:45.079 [main] ERROR com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Error occured during new timesheet button click null
+13:12:46.113 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Close Browser

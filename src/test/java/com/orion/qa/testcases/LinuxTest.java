@@ -43,7 +43,7 @@ public class LinuxTest {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static void setDownloadSettings() throws ClientProtocolException, IOException {
 		
 		System.out.println("Inside setDownloadSettings");
@@ -52,6 +52,7 @@ public class LinuxTest {
 		params.put("behavior", "allow");
 		params.put("downloadPath", chromeDownloadPath);
 		System.out.println();
+		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		commandParams.put("params", params);
@@ -65,6 +66,7 @@ public class LinuxTest {
         System.out.println("u : "+u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/zip");
+        request.addHeader("accept", "*.*");
 
         request.setEntity(new StringEntity(command));
         HttpResponse res = httpClient.execute(request);
@@ -72,7 +74,7 @@ public class LinuxTest {
 	}
 
 	@Test()
-	public static void downloadExternaldocx() throws InterruptedException, ClientProtocolException, IOException {
+	public static void downloadfile() throws InterruptedException, ClientProtocolException, IOException {
 		
 		System.out.println("Inside downloadExternaldocx");
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
@@ -97,7 +99,6 @@ public class LinuxTest {
 	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
 
 		driver.get("http://192.168.1.226/orion-web/app/"); 
-		//driver.get("https://timesheets.infomaticscorp.com/orion-web/app/");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
 		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
@@ -123,10 +124,10 @@ public class LinuxTest {
 				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
 		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
-		// John Selvakumar_05_06_2018 - 05_12_2018_0		
+				
 		Thread.sleep(5000);
 		System.out.println("After download link click");
-		//john.docx"
+		
 		File f = new File(chromeDownloadPath + "john.docx");
 
 		if (f.exists()) {

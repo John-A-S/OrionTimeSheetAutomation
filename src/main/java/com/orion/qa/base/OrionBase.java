@@ -102,7 +102,7 @@ public class OrionBase {
 				driverService = ChromeDriverService.createDefaultService();
 				driver = new ChromeDriver(driverService, options);
 
-			/*	Map<String, Object> commandParams = new HashMap<String, Object>();
+				Map<String, Object> commandParams = new HashMap<String, Object>();
 				commandParams.put("cmd", "Page.setDownloadBehavior");
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("behavior", "allow");
@@ -117,7 +117,7 @@ public class OrionBase {
 		        request.addHeader("content-type", "application/json");
 		        request.setEntity(new StringEntity(command));
 		        httpClient.execute(request);
-*/
+
 				
 				
 			/*	HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
