@@ -92,7 +92,7 @@ public class LinuxTest {
 
 		DownloadDocfromOrion();
 		
-		// DownloadDocfromExternal();
+		DownloadDocfromExternal();
 		
 	}
 
