@@ -167,11 +167,11 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			// in Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
 			// later.  This may be due to environment setup.  Able to downfiles in Jenkins from other sites :-(
 			
-			//DownloadfileAndComparewithTestFile();
-			//assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
-			
 			log.debug("Comparing submitted & test data are equal!");
-			assertEquals((CommonMethods.compareList(objTest, objGridData)), true);
+			// DownloadfileAndComparewithTestFile();
+			assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			
+			//assertEquals((CommonMethods.compareList(objTest, objGridData)), true);
 			log.info("Both submitted & test data are equal!");
 			log.info("Timesheet data submitted correctly");
 		} catch (Exception e) {
@@ -259,7 +259,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 
 			log.debug("setting Downloadproperties..");
 			
-			setDownloadProperties(TempFileName);
+		    setDownloadProperties(TempFileName);
 			
 			System.out.println(driver.toString());
 			

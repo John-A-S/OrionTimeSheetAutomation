@@ -87,19 +87,19 @@ public class CommonMethods {
 					if (Arrays.equals(b1, b2) == false) {
 						fis1.close();
 						fis2.close();
-						// f2.delete(); // deleting the downloaded file
+						 f2.delete(); // deleting the downloaded file
 						return false;
 					}
 				}
 			} else {
 				fis1.close();
 				fis2.close();
-			    // f2.delete(); // deleting the downloaded file
+			    f2.delete(); // deleting the downloaded file
 				return false;
 			}
 			fis1.close();
 			fis2.close();
-			// f2.delete(); // deleting the downloaded file
+			f2.delete(); // deleting the downloaded file
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

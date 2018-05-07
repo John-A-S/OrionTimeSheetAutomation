@@ -87,9 +87,9 @@ public class OrionBase {
 		} else if (Browser.equalsIgnoreCase("chrome")) {
 			if (isDownloadReq) {
 				log.debug("Setting Chrome driver property");
-				/* following code is to download files using Chrome browser */
 
-				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+				// Linux environment
+				// following code is to download files using Chrome browser 
 
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				
@@ -118,34 +118,22 @@ public class OrionBase {
 		        request.setEntity(new StringEntity(command));
 		        httpClient.execute(request);
 
-				
-				
-			/*	HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-				//chromePrefs.put("browser.setDownloadBehavior", "allow");
+		        // Windows environment
+				/*
+		    	System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+
+		    	options = new ChromeOptions();
+				options.addArguments("--test-type");
+				options.addArguments("--disable-extensions"); 
+
+				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("profile.default_content_settings.popups", 0);
-				System.out.println("Download location "+CommonMethods.Attachment_File_Download_Location);
-				//chromePrefs.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
 				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
-
-				//ChromeOptions options = new ChromeOptions();
-				//for linux
-				//options.addArguments("--headless");
-				//options.addArguments("--no-sandbox");
-
+				
 				options.setExperimentalOption("prefs", chromePrefs);
-				//options.addArguments("--test-type");
-				//options.addArguments("--disable-extensions"); // to disable browser extension popup
-  
-				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
-				DesiredCapabilities cap = DesiredCapabilities.chrome();
-				cap.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
-				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-				cap.setCapability(ChromeOptions.CAPABILITY, options);
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-		        
-		        
-				driver = new ChromeDriver(cap);*/ 
-				//driver = new ChromeDriver(options);
+					  	        
+				driver = new ChromeDriver(options);
+				*/ 
 			}
 			else {
 				log.debug("Setting Chrome driver property");
