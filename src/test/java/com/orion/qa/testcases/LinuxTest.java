@@ -88,9 +88,14 @@ public class LinuxTest {
 
 		System.out.println("Before get" + driver.toString());
 
+		//DownloadDocfromOrion();
 		
-		//***********************************************************************************************
-		/*
+		DownloadDocfromExternal();
+		
+	}
+
+	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
+
 		driver.get("http://192.168.1.226:8080/orion-web/app/");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
@@ -98,33 +103,37 @@ public class LinuxTest {
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
 		System.out.println("After login button click");
 		Thread.sleep(3000);
-		
+
 		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
 		System.out.println("After linkText -> 04/29/2018 - 05/05/2018 click");
-		
+
 		Thread.sleep(2000);
-		
+
 		System.out.println(driver.findElement(By.xpath("//h3")).getText());
-		
+
 		Thread.sleep(2000);
 
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")));
 		System.out.println("After ScrollScreenToElement ");
 
 		setDownloadSettings();
-		
-		System.out.println("isDownload link displayed: "+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
+
+		System.out.println("isDownload link displayed: "
+				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
 		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
-	    System.out.println("After download link click");
-		
+		System.out.println("After download link click");
+
 		File f = new File(chromeDownloadPath + "john.docx");
 
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		}
-		*/
-		//***********************************************************************************************
+
+	}	
+	
+	
+	public static void DownloadDocfromExternal() throws InterruptedException, ClientProtocolException, IOException {
 		
 		driver.get("http://www.cvtemplatemaster.com");
 		Thread.sleep(2000);
@@ -161,10 +170,111 @@ public class LinuxTest {
 			System.out.println("Successfully downloaded");
 			}
 	
-		//***********************************************************************************************
-
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 /*	@BeforeMethod()
 	public void init() {
 		
