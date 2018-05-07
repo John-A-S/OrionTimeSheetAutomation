@@ -31,6 +31,8 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 
 	public Test_DraftTimeSheet_CancelFunctionality() {
 		super();
+		log.info("After calling Base class");
+
 	}
 
 	@Parameters("Browser")
@@ -39,6 +41,11 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 		System.out.println("********** Test_DraftTimeSheet_CancelFunctionality START ************* ");
 
 		try {
+			
+			log.info("********** Test_DraftTimeSheet_CancelFunctionality START ************* ");
+			log.info("Inside InitObjects");	
+			log.info("Browser parameter value: "+Browser);
+
 			init(Browser, true);	
 			objTest = new ArrayList<String>();
 			objGridDataB4Changes = new ArrayList<String>();
@@ -47,6 +54,8 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method InitObjects "+ e.getMessage());
+
 		}
 	}
 
@@ -54,85 +63,132 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 	public void CloseObjects() {
 		CloseBrowser();
 		System.out.println("********** Test_DraftTimeSheet_CancelFunctionality END ************* ");
+		log.info("********** Test_DraftTimeSheet_CancelFunctionality END *************");
+
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
 	public void Test_LoginToOrion_IsSuccess(String UserID, String Password) {
 		try {
+			
+			log.info("Inside Test_LoginToOrion_IsSuccess method");
+			log.debug("Setting User Credentials");
+
 			LoginPage.txtbx_UserName(driver).sendKeys(UserID);
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
+			log.debug("Login button click");
+
 			LoginPage.btnLogin(driver).click();
 			try {
 				assertEquals(true, CommonMethods.lbl_LoginUserIcon(driver).isDisplayed());
+				log.info("Login success");
+
 			} catch (NoSuchElementException e) {
+				log.error("Exception : Login button not found; Error occured: "+ e.getMessage());
 				assertEquals(false, true);
 			}
 		} catch (Exception e) {
+			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
+		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed method");
+		log.debug("Verify draft timesheet exist or not");
 		// RowNumb will have the row number of draft timesheet //
 		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'D');
 		if (RowNumb <= 0) {
 			assertTrue(false, "No record to process");
+			log.info("Draft timesheet does not exist ");
+
 		}
+		log.info("Draft timesheet exists in Row : " + RowNumb);
 		clicklink(RowNumb);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_IfEditTimeSheetPage_Isdisplayed after clicklink: "+e.getMessage());
 		}
-
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
 				"TimeSheet Edit Time Sheet");
+		log.info("Edit Time Sheet page is displayed");
 	}
 
 	public void Test_InjectTestDataandCancel() {
+		log.info("Inside Test_InjectTestDataandCancel method");
+		log.debug("Read existing data to the object");
 		objGridDataB4Changes= TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
+		log.info("Existing data stored successfully");
+		log.debug("Inject test data to the fields");
+		
 		InjectTestData();
+		log.info("Test data entered successfully" );
+		log.debug("Initiate Cancel button click");
 		TimeSheetEditPage.ScrollScreenToCancelButtonAndClick(driver, jse);
+		log.info("Cancel button clicked");
 	}
 
 	@Test(priority = 3, dependsOnMethods = { "Test_IfEditTimeSheetPage_Isdisplayed" })
 	public void Test_IfDatanotSaved() {
 		try {
+			log.info("Inside Test_IfDatanotSaved method");
+			log.info("Calling , message,Test_InjectTestDataandCancel");
 			Test_InjectTestDataandCancel();
 			clicklink(RowNumb);
+			log.debug("Read existing data in the screen to the object to validate");
 			objGridDataAftrChanges = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
 			assertEquals((CommonMethods.compareList(objGridDataB4Changes, objGridDataAftrChanges) && chkUploadFileisCancelled()), true);
+			log.info("Data comparison done successfully");
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_IfDatanotSaved : "+e.getMessage());
 		}
 	}
 
-	@Test(priority = 6, dependsOnMethods = { "Test_IfDatanotSaved" })
+	@Test(priority = 4, dependsOnMethods = { "Test_IfDatanotSaved" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
+			
+			log.info("Inside Test_LogoutfromOrion_IsSuccess");
+			log.debug("Identifying loginUserIcon for logout");
+
 			act.moveToElement(CommonMethods.lbl_LoginUserIcon(driver)).click().perform();
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
+			log.debug("Logout button click");
+
 			CommonMethods.btn_Logout(driver).click();
 			assertEquals(true, LoginPage.btnLogin(driver).isDisplayed());
+			log.info("Logout successfully");
+
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_LogoutfromOrion_IsSuccess " + e.getMessage());	
 		}
 	}
 
 	public void clicklink(int RowNo) {
 		try {
+			log.info("Inside clickLink, RowNo value is : "+RowNo);
+			log.debug("Initiate Row click ");
+
 			act.moveToElement(
 					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
 					.build().perform();
+			log.info("Row clicked ");
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method clicklink " + e.getMessage());		
 		}
 	}
 
 	public void UploadAttachment() {
 		try {
+			log.info("Inside UploadAttachment");
+			
 			TimeSheetEditPage.wait_btn_AddAttachclickable(driver, wait).click();
 
 			WebElement TableData = TimeSheetEditPage.grd_AttachmentData(driver);
@@ -146,14 +202,17 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 			// enter the file path onto the file-selection input field //
 			TimeSheetEditPage.wait_grd_AddAttachclickable(driver, AttachmentRowId)
 					.sendKeys(CommonMethods.Sample_FileNamewithPath);
+			log.info("Upload success");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method UploadAttachment " + e.getMessage());		
 		}
 	}
 
 	public boolean chkUploadFileisCancelled() {
 		try {
+			log.info("Inside chkUploadFileisCancelled");
 			List<WebElement> Rows = TimeSheetEditPage.grd_AttachmentData(driver).findElements(By.tagName("tr"));
 			if (Rows.size() == AttachmentRowId) {
 				return false;
@@ -162,6 +221,7 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in chkUploadFileisCancelled "+ e.getMessage());
 			return true;
 		}
 	}
@@ -169,6 +229,7 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 	@SuppressWarnings("unchecked")
 	public void InjectTestData() {
 		try {
+			log.info("Inside InjectTestData");
 			objTest = (ArrayList<String>) objGridDataB4Changes.clone();
 
 			CommonMethods.ScrollScreenToElement(driver, jse,
@@ -190,8 +251,9 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 			objTest.set(8, CommonMethods.readTestData("TestData", "comment"));
 
 			UploadAttachment();
-
+			log.info("Test data added to the screen");
 		} catch (Exception e) {
+			log.error("Exception in InjectTestData "+ e.getMessage());
 			e.printStackTrace();
 		}
 	}
