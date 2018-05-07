@@ -163,15 +163,14 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
 			System.out.println(driver.getCurrentUrl());
+			log.debug("Comparing submitted & test data are equal!");
 			// Note: Though download file functionality working fine locally, unable to download file  
 			// in Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
 			// later.  This may be due to environment setup.  Able to downfiles in Jenkins from other sites :-(
-			
-			log.debug("Comparing submitted & test data are equal!");
 			// DownloadfileAndComparewithTestFile();
-			assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			// assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
 			
-			//assertEquals((CommonMethods.compareList(objTest, objGridData)), true);
+			assertEquals((CommonMethods.compareList(objTest, objGridData)), true);
 			log.info("Both submitted & test data are equal!");
 			log.info("Timesheet data submitted correctly");
 		} catch (Exception e) {
