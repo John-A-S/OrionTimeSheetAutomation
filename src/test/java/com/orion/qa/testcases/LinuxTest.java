@@ -96,7 +96,7 @@ public class LinuxTest {
 
 	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
 
-		driver.get("http://192.168.1.226:8080/orion-web/app/");
+		driver.get("https://192.168.1.226/orion-web/app/");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
 		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
