@@ -25,7 +25,6 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	public Test_ApprovedTimeSheet_CancelFunctionality() {
 		super();
 		log.info("After calling Base class");
-
 	}
 
 	@Parameters("Browser")
