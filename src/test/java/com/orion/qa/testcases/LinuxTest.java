@@ -96,8 +96,8 @@ public class LinuxTest {
 
 	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
 
-		// driver.get("http://192.168.1.226/orion-web/app/"); dev
-		driver.get("https://timesheets.infomaticscorp.com/orion-web/app/");
+		driver.get("http://192.168.1.226/orion-web/app/"); 
+		//driver.get("https://timesheets.infomaticscorp.com/orion-web/app/");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
 		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
@@ -105,36 +105,29 @@ public class LinuxTest {
 		System.out.println("After login button click");
 		Thread.sleep(3000);
 
-		/*driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
+		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
 		System.out.println("After linkText -> 04/29/2018 - 05/05/2018 click");
-*/
 
-		// production 
-		driver.findElement(By.linkText("05/06/2018 - 05/12/2018")).click();
-		System.out.println("After linkText -> 05/06/2018 - 05/12/2018 click");
-		
-		
 		Thread.sleep(2000);
 
 		System.out.println(driver.findElement(By.xpath("//h3")).getText());
 
 		Thread.sleep(2000);
 
-		//ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")));
-		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Selvakumar_05/06/2018 - 05/12/2018_0.docx')]")));
+		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")));
 		System.out.println("After ScrollScreenToElement ");
 
 		setDownloadSettings();
 
 		System.out.println("isDownload document link displayed: "
-				+ driver.findElement(By.xpath("//a[contains(text(), 'John Selvakumar_05/06/2018 - 05/12/2018_0.docx')]")).isDisplayed());
+				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
-		driver.findElement(By.xpath("//a[contains(text(), 'John Selvakumar_05/06/2018 - 05/12/2018_0.docx')]")).click();
+		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 		// John Selvakumar_05_06_2018 - 05_12_2018_0		
 		Thread.sleep(5000);
 		System.out.println("After download link click");
 		//john.docx"
-		File f = new File(chromeDownloadPath + "John Selvakumar_05_06_2018 - 05_12_2018_0.docx");
+		File f = new File(chromeDownloadPath + "john.docx");
 
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
