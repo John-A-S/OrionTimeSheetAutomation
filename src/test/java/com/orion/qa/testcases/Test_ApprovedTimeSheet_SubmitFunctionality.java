@@ -25,6 +25,7 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 
 	public Test_ApprovedTimeSheet_SubmitFunctionality() {
 		super();
+		log.info("After calling Base class");
 	}
 
 	@Parameters("Browser")
@@ -32,6 +33,9 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 	public void InitObjects(String Browser) {
 		try {
 			System.out.println("********** Test_ApprovedTimeSheet_SubmitFunctionality START ************* ");
+			log.info("********** Test_ApprovedTimeSheet_SubmitFunctionality START ************* ");
+			log.info("Inside InitObjects");	
+			log.info("Browser parameter value: "+Browser);
 			init(Browser, false);	
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -42,27 +46,39 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 	public void CloseObjects() {
 		CloseBrowser();
 		System.out.println("********** Test_ApprovedTimeSheet_SubmitFunctionality END ************* ");
+		log.info("********** Test_NewTimeSheet_SubmitFunctionality END *************");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
 	public void Test_LoginToOrion_IsSuccess(String UserID, String Password) {
 		try {
+			log.info("Inside Test_LoginToOrion_IsSuccess method");
+			log.debug("Setting User Credentials");
+
 			LoginPage.txtbx_UserName(driver).sendKeys(UserID);
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
+			log.debug("Login button click");
 			LoginPage.btnLogin(driver).click();
+			log.info("Login button clicked");
 			try {
 				assertEquals(true, CommonMethods.lbl_LoginUserIcon(driver).isDisplayed());
+				log.info("Login success");
+
 			} catch (NoSuchElementException e) {
+				log.error("Exception : Login button not found; Error occured: "+ e.getMessage());
 				assertEquals(false, true);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
 		}
 	}
 
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
-		
+		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed method");
+		log.info("Get report period details from the test data input file." );
+
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
 		period.selectByVisibleText(CommonMethods.readTestData("TestData", "ApprovedTimeSheet"));
 
@@ -76,39 +92,58 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_IfEditTimeSheetPage_Isdisplayed after clicklink: "+e.getMessage());
 		}
 
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
 				"TimeSheet Edit Time Sheet");
+		log.info("Edit Time Sheet page is displayed");
 	}
 
 	@Test(priority = 3, dependsOnMethods = { "Test_IfEditTimeSheetPage_Isdisplayed" })
 	public  void Test_SubmitButton_IsDisplayed() {
+		log.info("Inside Test_SubmitButton_IsDisplayed");
+		log.debug("Move cursor to Submit button");
 		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
+		log.debug("Verify Submit button");
 		assertEquals(TimeSheetEditPage.verifySubmitButtonExists(driver), false);
+		log.info("Submit button doesn't not exists");
 	}
 
 
 	@Test(priority = 4, dependsOnMethods = { "Test_SubmitButton_IsDisplayed" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
+			log.info("Inside Test_LogoutfromOrion_IsSuccess");
+			log.debug("Identifying loginUserIcon for logout");
+
 			act.moveToElement(CommonMethods.lbl_LoginUserIcon(driver)).click().perform();
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
+			log.debug("Logout button click");
 			CommonMethods.btn_Logout(driver).click();
 			assertEquals(true, LoginPage.btnLogin(driver).isDisplayed());
+			log.info("Logout successfully");
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_LogoutfromOrion_IsSuccess " + e.getMessage());		
+
 		}
 	}
 
 	public void clicklink(int RowNo) {
 		try {
+			log.info("Inside clickLink, RowNo value is : "+RowNo);
+			log.debug("Initiate Row click ");
+
 			act.moveToElement(
 					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
 					.build().perform();
+			log.info("Row clicked ");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method clicklink " + e.getMessage());
 		}
 	}
 }

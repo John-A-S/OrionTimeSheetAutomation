@@ -72,6 +72,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
 			log.debug("Login button click");
 			LoginPage.btnLogin(driver).click();
+			log.info("Login button clicked");
 			try {
 				assertEquals(true, CommonMethods.lbl_LoginUserIcon(driver).isDisplayed());
 				log.info("Login success");

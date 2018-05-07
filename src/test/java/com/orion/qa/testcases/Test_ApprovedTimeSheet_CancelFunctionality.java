@@ -150,8 +150,8 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
 			log.debug("Logout button click");
 			CommonMethods.btn_Logout(driver).click();
-			log.info("Logout successfully");
 			assertEquals(true, LoginPage.btnLogin(driver).isDisplayed());
+			log.info("Logout successfully");
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method Test_LogoutfromOrion_IsSuccess " + e.getMessage());		}
@@ -167,6 +167,7 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 			log.info("Row clicked ");
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.error("Exception in method clicklink " + e.getMessage());		}
+			log.error("Exception in method clicklink " + e.getMessage());		
+			}
 		}
 }
