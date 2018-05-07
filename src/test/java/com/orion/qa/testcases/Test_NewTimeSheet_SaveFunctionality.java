@@ -31,6 +31,8 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 	public Test_NewTimeSheet_SaveFunctionality() {
 		super();
+		log.info("After calling Base class");
+
 	}
 
 	
@@ -41,12 +43,18 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 			System.out.println("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
 			
+			log.info("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
+			log.info("Inside InitObjects");	
+			log.info("Browser parameter value: "+Browser);
+	
 			init(Browser, true);
 
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method InitObjects "+ e.getMessage());
+
 		}
 	}
 
@@ -54,41 +62,62 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 	public void CloseObjects() {
 		CloseBrowser();
 		System.out.println("********** Test_NewTimeSheet_SaveFunctionalitY END ************* ");
+		log.info("********** Test_NewTimeSheet_SaveFunctionalitY END *************");
+
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
 	public void Test_LoginToOrion_IsSuccess(String UserID, String Password) {
 		try {
+			
+			log.info("Inside Test_LoginToOrion_IsSuccess method");
+			log.debug("Setting User Credentials");
+
 			LoginPage.txtbx_UserName(driver).sendKeys(UserID);
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
+			log.debug("Login button click");
+
 			LoginPage.btnLogin(driver).click();
+			log.info("Login button clicked");
 			try {
 				assertEquals(true, CommonMethods.lbl_LoginUserIcon(driver).isDisplayed());
+				log.info("Login success");
+
 			} catch (NoSuchElementException e) {
+				log.error("Exception : Login button not found; Error occured: "+ e.getMessage());
 				assertEquals(false, true);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
+
 		}
 	}
 
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfNewTimeSheetPage_Isdisplayed() {
+		log.info("Inside Test_IfNewTimeSheetPage_Isdisplayed method");
 
 		clickNewTimeSheetlink();
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+			log.error("Exception in method Test_IfNewTimeSheetPage_Isdisplayed : "+e.getMessage());
+
 		}
 
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
 				"TimeSheet New Time Sheet");
+		log.info("New Time Sheet page is displayed");
+
 	}
 
 	@Test(priority = 3, dependsOnMethods = { "Test_IfNewTimeSheetPage_Isdisplayed" })
 	public void Test_IfSaveMessage_IsDisplayed() {
 		try {
+
+			log.info("Inside Test_IfSaveMessage_IsDisplayed" );
 
 			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
@@ -104,7 +133,9 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 			act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSave_OK(driver, wait)).click().build().perform();
 			assertEquals(strSaveMsg, "Time Sheet Saved Successfully.");
+			log.info("TimeSheet Saved successfully");
 		} catch (InterruptedException e) {
+			log.info("Exception in Test_IfSaveMessage_IsDisplayed method "+e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -119,7 +150,7 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			 * List<WebElement> Rows = TableData.findElements(By.tagName("tr"));
 			 * clicklink(Rows.size());
 			 */
-			
+			log.info("Inside Test_IfDataSavedCorrectly");
 			Thread.sleep(3000);
 
 			TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
@@ -130,37 +161,57 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			System.out.println(objGridData.toString());
 			DownloadfileAndComparewithTestFile();
 			assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			log.info("Data compared successfully");
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.info("Exception in Test_IfDataSavedCorrectly method : " + e.getMessage());
 		}
 	}
 
 	@Test(priority = 5, dependsOnMethods = { "Test_IfDataSavedCorrectly" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
+			
+			log.info("Inside Test_LogoutfromOrion_IsSuccess");
+			log.debug("Identifying loginUserIcon for logout");
+
 
 			act.moveToElement(CommonMethods.lbl_LoginUserIcon(driver)).click().perform();
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
+			log.debug("Logout button click");
+
 			CommonMethods.btn_Logout(driver).click();
 			assertEquals(true, LoginPage.btnLogin(driver).isDisplayed());
+			log.info("Logout successfully");	
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.info("Exception in Test_LogoutfromOrion_IsSuccess method : " + e.getMessage());
 		}
 	}
 
 	public void clickNewTimeSheetlink() {
 		try {
+			log.debug("New Timesheet button click");
+
 			act.moveToElement(wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.btn_NewTimeSheet(driver))))
 					.click().build().perform();
+			
+			log.info("New timesheet button successfully clicked");
+
 		} catch (Exception e) {
+			log.error("Error occured during new timesheet button click "+ e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
 	public void UploadAttachment() {
 		try {
+			log.info("Inside Upload Attachment");
+			log.debug("Add Attach button click");
+
 			TimeSheetEditPage.wait_btn_AddAttachclickable(driver, wait).click();
 
 			WebElement TableData = TimeSheetEditPage.grd_AttachmentData(driver);
@@ -171,15 +222,20 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			}
 			wait.until(ExpectedConditions
 					.elementToBeClickable(TimeSheetEditPage.wait_grd_AddAttachclickable(driver, RowValue)));
+			log.debug("Add Attachment");
+
 			// enter the file path onto the file-selection input field //
 			TimeSheetEditPage.wait_grd_AddAttachclickable(driver, RowValue)
 				.sendKeys(CommonMethods.Sample_FileNamewithPath);
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method UploadAttachment "+ e.getMessage());
+
 		}
 	}
 
 	public String getLatestUploadFile() {
+		log.info("Inside getLatestUploadFile");
 		try {
 			List<WebElement> Rows = TimeSheetEditPage.grd_AttachmentData(driver).findElements(By.tagName("tr"));
 			int RowValue = 1;
@@ -190,12 +246,14 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			return Cols.get(0).getText();
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method getLatestUploadFile "+ e.getMessage());
 			return "Inside getLatestUploadFile Exception";
 		}
 	}
 
 	public void DownloadfileAndComparewithTestFile() {
 		try {
+			log.info("Inside DownloadfileAndComparewithTestFile");
 			String TempFileName = getLatestUploadFile();
 			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
 			driver.findElement(By.linkText(TempFileName)).click();
@@ -205,16 +263,22 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			if (CommonMethods.CompareFilesbyByte(CommonMethods.Sample_FileNamewithPath,
 					CommonMethods.Attachment_File_Download_Location + TempFileName) == true) {
 				isSameFiles = true;
+				log.info("File comparison completed successfully.  Both files matches");
 			} else {
 				isSameFiles = false;
+				log.info("File comparison completed successfully.  Both files mis-matches");
 			}
+			log.info("File comparison completed successfully.");
 		} catch (Exception e) {
+			log.error("Exception in method DownloadfileAndComparewithTestFile "+e.getMessage());
+
 			e.printStackTrace();
 		}
 	}
 
 	public void InjectTestData() {
 		try {
+			log.debug("Sending test data to the fields");
 			
 			WebElement Element;
 
@@ -261,15 +325,18 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in method InjectTestData " + e.getMessage());
 		}
 	}
 
 	public void clicklink(int RowNo) {
 		try {
+			log.debug("Inside clicklink");
 			act.moveToElement(
 					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
 					.build().perform();
 		} catch (Exception e) {
+			log.error("Exception in clicklink method "+ e.getMessage());
 			e.printStackTrace();
 		}
 	}

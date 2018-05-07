@@ -105,6 +105,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 	@Test(priority = 3, dependsOnMethods = { "Test_IfNewTimeSheetPage_Isdisplayed" })
 	public void Test_IfSubmitMessage_IsDisplayed() {
 		try {
+			log.info("Inside  Test_IfSubmitMessage_IsDisplayed" );
 				
 			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
@@ -344,6 +345,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
 					.build().perform();
 		} catch (Exception e) {
+			log.error("Exception in clicklink method "+ e.getMessage());
 			e.printStackTrace();
 		}
 	}
