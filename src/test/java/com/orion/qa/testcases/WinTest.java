@@ -32,6 +32,84 @@ public class WinTest {
 	public void init() {
 		CommonMethods.readExcel_Paths();
 	}
+	
+	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
+
+		driver.get("http://192.168.1.226:8080/orion-web/app/");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
+		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
+		driver.findElement(By.xpath("//button[text()='Login']")).click();
+		System.out.println("After login button click");
+		Thread.sleep(3000);
+
+		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
+		System.out.println("After linkText -> 04/29/2018 - 05/05/2018 click");
+
+		Thread.sleep(2000);
+
+		System.out.println(driver.findElement(By.xpath("//h3")).getText());
+
+		Thread.sleep(2000);
+
+		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")));
+		System.out.println("After ScrollScreenToElement ");
+
+		System.out.println("isDownload document link displayed: "
+				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
+
+		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
+		System.out.println("After download link click");
+		
+		Thread.sleep(5000);
+		
+		File f = new File(chromeDownloadPath + "john.docx");
+
+		if (f.exists()) {
+			System.out.println("Successfully downloaded");
+		}
+	}	
+	
+	public static void DownloadDocfromExternal() throws InterruptedException, ClientProtocolException, IOException {
+		
+		driver.get("http://www.cvtemplatemaster.com");
+		Thread.sleep(2000);
+		System.out.println("Got it :" + driver.findElement(By.linkText("Got it!")).isDisplayed());
+		driver.findElement(By.linkText("Got it!")).click();
+		System.out.println("Got it : After click");
+		Thread.sleep(2000);
+		
+		Actions act = new Actions(driver);
+		System.out.println("Before action.movetoelement");
+		act.moveToElement(driver.findElement(By.xpath("//a[contains(text(), 'CV templates')]"))).perform();
+		System.out.println("After action.movetoelement");
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'CV templates')]")));
+		driver.findElement(By.xpath("//a[contains(text(), 'CV templates')]")).click();
+		System.out.println("After CV templates click");
+		
+		Thread.sleep(2000);
+		ScrollScreenToElement(driver, driver.findElement(By.id("subbutton")));
+		Thread.sleep(2000);
+		driver.findElement(By.id("subbutton")).click();
+		System.out.println("After subbuton click");
+
+		Thread.sleep(2000);
+		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
+		
+		driver.findElement(By.linkText("Free download")).click();
+		Thread.sleep(2000);
+		
+		File f = new File(chromeDownloadPath + "CV_Template_A4_Prof.docx");
+
+		if (f.exists()) {
+			System.out.println("Successfully downloaded");
+			}
+	}
+	
+	
+	
+
 
 	@Test()
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
@@ -50,65 +128,11 @@ public class WinTest {
 
 		driver = new ChromeDriver(options);
 
-		/*
-        driver.get("http://www.seleniumhq.org/download/");
-		System.out.println("After get" + driver.toString());
-		driver.findElement(By.linkText("32 bit Windows IE")).click();
-		System.out.println("After linkText " + driver.toString());
-		 */
+		DownloadDocfromExternal();
 		
+		//DownloadDocfromOrion();
 		
 
-		driver.get("http://www.cvtemplatemaster.com");
-		Thread.sleep(2000);
-		System.out.println("Got it :" + driver.findElement(By.linkText("Got it!")).isDisplayed());
-		driver.findElement(By.linkText("Got it!")).click();
-		System.out.println("Got it : After click");
-		Thread.sleep(2000);
-		
-		Actions act = new Actions(driver);
-		System.out.println("Before action.movetoelement");
-		act.moveToElement(driver.findElement(By.xpath("//a[contains(text(), 'CV templates')]"))).perform();
-		System.out.println("After action.movetoelement");
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'CV templates')]")));
-		driver.findElement(By.xpath("//a[contains(text(), 'CV templates')]")).click();
-		
-		Thread.sleep(5000);
-		ScrollScreenToElement(driver, driver.findElement(By.id("subbutton")));
-		Thread.sleep(5000);
-		driver.findElement(By.id("subbutton")).click();
-		Thread.sleep(5000);
-		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
-		//setDownloadSettings("CV_Template_A4_Prof.docx");
-		driver.findElement(By.linkText("Free download")).click();
-		Thread.sleep(2000);
-		
-		File f = new File(chromeDownloadPath + "CV_Template_A4_Prof.docx");
-		if (f.exists()) {
-			System.out.println("Successfully downloaded");
-		}
-		
-		
-		
-		driver.get("http://192.168.1.226:8080/orion-web/app/");
-		Thread.sleep(3000);
-	
-		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
-		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
-		driver.findElement(By.xpath("//button[text()='Login']")).click();
-		
-		Thread.sleep(2000);
-		
-		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
-		
-		Thread.sleep(2000);
-		
-		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")));
-
-		driver.findElement(By.xpath("//a[contains(text(), 'John Joseph_04/29/2018 - 05/05/2018_0.docx')]")).click();
-		
-		Thread.sleep(2000);
 	}
 	
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {

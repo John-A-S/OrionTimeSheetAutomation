@@ -122,6 +122,8 @@ public class LinuxTest {
 				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
 		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
+		
+		Thread.sleep(10000);
 		System.out.println("After download link click");
 
 		File f = new File(chromeDownloadPath + "john.docx");

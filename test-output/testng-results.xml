@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-05-05T16:12:27Z" name="Default suite" finished-at="2018-05-05T16:13:14Z" duration-ms="47230">
+  <suite started-at="2018-05-07T14:03:10Z" name="Default suite" finished-at="2018-05-07T14:03:41Z" duration-ms="30942">
     <groups>
     </groups>
-    <test started-at="2018-05-05T16:12:27Z" name="Default test" finished-at="2018-05-05T16:13:14Z" duration-ms="47230">
+    <test started-at="2018-05-07T14:03:10Z" name="Default test" finished-at="2018-05-07T14:03:41Z" duration-ms="30942">
       <class name="com.orion.qa.testcases.WinTest">
-        <test-method is-config="true" signature="init()[pri:0, instance:com.orion.qa.testcases.WinTest@445b295b]" started-at="2018-05-05T12:12:27Z" name="init" finished-at="2018-05-05T12:12:28Z" duration-ms="256" status="PASS">
+        <test-method is-config="true" signature="init()[pri:0, instance:com.orion.qa.testcases.WinTest@5c671d7f]" started-at="2018-05-07T10:03:10Z" name="init" finished-at="2018-05-07T10:03:11Z" duration-ms="357" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method signature="downloadfile()[pri:0, instance:com.orion.qa.testcases.WinTest@445b295b]" started-at="2018-05-05T12:12:28Z" name="downloadfile" finished-at="2018-05-05T12:13:14Z" duration-ms="46130" status="PASS">
+        <test-method signature="downloadfile()[pri:0, instance:com.orion.qa.testcases.WinTest@5c671d7f]" started-at="2018-05-07T10:03:11Z" name="downloadfile" finished-at="2018-05-07T10:03:40Z" duration-ms="29389" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- downloadfile -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.orion.qa.testcases.WinTest@445b295b]" started-at="2018-05-05T12:13:14Z" name="closeBrowser" finished-at="2018-05-05T12:13:14Z" duration-ms="803" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.orion.qa.testcases.WinTest@5c671d7f]" started-at="2018-05-07T10:03:40Z" name="closeBrowser" finished-at="2018-05-07T10:03:41Z" duration-ms="1144" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
