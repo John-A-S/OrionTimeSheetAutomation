@@ -88,9 +88,9 @@ public class LinuxTest {
 
 		System.out.println("Before get" + driver.toString());
 
-		//DownloadDocfromOrion();
+		DownloadDocfromOrion();
 		
-		DownloadDocfromExternal();
+		//DownloadDocfromExternal();
 		
 	}
 
@@ -118,7 +118,7 @@ public class LinuxTest {
 
 		setDownloadSettings();
 
-		System.out.println("isDownload link displayed: "
+		System.out.println("isDownload document link displayed: "
 				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
 		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
@@ -129,9 +129,7 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		}
-
 	}	
-	
 	
 	public static void DownloadDocfromExternal() throws InterruptedException, ClientProtocolException, IOException {
 		
@@ -169,7 +167,6 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 			}
-	
 	}
 	
 	
