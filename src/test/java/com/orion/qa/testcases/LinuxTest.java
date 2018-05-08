@@ -33,7 +33,7 @@ public class LinuxTest {
 	//public static ChromeDriver driver;
 	public static ChromeOptions options;
 	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver";
-	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
+	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download";
 
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
 		try {
