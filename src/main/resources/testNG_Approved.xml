@@ -3,7 +3,7 @@
 	<listeners>
 		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
 	</listeners>
-	
+	<!-- 
 	<test
 		name="OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
@@ -11,8 +11,8 @@
 			<class
 				name="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality" />
 		</classes>
-	</test>
-	<!-- 	 
+	</test>  -->
+	
 	<test
 		name="OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
@@ -30,5 +30,5 @@
 				name="com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality" />
 		</classes>
 	</test>
-	 -->
+	
 </suite>
