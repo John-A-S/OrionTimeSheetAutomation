@@ -16,7 +16,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -40,7 +39,7 @@ public class LinuxTest_csv {
 		 try
 		 {
 	         //Create new Chromedriver, set file download path, allow the download popup to be automatically accepted,and merge the properties into chromedriver
-	         System.setProperty("webdriver.chrome.driver", "/src/main/input/chromedriver");
+	         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")  + "/src/main/input/chromedriver");
 	         String downloadFilepath = "/src/main/input/download";
 	         System.out.println("after Downloadfilepath");
 	         ChromeOptions options = new ChromeOptions();
