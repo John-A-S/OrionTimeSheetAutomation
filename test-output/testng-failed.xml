@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Orion TimeSheet Automation Test Suite]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener"/>
-  </listeners>
-  <test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality(failed)">
-    <parameter name="Browser" value="chrome"/>
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality">
+      <class name="com.orion.qa.testcases.LinuxTest">
         <methods>
-          <include name="Test_IfSubmitMessage_IsDisplayed"/>
-          <include name="Test_IfNewTimeSheetPage_Isdisplayed"/>
-          <include name="Test_LogoutfromOrion_IsSuccess"/>
-          <include name="CloseObjects"/>
-          <include name="InitObjects"/>
-          <include name="Test_IfDataSubmittedCorrectly"/>
-          <include name="Test_LoginToOrion_IsSuccess"/>
+          <include name="downloadfile"/>
         </methods>
-      </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality -->
+      </class> <!-- com.orion.qa.testcases.LinuxTest -->
     </classes>
-  </test> <!-- OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality(failed) -->
-</suite> <!-- Failed suite [Orion TimeSheet Automation Test Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

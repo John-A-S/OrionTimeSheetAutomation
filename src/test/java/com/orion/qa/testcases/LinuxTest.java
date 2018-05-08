@@ -76,7 +76,7 @@ public class LinuxTest {
 	@Test()
 	public static void downloadfile() throws InterruptedException, ClientProtocolException, IOException {
 		
-		System.out.println("Inside downloadExternaldocx");
+		System.out.println("Inside downloadfile");
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
 		options = new ChromeOptions();
@@ -92,7 +92,7 @@ public class LinuxTest {
 
 		DownloadDocfromOrion();
 		
-		DownloadDocfromExternal();
+	//	DownloadDocfromExternal();
 		
 	}
 
@@ -106,8 +106,8 @@ public class LinuxTest {
 		System.out.println("After login button click");
 		Thread.sleep(3000);
 
-		driver.findElement(By.linkText("04/29/2018 - 05/05/2018")).click();
-		System.out.println("After linkText -> 04/29/2018 - 05/05/2018 click");
+		driver.findElement(By.linkText("05/06/2018 - 05/12/2018")).click();
+		System.out.println("After linkText -> 05/06/2018 - 05/12/2018 click");
 
 		Thread.sleep(2000);
 
