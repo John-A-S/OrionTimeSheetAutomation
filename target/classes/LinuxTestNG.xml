@@ -3,7 +3,7 @@
 
 	<test name="Sample_Linux_Test">
 		<classes>
-			<class name="com.orion.qa.testcases.LinuxTest_csv"/>
+			<class name="com.orion.qa.testcases.LinuxTest"/>
 		</classes>
 	</test>
 	
