@@ -30,6 +30,8 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 
 	public Test_RejectedTimeSheet_SubmitFunctionality() {
 		super();
+		log.info("After calling Base class");
+
 	}
 
 	
@@ -40,12 +42,18 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 		System.out.println("********** Test_RejectedTimeSheet_SubmitFunctionality START ************* ");
 		
 		try {
+
+			log.info("********** Test_RejectedTimeSheet_SubmitFunctionality START ************* ");
+			log.info("Inside InitObjects");	
+			log.info("Browser parameter value: "+Browser);
+
 			init(Browser, true);
 			
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 
 		} catch (Exception e) {
+			log.error("Exception in method InitObjects "+ e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -56,20 +64,30 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			driver.quit();
 		}
 		System.out.println("********** Test_RejectedTimeSheet_SubmitFunctionality END ************* ");
+		log.info("********** Test_RejectedTimeSheet_SubmitFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
 	public void Test_LoginToOrion_IsSuccess(String UserID, String Password) {
 		try {
+			
+			log.info("Inside Test_LoginToOrion_IsSuccess method");
+			log.debug("Setting User Credentials");
+
+			
 			LoginPage.txtbx_UserName(driver).sendKeys(UserID);
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
 			LoginPage.btnLogin(driver).click();
+			log.info("Login button clicked");
 			try {
 				assertEquals(true, CommonMethods.lbl_LoginUserIcon(driver).isDisplayed());
+				log.info("Login success");
 			} catch (NoSuchElementException e) {
+				log.error("Exception : Login button not found; Error occured: "+ e.getMessage());
 				assertEquals(false, true);
 			}
 		} catch (Exception e) {
+			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -77,30 +95,38 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
 		// RowNumb will have the row number of draft timesheet //
+		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'R');
 		if (RowNumb <= 0) {
+			log.info("No Rejected timesheet to process");
 			assertTrue(false, "No record to process");
 		}
+		log.info("Rejected timesheet exist in Row "+ RowNumb);
 		clicklink(RowNumb);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
+			log.error("Exception in method Test_IfEditTimeSheetPage_Isdisplayed : "+ e.getMessage());
 			e.printStackTrace();
 		}
 
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
 				"TimeSheet Edit Time Sheet");
+		log.info("Edit TimeSheet screen displayed successfully");
 	}
 
 	@Test(priority = 3, dependsOnMethods = { "Test_IfEditTimeSheetPage_Isdisplayed" })
 	public void Test_IfSubmitMessage_IsDisplayed() {
 		try {
+			log.info("Inside Test_IfSubmitMessage_IsDisplayed");
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
 			InjectTestData();
 			TimeSheetEditPage.ScrollScreenToSubmitButtonAndClick(driver, jse);
 			Thread.sleep(2000);
+			log.debug("Initiate Submit button click");
 
 			act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSubmit_OK(driver, wait)).click().build().perform();
+			log.info("Submit button clicked");
 			
 			Thread.sleep(1000);
 			WebElement ElementMsg1 = TimeSheetEditPage.Wait_Msg_TimeSheetSave(driver, wait);
@@ -112,6 +138,7 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			assertEquals(strSaveMsg1, "Time Sheet Submitted Successfully.");
 			
 		} catch (InterruptedException e) {
+			log.error("Exception in Test_IfSubmitMessage_IsDisplayed method "+e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -119,42 +146,57 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 	@Test(priority = 5, dependsOnMethods = { "Test_IfSubmitMessage_IsDisplayed" })
 	public void Test_IfDataSavedCorrectly() {
 		try {
+			log.info("Inside Test_IfDataSavedCorrectly");
 			Thread.sleep(1000);
 			clicklink(RowNumb);
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
 			DownloadfileAndComparewithTestFile();
 			assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			log.info("Data compared successfully!");
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.info("Exception in Test_IfDataSavedCorrectly method : " + e.getMessage());
 		}
 	}
 
 	@Test(priority = 6, dependsOnMethods = { "Test_IfDataSavedCorrectly" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
+			
+			log.info("Inside Test_LogoutfromOrion_IsSuccess");
+			log.debug("Identifying loginUserIcon for logout");
+
+			
 			act.moveToElement(CommonMethods.lbl_LoginUserIcon(driver)).click().perform();
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
+			log.debug("Logout button click");
 			CommonMethods.btn_Logout(driver).click();
+			log.info("Logout successfully");
 			assertEquals(true, LoginPage.btnLogin(driver).isDisplayed());
 		} catch (Exception e) {
+			log.error("Exception in method Test_LogoutfromOrion_IsSuccess " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
 	public void clicklink(int RowNo) {
 		try {
+			log.info("Inside clicklink");
+
 			act.moveToElement(
 					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
 					.build().perform();
 		} catch (Exception e) {
+			log.error("Exception in method clicklink " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
 	public void UploadAttachment() {
 		try {
+			log.info("Inside UploadAttachment");
 			TimeSheetEditPage.wait_btn_AddAttachclickable(driver, wait).click();
 
 			WebElement TableData = TimeSheetEditPage.grd_AttachmentData(driver);
@@ -168,13 +210,17 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			// enter the file path onto the file-selection input field //
 			TimeSheetEditPage.wait_grd_AddAttachclickable(driver, RowValue)
 				.sendKeys(CommonMethods.Sample_FileNamewithPath);
+			log.info("Test document uploaded!");
+			
 		} catch (Exception e) {
+			log.error("Exception in UploadAttachment method : "+e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
 	public String getLatestUploadFile() {
 		try {
+			log.info("Inside getLatestUploadFile");
 			List<WebElement> Rows = TimeSheetEditPage.grd_AttachmentData(driver).findElements(By.tagName("tr"));
 			int RowValue = 1;
 			if (Rows.size() > 1) {
@@ -184,12 +230,14 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			return Cols.get(0).getText();
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.info("Exception in getLatestUploadFile Method : " + e.getMessage());
 			return "Inside getLatestUploadFile Exception";
 		}
 	}
 
 	public void DownloadfileAndComparewithTestFile() {
 		try {
+			log.info("Inside DownloadfileAndComparewithTestFile");
 			String TempFileName = getLatestUploadFile();
 			wait.until(ExpectedConditions.elementToBeClickable(By.linkText(TempFileName)));
 			driver.findElement(By.linkText(TempFileName)).click();
@@ -201,7 +249,9 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			} else {
 				isSameFiles = false;
 			}
+			log.info("DownloadfileAndComparewithTestFile completed");
 		} catch (Exception e) {
+			log.error("Exception in DownloadfileAndComparewithTestFile method : " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -209,6 +259,8 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 	@SuppressWarnings("unchecked")
 	public void InjectTestData() {
 		try {
+			
+			log.info("Inside InjectTestData");
 			objTest = (ArrayList<String>) objGridData.clone();
 
 			CommonMethods.ScrollScreenToElement(driver, jse,
@@ -230,9 +282,11 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			objTest.set(8, CommonMethods.readTestData("TestData", "comment"));
 
 			UploadAttachment();
+			log.info("Test data upload");
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			log.error("Exception in InjectTestData method "+ e.getMessage());
 		}
 	}
 }

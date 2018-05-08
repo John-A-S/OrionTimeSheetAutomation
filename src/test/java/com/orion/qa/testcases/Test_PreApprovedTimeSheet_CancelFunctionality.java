@@ -95,8 +95,8 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		// RowNumb will have the row number of Pre-Approved timesheet //
 		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'P');
 		if (RowNumb <= 0)  {
-			assertTrue(false, "No record to process");
 			log.info("No Pre-Approved timesheet to process");
+			assertTrue(false, "No record to process");
 		} 
 		
 		log.info("PreApproved timesheet exist in Row "+ RowNumb);
