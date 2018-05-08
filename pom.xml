@@ -154,8 +154,12 @@
 				<version>2.19.1</version>
 				<configuration>
 					<suiteXmlFiles>
-					  	  <suiteXmlFile>src/main/resources/testNG_New_Submit.xml</suiteXmlFile>  
-						<!--  <suiteXmlFile>src/main/resources/LinuxTestNG.xml</suiteXmlFile> --> 
+					  <!-- 	  <suiteXmlFile>src/main/resources/testNG_New_Submit.xml</suiteXmlFile> -->  
+					 <!-- <suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile>
+					  	  <suiteXmlFile>src/main/resources/testNG_Rejected.xml</suiteXmlFile>
+					  	  <suiteXmlFile>src/main/resources/testNG_PreApproved.xml</suiteXmlFile>
+					  	  <suiteXmlFile>src/main/resources/testNG_Approved.xml</suiteXmlFile> -->
+						  <suiteXmlFile>src/main/resources/LinuxTestNG.xml</suiteXmlFile> 
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

@@ -28,11 +28,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class LinuxTest {
 
-	public static WebDriver driver;
+	// public static WebDriver driver;
 	public static ChromeDriverService driverService;
-	//public static ChromeDriver driver;
+	public static ChromeDriver driver;
 	public static ChromeOptions options;
-	public static String chromeDriverPath = System.getProperty("user.dir") + "/src/main/input/chromedriver";
+	public static String chromeDriverPath = System.getProperty("user.dir") + "//src//main//input//chromedriver";
 	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
 
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
@@ -51,7 +51,6 @@ public class LinuxTest {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("behavior", "allow");
 		params.put("downloadPath", chromeDownloadPath);
-		//params.put("profile.default_content_settings.popups", 0);
 		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
@@ -63,11 +62,10 @@ public class LinuxTest {
         String command = objectMapper.writeValueAsString(commandParams);
         System.out.println("Command : "+ command);
         
-        String u = driverService.getUrl().toString() + "/session/" + ((RemoteWebDriver) driver).getSessionId() + "/chromium/send_command";
+        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
         System.out.println("u : "+u);
         HttpPost request = new HttpPost(u);
         request.addHeader("content-type", "application/zip");
-        request.addHeader("accept", "*.*");
 
         request.setEntity(new StringEntity(command));
         HttpResponse res = httpClient.execute(request);
