@@ -167,7 +167,7 @@ public class LinuxTest {
 		
 		setDownloadSettings();
 		driver.findElement(By.linkText("Free download")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 		File f = new File(chromeDownloadPath + "CV_Template_A4_Prof.docx");
 
