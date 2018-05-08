@@ -48,15 +48,16 @@ public class LinuxTest {
 		
 		System.out.println("Inside setDownloadSettings");
 
-		Map<String, String> params = new HashMap<String, String>();
+		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("behavior", "allow");
 		params.put("downloadPath", chromeDownloadPath);
-		System.out.println();
+		params.put("profile.default_content_settings.popups", 0);
 		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		commandParams.put("params", params);
 		
+
 		ObjectMapper objectMapper = new ObjectMapper();
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
@@ -89,6 +90,8 @@ public class LinuxTest {
 		driver = new ChromeDriver(driverService, options);
 
 		System.out.println("Before get" + driver.toString());
+		
+	
 
 	//	DownloadDocfromOrion();
 		
