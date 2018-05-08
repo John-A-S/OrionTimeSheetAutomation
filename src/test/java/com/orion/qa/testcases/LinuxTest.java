@@ -128,7 +128,7 @@ public class LinuxTest {
 
 		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 				
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		System.out.println("After download link click");
 		
 		File f = new File(chromeDownloadPath + "john.docx");
@@ -167,7 +167,7 @@ public class LinuxTest {
 		
 		setDownloadSettings();
 		driver.findElement(By.linkText("Free download")).click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		System.out.println("File to look for : " + chromeDownloadPath + "CV_Template_A4_Prof.docx");
 		File f = new File(chromeDownloadPath + "CV_Template_A4_Prof.docx");
