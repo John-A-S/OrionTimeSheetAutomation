@@ -111,7 +111,7 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 		log.info("Inside Test_InjectTestDataandCancel");
 		
 		InjectTestData();
-		log.debug("Navigage to Cancel button and click");
+		log.debug("Navigate to Cancel button and click");
 		TimeSheetEditPage.ScrollScreenToCancelButtonAndClick(driver, jse);
 		log.info("Cancel button clicked");
 	}

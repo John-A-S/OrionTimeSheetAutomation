@@ -141,7 +141,7 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 		}
 	}
 
-	@Test(priority = 6, dependsOnMethods = { "Test_IfDatanotSaved" })
+	@Test(priority = 4, dependsOnMethods = { "Test_IfDatanotSaved" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
 			

@@ -31,8 +31,8 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 	@Parameters("Browser")
 	@BeforeClass
 	public void InitObjects(String Browser) {
+		System.out.println("********** Test_ApprovedTimeSheet_SubmitFunctionality START ************* ");
 		try {
-			System.out.println("********** Test_ApprovedTimeSheet_SubmitFunctionality START ************* ");
 			log.info("********** Test_ApprovedTimeSheet_SubmitFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);

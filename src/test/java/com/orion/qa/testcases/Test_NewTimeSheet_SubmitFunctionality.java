@@ -168,7 +168,8 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			log.debug("Comparing submitted & test data are equal!");
 			// Note: Though download file functionality working fine locally, unable to download file  
 			// in Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
-			// later.  This may be due to environment setup.  Able to downfiles in Jenkins from other sites :-(
+			// later.  This may be due to environment setup.  Able to download files in Jenkins 
+			// from other sites :-(
 			// DownloadfileAndComparewithTestFile();
 			// assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
 			

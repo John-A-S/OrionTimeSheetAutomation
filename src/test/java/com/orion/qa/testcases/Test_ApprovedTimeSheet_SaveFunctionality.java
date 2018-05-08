@@ -32,11 +32,12 @@ public class Test_ApprovedTimeSheet_SaveFunctionality extends OrionBase{
 	@BeforeClass
 	public void InitObjects(String Browser) {
 		System.out.println("********** Test_ApprovedTimeSheet_SaveFunctionality START ************* ");
-		log.info("********** Test_ApprovedTimeSheet_SaveFunctionality START ************* ");
-		log.info("Inside InitObjects");	
-		log.info("Browser parameter value: "+Browser);
 
 		try {
+			log.info("********** Test_ApprovedTimeSheet_SaveFunctionality START ************* ");
+			log.info("Inside InitObjects");	
+			log.info("Browser parameter value: "+Browser);
+
 			init(Browser, false);	
 			
 		} catch (Exception e) {
