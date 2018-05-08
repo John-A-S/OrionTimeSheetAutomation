@@ -169,6 +169,7 @@ public class LinuxTest {
 		driver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(5000);
 		
+		System.out.println("File to look for : " + chromeDownloadPath + "CV_Template_A4_Prof.docx");
 		File f = new File(chromeDownloadPath + "CV_Template_A4_Prof.docx");
 
 		if (f.exists()) {
