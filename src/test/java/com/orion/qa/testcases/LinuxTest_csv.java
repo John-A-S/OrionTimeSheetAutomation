@@ -36,25 +36,26 @@ public class LinuxTest_csv {
 	}
 	
 	@Test()
-	 public static void doScrape(String[] urls) {
+	public static void doScrape() {
 		 try
 		 {
-			 for(String url : urls) {
 	         //Create new Chromedriver, set file download path, allow the download popup to be automatically accepted,and merge the properties into chromedriver
 	         System.setProperty("webdriver.chrome.driver", "/src/main/input/chromedriver");
 	         String downloadFilepath = "/src/main/input/download";
-
+	         System.out.println("after Downloadfilepath");
 	         ChromeOptions options = new ChromeOptions();
 	         options.addArguments("--test-type");
 	         //options.addArguments("--headless");
 	         options.addArguments("--disable-extensions");
 	 			options.addArguments("--headless");
 	 			options.addArguments("--no-sandbox");
+		         System.out.println("after settings OPtions");
 
 	         //Instantiate above options in driverService
 	         ChromeDriverService driverService = ChromeDriverService.createDefaultService();
 	         ChromeDriver driver = new ChromeDriver(driverService, options);
 
+	         System.out.println("after new chromedriver");
 
 	         Map<String, Object> commandParams = new HashMap<String, Object>();
 	         commandParams.put("cmd", "Page.setDownloadBehavior");
@@ -95,6 +96,7 @@ public class LinuxTest_csv {
 	        	 ioe.printStackTrace(); 
 	         }
 
+	         System.out.println("Before driver.get");
 
 	 		driver.get("http://192.168.1.226/orion-web/app/"); 
 			Thread.sleep(2000);
@@ -132,7 +134,6 @@ public class LinuxTest_csv {
 			}
 
              driver.quit();
-         }
      }catch( java.lang.InterruptedException inter ){ System.err.println("Thread.sleep broke something, wtf"); inter.printStackTrace(); }
  }
 }
