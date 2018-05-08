@@ -51,7 +51,7 @@ public class LinuxTest {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("behavior", "allow");
 		params.put("downloadPath", chromeDownloadPath);
-		params.put("profile.default_content_settings.popups", 0);
+		//params.put("profile.default_content_settings.popups", 0);
 		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
