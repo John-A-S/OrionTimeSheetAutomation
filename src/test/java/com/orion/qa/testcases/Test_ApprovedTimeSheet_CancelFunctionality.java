@@ -86,9 +86,10 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 			e.printStackTrace();
 		}
 
-		log.info("Get report period details from the test data input file." );
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		period.selectByVisibleText(CommonMethods.readTestData("TestData", "ApprovedTimeSheet"));
+		String strPeriod = CommonMethods.readTestData("TestData", "ApprovedTimeSheet");
+		period.selectByVisibleText(strPeriod);
+		log.info("Get report period details from the test data input file. " + strPeriod );
 
 		// RowNumb will have the row number of approved timesheet //
 		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'A');
@@ -139,7 +140,7 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		log.info("Cancel button clicked successfully");
 	}
 
-	@Test(priority = 6, dependsOnMethods = { "Test_ClickCancelExists" })
+	@Test(priority = 5, dependsOnMethods = { "Test_ClickCancelExists" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
 			log.info("Inside Test_LogoutfromOrion_IsSuccess");

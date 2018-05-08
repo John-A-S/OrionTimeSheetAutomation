@@ -409,3 +409,58 @@ Session ID: 53af79703bb32a96d514df6081d2c6ff
 13:53:52.187 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Inside Close Browser
 13:53:53.069 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - Browser closed
 13:53:53.069 [main] INFO  com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality - ********** Test_NewTimeSheet_SubmitFunctionality END *************
+16:18:43.779 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Calling base class from com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality to read Excel Paths
+16:18:44.136 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - After calling Base class
+16:18:44.307 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - ********** Test_ApprovedTimeSheet_CancelFunctionality START ************* 
+16:18:44.321 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside InitObjects
+16:18:44.321 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Browser parameter value: chrome
+16:18:44.321 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Orion base Init
+16:18:44.321 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Setting Chrome driver property
+16:19:05.784 [main] ERROR com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Exception in method InitObjects Timed out waiting for driver server to start.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-FKH366F', ip: '192.168.1.61', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.1'
+Driver info: driver.version: ChromeDriver
+16:19:05.991 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Test_LoginToOrion_IsSuccess method
+16:19:05.991 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Setting User Credentials
+16:19:06.025 [main] ERROR com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Exception in method Test_LoginToOrion_IsSuccess : null
+16:19:06.032 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Test_IfEditTimeSheetPage_Isdisplayed method
+16:19:06.575 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Close Browser
+16:21:53.517 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Calling base class from com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality to read Excel Paths
+16:21:53.810 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - After calling Base class
+16:21:53.917 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - ********** Test_ApprovedTimeSheet_CancelFunctionality START ************* 
+16:21:53.917 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside InitObjects
+16:21:53.917 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Browser parameter value: chrome
+16:21:53.918 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Orion base Init
+16:21:53.919 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Setting Chrome driver property
+16:22:01.397 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Deleted all cookies
+16:22:02.738 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Windows Maximized
+16:22:07.097 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Test_LoginToOrion_IsSuccess method
+16:22:07.097 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Setting User Credentials
+16:22:08.409 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Login button click
+16:22:09.881 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Login success
+16:22:09.893 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Test_IfEditTimeSheetPage_Isdisplayed method
+16:22:10.939 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Get report period details from the test data input file. January, 2018
+16:22:11.097 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside clickLink, RowNo value is : 1
+16:22:11.097 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Initiate Row click 
+16:22:11.223 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Row clicked 
+16:22:12.295 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Edit Time Sheet page is displayed
+16:22:12.299 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Test_EditTimesheetScreenComponents_AreDisabled
+16:22:12.299 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Check if Add Attachment is disabled
+16:22:12.370 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Add Attachment is disabled
+16:22:12.370 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Check if weekly columns are disabled
+16:22:12.398 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Weekly columns are disabled
+16:22:12.398 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Check if Comment field is disabled
+16:22:12.426 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Common field is disabled
+16:22:12.430 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Test_ClickCancelExists
+16:22:12.430 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Move cursor to Cancel button
+16:22:12.529 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Verfiy cancel button exists 
+16:22:12.559 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Cancel button exists 
+16:22:12.559 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Initiate cancel button click
+16:22:12.995 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Cancel button clicked successfully
+16:22:13.000 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Test_LogoutfromOrion_IsSuccess
+16:22:13.000 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Identifying loginUserIcon for logout
+16:22:13.157 [main] DEBUG com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Logout button click
+16:22:13.834 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Logout successfully
+16:22:13.837 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Close Browser
+16:22:14.966 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Browser closed
+16:22:14.967 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - ********** Test_ApprovedTimeSheet_CancelFunctionality END *************

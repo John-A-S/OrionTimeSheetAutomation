@@ -58,6 +58,7 @@ public class OrionBase {
 
 	public static void init(String Browser, Boolean isDownloadReq) throws ClientProtocolException, IOException {
 		log.info("Inside Orion base Init" );
+		log.info("Browser details : " + Browser + "Parameter isDownloadReq is : "+ isDownloadReq);
 		if (Browser.equalsIgnoreCase("firefox")) {
 			if (isDownloadReq) {
 				log.debug("Setting firefox driver property");
@@ -90,7 +91,7 @@ public class OrionBase {
 
 				// Linux environment
 				// following code is to download files using Chrome browser 
-
+				
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				
 				options = new ChromeOptions();
@@ -117,7 +118,7 @@ public class OrionBase {
 		        request.addHeader("content-type", "application/json");
 		        request.setEntity(new StringEntity(command));
 		        httpClient.execute(request);
-
+				
 		        // Windows environment
 				/*
 		    	System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
@@ -133,17 +134,24 @@ public class OrionBase {
 				options.setExperimentalOption("prefs", chromePrefs);
 					  	        
 				driver = new ChromeDriver(options);
-				*/ 
+				 */
 			}
 			else {
-				log.debug("Setting Chrome driver property");
+				//Windows
+				//log.debug("Setting Chrome driver property");
 				//System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
-			    ChromeOptions options = new ChromeOptions();
+			    //driver = new ChromeDriver();
+
 				//for linux
+			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
+
+			    ChromeOptions options = new ChromeOptions();
+			    options.addArguments("--test-type");
 				options.addArguments("--headless");
 				options.addArguments("--no-sandbox");
-			    driver = new ChromeDriver(options);
+				options.addArguments("--disable-extensions"); // to disable browser extension popup
+
+				driver = new ChromeDriver(options);
 			}
 		}
 
