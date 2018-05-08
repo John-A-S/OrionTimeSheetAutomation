@@ -90,9 +90,9 @@ public class LinuxTest {
 
 		System.out.println("Before get" + driver.toString());
 
-		DownloadDocfromOrion();
+	//	DownloadDocfromOrion();
 		
-	//	DownloadDocfromExternal();
+		DownloadDocfromExternal();
 		
 	}
 
