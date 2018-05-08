@@ -93,9 +93,9 @@ public class LinuxTest {
 		
 	
 
-		// DownloadDocfromOrion();
+		 DownloadDocfromOrion();
 		
-		DownloadDocfromExternal();
+		//DownloadDocfromExternal();
 		
 	}
 
