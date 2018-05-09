@@ -113,12 +113,6 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	public void Test_EditTimesheetScreenComponents_AreDisabled() throws InterruptedException {
 		log.info("Inside Test_EditTimesheetScreenComponents_AreDisabled");
 		log.debug("Check if Add Attachment is disabled");
-		//Thread.sleep(500);
-		
-		System.out.println("Add Attach is displayed" + TimeSheetEditPage.AddAttachclickable(driver).isDisplayed());
-		System.out.println("Add Attach is Enabled" + TimeSheetEditPage.AddAttachclickable(driver).isEnabled());
-		
-		System.out.println("Add attach disabled attribute : "  + TimeSheetEditPage.AddAttachclickable(driver).getAttribute("disabled"));
 		
 	//	assertEquals(TimeSheetEditPage.wait_btn_AddAttachclickable(driver, wait).getAttribute("disabled"), "true",
 		assertEquals(TimeSheetEditPage.AddAttachclickable(driver).getAttribute("disabled"), "true",
