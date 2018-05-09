@@ -50,7 +50,7 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality extends OrionBase{
 	public void CloseObjects() {
 		CloseBrowser();
 		System.out.println("********** Test_SubmittedTimeSheet_SubmitFunctionality END ************* ");
-		log.info("********** Test_SubmittedTimeSheet_SaveFunctionality END ************* ");
+		log.info("********** Test_SubmittedTimeSheet_SubmitFunctionality END ************* ");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)

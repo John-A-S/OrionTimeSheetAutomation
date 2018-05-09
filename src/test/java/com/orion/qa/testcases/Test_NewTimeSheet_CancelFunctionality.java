@@ -36,7 +36,7 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 	public void InitObjects(String Browser, String ClassName) {
 		try {
 			
-			System.out.println("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
+			System.out.println("********** Test_NewTimeSheet_CancelFunctionality START ************* ");
 
 			init(Browser, ClassName, true);
 
@@ -55,8 +55,8 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 	@AfterClass
 	public void CloseObjects() {
 		CloseBrowser();
-		System.out.println("********** Test_NewTimeSheet_SaveFunctionality END ************* ");
-		log.info("********** Test_DraftTimeSheet_SubmitFunctionality END *************");
+		System.out.println("********** Test_NewTimeSheet_CancelFunctionality END ************* ");
+		log.info("********** Test_NewTimeSheet_CancelFunctionality END *************");
 
 	}
 
@@ -127,12 +127,14 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 			System.out.println(NewReportPeriod);	
 			Test_InjectTestDataandCancel();
 			try {
+				log.info("Click on the timesheet link : " + NewReportPeriod);
 				TimeSheetEditPage.grd_clickReportPeriodLink(driver, NewReportPeriod);
 				System.out.println("New Time Period found.  Test case FAILED");
 				assertEquals(true, false, "New Time Period " + NewReportPeriod + " Exist.  FAILED");
 			} catch (NoSuchElementException e) {
 				System.out.println(e.getMessage());
 				System.out.println("New Time Period not found.  Test case PASSED");
+				log.error("New Time Period not found. ");
 				log.error("Exception in Test_IfDatanotSaved method. New Time Period not found. "+e.getMessage());
 				assertEquals(false, false, "PASSED");
 			}

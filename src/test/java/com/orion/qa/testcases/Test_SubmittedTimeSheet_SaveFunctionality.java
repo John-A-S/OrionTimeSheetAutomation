@@ -37,7 +37,7 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 			System.out.println("********** Test_SubmittedTimeSheet_SaveFunctionality START ************* ");
 			
 			init(Browser, ClassName, false);
-			log.info("********** Test_Test_SubmittedTimeSheet_SaveFunctionality START ************* ");
+			log.info("********** Test_SubmittedTimeSheet_SaveFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 

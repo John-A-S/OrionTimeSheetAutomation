@@ -59,7 +59,7 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 	public void CloseObjects() {
 		CloseBrowser();
 		System.out.println("********** Test_DraftTimeSheet_SaveFunctionality END ************* ");
-		log.info("********** Test_DraftTimeSheet_CancelFunctionality END *************");
+		log.info("********** Test_DraftTimeSheet_SaveFunctionality END *************");
 
 	}
 
