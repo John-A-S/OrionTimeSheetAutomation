@@ -118,7 +118,10 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		System.out.println("Add Attach is displayed" + TimeSheetEditPage.AddAttachclickable(driver).isDisplayed());
 		System.out.println("Add Attach is Enabled" + TimeSheetEditPage.AddAttachclickable(driver).isEnabled());
 		
-		assertEquals(TimeSheetEditPage.wait_btn_AddAttachclickable(driver, wait).getAttribute("disabled"), "true",
+		System.out.println("Add attach disabled attribute : "  + TimeSheetEditPage.AddAttachclickable(driver).getAttribute("disabled"));
+		
+	//	assertEquals(TimeSheetEditPage.wait_btn_AddAttachclickable(driver, wait).getAttribute("disabled"), "true",
+		assertEquals(TimeSheetEditPage.AddAttachclickable(driver).getAttribute("disabled"), "true",
 				"Attach component disabled");
 		log.info("Add Attachment is disabled");
 		
