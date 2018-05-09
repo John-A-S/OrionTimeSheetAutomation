@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -109,7 +110,7 @@ public class WinTest {
 	
 	@Test()
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
-		
+		/*Chrome */
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
 		options = new ChromeOptions();
@@ -123,9 +124,10 @@ public class WinTest {
 		options.setExperimentalOption("prefs", chromePrefs);
 
 		driver = new ChromeDriver(options);
-
-		// DownloadDocfromExternal();
-		 DownloadDocfromOrion();
+		
+		
+		DownloadDocfromExternal();
+		// DownloadDocfromOrion();
 	}
 	
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
