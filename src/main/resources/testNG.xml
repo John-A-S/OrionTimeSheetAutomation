@@ -8,6 +8,7 @@
 	<!-- NEW TIMESHEET CANCEL  -->
 	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_NewTimeSheet_CancelFunctionality" />
 		<classes>
 			<class name="com.orion.qa.testcases.Test_NewTimeSheet_CancelFunctionality" />
 		</classes>
@@ -16,6 +17,7 @@
 	<!-- NEW TIMESHEET SAVE  -->
 	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_NewTimeSheet_SaveFunctionality" />
 		<classes>
 			<class name="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality" />
 		</classes>
@@ -24,6 +26,7 @@
 	<!-- DRAFT TIMESHEET SAVE  -->
 	<test name="OrionTimeSheet_Chrome_Test_DraftTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_DraftTimeSheet_SaveFunctionality" />
 		<classes>
 			<class name="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality" />
 		</classes>
@@ -32,6 +35,7 @@
 	<!-- DRAFT TIMESHEET CANCEL -->
 	<test name="OrionTimeSheet_Chrome_Test_DraftTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_DraftTimeSheet_CancelFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_DraftTimeSheet_CancelFunctionality" />
@@ -41,6 +45,7 @@
 	<!-- DRAFT TIMESHEET SUBMITTED -->
 	<test name="OrionTimeSheet_Chrome_Test_DraftTimeSheet_SubmitFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_DraftTimeSheet_SubmitFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_DraftTimeSheet_SubmitFunctionality" />
@@ -51,6 +56,7 @@
 	<test
 		name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_SubmittedTimeSheet_CancelFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality" />
@@ -60,6 +66,7 @@
 	<!-- SUBMITTED TIMESHEET SAVE -->
 	<test name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_SubmittedTimeSheet_SaveFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SaveFunctionality" />
@@ -70,6 +77,7 @@
 	<test
 		name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SubmittedFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_SubmittedTimeSheet_SubmitFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SubmitFunctionality" />
