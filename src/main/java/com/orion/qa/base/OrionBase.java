@@ -43,20 +43,25 @@ public class OrionBase {
 	public static Actions act;
 	public static JavascriptExecutor jse;
 	public static Logger log;
+	public static String childClassName;
 
 	String Chromebrowser = "webdriver.chrome.driver";
 	String IEbrowser = "webdriver.ie.driver";
 
 	public OrionBase() {
 		
-		log = LogManager.getLogger(this.getClass().getName());
-		log.info("Calling base class from "+this.getClass().getName()+" to read Excel Paths");
+		String childClassName = this.getClass().getName();
 		
 		CommonMethods.readExcel_Paths();
 
 	}
 
 	public static void init(String Browser, Boolean isDownloadReq) throws ClientProtocolException, IOException {
+
+		log = LogManager.getLogger(childClassName);
+		log.info("Calling base class from "+childClassName+" to read Excel Paths");
+
+		
 		log.info("Inside Orion base Init" );
 		log.info("Browser details : " + Browser + "Parameter isDownloadReq is : "+ isDownloadReq);
 		if (Browser.equalsIgnoreCase("firefox")) {
