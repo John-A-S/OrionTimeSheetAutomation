@@ -4,8 +4,10 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -84,6 +86,15 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
 		// RowNumb will have the row number of Submitted timesheet //
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
+		
+		
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		String strPeriod = CommonMethods.readTestData("TestData", "SubmittedTimeSheet");
+		period.selectByVisibleText(strPeriod);
+		log.info("Get report period details from the test data input file. " + strPeriod );
+
+
+		
 		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'S');
 		if (RowNumb <= 0)  {
 			log.info("No Submitted timesheet to process");

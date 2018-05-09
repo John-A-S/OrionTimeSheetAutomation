@@ -756,3 +756,74 @@ Driver info: driver.version: RemoteWebDriver
 12:36:26.657 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside Close Browser
 12:36:27.559 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Browser closed
 12:36:27.560 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - ********** Test_PreApprovedTimeSheet_CancelFunctionality END *************
+13:11:47.218 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Inside Orion base Init
+13:11:47.227 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Browser details : chromeParameter isDownloadReq is : false
+13:11:47.227 [main] DEBUG Test_SubmittedTimeSheet_CancelFunctionality - Setting Chrome driver property
+13:11:54.024 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Deleted all cookies
+13:11:55.316 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Windows Maximized
+13:12:01.713 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - ********** Test_Test_SubmittedTimeSheet_CancelFunctionality START ************* 
+13:12:01.713 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Inside InitObjects
+13:12:01.713 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Browser parameter value: chrome
+13:12:01.949 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Inside Test_LoginToOrion_IsSuccess method
+13:12:01.949 [main] DEBUG Test_SubmittedTimeSheet_CancelFunctionality - Setting User Credentials
+13:12:03.342 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Login button clicked
+13:12:03.747 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Login success
+13:12:03.755 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Inside Test_IfEditTimeSheetPage_Isdisplayed
+13:12:05.197 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Get report period details from the test data input file. May,2018
+13:12:05.352 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Inside clicklink
+13:12:06.645 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - TimeSheet Edit Time Sheet displayed successfully
+13:12:06.650 [main] DEBUG Test_SubmittedTimeSheet_CancelFunctionality - Verify timesheet Grid is editable
+13:12:06.713 [main] DEBUG Test_SubmittedTimeSheet_CancelFunctionality - Verify 'Add attachment' is editable
+13:12:06.779 [main] DEBUG Test_SubmittedTimeSheet_CancelFunctionality - Verify 'Comment textbox' is editable
+13:12:06.847 [main] DEBUG Test_SubmittedTimeSheet_CancelFunctionality - Verify cancel button exists
+13:12:06.927 [main] DEBUG Test_SubmittedTimeSheet_CancelFunctionality - Initiate Cancel button click
+13:12:07.300 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Cancel button clicked
+13:12:07.407 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Inside Test_LogoutfromOrion_IsSuccess
+13:12:07.407 [main] DEBUG Test_SubmittedTimeSheet_CancelFunctionality - Identifying loginUserIcon for logout
+13:12:07.561 [main] DEBUG Test_SubmittedTimeSheet_CancelFunctionality - Logout button click
+13:12:07.863 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Logout successfully
+13:12:08.013 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Inside Close Browser
+13:12:09.045 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - Browser closed
+13:12:09.045 [main] INFO  Test_SubmittedTimeSheet_CancelFunctionality - ********** Test_SubmittedTimeSheet_CancelFunctionality END ************* 
+13:12:09.091 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Inside Orion base Init
+13:12:09.091 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Browser details : chromeParameter isDownloadReq is : false
+13:12:09.091 [main] DEBUG Test_SubmittedTimeSheet_SaveFunctionality - Setting Chrome driver property
+13:12:15.273 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Deleted all cookies
+13:12:16.436 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Windows Maximized
+13:12:19.879 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - ********** Test_SubmittedTimeSheet_SaveFunctionality START ************* 
+13:12:19.879 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Inside InitObjects
+13:12:19.879 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Browser parameter value: chrome
+13:12:20.092 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Inside Test_LoginToOrion_IsSuccess method
+13:12:20.093 [main] DEBUG Test_SubmittedTimeSheet_SaveFunctionality - Setting User Credentials
+13:12:21.047 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Login button clicked
+13:12:22.347 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Login success
+13:12:22.351 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Inside Test_IfEditTimeSheetPage_Isdisplayed
+13:12:22.621 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Get report period details from the test data input file. May,2018
+13:12:22.757 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Inside clicklink
+13:12:24.138 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - TimeSheet Edit Time Sheet displayed successfully
+13:12:24.140 [main] DEBUG Test_SubmittedTimeSheet_SaveFunctionality - Verify timesheet Grid is editable
+13:12:24.180 [main] DEBUG Test_SubmittedTimeSheet_SaveFunctionality - Verify ''Add Attachment' is editable
+13:12:24.241 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Inside Close Browser
+13:12:25.254 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - Browser closed
+13:12:25.254 [main] INFO  Test_SubmittedTimeSheet_SaveFunctionality - ********** Test_SubmittedTimeSheet_SaveFunctionality END ************* 
+13:12:25.277 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Inside Orion base Init
+13:12:25.277 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Browser details : chromeParameter isDownloadReq is : false
+13:12:25.277 [main] DEBUG Test_SubmittedTimeSheet_SubmitFunctionality - Setting Chrome driver property
+13:12:30.037 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Deleted all cookies
+13:12:31.204 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Windows Maximized
+13:12:34.336 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - ********** Test_SubmittedTimeSheet_SubmitFunctionality START ************* 
+13:12:34.337 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Inside InitObjects
+13:12:34.337 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Browser parameter value: chrome
+13:12:34.530 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Inside Test_LoginToOrion_IsSuccess method
+13:12:34.531 [main] DEBUG Test_SubmittedTimeSheet_SubmitFunctionality - Setting User Credentials
+13:12:35.497 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Login button clicked
+13:12:35.720 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Login success
+13:12:35.724 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Inside Test_IfEditTimeSheetPage_Isdisplayed
+13:12:36.984 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Get report period details from the test data input file. May,2018
+13:12:37.130 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Inside clicklink
+13:12:38.347 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - TimeSheet Edit Time Sheet displayed successfully
+13:12:38.351 [main] DEBUG Test_SubmittedTimeSheet_SubmitFunctionality - Verify timesheet Grid is editable
+13:12:38.392 [main] DEBUG Test_SubmittedTimeSheet_SubmitFunctionality - Verify ''Add Attachment' is editable
+13:12:38.437 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Inside Close Browser
+13:12:39.488 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - Browser closed
+13:12:39.488 [main] INFO  Test_SubmittedTimeSheet_SubmitFunctionality - ********** Test_SubmittedTimeSheet_SubmitFunctionality END ************* 
