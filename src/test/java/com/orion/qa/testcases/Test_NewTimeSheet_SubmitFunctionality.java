@@ -35,7 +35,6 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 
 	public Test_NewTimeSheet_SubmitFunctionality() {
 		super();
-		log.info("After calling Base class");
 	}
 	
 	@Parameters({"Browser", "ClassName"})
@@ -43,10 +42,10 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 	public void InitObjects(String Browser, String ClassName) {
 		try {
 			System.out.println("********** Test_NewTimeSheet_SubmitFunctionality START ************* ");
+			init(Browser, ClassName, true);
 			log.info("********** Test_NewTimeSheet_SubmitFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
-			init(Browser, ClassName, true);
 
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();

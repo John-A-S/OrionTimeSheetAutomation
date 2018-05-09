@@ -29,8 +29,6 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 
 	public Test_NewTimeSheet_CancelFunctionality() {
 		super();
-		log.info("After calling Base class");
-
 	}
 
 	@Parameters({"Browser", "ClassName"})
@@ -38,12 +36,15 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 	public void InitObjects(String Browser, String ClassName) {
 		try {
 			
+			System.out.println("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
+
+			init(Browser, ClassName, true);
+
 			log.info("********** Test_NewTimeSheet_CancelFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 
-			System.out.println("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
-			init(Browser, ClassName, true);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method InitObjects "+ e.getMessage());

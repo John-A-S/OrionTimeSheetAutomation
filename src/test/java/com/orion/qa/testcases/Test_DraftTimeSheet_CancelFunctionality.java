@@ -31,8 +31,6 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 
 	public Test_DraftTimeSheet_CancelFunctionality() {
 		super();
-		log.info("After calling Base class");
-
 	}
 
 	@Parameters({"Browser", "ClassName"})
@@ -42,11 +40,14 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 
 		try {
 			
+			init(Browser, ClassName, true);	
+
 			log.info("********** Test_DraftTimeSheet_CancelFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter values: "+Browser);
 
-			init(Browser, ClassName, true);	
+
+			
 			objTest = new ArrayList<String>();
 			objGridDataB4Changes = new ArrayList<String>();
 			objGridDataAftrChanges = new ArrayList<String>();

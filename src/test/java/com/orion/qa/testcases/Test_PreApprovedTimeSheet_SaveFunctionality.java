@@ -26,7 +26,6 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 	
 	public Test_PreApprovedTimeSheet_SaveFunctionality() {
 		super();
-		log.info("After calling Base class");
 
 	}
 
@@ -37,11 +36,11 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 
 			System.out.println("********** Test_PreApprovedTimeSheet_SaveFunctionality START ************* ");
 			
+			init(Browser, ClassName, false);
 			log.info("********** Test_PreApprovedTimeSheet_SaveFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 
-			init(Browser, ClassName, false);
 		} catch (Exception e) {
 			log.error("Exception in method InitObjects "+ e.getMessage());
 			e.printStackTrace();

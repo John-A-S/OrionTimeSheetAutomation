@@ -30,7 +30,6 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 	
 	public Test_RejectedTimeSheet_CancelFunctionality() {
 		super();
-		log.info("After calling Base class");
 
 	}
 
@@ -41,12 +40,12 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 
 		try {
 			
+			
+			init(Browser, ClassName, true);
 			log.info("********** Test_RejectedTimeSheet_CancelFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 
-			
-			init(Browser, ClassName, true);
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 

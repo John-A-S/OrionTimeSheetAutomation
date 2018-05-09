@@ -24,7 +24,6 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 
 	public Test_SubmittedTimeSheet_CancelFunctionality() {
 		super();
-		log.info("After calling Base class");
 	}
 
 	
@@ -35,12 +34,12 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 			
 			System.out.println("********** Test_SubmittedTimeSheet_CancelFunctionality START ************* ");
 			
+			
+			init(Browser, ClassName, false);
 			log.info("********** Test_Test_SubmittedTimeSheet_CancelFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 
-			
-			init(Browser, ClassName, false);
 			
 		} catch (Exception e) {
 			log.error("Exception in method InitObjects "+ e.getMessage());

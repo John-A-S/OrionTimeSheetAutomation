@@ -24,7 +24,6 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality extends OrionBase{
 
 	public Test_SubmittedTimeSheet_SubmitFunctionality() {
 		super();
-		log.info("After calling Base class");
 	}
 
 	
@@ -35,10 +34,10 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality extends OrionBase{
 		try {
 			
 			System.out.println("********** Test_SubmittedTimeSheet_SubmitFunctionality START ************* ");
+			init(Browser, ClassName, false);
 			log.info("********** Test_SubmittedTimeSheet_SubmitFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
-			init(Browser, ClassName, false);
 
 		} catch (Exception e) {
 			log.error("Exception in method InitObjects "+ e.getMessage());

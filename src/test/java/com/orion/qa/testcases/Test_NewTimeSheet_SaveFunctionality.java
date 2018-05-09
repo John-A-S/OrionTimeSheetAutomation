@@ -31,8 +31,6 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 	public Test_NewTimeSheet_SaveFunctionality() {
 		super();
-		log.info("After calling Base class");
-
 	}
 
 	
@@ -43,12 +41,12 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 			System.out.println("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
 			
+			init(Browser, ClassName, true);
+
 			log.info("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 	
-			init(Browser, ClassName, true);
-
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 		} catch (Exception e) {
