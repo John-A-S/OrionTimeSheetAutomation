@@ -7,6 +7,8 @@
 	<test
 		name="OrionTimeSheet_Chrome_Test_RejectedTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_RejectedTimeSheet_CancelFunctionality" />
+		
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_RejectedTimeSheet_CancelFunctionality" />
@@ -16,6 +18,7 @@
 	<test
 		name="OrionTimeSheet_Chrome_Test_RejectedTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_RejectedTimeSheet_SaveFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_RejectedTimeSheet_SaveFunctionality" />
@@ -25,6 +28,7 @@
 	<test
 		name="OrionTimeSheet_Chrome_Test_RejectedTimeSheet_SubmitFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_RejectedTimeSheet_SubmitFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality" />
