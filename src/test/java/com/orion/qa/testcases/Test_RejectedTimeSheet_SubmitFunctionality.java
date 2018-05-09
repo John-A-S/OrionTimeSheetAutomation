@@ -49,7 +49,6 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 
-
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 

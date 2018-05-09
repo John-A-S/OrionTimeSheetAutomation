@@ -61,7 +61,7 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 	public void CloseObjects() {
 		System.out.println("********** Test_RejectedTimeSheet_CancelFunctionality END ************* ");
 		CloseBrowser();
-		log.info("********** Test_PreApprovedTimeSheet_CancelFunctionality END *************");
+		log.info("********** Test_RejectedTimeSheet_CancelFunctionality END *************");
 
 	}
 

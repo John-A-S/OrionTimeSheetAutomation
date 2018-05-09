@@ -50,7 +50,7 @@ public class Test_RejectedTimeSheet_SaveFunctionality extends OrionBase{
 	public void CloseObjects() {
 		CloseBrowser();
 		System.out.println("********** Test_RejectedTimeSheet_SaveFunctionality END ************* ");
-		log.info("********** Test_PreApprovedTimeSheet_SaveFunctionality END *************");
+		log.info("********** Test_RejectedTimeSheet_SaveFunctionality END *************");
 
 	}
 
@@ -117,6 +117,7 @@ public class Test_RejectedTimeSheet_SaveFunctionality extends OrionBase{
 		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
 		log.debug("Check Save button exist");
 		assertEquals(TimeSheetEditPage.verifySaveButtonExists(driver), false);
+		log.info("Save button does not exists");
 	}
 
 
