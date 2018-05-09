@@ -30,23 +30,23 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 	int AttachmentRowId;
 
 	public Test_DraftTimeSheet_CancelFunctionality() {
-		super("Test_DraftTimeSheet_CancelFunctionality");
+		super();
 		log.info("After calling Base class");
 
 	}
 
-	@Parameters("Browser")
+	@Parameters({"Browser", "ClassName"})
 	@BeforeClass
-	public void InitObjects(String Browser) {
+	public void InitObjects(String Browser, String ClassName) {
 		System.out.println("********** Test_DraftTimeSheet_CancelFunctionality START ************* ");
 
 		try {
 			
 			log.info("********** Test_DraftTimeSheet_CancelFunctionality START ************* ");
 			log.info("Inside InitObjects");	
-			log.info("Browser parameter value: "+Browser);
+			log.info("Browser parameter values: "+Browser);
 
-			init(Browser, true);	
+			init(Browser, ClassName, true);	
 			objTest = new ArrayList<String>();
 			objGridDataB4Changes = new ArrayList<String>();
 			objGridDataAftrChanges = new ArrayList<String>();
