@@ -92,7 +92,7 @@ public class OrionBase {
 
 				// Linux environment
 				// following code is to download files using Chrome browser 
-				/*
+				
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				
 				options = new ChromeOptions();
@@ -119,9 +119,9 @@ public class OrionBase {
 		        request.addHeader("content-type", "application/json");
 		        request.setEntity(new StringEntity(command));
 		        httpClient.execute(request);
-				*/
-		        // Windows environment
 				
+		        // Windows environment
+				/*
 		    	System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 
 		    	options = new ChromeOptions();
@@ -135,17 +135,17 @@ public class OrionBase {
 				options.setExperimentalOption("prefs", chromePrefs);
 					  	        
 				driver = new ChromeDriver(options);
-				 
+				*/ 
 			}
 			else {
 				//Windows
-				
+				/*
 				log.debug("Setting Chrome driver property");
 				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 			    driver = new ChromeDriver();
-				
+				*/
 				//for linux
-			    /*
+			    
 			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
 
 			    ChromeOptions options = new ChromeOptions();
@@ -155,7 +155,7 @@ public class OrionBase {
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 
 				driver = new ChromeDriver(options);
-				*/
+				
 			}
 		}
 
