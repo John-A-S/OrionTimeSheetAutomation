@@ -36,9 +36,8 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 			
 			System.out.println("********** Test_SubmittedTimeSheet_CancelFunctionality START ************* ");
 			
-			
 			init(Browser, ClassName, false);
-			log.info("********** Test_Test_SubmittedTimeSheet_CancelFunctionality START ************* ");
+			log.info("********** Test_SubmittedTimeSheet_CancelFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 
@@ -93,8 +92,6 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-
-		
 		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'S');
 		if (RowNumb <= 0)  {
 			log.info("No Submitted timesheet to process");
@@ -118,6 +115,7 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 	public void Test_VerifyUserCanEnterTime() {
 		log.debug("Verify timesheet Grid is editable");
 		assertFalse(TimeSheetEditPage.grd_ColMonday(driver).isEnabled());
+		log.info("Timesheet Grid is not editable");
 	}
 	
 	
@@ -125,6 +123,7 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 	public void Test_VerifyUserAddAttachment() {
 		log.debug("Verify 'Add attachment' is editable");
 		assertTrue(TimeSheetEditPage.AddAttachclickable(driver).isEnabled());
+		log.info("'Add attachment' is not editable");
 	}
 	
 
@@ -132,6 +131,7 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 	public void Test_VerifyUserAddcomment() {
 		log.debug("Verify 'Comment textbox' is editable");
 		assertFalse(TimeSheetEditPage.grd_txtComment(driver).isEnabled());
+		log.info("Comment box is not editable");
 	}
 	
 	@Test(priority = 6, dependsOnMethods = { "Test_VerifyUserAddcomment" })
@@ -139,6 +139,7 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 		log.debug("Verify cancel button exists");
 		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
 		assertTrue(TimeSheetEditPage.verifyCancelButtonExists(driver));
+		log.info("Cancel button exists");
 	}
 	
 	@Test(priority = 7, dependsOnMethods = { "Test_CancelButton_IsDisplayed" })

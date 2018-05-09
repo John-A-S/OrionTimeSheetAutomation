@@ -119,13 +119,15 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 	public void Test_VerifyUserCanEnterTime() {
 		log.debug("Verify timesheet Grid is editable");
 		assertFalse(TimeSheetEditPage.grd_ColMonday(driver).isEnabled());
+		log.info("Timesheet Grid is not editable");
 	}
 	
 	
 	@Test(priority=4, dependsOnMethods = {"Test_VerifyUserCanEnterTime"}) 
 	public void Test_VerifyUserAddAttachment() {
-		log.debug("Verify ''Add Attachment' is editable");
+		log.debug("Verify 'Add Attachment' is editable");
 		assertFalse(TimeSheetEditPage.AddAttachclickable(driver).isEnabled());
+		log.info("'Add Attachment' is not editable");
 	}
 	
 
@@ -133,6 +135,7 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 	public void Test_VerifyUserAddcomment() {
 		log.debug("Verify Comment text box is editable");
 		assertFalse(TimeSheetEditPage.grd_txtComment(driver).isEnabled());
+		log.debug("Comment text box is not editable");
 	}
 	
 	@Test(priority = 6, dependsOnMethods = { "Test_VerifyUserAddcomment" })
@@ -140,6 +143,7 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 		log.debug("Verify Save button exists or not");
 		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
 		assertEquals(TimeSheetEditPage.verifySaveButtonExists(driver), false);
+		log.error("Save button does not exists ");
 	}
 
 	@Test(priority = 7, dependsOnMethods = { "Test_SaveButton_IsDisplayed" })
