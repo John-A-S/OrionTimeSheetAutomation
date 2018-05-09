@@ -124,22 +124,17 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
 			String NewReportPeriod = ele.getText();
-			System.out.println(NewReportPeriod);	
 			Test_InjectTestDataandCancel();
 			try {
 				log.info("Click on the timesheet link : " + NewReportPeriod);
 				TimeSheetEditPage.grd_clickReportPeriodLink(driver, NewReportPeriod);
-				System.out.println("New Time Period found.  Test case FAILED");
 				assertEquals(true, false, "New Time Period " + NewReportPeriod + " Exist.  FAILED");
 			} catch (NoSuchElementException e) {
-				System.out.println(e.getMessage());
-				System.out.println("New Time Period not found.  Test case PASSED");
 				log.error("New Time Period not found. ");
 				log.error("Exception in Test_IfDatanotSaved method. New Time Period not found. "+e.getMessage());
 				assertEquals(false, false, "PASSED");
 			}
 		} catch (Exception e) {
-			System.out.println("Inside 2nd Catch");
 			log.error("Exception in Test_IfDatanotSaved method. Inside 2nd Catch. "+e.getMessage());
 			assertEquals(false, false);
 			// e.printStackTrace();

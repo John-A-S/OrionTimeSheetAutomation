@@ -155,8 +155,6 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
-			System.out.println(objTest.toString());
-			System.out.println(objGridData.toString());
 
 			// Note: Though download file functionality working fine locally, unable to download file  
 			// in Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
