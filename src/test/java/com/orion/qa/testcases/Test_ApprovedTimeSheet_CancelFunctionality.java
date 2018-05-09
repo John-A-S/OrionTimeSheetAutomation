@@ -3,6 +3,7 @@ package com.orion.qa.testcases;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,13 +24,16 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	int RowNumb;
 
 	public Test_ApprovedTimeSheet_CancelFunctionality() {
-		super();
+		super("Test_ApprovedTimeSheet_CancelFunctionality");
+		
 		log.info("After calling Base class");
 	}
 
 	@Parameters("Browser")
 	@BeforeClass
 	public void InitObjects(String Browser) {
+		
+		
 		System.out.println("********** Test_ApprovedTimeSheet_CancelFunctionality START ************* ");
 		try {
 			log.info("********** Test_ApprovedTimeSheet_CancelFunctionality START ************* ");

@@ -24,7 +24,7 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 	int RowNumb;
 
 	public Test_ApprovedTimeSheet_SubmitFunctionality() {
-		super();
+		super("Test_ApprovedTimeSheet_SubmitFunctionality");
 		log.info("After calling Base class");
 	}
 

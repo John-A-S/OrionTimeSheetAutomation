@@ -30,7 +30,7 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 	int AttachmentRowId;
 
 	public Test_DraftTimeSheet_CancelFunctionality() {
-		super();
+		super("Test_DraftTimeSheet_CancelFunctionality");
 		log.info("After calling Base class");
 
 	}

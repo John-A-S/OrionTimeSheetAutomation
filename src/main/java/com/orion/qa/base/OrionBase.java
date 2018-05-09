@@ -48,14 +48,11 @@ public class OrionBase {
 	String Chromebrowser = "webdriver.chrome.driver";
 	String IEbrowser = "webdriver.ie.driver";
 
-	public OrionBase() {
+	public OrionBase(String className) {
 		
-		String childClassName = this.getClass().getName();
-		log = LogManager.getLogger(childClassName);
-		log.info("Calling base class from "+childClassName+" to read Excel Paths");
+		log = LogManager.getLogger(className);
+		log.info("Calling base class from "+className+" to read Excel Paths");
 
-		
-		
 		CommonMethods.readExcel_Paths();
 
 	}

@@ -24,7 +24,7 @@ public class Test_ApprovedTimeSheet_SaveFunctionality extends OrionBase{
 	int RowNumb;
 	
 	public Test_ApprovedTimeSheet_SaveFunctionality() {
-		super();
+		super("Test_ApprovedTimeSheet_SaveFunctionality");
 		log.info("After calling Base class");
 	}
 
