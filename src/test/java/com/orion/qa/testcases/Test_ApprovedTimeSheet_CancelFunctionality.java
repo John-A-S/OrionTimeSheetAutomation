@@ -110,9 +110,10 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	}
 
 	@Test(priority = 3, dependsOnMethods = { "Test_IfEditTimeSheetPage_Isdisplayed" })
-	public void Test_EditTimesheetScreenComponents_AreDisabled() {
+	public void Test_EditTimesheetScreenComponents_AreDisabled() throws InterruptedException {
 		log.info("Inside Test_EditTimesheetScreenComponents_AreDisabled");
 		log.debug("Check if Add Attachment is disabled");
+		Thread.sleep(10000);
 		assertEquals(TimeSheetEditPage.wait_btn_AddAttachclickable(driver, wait).getAttribute("disabled"), "true",
 				"Attach component disabled");
 		log.info("Add Attachment is disabled");
@@ -120,7 +121,7 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		log.debug("Check if weekly columns are disabled");
 		assertEquals(TimeSheetEditPage.grd_ColSunday(driver).getAttribute("disabled"), "true", "Col1 disabled");
 		log.info("Weekly columns are disabled");
-		
+			
 		log.debug("Check if Comment field is disabled");
 		assertEquals(TimeSheetEditPage.grd_txtComment(driver).getAttribute("disabled"), "true",
 				"Comment component disabled");
