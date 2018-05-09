@@ -112,8 +112,8 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality extends OrionBase{
 	@Test(priority=3, dependsOnMethods = {"Test_IfEditTimeSheetPage_Isdisplayed"}) 
 	public void Test_VerifyUserCanEnterTime() {
 		log.debug("Verify timesheet Grid is editable");
-		
 		assertFalse(TimeSheetEditPage.grd_ColMonday(driver).isEnabled());
+		log.info("Timesheet Grid is disabled");
 	}
 	
 	
@@ -121,6 +121,7 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality extends OrionBase{
 	public void Test_VerifyUserAddAttachment() {
 		log.debug("Verify ''Add Attachment' is editable");
 		assertFalse(TimeSheetEditPage.AddAttachclickable(driver).isEnabled());
+		log.info("Add Attachment button is disabled");
 		
 	}
 	
@@ -129,6 +130,7 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality extends OrionBase{
 	public void Test_VerifyUserAddcomment() {
 		log.debug("Verify Comment text box is editable");
 		assertFalse(TimeSheetEditPage.grd_txtComment(driver).isEnabled());
+		log.info("Comment text box is disabled");
 	}
 	
 	@Test(priority = 6, dependsOnMethods = { "Test_VerifyUserAddcomment" })
@@ -136,6 +138,7 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality extends OrionBase{
 		log.debug("Verify Submit button exists or not");
 		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
 		assertEquals(TimeSheetEditPage.verifySubmitButtonExists(driver), false);
+		log.info("Submit button exists");
 	}
 
 	@Test(priority = 7, dependsOnMethods = { "Test_SubmitButton_IsDisplayed" })
