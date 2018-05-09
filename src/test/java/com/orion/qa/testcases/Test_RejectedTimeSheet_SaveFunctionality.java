@@ -26,9 +26,9 @@ public class Test_RejectedTimeSheet_SaveFunctionality extends OrionBase{
 	}
 
 	
-	@Parameters("Browser")
+	@Parameters({"Browser", "ClassName"})
 	@BeforeClass
-	public void InitObjects(String Browser) {
+	public void InitObjects(String Browser, String ClassName) {
 
 		try {
 			System.out.println("********** Test_RejectedTimeSheet_SaveFunctionality START ************* ");
@@ -37,7 +37,7 @@ public class Test_RejectedTimeSheet_SaveFunctionality extends OrionBase{
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 
-			init(Browser, false);
+			init(Browser, ClassName, false);
 			
 		} catch (Exception e) {
 			log.error("Exception in method InitObjects "+ e.getMessage());

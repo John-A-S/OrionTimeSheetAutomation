@@ -33,9 +33,9 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 
 	}
 
-	@Parameters("Browser")
+	@Parameters({"Browser", "ClassName"})
 	@BeforeClass
-	public void InitObjects(String Browser) {
+	public void InitObjects(String Browser, String ClassName) {
 		try {
 			
 			log.info("********** Test_NewTimeSheet_CancelFunctionality START ************* ");
@@ -43,7 +43,7 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 			log.info("Browser parameter value: "+Browser);
 
 			System.out.println("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
-			init(Browser, true);
+			init(Browser, ClassName, true);
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method InitObjects "+ e.getMessage());

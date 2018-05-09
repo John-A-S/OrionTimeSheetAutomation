@@ -34,9 +34,9 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 		log.info("After calling Base class");
 	}
 
-	@Parameters("Browser")
+	@Parameters({"Browser", "ClassName"})
 	@BeforeClass
-	public void InitObjects(String Browser) {
+	public void InitObjects(String Browser, String ClassName) {
 
 		System.out.println("********** Test_DraftTimeSheet_SubmitFunctionality START ************* ");
 		
@@ -46,7 +46,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 
-			init(Browser, true);
+			init(Browser, ClassName, true);
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 

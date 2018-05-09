@@ -34,9 +34,9 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 
 	}
 
-	@Parameters("Browser")
+	@Parameters({"Browser", "ClassName"})
 	@BeforeClass
-	public void InitObjects(String Browser) {
+	public void InitObjects(String Browser, String ClassName) {
 		System.out.println("********** Test_RejectedTimeSheet_CancelFunctionality START ************* ");
 
 		try {
@@ -46,7 +46,7 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 			log.info("Browser parameter value: "+Browser);
 
 			
-			init(Browser, true);
+			init(Browser, ClassName, true);
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 

@@ -29,9 +29,9 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 	}
 
 	
-	@Parameters("Browser")
+	@Parameters({"Browser", "ClassName"})
 	@BeforeClass
-	public void InitObjects(String Browser) {
+	public void InitObjects(String Browser, String ClassName) {
 
 		try {
 			
@@ -40,7 +40,7 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 			
-			init(Browser, false);
+			init(Browser, ClassName, false);
 
 
 		} catch (Exception e) {
