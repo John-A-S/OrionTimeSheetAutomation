@@ -24,12 +24,20 @@ public class TimeSheetEditPage {
 		return(driver.findElement(By.id("reportperiod")));
 	}
 	
-	public static WebElement wait_btn_AddAttachclickable(WebDriver driver, WebDriverWait wait) {
+	/*public static WebElement wait_btn_AddAttachclickable(WebDriver driver, WebDriverWait wait) {
 		return(wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Add Attachment"))));
+	}
+	*/
+	/*public static WebElement AddAttachclickable(WebDriver driver) {
+		return(driver.findElement(By.linkText("Add Attachment")));
+	}
+	*/
+	public static WebElement wait_btn_AddAttachclickable(WebDriver driver, WebDriverWait wait) {
+		return(wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'Attachment')]"))));
 	}
 	
 	public static WebElement AddAttachclickable(WebDriver driver) {
-		return(driver.findElement(By.linkText("Add Attachment")));
+		return(driver.findElement(By.xpath("//a[contains(text(), 'Attachment')]")));
 	}
 	
 	public static WebElement grd_clickReportPeriodLink(WebDriver driver, String RptPeriod) {
