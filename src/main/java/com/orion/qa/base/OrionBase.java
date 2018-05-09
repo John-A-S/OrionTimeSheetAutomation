@@ -138,10 +138,11 @@ public class OrionBase {
 			}
 			else {
 				//Windows
-				//log.debug("Setting Chrome driver property");
-				//System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-			    //driver = new ChromeDriver();
-
+				/*
+				log.debug("Setting Chrome driver property");
+				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+			    driver = new ChromeDriver();
+				*/
 				//for linux
 			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
 
