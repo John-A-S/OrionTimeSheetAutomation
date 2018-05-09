@@ -573,3 +573,89 @@ Driver info: driver.version: ChromeDriver
 10:16:43.592 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Inside Close Browser
 10:16:44.519 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - Browser closed
 10:16:44.519 [main] INFO  com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality - ********** Test_ApprovedTimeSheet_CancelFunctionality END *************
+12:29:41.022 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside Orion base Init
+12:29:41.033 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Browser details : chromeParameter isDownloadReq is : true
+12:29:41.033 [main] DEBUG Test_PreApprovedTimeSheet_CancelFunctionality - Setting Chrome driver property
+12:29:47.571 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Deleted all cookies
+12:29:48.728 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Windows Maximized
+12:29:52.298 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - ********** Test_PreApprovedTimeSheet_CancelFunctionality START ************* 
+12:29:52.298 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside InitObjects
+12:29:52.299 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Browser parameter value: chrome
+12:29:52.518 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside Test_LoginToOrion_IsSuccess method
+12:29:52.518 [main] DEBUG Test_PreApprovedTimeSheet_CancelFunctionality - Setting User Credentials
+12:29:53.556 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Login button clicked
+12:29:54.685 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Login success
+12:29:54.693 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside Test_IfEditTimeSheetPage_Isdisplayed
+12:29:54.958 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Get report period details from the test data input file. May,2018
+12:29:55.047 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - PreApproved timesheet exist in Row 1
+12:29:55.048 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside clicklink
+12:29:56.263 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Edit TimeSheet screen displayed successfully
+12:29:56.269 [main] DEBUG Test_PreApprovedTimeSheet_CancelFunctionality - Verify Cancel button exists
+12:29:56.335 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Cancel button exists
+12:29:56.341 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside Test_CancelButton_InjectTestDataandVerify
+12:29:56.341 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside ReadCurrentData
+12:29:56.429 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside InjectTestData
+12:29:57.538 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside UploadAttachment
+12:29:58.002 [main] DEBUG Test_PreApprovedTimeSheet_CancelFunctionality - Initiate Cancel button click
+12:29:58.292 [main] DEBUG Test_PreApprovedTimeSheet_CancelFunctionality - Cancel button clicked
+12:29:58.297 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside Test_IfUpdatedDataisCancelled
+12:29:58.297 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside clicklink
+12:29:58.645 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside ChkTestFileisCancelled
+12:29:58.646 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside getLatestUploadFile
+12:29:58.790 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside Test_LogoutfromOrion_IsSuccess
+12:29:58.790 [main] DEBUG Test_PreApprovedTimeSheet_CancelFunctionality - Identifying loginUserIcon for logout
+12:29:58.906 [main] DEBUG Test_PreApprovedTimeSheet_CancelFunctionality - Logout button click
+12:29:59.286 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Logout successfully
+12:29:59.288 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Inside Close Browser
+12:30:00.195 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - Browser closed
+12:30:00.195 [main] INFO  Test_PreApprovedTimeSheet_CancelFunctionality - ********** Test_PreApprovedTimeSheet_CancelFunctionality END *************
+12:30:00.228 [main] INFO  Test_PreApprovedTimeSheet_SaveFunctionality - Inside Orion base Init
+12:30:00.228 [main] INFO  Test_PreApprovedTimeSheet_SaveFunctionality - Browser details : chromeParameter isDownloadReq is : false
+12:30:20.251 [main] ERROR Test_PreApprovedTimeSheet_SaveFunctionality - Exception in method InitObjects Timed out waiting for driver server to start.
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-FKH366F', ip: '192.168.1.61', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.1'
+Driver info: driver.version: ChromeDriver
+12:30:20.391 [main] INFO  Test_PreApprovedTimeSheet_SaveFunctionality - Inside Test_LoginToOrion_IsSuccess method
+12:30:20.391 [main] DEBUG Test_PreApprovedTimeSheet_SaveFunctionality - Setting User Credentials
+12:30:20.392 [main] ERROR Test_PreApprovedTimeSheet_SaveFunctionality - Exception in method Test_LoginToOrion_IsSuccess : Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-FKH366F', ip: '192.168.1.61', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.1'
+Driver info: driver.version: RemoteWebDriver
+12:30:20.410 [main] INFO  Test_PreApprovedTimeSheet_SaveFunctionality - Inside Test_IfEditTimeSheetPage_Isdisplayed
+12:30:20.427 [main] INFO  Test_PreApprovedTimeSheet_SaveFunctionality - Inside Close Browser
+12:30:20.427 [main] INFO  Test_PreApprovedTimeSheet_SaveFunctionality - ********** Test_PreApprovedTimeSheet_CancelFunctionality END *************
+12:30:20.456 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside Orion base Init
+12:30:20.456 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Browser details : chromeParameter isDownloadReq is : true
+12:30:20.456 [main] DEBUG Test_PreApprovedTimeSheet_SubmitFunctionality - Setting Chrome driver property
+12:30:25.540 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Deleted all cookies
+12:30:26.699 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Windows Maximized
+12:30:29.620 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - ********** Test_PreApprovedTimeSheet_SubmitFunctionality START ************* 
+12:30:29.621 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside InitObjects
+12:30:29.621 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Browser parameter value: chrome
+12:30:29.802 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside Test_LoginToOrion_IsSuccess method
+12:30:29.802 [main] DEBUG Test_PreApprovedTimeSheet_SubmitFunctionality - Setting User Credentials
+12:30:30.405 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Login button clicked
+12:30:30.626 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Login success
+12:30:30.630 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside Test_IfEditTimeSheetPage_Isdisplayed
+12:30:31.749 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Get report period details from the test data input file. May,2018
+12:30:31.862 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - PreApproved timesheet exist in Row 1
+12:30:31.862 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside clicklink
+12:30:33.065 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Edit TimeSheet screen displayed successfully
+12:30:33.068 [main] DEBUG Test_PreApprovedTimeSheet_SubmitFunctionality - Verify Submit button exists
+12:30:33.146 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Submit button exists
+12:30:33.150 [main] DEBUG Test_PreApprovedTimeSheet_SubmitFunctionality - Verify grid is enabled?
+12:30:33.204 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inject Test Data
+12:30:33.204 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside InjectTestData
+12:30:33.781 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside UploadAttachment
+12:30:34.140 [main] DEBUG Test_PreApprovedTimeSheet_SubmitFunctionality - Initiate scroll to Submit button
+12:30:35.299 [main] DEBUG Test_PreApprovedTimeSheet_SubmitFunctionality - Initiate Submit button click
+12:30:35.543 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Submit button clicked
+12:30:36.964 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside Test_IfUpdatedDataisSubmitted
+12:30:39.965 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside clicklink
+12:30:40.504 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside Test_LogoutfromOrion_IsSuccess
+12:30:40.504 [main] DEBUG Test_PreApprovedTimeSheet_SubmitFunctionality - Identifying loginUserIcon for logout
+12:30:40.625 [main] DEBUG Test_PreApprovedTimeSheet_SubmitFunctionality - Logout button click
+12:30:40.911 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Logout successfully
+12:30:40.913 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside Close Browser
+12:30:41.879 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Browser closed
+12:30:41.880 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - ********** Test_PreApprovedTimeSheet_CancelFunctionality END *************

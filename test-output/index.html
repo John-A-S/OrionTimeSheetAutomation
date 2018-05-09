@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" class="navigator-link">
-              <span class="suite-name border-passed">Orion TimeSheet Automation Test Suite</span>
+              <span class="suite-name border-failed">Orion TimeSheet Automation Test Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,12 +49,12 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Orion_TimeSheet_Automation_Test_Suite" class="navigator-link ">
-                    <span>C:\Eclipse\Eclipse-Workspace\OrionTimeSheet\src\main\resources\testNG_Approved.xml</span>
+                    <span>C:\Eclipse\Eclipse-Workspace\OrionTimeSheet\src\main\resources\testNG_PreApproved.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
                   <a href="#" panel-name="testlist-Orion_TimeSheet_Automation_Test_Suite" class="navigator-link ">
-                    <span class="test-stats">1 test</span>
+                    <span class="test-stats">3 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,40 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods,   5 passed</span>
+                    <span class="method-stats">17 methods, 1 failed,  2 skipped,  14 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" class="hide-methods failed suite-Orion_TimeSheet_Automation_Test_Suite"> (hide)</a> <!-- hide-methods failed suite-Orion_TimeSheet_Automation_Test_Suite -->
+                      <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" class="show-methods failed suite-Orion_TimeSheet_Automation_Test_Suite"> (show)</a> <!-- show-methods failed suite-Orion_TimeSheet_Automation_Test_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Orion_TimeSheet_Automation_Test_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality" class="method navigator-link" hash-for-method="Test_IfEditTimeSheetPage_Isdisplayed">Test_IfEditTimeSheetPage_Isdisplayed</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Orion_TimeSheet_Automation_Test_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" class="hide-methods skipped suite-Orion_TimeSheet_Automation_Test_Suite"> (hide)</a> <!-- hide-methods skipped suite-Orion_TimeSheet_Automation_Test_Suite -->
+                      <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" class="show-methods skipped suite-Orion_TimeSheet_Automation_Test_Suite"> (show)</a> <!-- show-methods skipped suite-Orion_TimeSheet_Automation_Test_Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Orion_TimeSheet_Automation_Test_Suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality" class="method navigator-link" hash-for-method="Test_LogoutfromOrion_IsSuccess">Test_LogoutfromOrion_IsSuccess</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality" class="method navigator-link" hash-for-method="Test_SaveButton_IsDisplayed">Test_SaveButton_IsDisplayed</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Orion_TimeSheet_Automation_Test_Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,27 +135,72 @@
                     <div class="method-list-content passed suite-Orion_TimeSheet_Automation_Test_Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_ClickCancelExists">Test_ClickCancelExists</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_CancelButton_InjectTestDataandVerify">Test_CancelButton_InjectTestDataandVerify</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_EditTimesheetScreenComponents_AreDisabled">Test_EditTimesheetScreenComponents_AreDisabled</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_CancelButton_IsDisplayed">Test_CancelButton_IsDisplayed</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_IfEditTimeSheetPage_Isdisplayed">Test_IfEditTimeSheetPage_Isdisplayed</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_IfEditTimeSheetPage_Isdisplayed">Test_IfEditTimeSheetPage_Isdisplayed</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_LoginToOrion_IsSuccess(john, infomatics@123)">Test_LoginToOrion_IsSuccess(john, infomatics@123)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality" class="method navigator-link" hash-for-method="Test_IfEditTimeSheetPage_Isdisplayed">Test_IfEditTimeSheetPage_Isdisplayed</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_LogoutfromOrion_IsSuccess">Test_LogoutfromOrion_IsSuccess</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_IfUpdatedDataisCancelled">Test_IfUpdatedDataisCancelled</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality" class="method navigator-link" hash-for-method="Test_IfUpdatedDataisSubmitted">Test_IfUpdatedDataisSubmitted</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_LoginToOrion_IsSuccess(john, infomatics@123)">Test_LoginToOrion_IsSuccess(john, infomatics@123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality" class="method navigator-link" hash-for-method="Test_LoginToOrion_IsSuccess(john, infomatics@123)">Test_LoginToOrion_IsSuccess(john, infomatics@123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality" class="method navigator-link" hash-for-method="Test_LoginToOrion_IsSuccess(john, infomatics@123)">Test_LoginToOrion_IsSuccess(john, infomatics@123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality" class="method navigator-link" hash-for-method="Test_LogoutfromOrion_IsSuccess">Test_LogoutfromOrion_IsSuccess</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality" class="method navigator-link" hash-for-method="Test_LogoutfromOrion_IsSuccess">Test_LogoutfromOrion_IsSuccess</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality" class="method navigator-link" hash-for-method="Test_SubmitButton_InjectTestDataandVerify">Test_SubmitButton_InjectTestDataandVerify</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality" class="method navigator-link" hash-for-method="Test_SubmitButton_IsDisplayed">Test_SubmitButton_IsDisplayed</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" title="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality" class="method navigator-link" hash-for-method="Test_VerifyGridisDisabled">Test_VerifyGridisDisabled</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Orion_TimeSheet_Automation_Test_Suite -->
@@ -137,24 +215,81 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Orion_TimeSheet_Automation_Test_Suite" class="panel Orion_TimeSheet_Automation_Test_Suite">
-          <div class="suite-Orion_TimeSheet_Automation_Test_Suite-class-passed">
+          <div class="suite-Orion_TimeSheet_Automation_Test_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Test_ClickCancelExists">
-                  </a> <!-- Test_ClickCancelExists -->
-                  <span class="method-name">Test_ClickCancelExists</span>
+                  <a name="Test_IfEditTimeSheetPage_Isdisplayed">
+                  </a> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
+                  <span class="method-name">Test_IfEditTimeSheetPage_Isdisplayed</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;
+System info: host: &apos;DESKTOP-FKH366F&apos;, ip: &apos;192.168.1.61&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.1&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:125)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:365)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality.Test_IfEditTimeSheetPage_Isdisplayed(Test_PreApprovedTimeSheet_SaveFunctionality.java:91)
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Orion_TimeSheet_Automation_Test_Suite-class-failed -->
+          <div class="suite-Orion_TimeSheet_Automation_Test_Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_LogoutfromOrion_IsSuccess">
+                  </a> <!-- Test_LogoutfromOrion_IsSuccess -->
+                  <span class="method-name">Test_LogoutfromOrion_IsSuccess</span>
+                  <div class="stack-trace">java.lang.Throwable: Method Test_PreApprovedTimeSheet_SaveFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:4, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality@4d5650ae] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Test_EditTimesheetScreenComponents_AreDisabled">
-                  </a> <!-- Test_EditTimesheetScreenComponents_AreDisabled -->
-                  <span class="method-name">Test_EditTimesheetScreenComponents_AreDisabled</span>
+                  <a name="Test_SaveButton_IsDisplayed">
+                  </a> <!-- Test_SaveButton_IsDisplayed -->
+                  <span class="method-name">Test_SaveButton_IsDisplayed</span>
+                  <div class="stack-trace">java.lang.Throwable: Method Test_PreApprovedTimeSheet_SaveFunctionality.Test_SaveButton_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality@4d5650ae] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Orion_TimeSheet_Automation_Test_Suite-class-skipped -->
+          <div class="suite-Orion_TimeSheet_Automation_Test_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_CancelButton_InjectTestDataandVerify">
+                  </a> <!-- Test_CancelButton_InjectTestDataandVerify -->
+                  <span class="method-name">Test_CancelButton_InjectTestDataandVerify</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_CancelButton_IsDisplayed">
+                  </a> <!-- Test_CancelButton_IsDisplayed -->
+                  <span class="method-name">Test_CancelButton_IsDisplayed</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -162,6 +297,13 @@
                   <a name="Test_IfEditTimeSheetPage_Isdisplayed">
                   </a> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
                   <span class="method-name">Test_IfEditTimeSheetPage_Isdisplayed</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_IfUpdatedDataisCancelled">
+                  </a> <!-- Test_IfUpdatedDataisCancelled -->
+                  <span class="method-name">Test_IfUpdatedDataisCancelled</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -181,10 +323,84 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Orion_TimeSheet_Automation_Test_Suite-class-passed -->
+          <div class="suite-Orion_TimeSheet_Automation_Test_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_LoginToOrion_IsSuccess(john, infomatics@123)">
+                  </a> <!-- Test_LoginToOrion_IsSuccess(john, infomatics@123) -->
+                  <span class="method-name">Test_LoginToOrion_IsSuccess</span>
+                  <span class="parameters">(john, infomatics@123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Orion_TimeSheet_Automation_Test_Suite-class-passed -->
+          <div class="suite-Orion_TimeSheet_Automation_Test_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_IfEditTimeSheetPage_Isdisplayed">
+                  </a> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
+                  <span class="method-name">Test_IfEditTimeSheetPage_Isdisplayed</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_IfUpdatedDataisSubmitted">
+                  </a> <!-- Test_IfUpdatedDataisSubmitted -->
+                  <span class="method-name">Test_IfUpdatedDataisSubmitted</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_LoginToOrion_IsSuccess(john, infomatics@123)">
+                  </a> <!-- Test_LoginToOrion_IsSuccess(john, infomatics@123) -->
+                  <span class="method-name">Test_LoginToOrion_IsSuccess</span>
+                  <span class="parameters">(john, infomatics@123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_LogoutfromOrion_IsSuccess">
+                  </a> <!-- Test_LogoutfromOrion_IsSuccess -->
+                  <span class="method-name">Test_LogoutfromOrion_IsSuccess</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_SubmitButton_InjectTestDataandVerify">
+                  </a> <!-- Test_SubmitButton_InjectTestDataandVerify -->
+                  <span class="method-name">Test_SubmitButton_InjectTestDataandVerify</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_SubmitButton_IsDisplayed">
+                  </a> <!-- Test_SubmitButton_IsDisplayed -->
+                  <span class="method-name">Test_SubmitButton_IsDisplayed</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test_VerifyGridisDisabled">
+                  </a> <!-- Test_VerifyGridisDisabled -->
+                  <span class="method-name">Test_VerifyGridisDisabled</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Orion_TimeSheet_Automation_Test_Suite-class-passed -->
         </div> <!-- panel Orion_TimeSheet_Automation_Test_Suite -->
         <div panel-name="test-xml-Orion_TimeSheet_Automation_Test_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Eclipse\Eclipse-Workspace\OrionTimeSheet\src\main\resources\testNG_Approved.xml</span>
+            <span class="header-content">C:\Eclipse\Eclipse-Workspace\OrionTimeSheet\src\main\resources\testNG_PreApproved.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -194,12 +410,27 @@
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.orion.qa.ExtentReportListener.ExtentReportListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test name=&quot;OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_CancelFunctionality&quot;&gt;
+  &lt;test name=&quot;OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality&quot;&gt;
+    &lt;parameter name=&quot;ClassName&quot; value=&quot;Test_PreApprovedTimeSheet_CancelFunctionality&quot;/&gt;
     &lt;parameter name=&quot;Browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality&quot;/&gt;
+      &lt;class name=&quot;com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_CancelFunctionality --&gt;
+  &lt;/test&gt; &lt;!-- OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality --&gt;
+  &lt;test name=&quot;OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SaveFunctionality&quot;&gt;
+    &lt;parameter name=&quot;ClassName&quot; value=&quot;Test_PreApprovedTimeSheet_SaveFunctionality&quot;/&gt;
+    &lt;parameter name=&quot;Browser&quot; value=&quot;chrome&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SaveFunctionality --&gt;
+  &lt;test name=&quot;OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SubmitFunctionality&quot;&gt;
+    &lt;parameter name=&quot;ClassName&quot; value=&quot;Test_PreApprovedTimeSheet_SubmitFunctionality&quot;/&gt;
+    &lt;parameter name=&quot;Browser&quot; value=&quot;chrome&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SubmitFunctionality --&gt;
 &lt;/suite&gt; &lt;!-- Orion TimeSheet Automation Test Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -211,7 +442,13 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_CancelFunctionality (1 class)</span>
+                <span class="test-name">OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SaveFunctionality (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SubmitFunctionality (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -237,32 +474,80 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(5);
+data.addRows(17);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Test_IfEditTimeSheetPage_Isdisplayed')
-data.setCell(0, 2, 'com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality')
-data.setCell(0, 3, 4279);
+data.setCell(0, 1, 'Test_SubmitButton_InjectTestDataandVerify')
+data.setCell(0, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality')
+data.setCell(0, 3, 3756);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'Test_LoginToOrion_IsSuccess')
-data.setCell(1, 2, 'com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality')
-data.setCell(1, 3, 2635);
+data.setCell(1, 1, 'Test_IfUpdatedDataisSubmitted')
+data.setCell(1, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality')
+data.setCell(1, 3, 3541);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'Test_LogoutfromOrion_IsSuccess')
-data.setCell(2, 2, 'com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality')
-data.setCell(2, 3, 924);
+data.setCell(2, 1, 'Test_IfEditTimeSheetPage_Isdisplayed')
+data.setCell(2, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality')
+data.setCell(2, 3, 2437);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'Test_ClickCancelExists')
-data.setCell(3, 2, 'com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality')
-data.setCell(3, 3, 578);
+data.setCell(3, 1, 'Test_LoginToOrion_IsSuccess')
+data.setCell(3, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality')
+data.setCell(3, 3, 2178);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'Test_EditTimesheetScreenComponents_AreDisabled')
-data.setCell(4, 2, 'com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality')
-data.setCell(4, 3, 136);
+data.setCell(4, 1, 'Test_CancelButton_InjectTestDataandVerify')
+data.setCell(4, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality')
+data.setCell(4, 3, 1954);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'Test_IfEditTimeSheetPage_Isdisplayed')
+data.setCell(5, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality')
+data.setCell(5, 3, 1573);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'Test_LoginToOrion_IsSuccess')
+data.setCell(6, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality')
+data.setCell(6, 3, 826);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'Test_LogoutfromOrion_IsSuccess')
+data.setCell(7, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality')
+data.setCell(7, 3, 498);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'Test_IfUpdatedDataisCancelled')
+data.setCell(8, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality')
+data.setCell(8, 3, 492);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'Test_LogoutfromOrion_IsSuccess')
+data.setCell(9, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality')
+data.setCell(9, 3, 410);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'Test_SubmitButton_IsDisplayed')
+data.setCell(10, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality')
+data.setCell(10, 3, 80);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'Test_CancelButton_IsDisplayed')
+data.setCell(11, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality')
+data.setCell(11, 3, 68);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'Test_VerifyGridisDisabled')
+data.setCell(12, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality')
+data.setCell(12, 3, 52);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'Test_LoginToOrion_IsSuccess')
+data.setCell(13, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality')
+data.setCell(13, 3, 17);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'Test_IfEditTimeSheetPage_Isdisplayed')
+data.setCell(14, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality')
+data.setCell(14, 3, 2);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'Test_SaveButton_IsDisplayed')
+data.setCell(15, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality')
+data.setCell(15, 3, 0);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'Test_LogoutfromOrion_IsSuccess')
+data.setCell(16, 2, 'com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality')
+data.setCell(16, 3, 0);
 window.suiteTableData['Orion_TimeSheet_Automation_Test_Suite']= { tableData: data, tableDiv: 'times-div-Orion_TimeSheet_Automation_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 17 seconds</span>
               <div id="times-div-Orion_TimeSheet_Automation_Test_Suite">
               </div> <!-- times-div-Orion_TimeSheet_Automation_Test_Suite -->
             </div> <!-- times-div -->
@@ -288,34 +573,98 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">InitObjects(chrome)</span>
+                <span class="method-name">InitObjects(chrome, Test_PreApprovedTimeSheet_CancelFunctionality)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">Test_LoginToOrion_IsSuccess(john, infomatics@123)</span>
-                <span class="method-start">22800 ms</span>
+                <span class="method-start">12645 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">Test_IfEditTimeSheetPage_Isdisplayed</span>
-                <span class="method-start">25439 ms</span>
+                <span class="method-start">14828 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">Test_EditTimesheetScreenComponents_AreDisabled</span>
-                <span class="method-start">29722 ms</span>
+                <span class="method-name">Test_CancelButton_IsDisplayed</span>
+                <span class="method-start">16404 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">Test_ClickCancelExists</span>
-                <span class="method-start">29862 ms</span>
+                <span class="method-name">Test_CancelButton_InjectTestDataandVerify</span>
+                <span class="method-start">16475 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Test_IfUpdatedDataisCancelled</span>
+                <span class="method-start">18432 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">Test_LogoutfromOrion_IsSuccess</span>
-                <span class="method-start">30442 ms</span>
+                <span class="method-start">18925 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">CloseObjects</span>
-                <span class="method-start">31368 ms</span>
+                <span class="method-start">19425 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">InitObjects(chrome, Test_PreApprovedTimeSheet_SaveFunctionality)</span>
+                <span class="method-start">20364 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">Test_LoginToOrion_IsSuccess(john, infomatics@123)</span>
+                <span class="method-start">40526 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Test_IfEditTimeSheetPage_Isdisplayed</span>
+                <span class="method-start">40545 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">CloseObjects</span>
+                <span class="method-start">40563 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">InitObjects(chrome, Test_PreApprovedTimeSheet_SubmitFunctionality)</span>
+                <span class="method-start">40592 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">Test_LoginToOrion_IsSuccess(john, infomatics@123)</span>
+                <span class="method-start">49938 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Test_IfEditTimeSheetPage_Isdisplayed</span>
+                <span class="method-start">50765 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Test_SubmitButton_IsDisplayed</span>
+                <span class="method-start">53204 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Test_VerifyGridisDisabled</span>
+                <span class="method-start">53286 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Test_SubmitButton_InjectTestDataandVerify</span>
+                <span class="method-start">53339 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Test_IfUpdatedDataisSubmitted</span>
+                <span class="method-start">57098 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Test_LogoutfromOrion_IsSuccess</span>
+                <span class="method-start">60639 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">CloseObjects</span>
+                <span class="method-start">61050 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

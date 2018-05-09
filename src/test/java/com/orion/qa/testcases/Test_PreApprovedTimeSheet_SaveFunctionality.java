@@ -3,8 +3,10 @@ package com.orion.qa.testcases;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -85,6 +87,13 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
+
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		String strPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
+		period.selectByVisibleText(strPeriod);
+		log.info("Get report period details from the test data input file. " + strPeriod );
+
+		
 		// RowNumb will have the row number of pre-approved timesheet //
 		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'P');
 		if (RowNumb <= 0)  {
