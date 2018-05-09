@@ -51,6 +51,10 @@ public class OrionBase {
 	public OrionBase() {
 		
 		String childClassName = this.getClass().getName();
+		log = LogManager.getLogger(childClassName);
+		log.info("Calling base class from "+childClassName+" to read Excel Paths");
+
+		
 		
 		CommonMethods.readExcel_Paths();
 
@@ -58,10 +62,6 @@ public class OrionBase {
 
 	public static void init(String Browser, Boolean isDownloadReq) throws ClientProtocolException, IOException {
 
-		log = LogManager.getLogger(childClassName);
-		log.info("Calling base class from "+childClassName+" to read Excel Paths");
-
-		
 		log.info("Inside Orion base Init" );
 		log.info("Browser details : " + Browser + "Parameter isDownloadReq is : "+ isDownloadReq);
 		if (Browser.equalsIgnoreCase("firefox")) {
