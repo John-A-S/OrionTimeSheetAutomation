@@ -1,5 +1,9 @@
 package com.orion.qa.testcases;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -34,7 +38,9 @@ public class LinuxTest {
 	public static String chromeDriverPath = System.getProperty("user.dir") + "//src//main//input//chromedriver";
 	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
 
-	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
+	
+
+		public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
 		try {
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			jse.executeScript("arguments[0].scrollIntoView(true);", element);
@@ -56,6 +62,25 @@ public class LinuxTest {
 		commandParams.put("params", params);
 		
 
+		/*// Add options to Google Chrome. The window-size is important for responsive sites
+	    ChromeOptions options = new ChromeOptions();
+	    options.setBinary("/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary");
+	    options.addArguments("--headless");
+	    options.addArguments("window-size=1200x1200");
+
+	    String downloadFilepath = "./Downloads/";
+	    HashMap<String, Object> chromePrefs = new HashMap<>();
+	    chromePrefs.put("browser.setDownloadBehavior", "allow");
+	    chromePrefs.put("profile.default_content_settings.popups", 0);
+	    chromePrefs.put("download.default_directory", downloadFilepath);
+
+	    options.setExperimentalOption("prefs", chromePrefs);
+	    WebDriver driver = new ChromeDriver(options);
+
+	    driver.get("https://website/login");
+		
+		
+*/		
 		ObjectMapper objectMapper = new ObjectMapper();
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
@@ -90,13 +115,19 @@ public class LinuxTest {
 		
 	
 
-		DownloadDocfromOrion();
+		try {
+			DownloadDocfromOrion();
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//DownloadDocfromExternal();
 		
 	}
 
-	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
+	@SuppressWarnings("deprecation")
+	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException, AWTException {
 
 		driver.get("http://192.168.1.226/orion-web/app/"); 
 		Thread.sleep(2000);
@@ -123,10 +154,22 @@ public class LinuxTest {
 		System.out.println("isDownload document link displayed: "
 				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
-		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
+		Actions act = new Actions(driver);
+		WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
+		act.moveToElement(ele).build().perform();
+		
+		Robot bot = new Robot();{
+		    bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+		    bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+		}
+
+		Thread.sleep(10000);
+
+		/*driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 				
 		Thread.sleep(2000);
 		System.out.println("After download link click");
+		*/
 		
 		File f = new File(chromeDownloadPath + "john.docx");
 
@@ -163,6 +206,9 @@ public class LinuxTest {
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
 		
 		setDownloadSettings();
+		
+		// clickAndSaveFileIE(driver.findElement(By.linkText("Free download")));
+		
 		driver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
 		
@@ -172,6 +218,7 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 			}
+		
 	}
 	
 	

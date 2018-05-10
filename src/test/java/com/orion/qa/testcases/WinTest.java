@@ -1,5 +1,11 @@
 package com.orion.qa.testcases;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -34,8 +40,40 @@ public class WinTest {
 		CommonMethods.readExcel_Paths();
 	}
 	
-	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
+	
+	public static void clickAndSaveFile(WebElement element) throws InterruptedException {
+		try {
+			Robot robot = new Robot();
+		    //get the focus on the element..don't use click since it stalls the driver          
+		    element.sendKeys("");
+		    
 
+		    System.out.println(element.getText());
+		    //simulate pressing enter
+		    element.click();
+		    robot.keyPress(KeyEvent.VK_ENTER);
+		    robot.keyRelease(KeyEvent.VK_ENTER);
+
+		    //wait for the modal dialog to open            
+		    Thread.sleep(2000);
+		    
+		    //press s key to save            
+		    robot.keyPress(KeyEvent.VK_S);
+		    robot.keyRelease(KeyEvent.VK_S);
+		    Thread.sleep(2000);
+
+		    //press enter to save the file with default name and in default location
+		    robot.keyPress(KeyEvent.VK_ENTER);
+		    robot.keyRelease(KeyEvent.VK_ENTER);
+		    
+		 } 
+		catch (AWTException e) {
+			e.printStackTrace();
+		}	
+		}
+		
+	//public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
+	public static void DownloadDocfromOrion() throws InterruptedException {
 		driver.get("http://192.168.1.226/orion-web/app/");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
@@ -59,6 +97,14 @@ public class WinTest {
 		System.out.println("isDownload document link displayed: "
 				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
+
+		System.out.println("isDownload document link displayed: "
+				+ driver.findElement(By.linkText("john.docx")).isDisplayed());
+	
+		clickAndSaveFile(driver.findElement(By.linkText("john.docx")));
+		
+		//Thread.sleep(10000);
+		/*
 		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 		System.out.println("After download link click");
 		
@@ -69,6 +115,7 @@ public class WinTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		}
+		*/
 	}	
 	
 	public static void DownloadDocfromExternal() throws InterruptedException, ClientProtocolException, IOException {
@@ -98,36 +145,45 @@ public class WinTest {
 		Thread.sleep(2000);
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
 		
+		// clickAndSaveFile(driver.findElement(By.linkText("Free download")));		
+		
+		
 		driver.findElement(By.linkText("Free download")).click();
-		Thread.sleep(2000);
+		/*Thread.sleep(2000);
 		
 		File f = new File(chromeDownloadPath + "CV_Template_A4_Prof.docx");
 
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 			}
+			*/
 	}
 	
 	@Test()
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
 		/*Chrome */
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+		driver = new ChromeDriver();
 
 		options = new ChromeOptions();
 		options.addArguments("--test-type");
 		options.addArguments("--disable-extensions"); 
 
 		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-		chromePrefs.put("profile.default_content_settings.popups", 0);
+		//chromePrefs.put("profile.default_content_settings.popups", 0);
 		chromePrefs.put("download.default_directory", chromeDownloadPath);
+		chromePrefs.put("download.prompt_for_download", false);
+		chromePrefs.put("download.directory_upgrade", true);
+		chromePrefs.put("safebrowsing.enabled", true);
 		
 		options.setExperimentalOption("prefs", chromePrefs);
-
 		driver = new ChromeDriver(options);
+	
 		
 		
-		DownloadDocfromExternal();
-		// DownloadDocfromOrion();
+		
+		//DownloadDocfromExternal();
+	    DownloadDocfromOrion();
 	}
 	
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
