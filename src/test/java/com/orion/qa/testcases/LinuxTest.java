@@ -112,14 +112,14 @@ public class LinuxTest {
 		*/
 		System.out.println("Before get" + driver.toString());
 		
-		try {
+/*		try {
 			DownloadDocfromOrion();
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-//		DownloadDocfromExternal();
+*/
+		DownloadDocfromExternal();
 		
 	}
 
