@@ -210,8 +210,8 @@ public class LinuxTest {
 		//Actions act1 = new Actions(eventDriver);
 		//WebElement ele = eventDriver.findElement(By.xpath("//a[contains(text(), 'Free download')]"));
 		//act1.moveToElement(ele).click().build().perform();
-		
-		driver.findElement(By.linkText("Free download")).click();
+		Thread.sleep(3000);
+		eventDriver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
 		
 		System.out.println("File to look for : " + chromeDownloadPath + "CV_Template_A4_Prof.docx");

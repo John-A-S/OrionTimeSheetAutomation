@@ -118,13 +118,13 @@ public class listener implements WebDriverEventListener{
 
 	public void beforeScript(String script, WebDriver driver) {
 		// TODO Auto-generated method stub
-		System.out.println("beforeScript");
+		System.out.println("beforeScript " + script);
 		
 	}
 
 	public void afterScript(String script, WebDriver driver) {
 		// TODO Auto-generated method stub
-		System.out.println("afterScript");
+		System.out.println("afterScript " + script);
 		
 	}
 
