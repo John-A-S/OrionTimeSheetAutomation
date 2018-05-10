@@ -50,7 +50,7 @@ public class LinuxTest {
 	public static void setDownloadSettings() throws ClientProtocolException, IOException {
 		
 		System.out.println("Inside setDownloadSettings");
-
+		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("behavior", "allow");
 		params.put("downloadPath", chromeDownloadPath);
@@ -80,22 +80,6 @@ public class LinuxTest {
 		
 //      Chrome
 		
-      System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//src//main//input//chromedriver");
-      ChromeOptions options = new ChromeOptions();
-		options = new ChromeOptions();
-		options.addArguments("--test-type");
-		options.addArguments("--headless");
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-extensions"); // to disable browser extension popup
-      Map<String, Object> prefs = new HashMap<String, Object>();
-      prefs.put("profile.default_content_settings.popups", 0);
-      prefs.put("download.default_directory", chromeDownloadPath);
-      options.setExperimentalOption("prefs", prefs);
-      DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-      capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-      driver = new ChromeDriver(capabilities);
-		/*
-		
 		System.out.println("Inside downloadfile");
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
@@ -109,16 +93,16 @@ public class LinuxTest {
 		driver = new ChromeDriver(driverService, options);
 
 		setDownloadSettings(); 
-		*/
+
 		System.out.println("Before get" + driver.toString());
 		
-/*		try {
-			DownloadDocfromOrion();
+		try {
+			//DownloadDocfromOrion();
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-*/
+
 		DownloadDocfromExternal();
 		
 	}
