@@ -55,7 +55,7 @@ public class LinuxTest {
 		
 		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
-		commandParams.put("cmd", "Browser.setDownloadBehavior");
+		commandParams.put("cmd", "Page.setDownloadBehavior");
 		commandParams.put("params", params);
 		
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -198,26 +198,6 @@ public class LinuxTest {
 			}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-//  Chrome
-//  System.setProperty("webdriver.chrome.driver", "vendor/chrome-driver-2.15/chromedriver_linux64");
-//  ChromeOptions options = new ChromeOptions();
-//  Map<String, Object> prefs = new HashMap<>();
-//  prefs.put("profile.default_content_settings.popups", 0);
-//  prefs.put("download.default_directory", folder.getAbsolutePath());
-//  options.setExperimentalOption("prefs", prefs);
-//  DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-//  capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-//  driver = new ChromeDriver(capabilities);	
-	
-	
 	
 	
 	
