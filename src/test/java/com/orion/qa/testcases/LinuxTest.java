@@ -157,18 +157,18 @@ public class LinuxTest {
 		System.out.println("isDownload document link displayed: "
 				+ eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
-		WebElement ele = eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
+/*		WebElement ele = eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
 		JavascriptExecutor executor = (JavascriptExecutor)eventDriver;
 		executor.executeScript("arguments[0].click();", ele);
 		
-/*		Actions act = new Actions(eventDriver);
+		Actions act = new Actions(eventDriver);
 		WebElement ele = eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
 		act.moveToElement(ele).click().build().perform();
 		
 		Thread.sleep(5000);
-
+*/
 		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
-*/				
+				
 		Thread.sleep(2000);
 		System.out.println("After download link click");
 		

@@ -93,13 +93,14 @@ public class listener implements WebDriverEventListener{
 	public void beforeClickOn(WebElement element, WebDriver driver) {
 		// TODO Auto-generated method stub
 		System.out.println("beforeClickOn");
-		
+		System.out.println("Trying to click on " + element.toString());
 	}
 
 	public void afterClickOn(WebElement element, WebDriver driver) {
 		// TODO Auto-generated method stub
 		System.out.println("afterClickOn");
-		System.out.println(element.toString());
+		System.out.println("After click on " + element.toString());
+		
 		
 	}
 
@@ -141,7 +142,7 @@ public class listener implements WebDriverEventListener{
 
 	public void onException(Throwable throwable, WebDriver driver) {
 		// TODO Auto-generated method stub
-		System.out.println("onException ");
+		System.out.println("onException " + throwable);
 		
 	}
 
