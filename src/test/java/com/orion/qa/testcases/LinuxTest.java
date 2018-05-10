@@ -220,9 +220,6 @@ public class LinuxTest {
 	}
 	
 
-	
-	
-	
 	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException{
 
 		driver.get("http://192.168.1.226/orion-web/app/"); 

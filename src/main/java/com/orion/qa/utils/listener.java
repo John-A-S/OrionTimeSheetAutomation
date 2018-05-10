@@ -99,7 +99,6 @@ public class listener implements WebDriverEventListener{
 	public void afterClickOn(WebElement element, WebDriver driver) {
 		// TODO Auto-generated method stub
 		System.out.println("afterClickOn");
-		System.out.println(element.getText());
 		System.out.println(element.toString());
 		
 	}
