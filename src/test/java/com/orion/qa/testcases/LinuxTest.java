@@ -59,26 +59,6 @@ public class LinuxTest {
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		commandParams.put("params", params);
 		
-
-		/*// Add options to Google Chrome. The window-size is important for responsive sites
-	    ChromeOptions options = new ChromeOptions();
-	    options.setBinary("/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary");
-	    options.addArguments("--headless");
-	    options.addArguments("window-size=1200x1200");
-
-	    String downloadFilepath = "./Downloads/";
-	    HashMap<String, Object> chromePrefs = new HashMap<>();
-	    chromePrefs.put("browser.setDownloadBehavior", "allow");
-	    chromePrefs.put("profile.default_content_settings.popups", 0);
-	    chromePrefs.put("download.default_directory", downloadFilepath);
-
-	    options.setExperimentalOption("prefs", chromePrefs);
-	    WebDriver driver = new ChromeDriver(options);
-
-	    driver.get("https://website/login");
-		
-		
-*/		
 		ObjectMapper objectMapper = new ObjectMapper();
 		HttpClient httpClient = HttpClientBuilder.create().build();
         String command = objectMapper.writeValueAsString(commandParams);
@@ -107,27 +87,11 @@ public class LinuxTest {
 		options.addArguments("--disable-extensions"); // to disable browser extension popup
 	    options.addArguments("window-size=1200x1200");
 
-	    
-		/*// Add options to Google Chrome. The window-size is important for responsive sites
-	    ChromeOptions options = new ChromeOptions();
-	    options.setBinary("/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary");
-	    options.addArguments("--headless");
-	    options.addArguments("window-size=1200x1200");*/
+		driverService = ChromeDriverService.createDefaultService();
+		driver = new ChromeDriver(driverService, options);
 
-	    //String downloadFilepath = "./Downloads/";
-	    HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-	    chromePrefs.put("browser.setDownloadBehavior", "allow");
-	    chromePrefs.put("profile.default_content_settings.popups", 0);
-	    chromePrefs.put("download.default_directory", chromeDownloadPath);
-
-	    options.setExperimentalOption("prefs", chromePrefs);
-	    driver = new ChromeDriver(options);
-
-
-	    
-		//driverService = ChromeDriverService.createDefaultService();
-		//driver = new ChromeDriver(driverService, options);
-
+		setDownloadSettings(); 
+		
 		System.out.println("Before get" + driver.toString());
 		
 	
@@ -143,7 +107,6 @@ public class LinuxTest {
 		
 	}
 
-	@SuppressWarnings("deprecation")
 	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException, AWTException {
 
 		driver.get("http://192.168.1.226/orion-web/app/"); 
