@@ -1,6 +1,5 @@
 package com.orion.qa.testcases;
 
-import java.awt.AWTException;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -53,7 +52,6 @@ public class LinuxTest {
 		params.put("behavior", "allow");
 		params.put("downloadPath", chromeDownloadPath);
 		
-		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		commandParams.put("params", params);
@@ -76,8 +74,6 @@ public class LinuxTest {
 	@Test()
 	public static void downloadfile() throws InterruptedException, ClientProtocolException, IOException {
 		
-//      Chrome
-		
 		System.out.println("Inside downloadfile");
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
@@ -90,7 +86,30 @@ public class LinuxTest {
 		driverService = ChromeDriverService.createDefaultService();
 		driver = new ChromeDriver(driverService, options);
 
-		setDownloadSettings(); 
+		// setDownloadSettings();
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("behavior", "allow");
+		params.put("downloadPath", chromeDownloadPath);
+		
+		Map<String, Object> commandParams = new HashMap<String, Object>();
+		commandParams.put("cmd", "Page.setDownloadBehavior");
+		commandParams.put("params", params);
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		HttpClient httpClient = HttpClientBuilder.create().build();
+        String command = objectMapper.writeValueAsString(commandParams);
+        System.out.println("Command : "+ command);
+        
+        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
+        System.out.println("u : "+u);
+        HttpPost request = new HttpPost(u);
+        request.addHeader("content-type", "application/zip");
+
+        request.setEntity(new StringEntity(command));
+        HttpResponse res = httpClient.execute(request);
+        System.out.println(res.getStatusLine().getStatusCode());
+
 
 		System.out.println("Before get" + driver.toString());
 		
@@ -121,8 +140,6 @@ public class LinuxTest {
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")));
 		System.out.println("After ScrollScreenToElement ");
 
-		//setDownloadSettings();
-
 		System.out.println("isDownload document link displayed: "
 				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
@@ -132,11 +149,11 @@ public class LinuxTest {
 		
 		Thread.sleep(5000);
 
-		/*driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
+		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 				
 		Thread.sleep(2000);
 		System.out.println("After download link click");
-		*/
+		
 		
 		File f = new File(chromeDownloadPath + "john.docx");
 
@@ -172,14 +189,9 @@ public class LinuxTest {
 		Thread.sleep(2000);
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
 		
-		//setDownloadSettings();		
-		// clickAndSaveFileIE(driver.findElement(By.linkText("Free download")));
-
 		Actions act1 = new Actions(driver);
 		WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'Free download')]"));
 		act1.moveToElement(ele).click().build().perform();
-		
-
 		
 //		driver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
