@@ -134,37 +134,41 @@ public class LinuxTest {
 
 	public static void Event_DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException{
 
-		driver.get("http://192.168.1.226/orion-web/app/"); 
+		eventDriver.get("http://192.168.1.226/orion-web/app/"); 
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
-		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
-		driver.findElement(By.xpath("//button[text()='Login']")).click();
+		eventDriver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
+		eventDriver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("infomatics@123");
+		eventDriver.findElement(By.xpath("//button[text()='Login']")).click();
 		System.out.println("After login button click");
 		Thread.sleep(3000);
 
-		driver.findElement(By.linkText("05/06/2018 - 05/12/2018")).click();
+		eventDriver.findElement(By.linkText("05/06/2018 - 05/12/2018")).click();
 		System.out.println("After linkText -> 05/06/2018 - 05/12/2018 click");
 
 		Thread.sleep(2000);
 
-		System.out.println(driver.findElement(By.xpath("//h3")).getText());
+		System.out.println(eventDriver.findElement(By.xpath("//h3")).getText());
 
 		Thread.sleep(2000);
 
-		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")));
+		ScrollScreenToElement(eventDriver, eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")));
 		System.out.println("After ScrollScreenToElement ");
 
 		System.out.println("isDownload document link displayed: "
-				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
+				+ eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
 
-		Actions act = new Actions(driver);
-		WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
+		WebElement ele = eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
+		JavascriptExecutor executor = (JavascriptExecutor)eventDriver;
+		executor.executeScript("arguments[0].click();", ele);
+		
+/*		Actions act = new Actions(eventDriver);
+		WebElement ele = eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
 		act.moveToElement(ele).click().build().perform();
 		
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
-				
+		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
+*/				
 		Thread.sleep(2000);
 		System.out.println("After download link click");
 		
