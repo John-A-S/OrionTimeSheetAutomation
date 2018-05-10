@@ -94,18 +94,12 @@ public class LinuxTest {
 
 		System.out.println("Before get" + driver.toString());
 		
-	/*	try {
-			//DownloadDocfromOrion();
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-*/
-		DownloadDocfromExternal();
+		DownloadDocfromOrion();
+		//DownloadDocfromExternal();
 		
 	}
 
-	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException, AWTException {
+	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException{
 
 		driver.get("http://192.168.1.226/orion-web/app/"); 
 		Thread.sleep(2000);
