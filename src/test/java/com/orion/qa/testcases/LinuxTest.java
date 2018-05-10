@@ -182,7 +182,7 @@ public class LinuxTest {
 		// clickAndSaveFileIE(driver.findElement(By.linkText("Free download")));
 
 		Actions act1 = new Actions(driver);
-		WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
+		WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'Free download')]"));
 		act1.moveToElement(ele).click().build().perform();
 		
 
