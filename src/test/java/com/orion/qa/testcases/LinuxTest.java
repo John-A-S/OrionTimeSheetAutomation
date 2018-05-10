@@ -82,6 +82,11 @@ public class LinuxTest {
 		
       System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//src//main//input//chromedriver");
       ChromeOptions options = new ChromeOptions();
+		options = new ChromeOptions();
+		options.addArguments("--test-type");
+		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-extensions"); // to disable browser extension popup
       Map<String, Object> prefs = new HashMap<String, Object>();
       prefs.put("profile.default_content_settings.popups", 0);
       prefs.put("download.default_directory", chromeDownloadPath);
