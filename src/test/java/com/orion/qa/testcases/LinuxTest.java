@@ -16,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -56,7 +57,7 @@ public class LinuxTest {
 		
 		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
-		commandParams.put("cmd", "Page.setDownloadBehavior");
+		commandParams.put("cmd", "Browser.setDownloadBehavior");
 		commandParams.put("params", params);
 		
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -77,6 +78,19 @@ public class LinuxTest {
 	@Test()
 	public static void downloadfile() throws InterruptedException, ClientProtocolException, IOException {
 		
+//      Chrome
+		
+      System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//src//main//input//chromedriver");
+      ChromeOptions options = new ChromeOptions();
+      Map<String, Object> prefs = new HashMap<String, Object>();
+      prefs.put("profile.default_content_settings.popups", 0);
+      prefs.put("download.default_directory", chromeDownloadPath);
+      options.setExperimentalOption("prefs", prefs);
+      DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+      capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+      driver = new ChromeDriver(capabilities);
+		/*
+		
 		System.out.println("Inside downloadfile");
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
@@ -90,7 +104,7 @@ public class LinuxTest {
 		driver = new ChromeDriver(driverService, options);
 
 		setDownloadSettings(); 
-		
+		*/
 		System.out.println("Before get" + driver.toString());
 		
 		try {
@@ -205,7 +219,16 @@ public class LinuxTest {
 	
 	
 	
-	
+//  Chrome
+//  System.setProperty("webdriver.chrome.driver", "vendor/chrome-driver-2.15/chromedriver_linux64");
+//  ChromeOptions options = new ChromeOptions();
+//  Map<String, Object> prefs = new HashMap<>();
+//  prefs.put("profile.default_content_settings.popups", 0);
+//  prefs.put("download.default_directory", folder.getAbsolutePath());
+//  options.setExperimentalOption("prefs", prefs);
+//  DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+//  capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+//  driver = new ChromeDriver(capabilities);	
 	
 	
 	
