@@ -94,16 +94,14 @@ public class LinuxTest {
 		
 		System.out.println("Before get" + driver.toString());
 		
-	
-
-		try {
+/*		try {
 			DownloadDocfromOrion();
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		//DownloadDocfromExternal();
+*/
+		DownloadDocfromExternal();
 		
 	}
 
@@ -138,7 +136,7 @@ public class LinuxTest {
 		WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
 		act.moveToElement(ele).click().build().perform();
 		
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 
 		/*driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 				
@@ -182,8 +180,14 @@ public class LinuxTest {
 		
 		//setDownloadSettings();		
 		// clickAndSaveFileIE(driver.findElement(By.linkText("Free download")));
+
+		Actions act1 = new Actions(driver);
+		WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
+		act1.moveToElement(ele).click().build().perform();
 		
-		driver.findElement(By.linkText("Free download")).click();
+
+		
+//		driver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
 		
 		System.out.println("File to look for : " + chromeDownloadPath + "CV_Template_A4_Prof.docx");
