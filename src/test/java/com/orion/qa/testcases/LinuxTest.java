@@ -131,15 +131,15 @@ public class LinuxTest {
 		System.out.println("Before get" + driver.toString());
 		
 	
-
+/*
 		try {
-			DownloadDocfromOrion();
+			//DownloadDocfromOrion();
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		//DownloadDocfromExternal();
+*/		
+		DownloadDocfromExternal();
 		
 	}
 
@@ -217,7 +217,7 @@ public class LinuxTest {
 		Thread.sleep(2000);
 		ScrollScreenToElement(driver, driver.findElement(By.linkText("Free download")));
 		
-		setDownloadSettings();
+		//setDownloadSettings();
 		
 		// clickAndSaveFileIE(driver.findElement(By.linkText("Free download")));
 		
