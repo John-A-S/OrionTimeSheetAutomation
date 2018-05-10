@@ -16,7 +16,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -36,13 +35,12 @@ public class LinuxTest {
 	public static String chromeDriverPath = System.getProperty("user.dir") + "//src//main//input//chromedriver";
 	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
 
-	
-
-		public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
-		try {
-			JavascriptExecutor jse = (JavascriptExecutor) driver;
-			jse.executeScript("arguments[0].scrollIntoView(true);", element);
-		} catch (Exception e) {
+	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
+	try {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("arguments[0].scrollIntoView(true);", element);
+		} catch (Exception e) 
+		{
 			e.printStackTrace();
 		}
 	}
@@ -96,13 +94,13 @@ public class LinuxTest {
 
 		System.out.println("Before get" + driver.toString());
 		
-		try {
+	/*	try {
 			//DownloadDocfromOrion();
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+*/
 		DownloadDocfromExternal();
 		
 	}
