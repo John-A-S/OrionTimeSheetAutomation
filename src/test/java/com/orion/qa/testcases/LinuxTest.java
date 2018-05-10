@@ -85,7 +85,6 @@ public class LinuxTest {
 		options.addArguments("--headless");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-extensions"); // to disable browser extension popup
-	    options.addArguments("window-size=1200x1200");
 
 		driverService = ChromeDriverService.createDefaultService();
 		driver = new ChromeDriver(driverService, options);
@@ -94,14 +93,14 @@ public class LinuxTest {
 		
 		System.out.println("Before get" + driver.toString());
 		
-/*		try {
+		try {
 			DownloadDocfromOrion();
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-*/
-		DownloadDocfromExternal();
+
+//		DownloadDocfromExternal();
 		
 	}
 
