@@ -128,8 +128,8 @@ public class LinuxTest {
 		//DownloadDocfromOrion();
 		//DownloadDocfromExternal
 
-		//Event_DownloadDocfromOrion();
-		Event_DownloadDocfromExternal();
+		Event_DownloadDocfromOrion();
+		//Event_DownloadDocfromExternal();
 	}
 
 	public static void Event_DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException{
