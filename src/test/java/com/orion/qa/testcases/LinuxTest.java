@@ -156,13 +156,8 @@ public class LinuxTest {
 
 		Actions act = new Actions(driver);
 		WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
-		act.moveToElement(ele).build().perform();
+		act.moveToElement(ele).click().build().perform();
 		
-		Robot bot = new Robot();{
-		    bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-		    bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-		}
-
 		Thread.sleep(10000);
 
 		/*driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();

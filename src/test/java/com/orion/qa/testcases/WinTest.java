@@ -100,22 +100,29 @@ public class WinTest {
 
 		System.out.println("isDownload document link displayed: "
 				+ driver.findElement(By.linkText("john.docx")).isDisplayed());
+		
+		
+		Actions act = new Actions(driver);
+		WebElement ele = driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
+		act.moveToElement(ele).click().build().perform();
+		
+		Thread.sleep(5000);
 	
-		clickAndSaveFile(driver.findElement(By.linkText("john.docx")));
+		// clickAndSaveFile(driver.findElement(By.linkText("john.docx")));
 		
 		//Thread.sleep(10000);
 		/*
 		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 		System.out.println("After download link click");
 		
-		Thread.sleep(5000);
-		
+		Thread.sleep(10000);
+		*/
 		File f = new File(chromeDownloadPath + "john.docx");
 
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		}
-		*/
+		
 	}	
 	
 	public static void DownloadDocfromExternal() throws InterruptedException, ClientProtocolException, IOException {
@@ -162,9 +169,9 @@ public class WinTest {
 	@Test()
 	public void downloadfile() throws ClientProtocolException, IOException, InterruptedException {
 		/*Chrome */
-		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+/*		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 		driver = new ChromeDriver();
-
+*/
 		options = new ChromeOptions();
 		options.addArguments("--test-type");
 		options.addArguments("--disable-extensions"); 
