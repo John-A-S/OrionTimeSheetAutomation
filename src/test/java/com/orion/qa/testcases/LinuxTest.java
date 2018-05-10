@@ -1,9 +1,6 @@
 package com.orion.qa.testcases;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -57,6 +54,7 @@ public class LinuxTest {
 		params.put("behavior", "allow");
 		params.put("downloadPath", chromeDownloadPath);
 		
+		
 		Map<String, Object> commandParams = new HashMap<String, Object>();
 		commandParams.put("cmd", "Page.setDownloadBehavior");
 		commandParams.put("params", params);
@@ -107,9 +105,28 @@ public class LinuxTest {
 		options.addArguments("--headless");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-extensions"); // to disable browser extension popup
+	    options.addArguments("window-size=1200x1200");
 
-		driverService = ChromeDriverService.createDefaultService();
-		driver = new ChromeDriver(driverService, options);
+	    
+		/*// Add options to Google Chrome. The window-size is important for responsive sites
+	    ChromeOptions options = new ChromeOptions();
+	    options.setBinary("/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary");
+	    options.addArguments("--headless");
+	    options.addArguments("window-size=1200x1200");*/
+
+	    //String downloadFilepath = "./Downloads/";
+	    HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+	    chromePrefs.put("browser.setDownloadBehavior", "allow");
+	    chromePrefs.put("profile.default_content_settings.popups", 0);
+	    chromePrefs.put("download.default_directory", chromeDownloadPath);
+
+	    options.setExperimentalOption("prefs", chromePrefs);
+	    driver = new ChromeDriver(options);
+
+
+	    
+		//driverService = ChromeDriverService.createDefaultService();
+		//driver = new ChromeDriver(driverService, options);
 
 		System.out.println("Before get" + driver.toString());
 		
@@ -149,7 +166,7 @@ public class LinuxTest {
 		ScrollScreenToElement(driver, driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")));
 		System.out.println("After ScrollScreenToElement ");
 
-		setDownloadSettings();
+		//setDownloadSettings();
 
 		System.out.println("isDownload document link displayed: "
 				+ driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).isDisplayed());
