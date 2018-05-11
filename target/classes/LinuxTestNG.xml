@@ -1,6 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Orion TimeSheet Automation Test Suite">
 
+<listeners>
+		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
+	</listeners>
+
+
 	<test name="Sample_Linux_Test">
 		<classes>
 			<class name="com.orion.qa.testcases.LinuxTest"/>

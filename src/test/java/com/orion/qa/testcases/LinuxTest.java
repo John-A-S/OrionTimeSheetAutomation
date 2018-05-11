@@ -207,9 +207,6 @@ public class LinuxTest {
 		Thread.sleep(2000);
 		ScrollScreenToElement(eventDriver, eventDriver.findElement(By.linkText("Free download")));
 		
-		//Actions act1 = new Actions(eventDriver);
-		//WebElement ele = eventDriver.findElement(By.xpath("//a[contains(text(), 'Free download')]"));
-		//act1.moveToElement(ele).click().build().perform();
 		Thread.sleep(3000);
 		eventDriver.findElement(By.linkText("Free download")).click();
 		Thread.sleep(2000);
