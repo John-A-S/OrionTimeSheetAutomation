@@ -23,8 +23,6 @@ import com.orion.qa.pages.TimeSheetEditPage;
 import com.orion.qa.pages.TimeSheetMainPage;
 import com.orion.qa.utils.CommonMethods;
 
-import freemarker.core.Environment;
-
 public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 	ArrayList<String> objTest;
 	ArrayList<String> objGridData;
