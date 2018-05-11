@@ -1,5 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Orion TimeSheet Automation Test Suite">
+
+	<!--  Note : If Build tool is Maven in Jenkins, default directory of the extent report changes from 
+		  /test-output folder to <workspace>/target/surefire-reports -->
+
 	<listeners>
 		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
 	</listeners>
