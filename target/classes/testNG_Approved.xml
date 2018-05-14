@@ -1,14 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Orion TimeSheet Automation Test Suite">
+<suite
+	name="Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Approved timesheet">
 
-	<!--  Note : If Build tool is Maven in Jenkins, default directory of the extent report changes from 
-		  /test-output folder to <workspace>/target/surefire-reports -->
-
+	<!-- Note : If Build tool is Maven in Jenkins, default directory of the 
+		extent report changes from /test-output folder to <workspace>/target/surefire-reports -->
 
 	<listeners>
 		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
 	</listeners>
-	
+
 	<test
 		name="OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
@@ -17,10 +17,9 @@
 			<class
 				name="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality" />
 		</classes>
-	</test> 
-	
-	<test
-		name="OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_SaveFunctionality">
+	</test>
+
+	<test name="OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
 		<parameter name="ClassName" value="Test_ApprovedTimeSheet_SaveFunctionality" />
 		<classes>
@@ -38,5 +37,5 @@
 				name="com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality" />
 		</classes>
 	</test>
-	
+
 </suite>

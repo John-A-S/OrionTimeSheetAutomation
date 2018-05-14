@@ -1,8 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Orion TimeSheet Automation Test Suite">
+<suite
+	name="Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Submitted timesheet">
 
-	<!--  Note : If Build tool is Maven in Jenkins, default directory of the extent report changes from 
-		  /test-output folder to <workspace>/target/surefire-reports -->
+	<!-- Note : If Build tool is Maven in Jenkins, default directory of the 
+		extent report changes from /test-output folder to <workspace>/target/surefire-reports -->
 
 
 	<listeners>
@@ -10,19 +11,20 @@
 	</listeners>
 
 	<!-- SUBMITTED TIMESHEET CANCEL -->
-	
+
 	<test
 		name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
-		<parameter name="ClassName" value="Test_SubmittedTimeSheet_CancelFunctionality" />
+		<parameter name="ClassName"
+			value="Test_SubmittedTimeSheet_CancelFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality" />
 		</classes>
 	</test>
-		
+
 	<!-- SUBMITTED TIMESHEET SAVE -->
-	 
+
 	<test name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
 		<parameter name="ClassName" value="Test_SubmittedTimeSheet_SaveFunctionality" />
@@ -31,18 +33,19 @@
 				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SaveFunctionality" />
 		</classes>
 	</test>
-	
+
 	<!-- SUBMITTED TIMESHEET SUBMIT -->
-	 
+
 	<test
 		name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SubmittedFunctionality">
 		<parameter name="Browser" value="chrome" />
-		<parameter name="ClassName" value="Test_SubmittedTimeSheet_SubmitFunctionality" />
+		<parameter name="ClassName"
+			value="Test_SubmittedTimeSheet_SubmitFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SubmitFunctionality" />
 		</classes>
-		
+
 	</test>
-	 	
+
 </suite>
