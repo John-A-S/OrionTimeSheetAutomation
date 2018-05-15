@@ -10,6 +10,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -172,8 +173,13 @@ public class LinuxTest {
 		 */
 
 		Thread.sleep(3000);
-		
-		eventDriver.findElement(By.xpath("//a[@ng-click='download(attachment.attachmentId,attachment.fileName)']")).click();
+			
+		WebElement element_p = (new WebDriverWait(eventDriver, 3))
+	            .until(ExpectedConditions.visibilityOfElementLocated(By
+	                    .xpath("//a[contains(text(), 'john.docx')]")));
+		element_p.sendKeys(Keys.RETURN);
+	
+	//	eventDriver.findElement(By.xpath("//a[@ng-click='download(attachment.attachmentId,attachment.fileName)']")).click();
 
 		//eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 		
