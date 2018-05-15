@@ -174,11 +174,16 @@ public class LinuxTest {
 
 		Thread.sleep(3000);
 			
-		WebElement element_p = (new WebDriverWait(eventDriver, 3))
-	            .until(ExpectedConditions.visibilityOfElementLocated(By
+		WebElement element_p = (new WebDriverWait(eventDriver, 20))
+	            .until(ExpectedConditions.elementToBeClickable(By
 	                    .xpath("//a[contains(text(), 'john.docx')]")));
-		element_p.sendKeys(Keys.RETURN);
+		element_p.click();
 	
+/*		new WebDriverWait(driver, 20)
+			.until(ExpectedConditions.elementToBeClickable(By
+					.xpath("//button[@class='fa fa-2x sidebar-button pull-left fa-bars' and starts-with(@ng-class,'activeLeft')]"))).click();
+		
+*/		
 	//	eventDriver.findElement(By.xpath("//a[@ng-click='download(attachment.attachmentId,attachment.fileName)']")).click();
 
 		//eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
