@@ -13,6 +13,8 @@
 	<!-- NEW TIMESHEET SUBMIT -->
 	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality">
 		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_NewTimeSheet_SubmitFunctionality" />
+		
 		<classes>
 			<class name="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality" />
 		</classes>

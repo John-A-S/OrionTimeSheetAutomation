@@ -12,8 +12,7 @@
 	<test
 		name="OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
-		<parameter name="ClassName"
-			value="Test_PreApprovedTimeSheet_CancelFunctionality" />
+		<parameter name="ClassName" value="Test_PreApprovedTimeSheet_CancelFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality" />
@@ -23,8 +22,7 @@
 	<test
 		name="OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
-		<parameter name="ClassName"
-			value="Test_PreApprovedTimeSheet_SaveFunctionality" />
+		<parameter name="ClassName" value="Test_PreApprovedTimeSheet_SaveFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SaveFunctionality" />
@@ -34,8 +32,7 @@
 	<test
 		name="OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SubmitFunctionality">
 		<parameter name="Browser" value="chrome" />
-		<parameter name="ClassName"
-			value="Test_PreApprovedTimeSheet_SubmitFunctionality" />
+		<parameter name="ClassName" value="Test_PreApprovedTimeSheet_SubmitFunctionality" />
 		<classes>
 			<class
 				name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality" />
