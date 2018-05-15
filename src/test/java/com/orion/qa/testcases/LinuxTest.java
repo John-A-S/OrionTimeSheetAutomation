@@ -178,7 +178,7 @@ public class LinuxTest {
 
 		Thread.sleep(5000);
 
-		String fromfile = "192.168.1.226/orion-web/common/download?fileId=48160946-e56b-4be9-8141-e6e28b1d90b8&fileName=john.docx";
+		String fromfile = "http://192.168.1.226/orion-web/common/download?fileId=48160946-e56b-4be9-8141-e6e28b1d90b8&fileName=john.docx";
 		FileUtils.copyURLToFile(
 				new URL(fromfile),	new File(chromeDownloadPath), 10000, 10000);
 
