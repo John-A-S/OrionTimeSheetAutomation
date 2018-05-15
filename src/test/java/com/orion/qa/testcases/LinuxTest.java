@@ -172,22 +172,17 @@ public class LinuxTest {
 		 */
 
 		Thread.sleep(3000);
+		
+		eventDriver.findElement(By.xpath("//a[@ng-click='download(attachment.attachmentId,attachment.fileName)']")).click();
 
-		System.out.println(
-				"href " + eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).getAttribute("href"));
-
-		Thread.sleep(5000);
-
-		String fromfile = "http://192.168.1.226/orion-web/common/download?fileId=48160946-e56b-4be9-8141-e6e28b1d90b8&fileName=john.docx";
+		//eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
+		
+/*		The below code is downloading the file in LINUX environment as well. 
+ * 		String fromfile = "http://192.168.1.226/orion-web/common/download?fileId=48160946-e56b-4be9-8141-e6e28b1d90b8&fileName=john.docx";
 		FileUtils.copyURLToFile(
 				new URL(fromfile),	new File(chromeDownloadPath + "john.docx"), 10000, 10000);
-
-		// 192.168.1.226/orion-web/common/download?fileId=48160946-e56b-4be9-8141-e6e28b1d90b8&fileName=john.docx
-
-/*		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).sendKeys(Keys.ENTER);
-		Thread.sleep(5000);
-		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).sendKeys(Keys.RETURN);
 */
+
 		Thread.sleep(5000);
 		System.out.println("After download link click");
 
