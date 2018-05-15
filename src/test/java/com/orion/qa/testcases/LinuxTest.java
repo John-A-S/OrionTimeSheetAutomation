@@ -128,8 +128,8 @@ public class LinuxTest {
 		//DownloadDocfromOrion();
 		//DownloadDocfromExternal
 
-		Event_DownloadDocfromOrion();
-		//Event_DownloadDocfromExternal();
+		// Event_DownloadDocfromOrion();
+		Event_DownloadDocfromExternal();
 	}
 
 	public static void Event_DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException{
@@ -166,7 +166,7 @@ public class LinuxTest {
 		act.moveToElement(ele).click().build().perform();
 */		
 		
-		System.out.println(eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).getAttribute("href"));
+		System.out.println("href " + eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).getAttribute("href"));
 		
 		Thread.sleep(5000);
 		
@@ -209,6 +209,9 @@ public class LinuxTest {
 
 		Thread.sleep(2000);
 		ScrollScreenToElement(eventDriver, eventDriver.findElement(By.linkText("Free download")));
+
+		System.out.println("href " + eventDriver.findElement(By.xpath("//a[contains(text(), 'Free download')]")).getAttribute("href"));
+
 		
 		Thread.sleep(3000);
 		eventDriver.findElement(By.linkText("Free download")).click();
