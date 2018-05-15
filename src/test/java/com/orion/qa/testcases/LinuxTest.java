@@ -166,9 +166,6 @@ public class LinuxTest {
 		act.moveToElement(ele).click().build().perform();
 */		
 		
-		System.out.println("Add Attachment is displayed" + eventDriver.findElement(By.xpath("//a[contains(text(), 'Add')]")).isDisplayed());
-		eventDriver.findElement(By.xpath("//a[contains(text(), 'Add')]")).sendKeys(System.getProperty("user.dir") + "//src//main//input//testdoc.docx");
-		
 		Thread.sleep(3000);
 		
 		System.out.println("href " + eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).getAttribute("href"));
