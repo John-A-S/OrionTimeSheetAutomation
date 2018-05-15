@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-05-11T14:23:15Z" name="Orion TimeSheet Automation Test Suite" finished-at="2018-05-11T14:23:44Z" duration-ms="29077">
+  <suite started-at="2018-05-15T19:21:32Z" name="Default suite" finished-at="2018-05-15T19:21:56Z" duration-ms="24451">
     <groups>
     </groups>
-    <test started-at="2018-05-11T14:23:15Z" name="Sample_Linux_Test" finished-at="2018-05-11T14:23:44Z" duration-ms="29077">
+    <test started-at="2018-05-15T19:21:32Z" name="Default test" finished-at="2018-05-15T19:21:56Z" duration-ms="24451">
       <class name="com.orion.qa.testcases.WinTest">
-        <test-method is-config="true" signature="init()[pri:0, instance:com.orion.qa.testcases.WinTest@6aaceffd]" started-at="2018-05-11T10:23:15Z" name="init" finished-at="2018-05-11T10:23:15Z" duration-ms="428" status="PASS">
+        <test-method is-config="true" signature="init()[pri:0, instance:com.orion.qa.testcases.WinTest@757277dc]" started-at="2018-05-15T15:21:32Z" name="init" finished-at="2018-05-15T15:21:32Z" duration-ms="291" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method signature="downloadfile()[pri:0, instance:com.orion.qa.testcases.WinTest@6aaceffd]" started-at="2018-05-11T10:23:15Z" name="downloadfile" finished-at="2018-05-11T10:23:43Z" duration-ms="27573" status="PASS">
+        <test-method signature="downloadfile()[pri:0, instance:com.orion.qa.testcases.WinTest@757277dc]" started-at="2018-05-15T15:21:32Z" name="downloadfile" finished-at="2018-05-15T15:21:55Z" duration-ms="23139" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- downloadfile -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.orion.qa.testcases.WinTest@6aaceffd]" started-at="2018-05-11T10:23:43Z" name="closeBrowser" finished-at="2018-05-11T10:23:44Z" duration-ms="1035" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.orion.qa.testcases.WinTest@757277dc]" started-at="2018-05-15T15:21:55Z" name="closeBrowser" finished-at="2018-05-15T15:21:56Z" duration-ms="981" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- com.orion.qa.testcases.WinTest -->
-    </test> <!-- Sample_Linux_Test -->
-  </suite> <!-- Orion TimeSheet Automation Test Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
