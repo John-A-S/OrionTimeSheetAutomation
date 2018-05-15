@@ -8,7 +8,6 @@
 		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
 	</listeners>
 
-
 	<test name="Sample_Linux_Test">
 		<classes>
 		  	<class name="com.orion.qa.testcases.LinuxTest"/> 
