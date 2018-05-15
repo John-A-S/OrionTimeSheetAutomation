@@ -128,8 +128,8 @@ public class LinuxTest {
 		//DownloadDocfromOrion();
 		//DownloadDocfromExternal
 
-		//Event_DownloadDocfromOrion();
-		Event_DownloadDocfromExternal();
+		Event_DownloadDocfromOrion();
+		//Event_DownloadDocfromExternal();
 	}
 
 	public static void Event_DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException{
@@ -164,9 +164,9 @@ public class LinuxTest {
 		Actions act = new Actions(eventDriver);
 		WebElement ele = eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
 		act.moveToElement(ele).click().build().perform();
-		
+*/		
 		Thread.sleep(5000);
-*/
+		
 		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 				
 		Thread.sleep(2000);
