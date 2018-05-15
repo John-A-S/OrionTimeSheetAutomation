@@ -9,6 +9,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -172,9 +173,11 @@ public class LinuxTest {
 		
 		Thread.sleep(5000);
 		
+		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).sendKeys(Keys.ENTER);
+		Thread.sleep(5000);
+		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).sendKeys(Keys.RETURN);
+
 		
-		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).submit();
-				
 		Thread.sleep(2000);
 		System.out.println("After download link click");
 		
