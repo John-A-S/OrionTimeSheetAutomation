@@ -167,7 +167,7 @@ public class LinuxTest {
 */		
 		Thread.sleep(5000);
 		
-		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
+		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).submit();
 				
 		Thread.sleep(2000);
 		System.out.println("After download link click");
