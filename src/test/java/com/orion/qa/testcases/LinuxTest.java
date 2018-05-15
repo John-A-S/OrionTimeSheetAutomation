@@ -166,9 +166,13 @@ public class LinuxTest {
 		act.moveToElement(ele).click().build().perform();
 */		
 		
+		System.out.println("Add Attachment is displayed" + eventDriver.findElement(By.xpath("//a[contains(text(), 'Add Attachment')]")).isDisplayed());
+		Thread.sleep(3000);
+		
 		System.out.println("href " + eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).getAttribute("href"));
 		
 		Thread.sleep(5000);
+		
 		
 		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).submit();
 				
