@@ -165,6 +165,9 @@ public class LinuxTest {
 		WebElement ele = eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]"));
 		act.moveToElement(ele).click().build().perform();
 */		
+		
+		System.out.println(eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).getAttribute("href"));
+		
 		Thread.sleep(5000);
 		
 		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).submit();
