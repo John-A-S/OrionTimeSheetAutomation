@@ -169,7 +169,8 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			// from other sites :-(
 			// DownloadfileAndComparewithTestFile();
 			// assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
-			
+			log.info("Test Data " + objTest.toString());
+			log.info("Grid data " + objGridData.toString());
 			assertEquals((CommonMethods.compareList(objTest, objGridData)), true);
 			log.info("Both submitted & test data are equal!");
 			log.info("Timesheet data submitted correctly");
