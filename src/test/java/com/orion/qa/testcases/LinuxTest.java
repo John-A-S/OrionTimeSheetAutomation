@@ -291,7 +291,7 @@ public class LinuxTest {
 		WebElement element_p = (new WebDriverWait(driver, 20))
 				.until(ExpectedConditions.elementToBeClickable(By
                 .xpath("//a[contains(text(), 'john.docx')]")));
-		element_p.click();
+		element_p.submit();
 		
 		//driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 
