@@ -2,7 +2,6 @@ package com.orion.qa.testcases;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +9,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,7 +19,6 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -174,10 +171,16 @@ public class LinuxTest {
 
 		Thread.sleep(3000);
 			
-		WebElement element_p = (new WebDriverWait(eventDriver, 20))
+	/*	WebElement element_p = (new WebDriverWait(eventDriver, 20))
 	            .until(ExpectedConditions.elementToBeClickable(By
 	                    .xpath("//a[contains(text(), 'john.docx')]")));
 		element_p.click();
+	*/	
+		new WebDriverWait(eventDriver, 20)
+		.until(ExpectedConditions.elementToBeClickable(By
+				.xpath("//a[@ng-click='download(attachment.attachmentId,attachment.fileName)']"))).click();
+	
+		
 	
 /*		new WebDriverWait(driver, 20)
 			.until(ExpectedConditions.elementToBeClickable(By
