@@ -286,7 +286,7 @@ public class LinuxTest {
 		element_p.click();
 		
 		WebElement elem1 = driver.findElement(By.cssSelector("a[ng-click='download(attachment.attachmentId,attachment.fileName)']"));
-		elem1.sendKeys(Keys.ENTER);
+		elem1.sendKeys(Keys.RETURN);
 		//driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 
 		Thread.sleep(2000);
