@@ -279,14 +279,14 @@ public class LinuxTest {
 		act.moveToElement(ele).click().build().perform();
 
 		Thread.sleep(5000);
-
+		
 		WebElement element_p = (new WebDriverWait(driver, 20))
 				.until(ExpectedConditions.elementToBeClickable(By
                 .xpath("//a[contains(text(), 'john.docx')]")));
 		element_p.click();
 		
 		WebElement elem1 = driver.findElement(By.cssSelector("a[ng-click='download(attachment.attachmentId,attachment.fileName)']"));
-		elem1.sendKeys(Keys.END);
+		elem1.sendKeys(Keys.ENTER);
 		//driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 
 		Thread.sleep(2000);
