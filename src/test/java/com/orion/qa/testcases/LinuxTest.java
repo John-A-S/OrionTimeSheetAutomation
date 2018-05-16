@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -113,6 +114,10 @@ public class LinuxTest {
 		HttpResponse res = httpClient.execute(request);
 		System.out.println(res.getStatusLine().getStatusCode());
 
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
+		
 		System.out.println("Before get" + driver.toString());
 
 		eventDriver = new EventFiringWebDriver(driver);
@@ -197,7 +202,7 @@ public class LinuxTest {
 				new URL(fromfile),	new File(chromeDownloadPath + "john.docx"), 10000, 10000);
 */
 
-		Thread.sleep(5000);
+		Thread.sleep(50000);
 		System.out.println("After download link click");
 
 		File f = new File(chromeDownloadPath + "john.docx");
