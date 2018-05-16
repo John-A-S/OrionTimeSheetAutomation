@@ -131,10 +131,10 @@ public class LinuxTest {
 		 * WebElement element = eventDriver.findElement(By.id("target"));
 		 * element.click();
 		 */
-		// DownloadDocfromOrion();
+		 DownloadDocfromOrion();
 		// DownloadDocfromExternal
 
-		Event_DownloadDocfromOrion();
+		// Event_DownloadDocfromOrion();
 		// Event_DownloadDocfromExternal();
 	}
 
@@ -257,7 +257,8 @@ public class LinuxTest {
 	}
 
 	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
-
+		
+		System.out.println("Inside DownloadDocfromOrion");
 		driver.get("http://192.168.1.226/orion-web/app/");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='User ID']")).sendKeys("John");
@@ -287,7 +288,12 @@ public class LinuxTest {
 
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
+		WebElement element_p = (new WebDriverWait(driver, 20))
+				.until(ExpectedConditions.elementToBeClickable(By
+                .xpath("//a[contains(text(), 'john.docx')]")));
+		element_p.click();
+		
+		//driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 
 		Thread.sleep(2000);
 		System.out.println("After download link click");
