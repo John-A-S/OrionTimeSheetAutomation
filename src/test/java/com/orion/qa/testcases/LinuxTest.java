@@ -117,7 +117,6 @@ public class LinuxTest {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
-		
 		System.out.println("Before get" + driver.toString());
 
 		eventDriver = new EventFiringWebDriver(driver);
@@ -176,31 +175,24 @@ public class LinuxTest {
 
 		Thread.sleep(3000);
 			
-	/*	WebElement element_p = (new WebDriverWait(eventDriver, 20))
+		/*	WebElement element_p = (new WebDriverWait(eventDriver, 20))
 	            .until(ExpectedConditions.elementToBeClickable(By
 	                    .xpath("//a[contains(text(), 'john.docx')]")));
-		element_p.click();
-	*/	
+			element_p.click();
+		 */	
 		new WebDriverWait(eventDriver, 20)
 		.until(ExpectedConditions.elementToBeClickable(By
 				.xpath("//a[@ng-click='download(attachment.attachmentId,attachment.fileName)']"))).click();
 	
-		
-	
-/*		new WebDriverWait(driver, 20)
-			.until(ExpectedConditions.elementToBeClickable(By
-					.xpath("//button[@class='fa fa-2x sidebar-button pull-left fa-bars' and starts-with(@ng-class,'activeLeft')]"))).click();
-		
-*/		
-	//	eventDriver.findElement(By.xpath("//a[@ng-click='download(attachment.attachmentId,attachment.fileName)']")).click();
+		//	eventDriver.findElement(By.xpath("//a[@ng-click='download(attachment.attachmentId,attachment.fileName)']")).click();
 
-		//eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
+		eventDriver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 		
-/*		The below code is downloading the file in LINUX environment as well. 
- * 		String fromfile = "http://192.168.1.226/orion-web/common/download?fileId=48160946-e56b-4be9-8141-e6e28b1d90b8&fileName=john.docx";
-		FileUtils.copyURLToFile(
+		/*		The below code is downloading the file in LINUX environment as well. 
+		 * 		String fromfile = "http://192.168.1.226/orion-web/common/download?fileId=48160946-e56b-4be9-8141-e6e28b1d90b8&fileName=john.docx";
+				FileUtils.copyURLToFile(
 				new URL(fromfile),	new File(chromeDownloadPath + "john.docx"), 10000, 10000);
-*/
+		 */
 
 		Thread.sleep(50000);
 		System.out.println("After download link click");
@@ -253,7 +245,6 @@ public class LinuxTest {
 		if (f.exists()) {
 			System.out.println("Successfully downloaded");
 		}
-
 	}
 
 	public static void DownloadDocfromOrion() throws InterruptedException, ClientProtocolException, IOException {
@@ -291,8 +282,9 @@ public class LinuxTest {
 		WebElement element_p = (new WebDriverWait(driver, 20))
 				.until(ExpectedConditions.elementToBeClickable(By
                 .xpath("//a[contains(text(), 'john.docx')]")));
-		element_p.submit();
+		element_p.click();
 		
+		driver.findElement(By.cssSelector("a[ng-click='download(attachment.attachmentId,attachment.fileName)']")).click();
 		//driver.findElement(By.xpath("//a[contains(text(), 'john.docx')]")).click();
 
 		Thread.sleep(2000);
