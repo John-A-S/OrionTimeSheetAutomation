@@ -85,7 +85,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	}
 
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
-	public void Test_IfEditTimeSheetPage_Isdisplayed() {
+	public void Test_IfEditTimeSheetPage_Isdisplayed() throws InterruptedException {
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 		
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
@@ -96,14 +96,12 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
+		Thread.sleep(3000);
+		
 		clicklink(rptPeriod);
 
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			log.error("Exception in method Test_IfEditTimeSheetPage_Isdisplayed : "+ e.getMessage());
-		}
+		Thread.sleep(1000);
+		
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
 				"TimeSheet Edit Time Sheet");
 		log.info("Edit TimeSheet screen displayed successfully");

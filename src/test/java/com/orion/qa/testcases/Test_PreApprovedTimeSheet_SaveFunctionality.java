@@ -84,7 +84,7 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 	}
 
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
-	public void Test_IfEditTimeSheetPage_Isdisplayed() {
+	public void Test_IfEditTimeSheetPage_Isdisplayed() throws InterruptedException {
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
@@ -95,14 +95,11 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
+		Thread.sleep(3000);
+		
 		clicklink(rptPeriod);
 
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			log.error("Exception in method Test_IfEditTimeSheetPage_Isdisplayed : "+ e.getMessage());
-			e.printStackTrace();
-		}
+		Thread.sleep(1000);
 
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
 				"TimeSheet Edit Time Sheet");
@@ -114,7 +111,7 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 		log.debug("Verify Save button exists");
 		TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
 		assertFalse(TimeSheetEditPage.verifySaveButtonExists(driver));
-		log.info("Save button exists");
+		log.info("Save button does not exists");
 	}
 
 	@Test(priority = 4, dependsOnMethods = { "Test_SaveButton_IsDisplayed" })
