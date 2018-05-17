@@ -71,7 +71,8 @@ public class TimeSheetMainPage {
 	}
 	
 	public static WebElement grd_clickReportPeriodLink(WebDriver driver, String RptPeriod) {
-		return(grd_MonthlyData(driver).findElement(By.linkText(RptPeriod)));
+		// return(grd_MonthlyData(driver).findElement(By.linkText(RptPeriod)));
+		return(driver.findElement(By.linkText(RptPeriod)));
 	}
 
 }

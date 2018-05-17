@@ -201,7 +201,7 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 		try {
 			log.info("Inside clickLink, Report Period is : "+period);
 			log.debug("Initiate Report Period click ");
-
+			
 			act.moveToElement(
 					wait.until(ExpectedConditions.elementToBeClickable(TimeSheetMainPage.grd_clickReportPeriodLink(driver, period)))).click()
 					.build().perform();
@@ -212,7 +212,6 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 		}
 	}
 
-	
 	public void UploadAttachment() {
 		try {
 			log.info("Inside UploadAttachment");
