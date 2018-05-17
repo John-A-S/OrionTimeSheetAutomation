@@ -1,8 +1,6 @@
 package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,6 +20,7 @@ import com.orion.qa.utils.CommonMethods;
 public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 
 	int RowNumb;
+	String rptPeriod;
 
 	public Test_ApprovedTimeSheet_SubmitFunctionality() {
 		super();
@@ -35,7 +34,7 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 			init(Browser, ClassName, false);	
 			log.info("********** Test_ApprovedTimeSheet_SubmitFunctionality START ************* ");
 			log.info("Inside InitObjects");	
-			log.info("Browser parameter value: "+Browser);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -81,12 +80,11 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
 		period.selectByVisibleText(CommonMethods.readTestData("TestData", "ApprovedTimeSheet"));
 
-		// RowNumb will have the row number of Approved timesheet //
-		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'A');
-		if (RowNumb <= 0)  {
-			assertTrue(false, "No record to process");
-		} 
-		clicklink(RowNumb);
+		rptPeriod = CommonMethods.readTestData("TestData", "ApprovedTimeSheetRptPeriod");
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
+		
+		clicklink(rptPeriod);
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -130,19 +128,18 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 		}
 	}
 
-	public void clicklink(int RowNo) {
+	public void clicklink(String period) {
 		try {
-			log.info("Inside clickLink, RowNo value is : "+RowNo);
-			log.debug("Initiate Row click ");
+			log.info("Inside clickLink, Report Period is : "+period);
+			log.debug("Initiate Report Period click ");
 
 			act.moveToElement(
-					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
+					wait.until(ExpectedConditions.elementToBeClickable(TimeSheetMainPage.grd_clickReportPeriodLink(driver, period)))).click()
 					.build().perform();
 			log.info("Row clicked ");
-			
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.error("Exception in method clicklink " + e.getMessage());
+			log.error("Exception in method clicklink " + e.getMessage());		
 		}
 	}
 }

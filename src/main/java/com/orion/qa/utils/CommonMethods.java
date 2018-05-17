@@ -23,6 +23,7 @@ public class CommonMethods {
 	public static String IE_Browser_Location;
 	public static String Attachment_File_Download_Location;
 	public static String Sample_FileNamewithPath;
+	public static String OperatingSystem;
 	
 	public static void ScrollScreenToElement(WebDriver driver, JavascriptExecutor jse, String strPath) {
 		try {
@@ -157,6 +158,7 @@ public class CommonMethods {
 			Attachment_File_Download_Location = strCurrentPath + inputData[2][1].toString();
 			Sample_FileNamewithPath = strCurrentPath + inputData[3][1].toString();
 			IE_Browser_Location = inputData[4][1].toString();
+			OperatingSystem = inputData[5][1].toString();
 			
 		} catch (BiffException e) {
 			e.printStackTrace();

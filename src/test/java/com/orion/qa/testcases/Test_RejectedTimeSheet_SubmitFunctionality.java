@@ -1,8 +1,6 @@
 package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
@@ -28,13 +26,12 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 
 	int RowNumb;
 	boolean isAttachmntExist, isSameFiles, isAttachmentdisabled;
+	String rptPeriod;
 
 	public Test_RejectedTimeSheet_SubmitFunctionality() {
 		super();
-
 	}
 
-	
 	@Parameters({"Browser", "ClassName"})
 	@BeforeClass
 	public void InitObjects(String Browser, String ClassName) {
@@ -47,7 +44,6 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 
 			log.info("********** Test_RejectedTimeSheet_SubmitFunctionality START ************* ");
 			log.info("Inside InitObjects");	
-			log.info("Browser parameter value: "+Browser);
 
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
@@ -74,7 +70,6 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			log.info("Inside Test_LoginToOrion_IsSuccess method");
 			log.debug("Setting User Credentials");
 
-			
 			LoginPage.txtbx_UserName(driver).sendKeys(UserID);
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
 			LoginPage.btnLogin(driver).click();
@@ -94,7 +89,7 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
-		// RowNumb will have the row number of draft timesheet //
+
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 	
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
@@ -102,13 +97,11 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'R');
-		if (RowNumb <= 0) {
-			log.info("No Rejected timesheet to process");
-			assertTrue(false, "No record to process");
-		}
-		log.info("Rejected timesheet exist in Row "+ RowNumb);
-		clicklink(RowNumb);
+		rptPeriod = CommonMethods.readTestData("TestData", "RejectedTimeSheetRptPeriod");
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
+		
+		clicklink(rptPeriod);
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -126,6 +119,7 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 		try {
 			log.info("Inside Test_IfSubmitMessage_IsDisplayed");
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
+			log.info("Existing data "+ objGridData.toString());
 			InjectTestData();
 			TimeSheetEditPage.ScrollScreenToSubmitButtonAndClick(driver, jse);
 			Thread.sleep(2000);
@@ -154,17 +148,21 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 		try {
 			log.info("Inside Test_IfDataSavedCorrectly");
 			Thread.sleep(1000);
-			clicklink(RowNumb);
+			clicklink(rptPeriod);
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
 			
-			// Note: Though download file functionality working fine locally, unable to download file  
-			// in Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
-			// later.  This may be due to environment setup.  Able to download files in Jenkins 
-			// from other sites :-(
-			// DownloadfileAndComparewithTestFile();
-			// assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			/* Note: Though download file functionality working fine locally in windows, unable to download file  
+			 * in Linux/Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
+			 * later.  This may be due to environment setup or Selenium restrictions on Angular JS code.
+			 * This may be most probably due to Angular JS code since we are able to download files in Linux/Jenkins 
+			 * from other sites :-(
+			 * DownloadfileAndComparewithTestFile();
+			 * assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+ 			 */
 			
+			log.info("Test Data " + objTest.toString());
+			log.info("Current Data " + objGridData.toString());
 			assertEquals(CommonMethods.compareList(objTest, objGridData), true);
 			
 			log.info("Data compared successfully!");
@@ -181,7 +179,6 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			log.info("Inside Test_LogoutfromOrion_IsSuccess");
 			log.debug("Identifying loginUserIcon for logout");
 
-			
 			act.moveToElement(CommonMethods.lbl_LoginUserIcon(driver)).click().perform();
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
@@ -195,16 +192,18 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 		}
 	}
 
-	public void clicklink(int RowNo) {
+	public void clicklink(String period) {
 		try {
-			log.info("Inside clicklink");
+			log.info("Inside clickLink, Report Period is : "+period);
+			log.debug("Initiate Report Period click ");
 
 			act.moveToElement(
-					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
+					wait.until(ExpectedConditions.elementToBeClickable(TimeSheetMainPage.grd_clickReportPeriodLink(driver, period)))).click()
 					.build().perform();
+			log.info("Row clicked ");
 		} catch (Exception e) {
-			log.error("Exception in method clicklink " + e.getMessage());
 			e.printStackTrace();
+			log.error("Exception in method clicklink " + e.getMessage());		
 		}
 	}
 
@@ -279,24 +278,30 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 
 			CommonMethods.ScrollScreenToElement(driver, jse,
 					".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input");
+			log.info("After ScrollScreenToElement");
 
 			WebElement Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
 			Element.sendKeys(CommonMethods.readTestData("TestData", "sun"));
 			objTest.set(1, CommonMethods.readTestData("TestData", "sun"));
+			log.info("After objTest.set(1, ");
 
 			WebElement Element1 = TimeSheetEditPage.grd_ColMonday(driver);
 			Element1.clear();
 			Element1.sendKeys(CommonMethods.readTestData("TestData", "mon"));
 			objTest.set(2, CommonMethods.readTestData("TestData", "mon"));
+			log.info("After objTest.set(2, ");
 
 			WebElement Element2 = TimeSheetEditPage.grd_txtComment(driver);
 			Element2.clear();
 			Element2.sendKeys(CommonMethods.readTestData("TestData", "comment"));
 			objTest.set(8, CommonMethods.readTestData("TestData", "comment"));
+			log.info("After objTest.set(8, ");
 
 			UploadAttachment();
-			log.info("Test data upload");
+			log.info("After UploadAttachment");
+
+			log.info("Test data upload " + objTest.toString());
 
 		} catch (Exception e) {
 			e.printStackTrace();

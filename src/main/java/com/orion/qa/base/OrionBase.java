@@ -1,8 +1,6 @@
 package com.orion.qa.base;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -15,21 +13,15 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.orion.qa.utils.CommonMethods;
 
@@ -55,11 +47,13 @@ public class OrionBase {
 	}
 
 	public static void init(String Browser, String className, Boolean isDownloadReq) throws ClientProtocolException, IOException {
+		String OS;
 
 		log = LogManager.getLogger(className);
-
+		OS = CommonMethods.OperatingSystem;
+		
 		log.info("Inside Orion base Init" );
-		log.info("Browser details : " + Browser + "Parameter isDownloadReq is : "+ isDownloadReq);
+		log.info("Browser details : " + Browser + "; Parameter isDownloadReq is : "+ isDownloadReq+ "; Operating System is " + OS);
 		if (Browser.equalsIgnoreCase("firefox")) {
 			if (isDownloadReq) {
 				log.debug("Setting firefox driver property");
@@ -88,74 +82,78 @@ public class OrionBase {
 			//driver = new InternetExplorerDriver();
 		} else if (Browser.equalsIgnoreCase("chrome")) {
 			if (isDownloadReq) {
-				log.debug("Setting Chrome driver property");
-
+				log.debug("Setting Chrome driver property for Operating System : " + OS);
 				// Linux environment
 				// following code is to download files using Chrome browser 
+				if (OS.equals("Linux")) {	
+					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
 				
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver");
-				
-				options = new ChromeOptions();
-				options.addArguments("--test-type");
-				options.addArguments("--headless");
-				options.addArguments("--no-sandbox");
-				options.addArguments("--disable-extensions"); // to disable browser extension popup
+					options = new ChromeOptions();
+					options.addArguments("--test-type");
+					options.addArguments("--headless");
+					options.addArguments("--no-sandbox");
+					options.addArguments("--disable-extensions"); // to disable browser extension popup
 
-				driverService = ChromeDriverService.createDefaultService();
-				driver = new ChromeDriver(driverService, options);
+					driverService = ChromeDriverService.createDefaultService();
+					driver = new ChromeDriver(driverService, options);
 
-				Map<String, Object> commandParams = new HashMap<String, Object>();
-				commandParams.put("cmd", "Page.setDownloadBehavior");
-				Map<String, String> params = new HashMap<String, String>();
-				params.put("behavior", "allow");
-				params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
-				commandParams.put("params", params);
+					Map<String, Object> commandParams = new HashMap<String, Object>();
+					commandParams.put("cmd", "Page.setDownloadBehavior");
+					Map<String, String> params = new HashMap<String, String>();
+					params.put("behavior", "allow");
+					params.put("downloadPath", CommonMethods.Attachment_File_Download_Location);
+					commandParams.put("params", params);
 				
-				ObjectMapper objectMapper = new ObjectMapper();
-				HttpClient httpClient = HttpClientBuilder.create().build();
-		        String command = objectMapper.writeValueAsString(commandParams);
-		        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
-		        HttpPost request = new HttpPost(u);
-		        request.addHeader("content-type", "application/json");
-		        request.setEntity(new StringEntity(command));
-		        httpClient.execute(request);
-				
-		        // Windows environment
-				/*
-		    	System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
+					ObjectMapper objectMapper = new ObjectMapper();
+					HttpClient httpClient = HttpClientBuilder.create().build();
+					String command = objectMapper.writeValueAsString(commandParams);
+					String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
+					HttpPost request = new HttpPost(u);
+					request.addHeader("content-type", "application/json");
+					request.setEntity(new StringEntity(command));
+					httpClient.execute(request);
+				}
+				else if (OS.equals("Windows")) {	
+					//Windows environment
+					System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 
-		    	options = new ChromeOptions();
-				options.addArguments("--test-type");
-				options.addArguments("--disable-extensions"); 
+					options = new ChromeOptions();
+					options.addArguments("--test-type");
+					options.addArguments("--headless");
+					options.addArguments("--disable-extensions"); 
 
-				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-				chromePrefs.put("profile.default_content_settings.popups", 0);
-				chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
+					HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+					chromePrefs.put("profile.default_content_settings.popups", 0);
+					chromePrefs.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
 				
-				options.setExperimentalOption("prefs", chromePrefs);
+					options.setExperimentalOption("prefs", chromePrefs);
 					  	        
-				driver = new ChromeDriver(options);
-				*/ 
+					driver = new ChromeDriver(options);
+				}
 			}
 			else {
-				//Windows
-				/*
-				log.debug("Setting Chrome driver property");
-				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
-			    driver = new ChromeDriver();
-				*/
-				//for linux
-			    
-			    System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
+				// if no downloadrequired 
+				if (OS.equals("Windows")) {
+					//Windows	
+					log.debug("Setting Chrome driver property");
+					System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 
-			    ChromeOptions options = new ChromeOptions();
-			    options.addArguments("--test-type");
-				options.addArguments("--headless");
-				options.addArguments("--no-sandbox");
-				options.addArguments("--disable-extensions"); // to disable browser extension popup
+					options = new ChromeOptions();
+					options.addArguments("--headless");
 
-				driver = new ChromeDriver(options);
-				
+					driver = new ChromeDriver(options);
+				}
+				else if (OS.equals("Linux")) {
+					//Linux
+					System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver");
+					ChromeOptions options = new ChromeOptions();
+					options.addArguments("--test-type");
+					options.addArguments("--headless");
+					options.addArguments("--no-sandbox");
+					options.addArguments("--disable-extensions"); // to disable browser extension popup
+
+					driver = new ChromeDriver(options);
+				}
 			}
 		}
 
@@ -180,42 +178,5 @@ public class OrionBase {
 		log.info("Browser closed");		
 		}
 	}
-	
-	public static void setDownloadProperties(String filename) throws ClientProtocolException, IOException {
-		log.info("Inside setDownloadProperties" );
-		
-		System.out.println("Inside setDownloadProperties" + driver.getCurrentUrl());
-		
-		Map<String, Object> commandParams = new HashMap<String, Object>();
-		commandParams.put("cmd", "Page.setDownloadBehavior");
-		Map<String, String> params = new HashMap<String, String>();
-		params.put("behavior", "allow");
-		params.put("download.default_directory", CommonMethods.Attachment_File_Download_Location);
-		commandParams.put("params", params);
-
-		System.out.println("Inside setDownloadProperties"  + driver.toString());
-		
-		ObjectMapper objectMapper = new ObjectMapper();
-		HttpClient httpClient = HttpClientBuilder.create().build();
-        String command = objectMapper.writeValueAsString(commandParams);
-        System.out.println("Inside setDownloadProperties - command from Json " + command);
-        String u = driverService.getUrl().toString() + "/session/" + driver.getSessionId() + "/chromium/send_command";
-        System.out.println("Inside setDownloadProperties - value of u " + u);
-        HttpPost request = new HttpPost(u);
-        request.addHeader("content-type", "application/json");
-
-        System.out.println("attachment; filename=\"" + filename + "\"");
-        request.addHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
-
-        request.setEntity(new StringEntity(command));
-        
-        System.out.println(request.toString());
-        System.out.println(request.headerIterator().toString());
-        
-        httpClient.execute(request);
-        
-	}
-	
-	
 
 }

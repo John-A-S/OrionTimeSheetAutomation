@@ -8,7 +8,7 @@
 	<listeners>
 		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
 	</listeners>
-
+	
 	<test
 		name="OrionTimeSheet_Chrome_Test_RejectedTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
@@ -18,7 +18,8 @@
 				name="com.orion.qa.testcases.Test_RejectedTimeSheet_CancelFunctionality" />
 		</classes>
 	</test>
-
+ 	
+	 
 	<test name="OrionTimeSheet_Chrome_Test_RejectedTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
 		<parameter name="ClassName" value="Test_RejectedTimeSheet_SaveFunctionality" />
@@ -26,8 +27,8 @@
 			<class
 				name="com.orion.qa.testcases.Test_RejectedTimeSheet_SaveFunctionality" />
 		</classes>
-	</test>
-
+	</test> 
+	
 	<test
 		name="OrionTimeSheet_Chrome_Test_RejectedTimeSheet_SubmitFunctionality">
 		<parameter name="Browser" value="chrome" />
@@ -36,6 +37,6 @@
 			<class
 				name="com.orion.qa.testcases.Test_RejectedTimeSheet_SubmitFunctionality" />
 		</classes>
-	</test>
+	</test>    
 
 </suite>

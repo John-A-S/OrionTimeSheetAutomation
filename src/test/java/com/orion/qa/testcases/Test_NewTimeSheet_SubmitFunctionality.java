@@ -43,7 +43,6 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			init(Browser, ClassName, true);
 			log.info("********** Test_NewTimeSheet_SubmitFunctionality START ************* ");
 			log.info("Inside InitObjects");	
-			log.info("Browser parameter value: "+Browser);
 
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
@@ -112,22 +111,19 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			log.debug("Submit button click");
 			TimeSheetEditPage.ScrollScreenToSubmitButtonAndClick(driver, jse);
 			Thread.sleep(1000);
-			//WebElement ElementMsg = TimeSheetEditPage.Wait_Msg_TimeSheetSave(driver, wait);
 
-			// String strSaveMsg = ElementMsg.getText();
 			log.debug("Warning message: OK click");	
 			act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSubmit_OK(driver, wait)).click().build().perform();
 			
 			Thread.sleep(1000);
-			WebElement ElementMsg1 = TimeSheetEditPage.Wait_Msg_TimeSheetSave(driver, wait);
+			WebElement ElementMsg = TimeSheetEditPage.Wait_Msg_TimeSheetSave(driver, wait);
 
-			String strSaveMsg1 = ElementMsg1.getText();
+			String strSaveMsg = ElementMsg.getText();
 
 			log.debug("Timesheet submitted successfully: OK click");	
 			act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSave_OK(driver, wait)).click().build().perform();
 			
-			//assertEquals(strSaveMsg1, "Warning: No modification is allowed after submission. Please use \"Contact Us\" form if you did that in error.");
-			assertEquals(strSaveMsg1, "Time Sheet Submitted Successfully.");
+			assertEquals(strSaveMsg, "Time Sheet Submitted Successfully.");
 			log.info("TimeSheet submitted successfully");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -140,12 +136,6 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 		try {
 			log.info("Inside Test_IfDataSubmittedCorrectly to verify data is submitted correctly");
 
-			// Get the last row which is added as New timesheet
-			/*
-			 * WebElement TableData = TimeSheetMainPage.grd_MonthlyData(driver);
-			 * List<WebElement> Rows = TableData.findElements(By.tagName("tr"));
-			 * clicklink(Rows.size());
-			 */
 			Thread.sleep(3000);
 
 			try {
@@ -157,22 +147,25 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 				
 			}
 
-			//TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
 
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
-			System.out.println(driver.getCurrentUrl());
 			log.debug("Comparing submitted & test data are equal!");
-			// Note: Though download file functionality working fine locally, unable to download file  
-			// in Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
-			// later.  This may be due to environment setup.  Able to download files in Jenkins 
-			// from other sites :-(
-			// DownloadfileAndComparewithTestFile();
-			// assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+
+			/* Note: Though download file functionality working fine locally in windows, unable to download file  
+			 * in Linux/Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
+			 * later.  This may be due to environment setup or Selenium restrictions on Angular JS code.
+			 * This may be most probably due to Angular JS code since we are able to download files in Linux/Jenkins 
+			 * from other sites :-(
+
+			 * DownloadfileAndComparewithTestFile();
+			 * assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			*/
+			
 			log.info("Test Data " + objTest.toString());
 			log.info("Grid data " + objGridData.toString());
 			assertEquals((CommonMethods.compareList(objTest, objGridData)), true);
-			log.info("Both submitted & test data are equal!");
+			log.info("Data compared successfully");
 			log.info("Timesheet data submitted correctly");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -259,7 +252,7 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 
 			log.debug("setting Downloadproperties..");
 			
-		    setDownloadProperties(TempFileName);
+		 //   setDownloadProperties(TempFileName);
 			
 			System.out.println(driver.toString());
 			

@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -28,6 +29,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 
 	int RowNumb;
 	boolean isAttachmntExist, isSameFiles, isAttachmentdisabled;
+	public String rptPeriod;
 
 	public Test_DraftTimeSheet_SubmitFunctionality() {
 		super();
@@ -40,13 +42,11 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 		System.out.println("********** Test_DraftTimeSheet_SubmitFunctionality START ************* ");
 		
 		try {
-			
 			init(Browser, ClassName, true);
 
 			log.info("********** Test_DraftTimeSheet_SubmitFunctionality START ************* ");
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
-
 
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
@@ -54,7 +54,6 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method InitObjects "+ e.getMessage());
-
 		}
 	}
 
@@ -82,7 +81,6 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 
 			} catch (NoSuchElementException e) {
 				log.error("Exception : Login button not found; Error occured: "+ e.getMessage());
-
 				assertEquals(false, true);
 			}
 		} catch (Exception e) {
@@ -97,14 +95,15 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed method");
 		log.debug("Verify draft timesheet exist or not");
 
-		// RowNumb will have the row number of draft timesheet //
-		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'D');
-		if (RowNumb <= 0) {
-			assertTrue(false, "No record to process");
-			log.info("Draft timesheet does not exist ");
-		}
-		clicklink(RowNumb);
-		log.info("Draft timesheet exists in Row : " + RowNumb);
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		String strPeriod = CommonMethods.readTestData("TestData", "DraftTimeSheet");
+		period.selectByVisibleText(strPeriod);
+		log.info("Get report period details from the test data input file. " + strPeriod );
+
+		rptPeriod = CommonMethods.readTestData("TestData", "DraftTimeSheetRptPeriod");
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
+		
+		clicklink(rptPeriod);
 
 		try {
 			Thread.sleep(1000);
@@ -126,9 +125,8 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 			log.info("Inside Test_IfSubmitMessage_IsDisplayed method");
 			log.debug("Read existing data to the object");
 
-			
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
-			log.info("Existing datastored successfully");
+			log.info("Existing data : " +objGridData.toString());
 			log.debug("Inject test data to the fields");
 			
 			InjectTestData();
@@ -160,19 +158,25 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 			log.info("Inside Test_IfDataSavedCorrectly method");
 
 			Thread.sleep(1000);
-			clicklink(RowNumb);
+			
+			clicklink(rptPeriod);
 			objGridData.clear();
 			log.info("Reading existing data to the object");
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
 			
-			// Note: Though download file functionality working fine locally, unable to download file  
-			// in Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
-			// later.  This may be due to environment setup.  Able to download files in Jenkins 
-			// from other sites :-(
-			// DownloadfileAndComparewithTestFile();
-			// assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			/* Note: Though download file functionality working fine locally in windows, unable to download file  
+			 * in Linux/Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
+			 * later.  This may be due to environment setup or Selenium restrictions on Angular JS code.
+			 * This may be most probably due to Angular JS code since we are able to download files in Linux/Jenkins 
+			 * from other sites :-(
+			 * DownloadfileAndComparewithTestFile();
+			 * assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			 */
 			
-			assertEquals(CommonMethods.compareList(objTest, objGridData), true);
+			log.info("Test data entered " + objTest.toString());
+			log.info("Current Screen data " + objGridData.toString());
+
+			assertTrue(CommonMethods.compareList(objTest, objGridData));
 			log.info("Data Submitted correctly");
 
 		} catch (Exception e) {
@@ -201,18 +205,16 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 			log.error("Exception in method Test_LogoutfromOrion_IsSuccess " + e.getMessage());
 		}
 	}
-
-	public void clicklink(int RowNo) {
+	
+	public void clicklink(String period) {
 		try {
-			
-			log.info("Inside clickLink, RowNo value is : "+RowNo);
-			log.debug("Initiate Row click ");
+			log.info("Inside clickLink, Report Period is : "+period);
+			log.debug("Initiate Report Period click ");
 
 			act.moveToElement(
-					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
+					wait.until(ExpectedConditions.elementToBeClickable(TimeSheetMainPage.grd_clickReportPeriodLink(driver, period)))).click()
 					.build().perform();
 			log.info("Row clicked ");
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method clicklink " + e.getMessage());		
@@ -310,7 +312,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 			objTest.set(8, CommonMethods.readTestData("TestData", "comment"));
 
 			UploadAttachment();
-			log.info("Test data added to the screen");
+			log.info("Test data added to the screen " + objTest.toString());
 
 
 		} catch (Exception e) {

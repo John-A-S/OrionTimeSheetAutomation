@@ -1,6 +1,7 @@
 package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,26 +34,21 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 		super();
 	}
 
-	
 	@Parameters({"Browser", "ClassName"})
 	@BeforeClass
 	public void InitObjects(String Browser, String ClassName) {
 		try {
-
 			System.out.println("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
-			
 			init(Browser, ClassName, true);
 
 			log.info("********** Test_NewTimeSheet_SaveFunctionality START ************* ");
 			log.info("Inside InitObjects");	
-			log.info("Browser parameter value: "+Browser);
 	
 			objTest = new ArrayList<String>();
 			objGridData = new ArrayList<String>();
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method InitObjects "+ e.getMessage());
-
 		}
 	}
 
@@ -61,13 +57,11 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 		CloseBrowser();
 		System.out.println("********** Test_NewTimeSheet_SaveFunctionalitY END ************* ");
 		log.info("********** Test_NewTimeSheet_SaveFunctionalitY END *************");
-
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
 	public void Test_LoginToOrion_IsSuccess(String UserID, String Password) {
 		try {
-			
 			log.info("Inside Test_LoginToOrion_IsSuccess method");
 			log.debug("Setting User Credentials");
 
@@ -88,7 +82,6 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
-
 		}
 	}
 
@@ -102,13 +95,11 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			log.error("Exception in method Test_IfNewTimeSheetPage_Isdisplayed : "+e.getMessage());
-
 		}
 
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
 				"TimeSheet New Time Sheet");
 		log.info("New Time Sheet page is displayed");
-
 	}
 
 	@Test(priority = 3, dependsOnMethods = { "Test_IfNewTimeSheetPage_Isdisplayed" })
@@ -120,6 +111,8 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
 			NewReportPeriod = ele.getText();
+			
+			log.info("New timesheet is created for the period : " + NewReportPeriod);
 
 			InjectTestData();
 			
@@ -142,12 +135,6 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 	public void Test_IfDataSavedCorrectly() {
 		try {
 
-			// Get the last row which is added as New timesheet
-			/*
-			 * WebElement TableData = TimeSheetMainPage.grd_MonthlyData(driver);
-			 * List<WebElement> Rows = TableData.findElements(By.tagName("tr"));
-			 * clicklink(Rows.size());
-			 */
 			log.info("Inside Test_IfDataSavedCorrectly");
 			Thread.sleep(3000);
 
@@ -156,15 +143,21 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
 
-			// Note: Though download file functionality working fine locally, unable to download file  
-			// in Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
-			// later.  This may be due to environment setup.  Able to download files in Jenkins 
-			// from other sites :-(
-			// DownloadfileAndComparewithTestFile();
-			// assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			/* Note: Though download file functionality working fine locally in windows, unable to download file  
+			 * in Linux/Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
+			 * later.  This may be due to environment setup or Selenium restrictions on Angular JS code.
+			 * This may be most probably due to Angular JS code since we are able to download files in Linux/Jenkins 
+			 * from other sites :-(
 			
-			assertEquals(CommonMethods.compareList(objTest, objGridData), true);
+			 * DownloadfileAndComparewithTestFile();
+			 * assertEquals(((CommonMethods.compareList(objTest, objGridData)) && isSameFiles), true);
+			*/
+			log.info("Test Data " + objTest.toString());
+			log.info("Grid data " + objGridData.toString());
+
+			assertTrue(CommonMethods.compareList(objTest, objGridData));
 			log.info("Data compared successfully");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.info("Exception in Test_IfDataSavedCorrectly method : " + e.getMessage());
@@ -186,7 +179,6 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			CommonMethods.btn_Logout(driver).click();
 			assertEquals(true, LoginPage.btnLogin(driver).isDisplayed());
 			log.info("Logout successfully");	
-
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -324,7 +316,7 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			objTest.add(8, strComment);
 
 			UploadAttachment();
-
+			log.info("Test data added to the application is : " + objTest.toString());	
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method InjectTestData " + e.getMessage());

@@ -27,12 +27,12 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 
 	int RowNumb;
 	int AttachmentRowNo;
+	String rptPeriod;
 
 	boolean isSameFiles;
 	
 	public Test_PreApprovedTimeSheet_SubmitFunctionality() {
 		super();
-
 	}
 
 	@Parameters({"Browser", "ClassName"})
@@ -48,10 +48,8 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 			log.info("Inside InitObjects");	
 			log.info("Browser parameter value: "+Browser);
 
-
 		} catch (Exception e) {
 			log.error("Exception in method InitObjects "+ e.getMessage());
-
 			e.printStackTrace();
 		}
 	}
@@ -60,13 +58,12 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 	public void CloseObjects() {
 		CloseBrowser();
 		System.out.println("********** Test_PreApprovedTimeSheet_SubmitFunctionality END ************* ");
-		log.info("********** Test_PreApprovedTimeSheet_CancelFunctionality END *************");
+		log.info("********** Test_PreApprovedTimeSheet_SubmitFunctionality END *************");
 	}
 
 	@Test(dataProvider = "credentials", dataProviderClass = CommonMethods.class, priority = 1)
 	public void Test_LoginToOrion_IsSuccess(String UserID, String Password) {
 		try {
-			
 			
 			log.info("Inside Test_LoginToOrion_IsSuccess method");
 			log.debug("Setting User Credentials");
@@ -87,7 +84,6 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 			}
 		} catch (Exception e) {
 			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
-
 			e.printStackTrace();
 		}
 	}
@@ -101,16 +97,11 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-		// RowNumb will have the row number of Pre-Approved timesheet //
-		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'P');
-		if (RowNumb <= 0)  {
-			log.info("No Pre-Approved timesheet to process");
+		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
+		
+		clicklink(rptPeriod);
 
-			assertTrue(false, "No record to process");
-		} 
-
-		log.info("PreApproved timesheet exist in Row "+ RowNumb);
-		clicklink(RowNumb);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -167,22 +158,21 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 		try {
 			log.info("Inside Test_IfUpdatedDataisSubmitted");
 			Thread.sleep(3000);
-			clicklink(RowNumb);
+			clicklink(rptPeriod);
 
 			TimeSheetEditPage.ScrollScreenToElement(driver, jse, TimeSheetEditPage.grd_txtComment(driver));
 			
 			String comment = TimeSheetEditPage.grd_txtComment(driver).getAttribute("value");
-			
-			boolean isCommentTextSame = comment.equals(CommonMethods.readTestData("TestData", "comment"));
-			
-			// Note: Though download file functionality working fine locally, unable to download file  
-			// in Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
-			// later.  This may be due to environment setup.  Able to download files in Jenkins 
-			// from other sites :-(
-			//DownloadfileAndComparewithTestFile();
-			//assertEquals( (isCommentTextSame && isSameFiles), true);
-			
-			assertEquals(isCommentTextSame, true);
+			log.info("Current data :  "+ comment);	
+			/* Note: Though download file functionality working fine locally in windows, unable to download file  
+			 * in Linux/Jenkins Environment. Hence commenting download file comparison testing, need to revisit 
+			 * later.  This may be due to environment setup or Selenium restrictions on Angular JS code.
+			 * This may be most probably due to Angular JS code since we are able to download files in Linux/Jenkins 
+			 * from other sites :-(
+			 * DownloadfileAndComparewithTestFile();
+			 *  assertEquals( (isCommentTextSame && isSameFiles), true);
+			*/
+			assertTrue(comment.equals(CommonMethods.readTestData("TestData", "comment")));
 		} catch (Exception e) {
 			log.error("Exception in Test_IfUpdatedDataisSubmitted method : " + e.getMessage());
 			e.printStackTrace();
@@ -231,17 +221,18 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 		}
 	}
 
-	public void clicklink(int RowNo) {
+	public void clicklink(String period) {
 		try {
-			log.info("Inside clicklink");
+			log.info("Inside clickLink, Report Period is : "+period);
+			log.debug("Initiate Report Period click ");
 
 			act.moveToElement(
-					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
+					wait.until(ExpectedConditions.elementToBeClickable(TimeSheetMainPage.grd_clickReportPeriodLink(driver, period)))).click()
 					.build().perform();
+			log.info("Row clicked ");
 		} catch (Exception e) {
-			log.error("Exception in method clicklink " + e.getMessage());
-
 			e.printStackTrace();
+			log.error("Exception in method clicklink " + e.getMessage());		
 		}
 	}
 	

@@ -11,7 +11,6 @@
 	</listeners>
 
 	<!-- SUBMITTED TIMESHEET CANCEL -->
-
 	<test
 		name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
@@ -20,10 +19,9 @@
 			<class
 				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_CancelFunctionality" />
 		</classes>
-	</test>
+	</test>  
 
-	<!-- SUBMITTED TIMESHEET SAVE -->
-
+	<!-- SUBMITTED TIMESHEET SAVE --> 
 	<test name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
 		<parameter name="ClassName" value="Test_SubmittedTimeSheet_SaveFunctionality" />
@@ -31,10 +29,9 @@
 			<class
 				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SaveFunctionality" />
 		</classes>
-	</test>
+	</test> 
 
-	<!-- SUBMITTED TIMESHEET SUBMIT -->
-
+	<!-- SUBMITTED TIMESHEET SUBMIT --> 
 	<test
 		name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SubmittedFunctionality">
 		<parameter name="Browser" value="chrome" />
@@ -43,6 +40,5 @@
 			<class
 				name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SubmitFunctionality" />
 		</classes>
-	</test>
-
+	</test>    
 </suite>

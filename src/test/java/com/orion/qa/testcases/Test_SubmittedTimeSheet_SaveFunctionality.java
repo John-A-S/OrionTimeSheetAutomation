@@ -2,8 +2,6 @@ package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,26 +21,22 @@ import com.orion.qa.utils.CommonMethods;
 public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 
 	int RowNumb;
-
+	public String rptPeriod;
+	
 	public Test_SubmittedTimeSheet_SaveFunctionality() {
 		super();
 
 	}
-
 	
 	@Parameters({"Browser", "ClassName"})
 	@BeforeClass
 	public void InitObjects(String Browser, String ClassName) {
-
 		try {
-			
 			System.out.println("********** Test_SubmittedTimeSheet_SaveFunctionality START ************* ");
 			
 			init(Browser, ClassName, false);
 			log.info("********** Test_SubmittedTimeSheet_SaveFunctionality START ************* ");
 			log.info("Inside InitObjects");	
-			log.info("Browser parameter value: "+Browser);
-
 
 		} catch (Exception e) {
 			log.error("Exception in method InitObjects "+ e.getMessage());
@@ -64,7 +58,6 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 			log.info("Inside Test_LoginToOrion_IsSuccess method");
 			log.debug("Setting User Credentials");
 
-			
 			LoginPage.txtbx_UserName(driver).sendKeys(UserID);
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
 			LoginPage.btnLogin(driver).click();
@@ -92,15 +85,11 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
+		rptPeriod = CommonMethods.readTestData("TestData", "SubmittedTimeSheetRptPeriod");
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
-		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'S');
-		if (RowNumb <= 0)  {
-			log.info("No Submitted timesheet to process");
+		clicklink(rptPeriod);
 
-			assertTrue(false, "No record to process");
-		} 
-
-		clicklink(RowNumb);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -153,7 +142,6 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 			log.info("Inside Test_LogoutfromOrion_IsSuccess");
 			log.debug("Identifying loginUserIcon for logout");
 
-			
 			act.moveToElement(CommonMethods.lbl_LoginUserIcon(driver)).click().perform();
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.elementToBeClickable(CommonMethods.btn_Logout(driver)));
@@ -166,17 +154,19 @@ public class Test_SubmittedTimeSheet_SaveFunctionality extends OrionBase{
 			e.printStackTrace();
 		}
 	}
-
-	public void clicklink(int RowNo) {
+	
+	public void clicklink(String period) {
 		try {
-			log.info("Inside clicklink");
+			log.info("Inside clickLink, Report Period is : "+period);
+			log.debug("Initiate Report Period click ");
 
 			act.moveToElement(
-					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
+					wait.until(ExpectedConditions.elementToBeClickable(TimeSheetMainPage.grd_clickReportPeriodLink(driver, period)))).click()
 					.build().perform();
+			log.info("Row clicked ");
 		} catch (Exception e) {
-			log.error("Exception in method clicklink " + e.getMessage());
 			e.printStackTrace();
+			log.error("Exception in method clicklink " + e.getMessage());		
 		}
 	}
 }

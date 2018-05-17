@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Submitted timesheet]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener"/>
+  </listeners>
+  <test name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SubmittedFunctionality(failed)">
+    <parameter name="ClassName" value="Test_SubmittedTimeSheet_SubmitFunctionality"/>
+    <parameter name="Browser" value="chrome"/>
+    <classes>
+      <class name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SubmitFunctionality">
+        <methods>
+          <include name="Test_LoginToOrion_IsSuccess"/>
+          <include name="Test_SubmitButton_IsDisplayed"/>
+          <include name="Test_VerifyUserAddcomment"/>
+          <include name="Test_VerifyUserAddAttachment"/>
+          <include name="Test_IfEditTimeSheetPage_Isdisplayed"/>
+          <include name="InitObjects"/>
+          <include name="Test_VerifyUserCanEnterTime"/>
+          <include name="CloseObjects"/>
+          <include name="Test_LogoutfromOrion_IsSuccess"/>
+        </methods>
+      </class> <!-- com.orion.qa.testcases.Test_SubmittedTimeSheet_SubmitFunctionality -->
+    </classes>
+  </test> <!-- OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SubmittedFunctionality(failed) -->
+</suite> <!-- Failed suite [Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Submitted timesheet] -->

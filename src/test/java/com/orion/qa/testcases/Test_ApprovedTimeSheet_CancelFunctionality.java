@@ -1,8 +1,6 @@
 package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,6 +19,7 @@ import com.orion.qa.utils.CommonMethods;
 
 public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	int RowNumb;
+	String rptPeriod;
 
 	public Test_ApprovedTimeSheet_CancelFunctionality() {
 		super();
@@ -30,13 +29,11 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	@BeforeClass
 	public void InitObjects(String Browser, String ClassName) {
 		
-		
 		System.out.println("********** Test_ApprovedTimeSheet_CancelFunctionality START ************* ");
 		try {
 			init(Browser, ClassName, false);
 			log.info("********** Test_ApprovedTimeSheet_CancelFunctionality START ************* ");
 			log.info("Inside InitObjects");	
-			log.info("Browser parameter value: "+Browser);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -92,12 +89,11 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-		// RowNumb will have the row number of approved timesheet //
-		RowNumb = TimeSheetMainPage.ReadMonthlyDatafromGridtoElement(driver, 'A');
-		if (RowNumb <= 0) {
-			assertTrue(false, "No record to process");
-		}
-		clicklink(RowNumb);
+		rptPeriod = CommonMethods.readTestData("TestData", "ApprovedTimeSheetRptPeriod");
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
+		
+		clicklink(rptPeriod);
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -115,7 +111,6 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		log.info("Inside Test_EditTimesheetScreenComponents_AreDisabled");
 		log.debug("Check if Add Attachment is disabled");
 		
-	//	assertEquals(TimeSheetEditPage.wait_btn_AddAttachclickable(driver, wait).getAttribute("disabled"), "true",
 		assertEquals(TimeSheetEditPage.AddAttachclickable(driver).getAttribute("disabled"), "true",
 				"Attach component disabled");
 		log.info("Add Attachment is disabled");
@@ -127,7 +122,7 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		log.debug("Check if Comment field is disabled");
 		assertEquals(TimeSheetEditPage.grd_txtComment(driver).getAttribute("disabled"), "true",
 				"Comment component disabled");
-		log.info("Common field is disabled");
+		log.info("Comment field is disabled");
 	}
 
 	@Test(priority = 4, dependsOnMethods = { "Test_EditTimesheetScreenComponents_AreDisabled" })
@@ -161,17 +156,18 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 			log.error("Exception in method Test_LogoutfromOrion_IsSuccess " + e.getMessage());		}
 	}
 
-	public void clicklink(int RowNo) {
+	public void clicklink(String period) {
 		try {
-			log.info("Inside clickLink, RowNo value is : "+RowNo);
-			log.debug("Initiate Row click ");
+			log.info("Inside clickLink, Report Period is : "+period);
+			log.debug("Initiate Report Period click ");
+
 			act.moveToElement(
-					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
+					wait.until(ExpectedConditions.elementToBeClickable(TimeSheetMainPage.grd_clickReportPeriodLink(driver, period)))).click()
 					.build().perform();
 			log.info("Row clicked ");
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method clicklink " + e.getMessage());		
-			}
 		}
+	}
 }

@@ -2,7 +2,6 @@ package com.orion.qa.testcases;
 
 import static org.testng.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -22,7 +21,6 @@ import com.orion.qa.pages.TimeSheetMainPage;
 import com.orion.qa.utils.CommonMethods;
 
 public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
-	ArrayList<String> objTest;
 
 	int RowNumb;
 	int AttachmentRowId;
@@ -42,8 +40,6 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 
 			log.info("********** Test_NewTimeSheet_CancelFunctionality START ************* ");
 			log.info("Inside InitObjects");	
-			log.info("Browser parameter value: "+Browser);
-
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,7 +61,6 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 		try {
 			log.info("Inside Test_LoginToOrion_IsSuccess method");
 			log.debug("Setting User Credentials");
-
 
 			LoginPage.txtbx_UserName(driver).sendKeys(UserID);
 			LoginPage.txtbx_Password(driver).sendKeys(Password);
@@ -124,14 +119,17 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
 			String NewReportPeriod = ele.getText();
+			
+			log.info("New timesheet is created for the period : " + NewReportPeriod);
+
 			Test_InjectTestDataandCancel();
 			try {
 				log.info("Click on the timesheet link : " + NewReportPeriod);
 				TimeSheetEditPage.grd_clickReportPeriodLink(driver, NewReportPeriod);
 				assertEquals(true, false, "New Time Period " + NewReportPeriod + " Exist.  FAILED");
 			} catch (NoSuchElementException e) {
-				log.error("New Time Period not found. ");
-				log.error("Exception in Test_IfDatanotSaved method. New Time Period not found. "+e.getMessage());
+				log.info("New Time Period "+ NewReportPeriod+ " not found. ");
+				//log.error("Exception in Test_IfDatanotSaved method. New Time Period not found. "+e.getMessage());
 				assertEquals(false, false, "PASSED");
 			}
 		} catch (Exception e) {
@@ -164,24 +162,6 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 		}
 	}
 
-	public void clicklink(int RowNo) {
-		try {
-			
-			log.info("Inside clickLink, RowNo value is : "+RowNo);
-			log.debug("Initiate Row click ");
-
-
-			act.moveToElement(
-					wait.until(ExpectedConditions.visibilityOf(TimeSheetMainPage.getGrdElement(driver, RowNo)))).click()
-					.build().perform();
-			log.info("Row clicked ");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			log.error("Exception in method clicklink " + e.getMessage());		
-
-		}
-	}
 
 	public void UploadAttachment() {
 		try {
@@ -214,7 +194,6 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 			
 			log.info("Inside InjectTestData");
 
-			// objTest = (ArrayList<String>) objGridData.clone();
 			WebElement Element;
 			CommonMethods.ScrollScreenToElement(driver, jse,
 					".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input");
@@ -233,7 +212,6 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 
 			UploadAttachment();
 			log.info("Test data added to the screen");
-
 
 		} catch (Exception e) {
 			log.error("Exception in InjectTestData "+ e.getMessage());

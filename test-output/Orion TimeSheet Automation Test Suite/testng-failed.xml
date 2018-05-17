@@ -4,42 +4,21 @@
   <listeners>
     <listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener"/>
   </listeners>
-  <test name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SaveFunctionality(failed)">
-    <parameter name="ClassName" value="Test_SubmittedTimeSheet_SaveFunctionality"/>
+  <test name="OrionTimeSheet_Chrome_Test_DraftTimeSheet_SaveFunctionality(failed)">
+    <parameter name="ClassName" value="Test_DraftTimeSheet_SaveFunctionality"/>
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SaveFunctionality">
+      <class name="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality">
         <methods>
-          <include name="Test_VerifyUserCanEnterTime"/>
           <include name="Test_LogoutfromOrion_IsSuccess"/>
+          <include name="Test_IfSaveMessage_IsDisplayed"/>
           <include name="Test_IfEditTimeSheetPage_Isdisplayed"/>
-          <include name="Test_VerifyUserAddAttachment"/>
           <include name="Test_LoginToOrion_IsSuccess"/>
-          <include name="InitObjects"/>
+          <include name="Test_IfDataSavedCorrectly"/>
           <include name="CloseObjects"/>
-          <include name="Test_VerifyUserAddcomment"/>
-          <include name="Test_SaveButton_IsDisplayed"/>
-        </methods>
-      </class> <!-- com.orion.qa.testcases.Test_SubmittedTimeSheet_SaveFunctionality -->
-    </classes>
-  </test> <!-- OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SaveFunctionality(failed) -->
-  <test name="OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SubmittedFunctionality(failed)">
-    <parameter name="ClassName" value="Test_SubmittedTimeSheet_SubmitFunctionality"/>
-    <parameter name="Browser" value="chrome"/>
-    <classes>
-      <class name="com.orion.qa.testcases.Test_SubmittedTimeSheet_SubmitFunctionality">
-        <methods>
-          <include name="Test_LoginToOrion_IsSuccess"/>
-          <include name="Test_SubmitButton_IsDisplayed"/>
-          <include name="Test_VerifyUserAddcomment"/>
-          <include name="Test_VerifyUserAddAttachment"/>
-          <include name="Test_IfEditTimeSheetPage_Isdisplayed"/>
           <include name="InitObjects"/>
-          <include name="Test_VerifyUserCanEnterTime"/>
-          <include name="CloseObjects"/>
-          <include name="Test_LogoutfromOrion_IsSuccess"/>
         </methods>
-      </class> <!-- com.orion.qa.testcases.Test_SubmittedTimeSheet_SubmitFunctionality -->
+      </class> <!-- com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality -->
     </classes>
-  </test> <!-- OrionTimeSheet_Chrome_Test_SubmittedTimeSheet_SubmittedFunctionality(failed) -->
+  </test> <!-- OrionTimeSheet_Chrome_Test_DraftTimeSheet_SaveFunctionality(failed) -->
 </suite> <!-- Failed suite [Orion TimeSheet Automation Test Suite] -->
