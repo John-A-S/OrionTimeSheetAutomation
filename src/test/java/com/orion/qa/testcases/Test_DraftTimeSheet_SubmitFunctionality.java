@@ -154,7 +154,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 		}
 	}
 	
-	@Test(priority = 4, dependsOnMethods = { "Test_IfSaveMessage_IsDisplayed" })
+	@Test(priority = 4, dependsOnMethods = { "Test_IfSubmitMessage_IsDisplayed" })
 	public void Test_VerifyTimeSheetMainPageisDisplayed() {
 		log.info("Move the cursor to the TimeSheet link which is at the left of the screen");
 		act.moveToElement(TimeSheetMainPage.lbl_TimeSheet_Left(driver)).build().perform();
