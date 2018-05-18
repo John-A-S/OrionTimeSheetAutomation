@@ -201,13 +201,9 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 		try {
 			log.info("Inside clickLink, Report Period is : "+period);
 			log.debug("Initiate Report Period click ");
-			Thread.sleep(90000);
 			
-			log.info("Before is visible");
-			TimeSheetMainPage.grd_clickReportPeriodLink(driver, period).isDisplayed();
-			Thread.sleep(4000);
-			
-			log.info("Before click");
+			log.info("Current Screen : "+TimeSheetMainPage.lbl_ListTimeSheet(driver).getText());
+
 			TimeSheetMainPage.grd_clickReportPeriodLink(driver, period).click();
 			
 /*			act.moveToElement(
