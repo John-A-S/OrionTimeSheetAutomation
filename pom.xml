@@ -15,29 +15,30 @@
 	</properties>
 
 	<dependencies>
-	
-	<!-- Used to set properties (objectMapper) for the driver object -->
-	<dependency>
-		<groupId>com.fasterxml.jackson.core</groupId>
-		<artifactId>jackson-databind</artifactId>
-		<version>2.6.3</version>
-	</dependency>
-	
-	
-	<!--  Used inside LinuxTestNG.java to copy file from URL to a specified location -->
-	<dependency>
-    <groupId>commons-io</groupId>
-    <artifactId>commons-io</artifactId>
-    <version>2.5</version>
-    </dependency>
-	
 
+		<!-- Used to set properties (objectMapper) for the driver object -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+
+		<!-- Used inside LinuxTestNG.java to copy file from URL to a specified 
+			location -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<!-- Selenium --> 
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.11.0</version>
 		</dependency>
 
+		<!-- TestNG  -->
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -46,79 +47,24 @@
 		</dependency>
 
 
-		<!-- 
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>poi</artifactId> 
-				<version>3.16-beta2</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>poi-ooxml</artifactId> 
-				<version>3.9</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>poi-ooxml-schemas</artifactId> 
-				<version>3.9</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>poi-scratchpad</artifactId> 
-				<version>3.9</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>ooxml-schemas</artifactId> 
-				<version>1.1</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>openxml4j</artifactId> 
-				<version>1.0-beta</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>poi</artifactId> 
-				<version>3.9</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>poi-ooxml</artifactId> 
-				<version>3.9</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>poi-ooxml-schemas</artifactId> 
-				<version>3.9</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>poi-scratchpad</artifactId> 
-				<version>3.9</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>ooxml-schemas</artifactId> 
-				<version>1.1</version> 
-			</dependency> 
-			
-			<dependency> 
-				<groupId>org.apache.poi</groupId> 
-				<artifactId>openxml4j</artifactId> 
-				<version>1.0-beta</version> 
-			</dependency> 
-		-->
+		<!-- <dependency> <groupId>org.apache.poi</groupId> <artifactId>poi</artifactId> 
+			<version>3.16-beta2</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>poi-ooxml</artifactId> <version>3.9</version> </dependency> <dependency> 
+			<groupId>org.apache.poi</groupId> <artifactId>poi-ooxml-schemas</artifactId> 
+			<version>3.9</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>poi-scratchpad</artifactId> <version>3.9</version> </dependency> 
+			<dependency> <groupId>org.apache.poi</groupId> <artifactId>ooxml-schemas</artifactId> 
+			<version>1.1</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>openxml4j</artifactId> <version>1.0-beta</version> </dependency> 
+			<dependency> <groupId>org.apache.poi</groupId> <artifactId>poi</artifactId> 
+			<version>3.9</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>poi-ooxml</artifactId> <version>3.9</version> </dependency> <dependency> 
+			<groupId>org.apache.poi</groupId> <artifactId>poi-ooxml-schemas</artifactId> 
+			<version>3.9</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>poi-scratchpad</artifactId> <version>3.9</version> </dependency> 
+			<dependency> <groupId>org.apache.poi</groupId> <artifactId>ooxml-schemas</artifactId> 
+			<version>1.1</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>openxml4j</artifactId> <version>1.0-beta</version> </dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>
@@ -126,7 +72,7 @@
 			<artifactId>log4j-api</artifactId>
 			<version>2.11.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
@@ -164,14 +110,13 @@
 				<version>2.19.1</version>
 				<configuration>
 					<suiteXmlFiles>
-					  <!-- 	TESTED  -->
-					  	  <suiteXmlFile>src/main/resources/testNG_New_Submit.xml</suiteXmlFile>   
-					  	  <suiteXmlFile>src/main/resources/testNG_Submit.xml</suiteXmlFile> 				  	  
-				   	<!--  	  <suiteXmlFile>src/main/resources/testNG_Rejected.xml</suiteXmlFile> 
-					      <suiteXmlFile>src/main/resources/testNG_Approved.xml</suiteXmlFile> 
-					   	  <suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile>  
-					  	  <suiteXmlFile>src/main/resources/testNG_PreApproved.xml</suiteXmlFile>  -->   
-					     <!--   <suiteXmlFile>src/main/resources/LinuxTestNG.xml</suiteXmlFile>   --> 
+						<!-- TESTED -->
+						<suiteXmlFile>src/main/resources/testNG_New_Submit.xml</suiteXmlFile>
+						<suiteXmlFile>src/main/resources/testNG_Submit.xml</suiteXmlFile>
+						<!-- <suiteXmlFile>src/main/resources/testNG_Rejected.xml</suiteXmlFile> 
+							<suiteXmlFile>src/main/resources/testNG_Approved.xml</suiteXmlFile> <suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile> 
+							<suiteXmlFile>src/main/resources/testNG_PreApproved.xml</suiteXmlFile> -->
+						<!-- <suiteXmlFile>src/main/resources/LinuxTestNG.xml</suiteXmlFile> -->
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
