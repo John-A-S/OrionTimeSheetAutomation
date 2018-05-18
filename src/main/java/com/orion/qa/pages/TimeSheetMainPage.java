@@ -28,8 +28,6 @@ public class TimeSheetMainPage {
 		return (driver.findElement(By.xpath("//span[contains(text(),'Time')]")));
 	}
 	
-
-	
 	public static int ReadMonthlyDatafromGridtoElement(WebDriver driver, char strStatus) {
 		int i = 0;
 		boolean RowFound = false;

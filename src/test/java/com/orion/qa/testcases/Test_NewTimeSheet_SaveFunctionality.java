@@ -133,11 +133,13 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 	
 	@Test(priority = 4, dependsOnMethods = { "Test_IfSaveMessage_IsDisplayed" })
 	public void Test_VerifyTimeSheetMainPageisDisplayed() {
+		log.info("Move the cursor to the TimeSheet link which is at the left of the screen");
+		act.moveToElement(TimeSheetMainPage.lbl_TimeSheet_Left(driver)).build().perform();
 		log.debug("Verify Timesheet main page is displayed");
 		assertTrue(TimeSheetMainPage.lbl_ListTimeSheet(driver).isDisplayed());
 	}
 
-	@Test(priority = 4, dependsOnMethods = { "Test_VerifyTimeSheetMainPageisDisplayed" })
+	@Test(priority = 5, dependsOnMethods = { "Test_VerifyTimeSheetMainPageisDisplayed" })
 	public void Test_IfDataSavedCorrectly() {
 		try {
 
@@ -170,7 +172,7 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 		}
 	}
 
-	@Test(priority = 5, dependsOnMethods = { "Test_IfDataSavedCorrectly" })
+	@Test(priority = 6, dependsOnMethods = { "Test_IfDataSavedCorrectly" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
 			

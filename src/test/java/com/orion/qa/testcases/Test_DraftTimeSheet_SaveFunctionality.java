@@ -147,6 +147,8 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 	
 	@Test(priority = 4, dependsOnMethods = { "Test_IfSaveMessage_IsDisplayed" })
 	public void Test_VerifyTimeSheetMainPageisDisplayed() {
+		log.info("Move the cursor to the TimeSheet link which is at the left of the screen");
+		act.moveToElement(TimeSheetMainPage.lbl_TimeSheet_Left(driver)).build().perform();
 		log.debug("Verify Timesheet main page is displayed");
 		assertTrue(TimeSheetMainPage.lbl_ListTimeSheet(driver).isDisplayed());
 	}
@@ -182,7 +184,7 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 		}
 	}
 
-	@Test(priority = 5, dependsOnMethods = { "Test_IfDataSavedCorrectly" })
+	@Test(priority = 6, dependsOnMethods = { "Test_IfDataSavedCorrectly" })
 	public void Test_LogoutfromOrion_IsSuccess() {
 		try {
 			log.info("Inside Test_LogoutfromOrion_IsSuccess");
@@ -207,16 +209,16 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 			log.info("Inside clickLink, Report Period is : "+period);
 			log.debug("Initiate Report Period click ");
 			
-			act.moveToElement(TimeSheetMainPage.lbl_TimeSheet_Left(driver)).build().perform();
+/*			act.moveToElement(TimeSheetMainPage.lbl_TimeSheet_Left(driver)).build().perform();
 			Thread.sleep(3000);				
 			log.info("Current Screen : "+TimeSheetMainPage.lbl_ListTimeSheet(driver).getText());
 			Thread.sleep(3000);	
 			TimeSheetMainPage.grd_clickReportPeriodLink(driver, period).click();
-			
-/*			act.moveToElement(
+*/			
+			act.moveToElement(
 					wait.until(ExpectedConditions.elementToBeClickable(TimeSheetMainPage.grd_clickReportPeriodLink(driver, period)))).click()
 					.build().perform();
-*/			
+			
 			log.info("Row clicked ");
 		} catch (Exception e) {
 			e.printStackTrace();
