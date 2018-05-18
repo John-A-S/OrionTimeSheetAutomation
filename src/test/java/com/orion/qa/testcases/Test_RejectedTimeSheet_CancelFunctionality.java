@@ -111,7 +111,6 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			log.error("Exception in method Test_IfEditTimeSheetPage_Isdisplayed : "+ e.getMessage());
-
 		}
 
 		assertEquals(wait.until(ExpectedConditions.visibilityOf(TimeSheetEditPage.lbl_TimeSheet(driver))).getText(),
