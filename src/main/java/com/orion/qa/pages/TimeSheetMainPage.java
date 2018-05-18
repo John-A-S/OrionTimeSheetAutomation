@@ -23,6 +23,11 @@ public class TimeSheetMainPage {
 	public static WebElement lbl_ListTimeSheet(WebDriver driver) {
 		return (driver.findElement(By.tagName("h4")));
 	}
+	
+	public static WebElement lbl_TimeSheet_Left(WebDriver driver) {
+		return (driver.findElement(By.xpath("//span[contains(text(),'Time')]")));
+	}
+	
 
 	
 	public static int ReadMonthlyDatafromGridtoElement(WebDriver driver, char strStatus) {
