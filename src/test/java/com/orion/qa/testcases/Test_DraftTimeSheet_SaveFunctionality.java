@@ -144,13 +144,18 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Test(priority = 4, dependsOnMethods = { "Test_IfSaveMessage_IsDisplayed" })
+	public void Test_VerifyTimeSheetMainPageisDisplayed() {
+		log.debug("Verify Timesheet main page is displayed");
+		assertTrue(TimeSheetMainPage.lbl_ListTimeSheet(driver).isDisplayed());
+	}
+
+	@Test(priority = 5, dependsOnMethods = { "Test_VerifyTimeSheetMainPageisDisplayed" })
 	public void Test_IfDataSavedCorrectly() {
 		try {
 			log.info("Inside Test_IfDataSavedCorrectly method");
 
-			Thread.sleep(1000);
 			log.info("Re-open the report period to verify data is saved correctly");
 			
 			clicklink(rptPeriod);
