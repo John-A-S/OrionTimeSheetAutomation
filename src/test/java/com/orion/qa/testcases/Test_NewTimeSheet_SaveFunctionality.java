@@ -130,8 +130,14 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Test(priority = 4, dependsOnMethods = { "Test_IfSaveMessage_IsDisplayed" })
+	public void Test_VerifyTimeSheetMainPageisDisplayed() {
+		log.debug("Verify Timesheet main page is displayed");
+		assertTrue(TimeSheetMainPage.lbl_ListTimeSheet(driver).isDisplayed());
+	}
+
+	@Test(priority = 4, dependsOnMethods = { "Test_VerifyTimeSheetMainPageisDisplayed" })
 	public void Test_IfDataSavedCorrectly() {
 		try {
 
