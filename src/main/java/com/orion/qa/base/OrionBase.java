@@ -173,10 +173,15 @@ public class OrionBase {
 	
 	public static void CloseBrowser() {
 		log.info("Inside Close Browser");
-		if (!driver.toString().contains("null")) 
-		{
-			driver.quit();
-			log.info("Browser closed");		
+		try {
+			if (!driver.toString().contains("null")) 
+			{
+				driver.quit();
+				log.info("Browser closed");		
+			}
+		}catch(Exception e) {
+			log.error("Exception in method CloseBrowser : "+ e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
