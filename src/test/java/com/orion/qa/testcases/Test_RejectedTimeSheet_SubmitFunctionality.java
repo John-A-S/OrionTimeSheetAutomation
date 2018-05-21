@@ -27,6 +27,7 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 	int RowNumb;
 	boolean isAttachmntExist, isSameFiles, isAttachmentdisabled;
 	String rptPeriod;
+	String strMonth;
 
 	public Test_RejectedTimeSheet_SubmitFunctionality() {
 		super();
@@ -92,13 +93,13 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 	
-		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TestData", "RejectedTimeSheet");
-		period.selectByVisibleText(strPeriod);
-		log.info("Get report period details from the test data input file. " + strPeriod );
+		strMonth = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
+		log.info("Get report period details from the test data input file. " + strMonth);
 
-		rptPeriod = CommonMethods.readTestData("TestData", "RejectedTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
+
+		SetTimePeriod();
 		
 		clicklink(rptPeriod);
 
@@ -148,6 +149,7 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 		try {
 			log.info("Inside Test_IfDataSavedCorrectly");
 			Thread.sleep(1000);
+			SetTimePeriod();
 			clicklink(rptPeriod);
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
@@ -205,6 +207,11 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 			e.printStackTrace();
 			log.error("Exception in method clicklink " + e.getMessage());		
 		}
+	}
+	
+	public void SetTimePeriod() {
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		period.selectByVisibleText(strMonth);
 	}
 
 	public void UploadAttachment() {

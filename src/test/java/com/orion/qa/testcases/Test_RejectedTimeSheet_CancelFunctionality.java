@@ -29,7 +29,9 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 
 	int RowNumb;
 	int AttachmentRowId;
-	public String rptPeriod;
+	String rptPeriod;
+	String strMonth;
+
 	
 	public Test_RejectedTimeSheet_CancelFunctionality() {
 		super();
@@ -96,13 +98,13 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 		// RowNumb will have the row number of draft timesheet //
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 		
-		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TestData", "RejectedTimeSheet");
-		period.selectByVisibleText(strPeriod);
-		log.info("Get report period details from the test data input file. " + strPeriod );
-		
-		rptPeriod = CommonMethods.readTestData("TestData", "RejectedTimeSheetRptPeriod");
+		strMonth = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
+		log.info("Get report period details from the test data input file. " + strMonth);
+
+		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
+
+		SetTimePeriod();
 		
 		clicklink(rptPeriod);
 
@@ -133,6 +135,9 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 		try {
 			log.info("Inside Test_IfDatanotSaved");
 			Test_InjectTestDataandCancel();
+			
+			SetTimePeriod();
+			
 			clicklink(rptPeriod);
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);
@@ -189,6 +194,11 @@ public class Test_RejectedTimeSheet_CancelFunctionality extends OrionBase {
 			e.printStackTrace();
 			log.error("Exception in method clicklink " + e.getMessage());		
 		}
+	}
+	
+	public void SetTimePeriod() {
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		period.selectByVisibleText(strMonth);
 	}
 
 	public void UploadAttachment() {
