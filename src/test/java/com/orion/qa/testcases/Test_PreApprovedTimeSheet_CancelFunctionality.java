@@ -149,6 +149,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 			log.info("Initial data: " +  strExistingComment);
 			log.info("Current data: " + strCurrentComment);
 			assertTrue(strExistingComment.equals(strCurrentComment));
+			log.info("Data compared successfully and are equal!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in Test_IfUpdatedDataisCancelled method "+e.getMessage());
