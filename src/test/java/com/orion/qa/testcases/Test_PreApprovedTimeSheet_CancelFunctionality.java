@@ -27,7 +27,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	int RowNumb;
 	int AttachmentRowNo;
 	String rptPeriod;
-
+	String strMonth;
 	public Test_PreApprovedTimeSheet_CancelFunctionality() {
 		super();
 	}
@@ -87,14 +87,14 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	@Test(priority = 2, dependsOnMethods = { "Test_LoginToOrion_IsSuccess" })
 	public void Test_IfEditTimeSheetPage_Isdisplayed() throws InterruptedException {
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
-		
-		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
-		period.selectByVisibleText(strPeriod);
-		log.info("Get report period details from the test data input file. " + strPeriod );
+
+		strMonth = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
+		log.info("Get report period details from the test data input file. " + strMonth);
 
 		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
+
+		SetTimePeriod();
 		
 		Thread.sleep(3000);
 		
@@ -131,6 +131,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		String strCurrentComment; 
 		try {
 			log.info("Inside Test_IfUpdatedDataisCancelled");
+			SetTimePeriod();
 			clicklink(rptPeriod);
 			TimeSheetEditPage.ScrollToSUBMITSAVECANCEL(driver, jse);
 			
@@ -187,6 +188,11 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 			e.printStackTrace();
 			log.error("Exception in method clicklink " + e.getMessage());		
 		}
+	}
+	
+	public void SetTimePeriod() {
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		period.selectByVisibleText(strMonth);
 	}
 	
 	public String getLatestUploadFile() {

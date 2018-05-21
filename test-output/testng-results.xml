@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="1" failed="1" skipped="4">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-05-17T19:40:39Z" name="Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Approved timesheet" finished-at="2018-05-17T19:41:21Z" duration-ms="41155">
+  <suite started-at="2018-05-21T15:51:04Z" name="Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Pre-Approved timesheet" finished-at="2018-05-21T15:51:26Z" duration-ms="22268">
     <groups>
     </groups>
-    <test started-at="2018-05-17T19:40:39Z" name="OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_SubmitFunctionality" finished-at="2018-05-17T19:41:21Z" duration-ms="41155">
-      <class name="com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality">
-        <test-method is-config="true" signature="InitObjects(java.lang.String, java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality@4310d43]" started-at="2018-05-17T15:40:39Z" name="InitObjects" finished-at="2018-05-17T15:40:47Z" duration-ms="7461" status="PASS">
+    <test started-at="2018-05-21T15:51:04Z" name="OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality" finished-at="2018-05-21T15:51:26Z" duration-ms="22268">
+      <class name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality">
+        <test-method is-config="true" signature="InitObjects(java.lang.String, java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a]" started-at="2018-05-21T11:51:04Z" name="InitObjects" finished-at="2018-05-21T11:51:25Z" duration-ms="21504" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -16,14 +16,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[Test_ApprovedTimeSheet_SubmitFunctionality]]>
+                <![CDATA[Test_PreApprovedTimeSheet_CancelFunctionality]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- InitObjects -->
-        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality@4310d43]" started-at="2018-05-17T15:40:47Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-05-17T15:40:48Z" duration-ms="881" status="PASS">
+        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a]" started-at="2018-05-21T11:51:25Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-05-21T11:51:25Z" duration-ms="88" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -39,23 +39,205 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LoginToOrion_IsSuccess -->
-        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality@4310d43]" started-at="2018-05-17T15:40:48Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-05-17T15:40:50Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="1531" status="PASS">
+        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a]" started-at="2018-05-21T11:51:25Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-05-21T11:51:26Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="300" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.SetTimePeriod(Test_PreApprovedTimeSheet_CancelFunctionality.java:194)
+	at com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_IfEditTimeSheetPage_Isdisplayed(Test_PreApprovedTimeSheet_CancelFunctionality.java:97)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
-        <test-method signature="Test_SubmitButton_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality@4310d43]" started-at="2018-05-17T15:40:50Z" name="Test_SubmitButton_IsDisplayed" finished-at="2018-05-17T15:41:20Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="30073" status="PASS">
+        <test-method signature="Test_CancelButton_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a]" started-at="2018-05-21T11:51:26Z" name="Test_CancelButton_IsDisplayed" finished-at="2018-05-21T11:51:26Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_PreApprovedTimeSheet_CancelFunctionality.Test_CancelButton_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_PreApprovedTimeSheet_CancelFunctionality.Test_CancelButton_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test_SubmitButton_IsDisplayed -->
-        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:4, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality@4310d43]" started-at="2018-05-17T15:41:20Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-05-17T15:41:20Z" depends-on-methods="com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality.Test_SubmitButton_IsDisplayed" duration-ms="424" status="PASS">
+        </test-method> <!-- Test_CancelButton_IsDisplayed -->
+        <test-method signature="Test_CancelButton_InjectTestDataandVerify()[pri:4, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a]" started-at="2018-05-21T11:51:26Z" name="Test_CancelButton_InjectTestDataandVerify" finished-at="2018-05-21T11:51:26Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_CancelButton_IsDisplayed" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_PreApprovedTimeSheet_CancelFunctionality.Test_CancelButton_InjectTestDataandVerify()[pri:4, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_PreApprovedTimeSheet_CancelFunctionality.Test_CancelButton_InjectTestDataandVerify()[pri:4, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_CancelButton_InjectTestDataandVerify -->
+        <test-method signature="Test_IfUpdatedDataisCancelled()[pri:5, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a]" started-at="2018-05-21T11:51:26Z" name="Test_IfUpdatedDataisCancelled" finished-at="2018-05-21T11:51:26Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_CancelButton_InjectTestDataandVerify" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_PreApprovedTimeSheet_CancelFunctionality.Test_IfUpdatedDataisCancelled()[pri:5, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_PreApprovedTimeSheet_CancelFunctionality.Test_IfUpdatedDataisCancelled()[pri:5, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_IfUpdatedDataisCancelled -->
+        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a]" started-at="2018-05-21T11:51:26Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-05-21T11:51:26Z" depends-on-methods="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.Test_IfUpdatedDataisCancelled" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_PreApprovedTimeSheet_CancelFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_PreApprovedTimeSheet_CancelFunctionality.Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
-        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality@4310d43]" started-at="2018-05-17T15:41:20Z" name="CloseObjects" finished-at="2018-05-17T15:41:21Z" duration-ms="608" status="PASS">
+        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality@2d710f1a]" started-at="2018-05-21T11:51:26Z" name="CloseObjects" finished-at="2018-05-21T11:51:26Z" duration-ms="0" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.orion.qa.base.OrionBase.CloseBrowser(OrionBase.java:176)
+	at com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality.CloseObjects(Test_PreApprovedTimeSheet_CancelFunctionality.java:56)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:212)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseObjects -->
-      </class> <!-- com.orion.qa.testcases.Test_ApprovedTimeSheet_SubmitFunctionality -->
-    </test> <!-- OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_SubmitFunctionality -->
-  </suite> <!-- Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Approved timesheet -->
+      </class> <!-- com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality -->
+    </test> <!-- OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality -->
+  </suite> <!-- Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Pre-Approved timesheet -->
 </testng-results>

@@ -19,7 +19,7 @@
 		</classes>
 	</test>
 	
-	
+	<!-- 
 	<test
 		name="OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
@@ -39,5 +39,5 @@
 				name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_SubmitFunctionality" />
 		</classes>
 	</test>
-	
+	 -->
 </suite>

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Approved timesheet]" guice-stage="DEVELOPMENT">
+<suite name="Failed suite [Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Pre-Approved timesheet]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener"/>
   </listeners>
-  <test name="OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_CancelFunctionality(failed)">
-    <parameter name="ClassName" value="Test_ApprovedTimeSheet_CancelFunctionality"/>
+  <test name="OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality(failed)">
+    <parameter name="ClassName" value="Test_PreApprovedTimeSheet_CancelFunctionality"/>
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality">
+      <class name="com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality">
         <methods>
           <include name="Test_LoginToOrion_IsSuccess"/>
-          <include name="Test_ClickCancelExists"/>
+          <include name="Test_IfEditTimeSheetPage_Isdisplayed"/>
           <include name="CloseObjects"/>
           <include name="InitObjects"/>
-          <include name="Test_EditTimesheetScreenComponents_AreDisabled"/>
-          <include name="Test_IfEditTimeSheetPage_Isdisplayed"/>
+          <include name="Test_CancelButton_IsDisplayed"/>
+          <include name="Test_IfUpdatedDataisCancelled"/>
           <include name="Test_LogoutfromOrion_IsSuccess"/>
+          <include name="Test_CancelButton_InjectTestDataandVerify"/>
         </methods>
-      </class> <!-- com.orion.qa.testcases.Test_ApprovedTimeSheet_CancelFunctionality -->
+      </class> <!-- com.orion.qa.testcases.Test_PreApprovedTimeSheet_CancelFunctionality -->
     </classes>
-  </test> <!-- OrionTimeSheet_Chrome_Test_ApprovedTimeSheet_CancelFunctionality(failed) -->
-</suite> <!-- Failed suite [Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Approved timesheet] -->
+  </test> <!-- OrionTimeSheet_Chrome_Test_PreApprovedTimeSheet_CancelFunctionality(failed) -->
+</suite> <!-- Failed suite [Orion TimeSheet Automation - Verify Cancel, Save, Submit functionalities in Pre-Approved timesheet] -->
