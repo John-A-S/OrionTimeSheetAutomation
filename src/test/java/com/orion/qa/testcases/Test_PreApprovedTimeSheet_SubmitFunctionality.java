@@ -28,6 +28,8 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 	int RowNumb;
 	int AttachmentRowNo;
 	String rptPeriod;
+	String strMonth;
+
 
 	boolean isSameFiles;
 	
@@ -92,13 +94,13 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 		
-		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
-		period.selectByVisibleText(strPeriod);
-		log.info("Get report period details from the test data input file. " + strPeriod );
+		strMonth = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
+		log.info("Get report period details from the test data input file. " + strMonth);
 
 		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
+
+		SetTimePeriod();
 		
 		clicklink(rptPeriod);
 
@@ -158,6 +160,8 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 		try {
 			log.info("Inside Test_IfUpdatedDataisSubmitted");
 			Thread.sleep(3000);
+			SetTimePeriod();
+
 			clicklink(rptPeriod);
 
 			TimeSheetEditPage.ScrollScreenToElement(driver, jse, TimeSheetEditPage.grd_txtComment(driver));
@@ -235,6 +239,12 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 			log.error("Exception in method clicklink " + e.getMessage());		
 		}
 	}
+	
+	public void SetTimePeriod() {
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		period.selectByVisibleText(strMonth);
+	}
+	
 	
 	public String getLatestUploadFile() {
 		try {
