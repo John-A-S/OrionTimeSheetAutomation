@@ -131,6 +131,7 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 		log.debug("Verify grid is enabled?");
 		// to confirm the grid is disabled as of now we just check one column
 		assertFalse(TimeSheetEditPage.grd_ColMonday(driver).isEnabled());
+		log.info("Timesheet grid is disabled!");
 	}
 	
 	@Test(priority = 5, dependsOnMethods = { "Test_VerifyGridisDisabled" })
@@ -146,13 +147,13 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 		act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSubmit_OK(driver, wait)).click().build().perform();
 		log.info("Submit button clicked");
 		Thread.sleep(1000);
-		WebElement ElementMsg1 = TimeSheetEditPage.Wait_Msg_TimeSheetSave(driver, wait);
+		WebElement ElementMsg = TimeSheetEditPage.Wait_Msg_TimeSheetSave(driver, wait);
 
-		String strSaveMsg1 = ElementMsg1.getText();
+		String strSaveMsg = ElementMsg.getText();
 
 		act.moveToElement(TimeSheetEditPage.Wait_Msg_TimeSheetSave_OK(driver, wait)).click().build().perform();
 		
-		assertEquals(strSaveMsg1, "Time Sheet Submitted Successfully.");
+		assertEquals(strSaveMsg, "Time Sheet Submitted Successfully.");
 	}
 	
 	@Test(priority = 5, dependsOnMethods = { "Test_SubmitButton_InjectTestDataandVerify" })
@@ -176,7 +177,9 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 			 * DownloadfileAndComparewithTestFile();
 			 *  assertEquals( (isCommentTextSame && isSameFiles), true);
 			*/
+			log.debug("Comparing test data and current data in the screen");
 			assertTrue(comment.equals(CommonMethods.readTestData("TestData", "comment")));
+			log.info("Both test data and current data are equal");
 		} catch (Exception e) {
 			log.error("Exception in Test_IfUpdatedDataisSubmitted method : " + e.getMessage());
 			e.printStackTrace();
