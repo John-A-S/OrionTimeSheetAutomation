@@ -53,7 +53,7 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 	public void CloseObjects() {
 		CloseBrowser();
 		System.out.println("********** Test_PreApprovedTimeSheet_SaveFunctionality END ************* ");
-		log.info("********** Test_PreApprovedTimeSheet_CancelFunctionality END *************");
+		log.info("********** Test_PreApprovedTimeSheet_SaveFunctionality END *************");
 
 	}
 
