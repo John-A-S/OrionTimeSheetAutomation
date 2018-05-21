@@ -173,10 +173,11 @@ public class OrionBase {
 	
 	public static void CloseBrowser() {
 		log.info("Inside Close Browser");
-		if (!driver.toString().contains("null")) {
+	//	if (!driver.toString().contains("null")) 
+	//	{
 			driver.quit();
-		log.info("Browser closed");		
-		}
+			log.info("Browser closed");		
+//		}
 	}
 
 }
