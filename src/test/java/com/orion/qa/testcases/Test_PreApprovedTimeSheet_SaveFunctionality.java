@@ -24,6 +24,7 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 	String Chromebrowser = "webdriver.chrome.driver";
 	String IEbrowser = "webdriver.ie.driver";
 	String rptPeriod;
+	String strMonth;
 
 	int RowNumb;
 	
@@ -87,13 +88,14 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 	public void Test_IfEditTimeSheetPage_Isdisplayed() throws InterruptedException {
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 
-		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
-		period.selectByVisibleText(strPeriod);
-		log.info("Get report period details from the test data input file. " + strPeriod );
+
+		strMonth = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
+		log.info("Get report period details from the test data input file. " + strMonth);
 
 		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
+
+		SetTimePeriod();
 		
 		Thread.sleep(3000);
 		
@@ -148,4 +150,11 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 			log.error("Exception in method clicklink " + e.getMessage());		
 		}
 	}
+	
+	public void SetTimePeriod() {
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		period.selectByVisibleText(strMonth);
+	}
+	
+
 }
