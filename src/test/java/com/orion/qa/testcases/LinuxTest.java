@@ -56,7 +56,6 @@ public class LinuxTest {
 
 		driver1.findElement(By.name("q")).sendKeys("Hello");
 		System.out.println("After entering Hello");
-
 	}
 	
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
