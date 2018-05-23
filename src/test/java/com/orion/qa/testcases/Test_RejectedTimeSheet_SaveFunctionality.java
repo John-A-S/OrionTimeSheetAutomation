@@ -82,11 +82,11 @@ public class Test_RejectedTimeSheet_SaveFunctionality extends OrionBase{
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 		
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TestData", "RejectedTimeSheet");
+		String strPeriod = CommonMethods.readTestData("TD_Rejected", "RejectedTimeSheet");
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-		rptPeriod = CommonMethods.readTestData("TestData", "RejectedTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Rejected", "RejectedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
 		clicklink(rptPeriod);

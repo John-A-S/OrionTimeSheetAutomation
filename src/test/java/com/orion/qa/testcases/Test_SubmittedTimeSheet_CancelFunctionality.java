@@ -86,11 +86,11 @@ public class Test_SubmittedTimeSheet_CancelFunctionality extends OrionBase {
 		
 		
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TestData", "SubmittedTimeSheet");
+		String strPeriod = CommonMethods.readTestData("TD_Submitted", "SubmittedTimeSheet");
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-		rptPeriod = CommonMethods.readTestData("TestData", "SubmittedTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Submitted", "SubmittedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
 		clicklink(rptPeriod);

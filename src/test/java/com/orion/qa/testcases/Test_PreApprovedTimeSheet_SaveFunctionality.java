@@ -88,11 +88,10 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 	public void Test_IfEditTimeSheetPage_Isdisplayed() throws InterruptedException {
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 
-
-		strMonth = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
+		strMonth = CommonMethods.readTestData("TD_Preapproved", "PreApprovedTimeSheet");
 		log.info("Get report period details from the test data input file. " + strMonth);
 
-		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Preapproved", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 
 		SetTimePeriod();

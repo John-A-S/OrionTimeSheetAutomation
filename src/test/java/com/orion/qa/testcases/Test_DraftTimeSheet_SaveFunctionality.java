@@ -95,11 +95,11 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 		log.debug("Verify draft timesheet exist or not");
 
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TestData", "DraftTimeSheet");
+		String strPeriod = CommonMethods.readTestData("TD_Draft", "DraftTimeSheet");
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-		rptPeriod = CommonMethods.readTestData("TestData", "DraftTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Draft", "DraftTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
 		clicklink(rptPeriod);
@@ -295,18 +295,18 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 
 			WebElement Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			Element.sendKeys(CommonMethods.readTestData("TestData", "sun"));
-			objTest.set(1, CommonMethods.readTestData("TestData", "sun"));
+			Element.sendKeys(CommonMethods.readTestData("TD_Draft", "sun"));
+			objTest.set(1, CommonMethods.readTestData("TD_Draft", "sun"));
 
 			WebElement Element1 = TimeSheetEditPage.grd_ColMonday(driver);
 			Element1.clear();
-			Element1.sendKeys(CommonMethods.readTestData("TestData", "mon"));
-			objTest.set(2, CommonMethods.readTestData("TestData", "mon"));
+			Element1.sendKeys(CommonMethods.readTestData("TD_Draft", "mon"));
+			objTest.set(2, CommonMethods.readTestData("TD_Draft", "mon"));
 
 			WebElement Element2 = TimeSheetEditPage.grd_txtComment(driver);
 			Element2.clear();
-			Element2.sendKeys(CommonMethods.readTestData("TestData", "comment"));
-			objTest.set(8, CommonMethods.readTestData("TestData", "comment"));
+			Element2.sendKeys(CommonMethods.readTestData("TD_Draft", "comment"));
+			objTest.set(8, CommonMethods.readTestData("TD_Draft", "comment"));
 
 			UploadAttachment();
 			log.info("Test data added to the screen : " + objTest.toString());

@@ -78,9 +78,9 @@ public class Test_ApprovedTimeSheet_SubmitFunctionality extends OrionBase {
 		log.info("Get report period details from the test data input file." );
 
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		period.selectByVisibleText(CommonMethods.readTestData("TestData", "ApprovedTimeSheet"));
+		period.selectByVisibleText(CommonMethods.readTestData("TD_Approved", "ApprovedTimeSheet"));
 
-		rptPeriod = CommonMethods.readTestData("TestData", "ApprovedTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Approved", "ApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
 		clicklink(rptPeriod);

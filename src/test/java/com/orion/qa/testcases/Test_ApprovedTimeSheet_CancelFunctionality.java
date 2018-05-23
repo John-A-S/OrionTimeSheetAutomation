@@ -85,11 +85,11 @@ public class Test_ApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		}
 
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TestData", "ApprovedTimeSheet");
+		String strPeriod = CommonMethods.readTestData("TD_Approved", "ApprovedTimeSheet");
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-		rptPeriod = CommonMethods.readTestData("TestData", "ApprovedTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Approved", "ApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
 		clicklink(rptPeriod);

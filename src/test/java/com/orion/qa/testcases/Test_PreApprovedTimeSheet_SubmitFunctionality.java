@@ -94,10 +94,10 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 	public void Test_IfEditTimeSheetPage_Isdisplayed() {
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 		
-		strMonth = CommonMethods.readTestData("TestData", "PreApprovedTimeSheet");
+		strMonth = CommonMethods.readTestData("TD_Preapproved", "PreApprovedTimeSheet");
 		log.info("Get report period details from the test data input file. " + strMonth);
 
-		rptPeriod = CommonMethods.readTestData("TestData", "PreApprovedTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Preapproved", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 
 		SetTimePeriod();
@@ -178,7 +178,7 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 			 *  assertEquals( (isCommentTextSame && isSameFiles), true);
 			*/
 			log.debug("Comparing test data and current data in the screen");
-			assertTrue(comment.equals(CommonMethods.readTestData("TestData", "comment")));
+			assertTrue(comment.equals(CommonMethods.readTestData("TD_Preapproved", "comment")));
 			log.info("Both test data and current data are equal");
 		} catch (Exception e) {
 			log.error("Exception in Test_IfUpdatedDataisSubmitted method : " + e.getMessage());
@@ -299,7 +299,7 @@ public class Test_PreApprovedTimeSheet_SubmitFunctionality extends OrionBase{
 			
 			WebElement Element1 = TimeSheetEditPage.grd_txtComment(driver);
 			Element1.clear();
-			Element1.sendKeys(CommonMethods.readTestData("TestData", "comment"));
+			Element1.sendKeys(CommonMethods.readTestData("TD_Preapproved", "comment"));
 
 			UploadAttachment();
 
