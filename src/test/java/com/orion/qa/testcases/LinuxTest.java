@@ -42,16 +42,21 @@ public class LinuxTest {
 	@Test()
 	public static void invokeBrowser() {
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-		
+		System.out.println("After Chrome driver path setting");
 		options = new ChromeOptions();
-		options.addArguments("--test-type");
+		//options.addArguments("--test-type");
 		options.addArguments("--headless");
 		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-extensions"); // to disable browser extension popup
+		//options.addArguments("--disable-extensions"); // to disable browser extension popup
+		System.out.println("After Chrome Options");
 
 		driver1= new ChromeDriver(options);
 		driver1.get("http://www.google.com");
+		System.out.println("After opening google");
+
 		driver1.findElement(By.name("q")).sendKeys("Hello");
+		System.out.println("After entering Hello");
+
 	}
 	
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
