@@ -31,7 +31,7 @@ import com.orion.qa.utils.listener;
 
 public class LinuxTest {
 
-	// public static WebDriver driver;
+	public static WebDriver driver1;
 	public static ChromeDriverService driverService;
 	public static ChromeDriver driver;
 	public static ChromeOptions options;
@@ -39,6 +39,14 @@ public class LinuxTest {
 	public static String chromeDownloadPath = System.getProperty("user.dir") + "/src/main/input/download/";
 	public static EventFiringWebDriver eventDriver;
 
+	@Test()
+	public static void invokeBrowser() {
+		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+		driver1= new ChromeDriver();
+		driver1.get("http://www.google.com");
+		driver1.findElement(By.name("q")).sendKeys("Hello");
+	}
+	
 	public static void ScrollScreenToElement(WebDriver driver, WebElement element) {
 		try {
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -75,7 +83,7 @@ public class LinuxTest {
 		System.out.println(res.getStatusLine().getStatusCode());
 	}
 
-	@Test()
+	@Test(enabled=false)
 	public static void downloadfile() throws InterruptedException, ClientProtocolException, IOException {
 
 		System.out.println("Inside downloadfile");
