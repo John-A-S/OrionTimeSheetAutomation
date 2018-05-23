@@ -45,7 +45,7 @@ public class LinuxTest {
 		System.out.println("After Chrome driver path setting");
 		options = new ChromeOptions();
 		//options.addArguments("--test-type");
-		options.addArguments("--headless");
+		//options.addArguments("--headless");
 		options.addArguments("--no-sandbox");
 		//options.addArguments("--disable-extensions"); // to disable browser extension popup
 		System.out.println("After Chrome Options");
