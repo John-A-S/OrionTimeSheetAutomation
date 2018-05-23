@@ -46,10 +46,10 @@ public class LinuxTest {
 		options = new ChromeOptions();
 		//options.addArguments("--test-type");
 		options.addArguments("--headless");
-		//options.addArguments("--no-sandbox");
+		options.addArguments("--no-sandbox");
 		//options.addArguments("--disable-extensions"); // to disable browser extension popup
 		System.out.println("After Chrome Options");
-
+		System.out.println(options.toString());
 		driver1= new ChromeDriver(options);
 		driver1.get("http://www.google.com");
 		System.out.println("After opening google");
