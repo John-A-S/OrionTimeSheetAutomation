@@ -288,38 +288,38 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 					".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input");
 
 			// populate default value to the test data
-			objTest.add(0, CommonMethods.readTestData("TestData", "company"));
+			objTest.add(0, CommonMethods.readTestData("TD_New", "company"));
 
 			Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			String strSun = CommonMethods.readTestData("TestData", "sun");
+			String strSun = CommonMethods.readTestData("TD_New", "sun");
 			Element.sendKeys(strSun);
 			objTest.add(1, strSun);
 
 			Element = TimeSheetEditPage.grd_ColMonday(driver);
 			Element.clear();
-			String strMon = CommonMethods.readTestData("TestData", "mon");
+			String strMon = CommonMethods.readTestData("TD_New", "mon");
 			Element.sendKeys(strMon);
 			objTest.add(2, strMon);
 
 			// populate default value to the test data
-			objTest.add(3, CommonMethods.readTestData("TestData", "tue"));
+			objTest.add(3, CommonMethods.readTestData("TD_New", "tue"));
 
 			// populate default value to the test data
-			objTest.add(4, CommonMethods.readTestData("TestData", "wed"));
+			objTest.add(4, CommonMethods.readTestData("TD_New", "wed"));
 
 			// populate default value to the test data
-			objTest.add(5, CommonMethods.readTestData("TestData", "thu"));
+			objTest.add(5, CommonMethods.readTestData("TD_New", "thu"));
 
 			// populate default value to the test data
-			objTest.add(6, CommonMethods.readTestData("TestData", "fri"));
+			objTest.add(6, CommonMethods.readTestData("TD_New", "fri"));
 
 			// populate default value to the test data
-			objTest.add(7, CommonMethods.readTestData("TestData", "sat"));
+			objTest.add(7, CommonMethods.readTestData("TD_New", "sat"));
 
 			Element = TimeSheetEditPage.grd_txtComment(driver);
 			Element.clear();
-			String strComment = CommonMethods.readTestData("TestData", "comment"); 
+			String strComment = CommonMethods.readTestData("TD_New", "comment"); 
 			Element.sendKeys(strComment);
 			objTest.add(8, strComment);
 
