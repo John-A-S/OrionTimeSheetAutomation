@@ -42,7 +42,14 @@ public class LinuxTest {
 	@Test()
 	public static void invokeBrowser() {
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-		driver1= new ChromeDriver();
+		
+		options = new ChromeOptions();
+		options.addArguments("--test-type");
+		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-extensions"); // to disable browser extension popup
+
+		driver1= new ChromeDriver(options);
 		driver1.get("http://www.google.com");
 		driver1.findElement(By.name("q")).sendKeys("Hello");
 	}
