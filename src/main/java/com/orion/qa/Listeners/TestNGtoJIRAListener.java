@@ -57,10 +57,13 @@ public class TestNGtoJIRAListener implements ITestListener {
 	        	OrionBase.log.info("New issue has been created in JIRA with Key : " + newIssue.getKey());
 	        }
 	    } catch (JiraException ex) {
+	    	OrionBase.log.error("Jira exception : " + ex.getMessage());
 	        System.err.println(ex.getMessage());
 
-	        if (ex.getCause() != null)
+	        if (ex.getCause() != null) {
+		    	OrionBase.log.error("Jira exception getCause : " + ex.getCause().getMessage());
 	            System.err.println(ex.getCause().getMessage());
+	        }
 	    }
 	}
 
@@ -74,7 +77,7 @@ public class TestNGtoJIRAListener implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-    	OrionBase.log.info("Inside JIRA Listener.  Ready to create an issue due to test failure");
+    	OrionBase.log.info("Inside JIRA Listener - onTestFailure method. Ready to create an issue due to test failure");
 		
 		createNewJiraIssue(result, 
 					CommonMethods.readTestData("JIRA", "JIRA_ProjectName"),
