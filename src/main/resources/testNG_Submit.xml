@@ -7,7 +7,8 @@
 
 
 	<listeners>
-		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
+		<listener class-name="com.orion.qa.Listeners.ExtentReportListener" />
+		<listener class-name="com.orion.qa.Listeners.TestNGtoJIRAListener" />
 	</listeners>
 
 	<!-- SUBMITTED TIMESHEET CANCEL -->

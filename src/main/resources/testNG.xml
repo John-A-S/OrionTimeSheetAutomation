@@ -1,7 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Orion TimeSheet Automation Test Suite">
 	<listeners>
-		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
+		<listener class-name="com.orion.qa.Listeners.ExtentReportListener" />
+		<listener class-name="com.orion.qa.Listeners.TestNGtoJIRAListener" />
 	</listeners>
 
 	<!-- DONT CHANGE THE BELOW ORDER -->	

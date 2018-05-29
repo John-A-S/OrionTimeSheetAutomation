@@ -6,7 +6,8 @@
 		extent report changes from /test-output folder to <workspace>/target/surefire-reports -->
 
 	<listeners>
-		<listener class-name="com.orion.qa.ExtentReportListener.ExtentReportListener" />
+		<listener class-name="com.orion.qa.Listeners.ExtentReportListener" />
+		<listener class-name="com.orion.qa.Listeners.TestNGtoJIRAListener" />
 	</listeners>
 
 	<test

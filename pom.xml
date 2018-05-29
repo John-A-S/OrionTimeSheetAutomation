@@ -31,14 +31,14 @@
 			<version>2.5</version>
 		</dependency>
 
-		<!-- Selenium --> 
+		<!-- Selenium -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.11.0</version>
 		</dependency>
 
-		<!-- TestNG  -->
+		<!-- TestNG -->
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -93,6 +93,15 @@
 			<version>2.6</version>
 		</dependency>
 
+		<!--  Jira - TestNG Integration -->
+		<dependency>
+			<groupId>net.rcarz</groupId>
+			<artifactId>jira-client</artifactId>
+			<version>0.5</version>
+			<scope>compile</scope>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -111,13 +120,13 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TESTED -->
-				 		<suiteXmlFile>src/main/resources/testNG_New_Submit.xml</suiteXmlFile>
-						<suiteXmlFile>src/main/resources/testNG_Submit.xml</suiteXmlFile>   
-					    <suiteXmlFile>src/main/resources/testNG_Rejected.xml</suiteXmlFile>    
-					    <suiteXmlFile>src/main/resources/testNG_Approved.xml</suiteXmlFile>  
-					<!-- 	<suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile>  -->    
-					    <suiteXmlFile>src/main/resources/testNG_PreApproved.xml</suiteXmlFile>   
-					<!-- <suiteXmlFile>src/main/resources/LinuxTestNG.xml</suiteXmlFile>  -->
+						<suiteXmlFile>src/main/resources/testNG_New_Submit.xml</suiteXmlFile>
+						<suiteXmlFile>src/main/resources/testNG_Submit.xml</suiteXmlFile>
+						<suiteXmlFile>src/main/resources/testNG_Rejected.xml</suiteXmlFile>
+						<suiteXmlFile>src/main/resources/testNG_Approved.xml</suiteXmlFile>
+						<!-- <suiteXmlFile>src/main/resources/testNG.xml</suiteXmlFile> -->
+						<suiteXmlFile>src/main/resources/testNG_PreApproved.xml</suiteXmlFile>
+						<!-- <suiteXmlFile>src/main/resources/LinuxTestNG.xml</suiteXmlFile> -->
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
