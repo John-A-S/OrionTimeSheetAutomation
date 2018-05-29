@@ -12,6 +12,8 @@ import net.rcarz.jiraclient.Field;
 import net.rcarz.jiraclient.Issue;
 import net.rcarz.jiraclient.JiraClient;
 import net.rcarz.jiraclient.JiraException;
+
+import com.orion.qa.base.OrionBase;
 import com.orion.qa.utils.CommonMethods;
 
 
@@ -38,18 +40,21 @@ public class TestNGtoJIRAListener implements ITestListener {
 	        String defectDescription, 
 	        String defectAssignee) {
 
+    	OrionBase.log.info("Reading JIRA credentials from the input file to log defects");
+
 		BasicCredentials creds = new BasicCredentials(CommonMethods.readTestData("JIRA", "JIRA_UserName"), CommonMethods.readTestData("JIRA", "JIRA_Password"));
 		JiraClient jira = new JiraClient(CommonMethods.readTestData("JIRA", "JIRA_URL"), creds);
 		
 		try {
 	        if (result.getStatus() == ITestResult.FAILURE) {
-	             //Create new issue 
+	        	OrionBase.log.info("Creating defect in JIRA for the Project: "+projectName);
+	        	//Create new issue 
 	        	Issue newIssue = jira.createIssue(projectName, defectType)
 	        							.field(Field.SUMMARY, defectSummary)
-	        							.field(Field.DESCRIPTION, result.toString() + "\n" + result.getThrowable())
+	        							.field(Field.DESCRIPTION, defectDescription + result.toString() + "\n" + result.getThrowable())
 	        							.field(Field.PRIORITY, "Medium")
 	        							.field(Field.ASSIGNEE, defectAssignee).execute();
-	        	System.out.println("New issue has been created in JIRA with Key : " + newIssue.getKey());
+	        	OrionBase.log.info("New issue has been created in JIRA with Key : " + newIssue.getKey());
 	        }
 	    } catch (JiraException ex) {
 	        System.err.println(ex.getMessage());
@@ -69,7 +74,8 @@ public class TestNGtoJIRAListener implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-
+    	OrionBase.log.info("Inside JIRA Listener.  Ready to create an issue due to test failure");
+		
 		createNewJiraIssue(result, 
 					CommonMethods.readTestData("JIRA", "JIRA_ProjectName"),
 					CommonMethods.readTestData("JIRA", "JIRA_DefectType"),
