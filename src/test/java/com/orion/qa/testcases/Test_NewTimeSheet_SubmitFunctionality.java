@@ -290,37 +290,37 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 					".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input");
 			
 			// populate default value to the test data
-			objTest.add(0, CommonMethods.readTestData("TD_New", "company"));
+			objTest.add(0, CommonMethods.readTestData("TD_New_Submit", "company"));
 				
 			WebElement Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			Element.sendKeys(CommonMethods.readTestData("TD_New", "sun"));
-			objTest.add(1, CommonMethods.readTestData("TD_New", "sun"));
+			Element.sendKeys(CommonMethods.readTestData("TD_New_Submit", "sun"));
+			objTest.add(1, CommonMethods.readTestData("TD_New_Submit", "sun"));
 
 			WebElement Element1 = TimeSheetEditPage.grd_ColMonday(driver);
 			Element1.clear();
-			Element1.sendKeys(CommonMethods.readTestData("TD_New", "mon"));
-			objTest.add(2, CommonMethods.readTestData("TD_New", "mon"));
+			Element1.sendKeys(CommonMethods.readTestData("TD_New_Submit", "mon"));
+			objTest.add(2, CommonMethods.readTestData("TD_New_Submit", "mon"));
 
 			// populate default value to the test data
-			objTest.add(3, CommonMethods.readTestData("TD_New", "tue"));
+			objTest.add(3, CommonMethods.readTestData("TD_New_Submit", "tue"));
 
 			// populate default value to the test data
-			objTest.add(4, CommonMethods.readTestData("TD_New", "wed"));
+			objTest.add(4, CommonMethods.readTestData("TD_New_Submit", "wed"));
 
 			// populate default value to the test data
-			objTest.add(5, CommonMethods.readTestData("TD_New", "thu"));
+			objTest.add(5, CommonMethods.readTestData("TD_New_Submit", "thu"));
 
 			// populate default value to the test data
-			objTest.add(6, CommonMethods.readTestData("TD_New", "fri"));
+			objTest.add(6, CommonMethods.readTestData("TD_New_Submit", "fri"));
 
 			// populate default value to the test data
-			objTest.add(7, CommonMethods.readTestData("TD_New", "sat"));
+			objTest.add(7, CommonMethods.readTestData("TD_New_Submit", "sat"));
 
 			WebElement Element2 = TimeSheetEditPage.grd_txtComment(driver);
 			Element2.clear();
-			Element2.sendKeys(CommonMethods.readTestData("TD_New", "comment"));
-			objTest.add(8, CommonMethods.readTestData("TD_New", "comment"));
+			Element2.sendKeys(CommonMethods.readTestData("TD_New_Submit", "comment"));
+			objTest.add(8, CommonMethods.readTestData("TD_New_Submit", "comment"));
 			
 			log.info("Test Data : " + objTest.toString());
 			

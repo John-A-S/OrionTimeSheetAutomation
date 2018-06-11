@@ -93,10 +93,10 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 	
-		strMonth = CommonMethods.readTestData("TD_Rejected", "RejectedTimeSheet");
+		strMonth = CommonMethods.readTestData("TD_Rejected_Submit", "RejectedTimeSheet");
 		log.info("Get report period details from the test data input file. " + strMonth);
 
-		rptPeriod = CommonMethods.readTestData("TD_Rejected", "RejectedTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Rejected_Submit", "RejectedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 
 		SetTimePeriod();
@@ -289,20 +289,20 @@ public class Test_RejectedTimeSheet_SubmitFunctionality extends OrionBase{
 
 			WebElement Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			Element.sendKeys(CommonMethods.readTestData("TD_Rejected", "sun"));
-			objTest.set(1, CommonMethods.readTestData("TD_Rejected", "sun"));
+			Element.sendKeys(CommonMethods.readTestData("TD_Rejected_Submit", "sun"));
+			objTest.set(1, CommonMethods.readTestData("TD_Rejected_Submit", "sun"));
 			log.info("After objTest.set(1, ");
 
 			WebElement Element1 = TimeSheetEditPage.grd_ColMonday(driver);
 			Element1.clear();
-			Element1.sendKeys(CommonMethods.readTestData("TD_Rejected", "mon"));
-			objTest.set(2, CommonMethods.readTestData("TD_Rejected", "mon"));
+			Element1.sendKeys(CommonMethods.readTestData("TD_Rejected_Submit", "mon"));
+			objTest.set(2, CommonMethods.readTestData("TD_Rejected_Submit", "mon"));
 			log.info("After objTest.set(2, ");
 
 			WebElement Element2 = TimeSheetEditPage.grd_txtComment(driver);
 			Element2.clear();
-			Element2.sendKeys(CommonMethods.readTestData("TD_Rejected", "comment"));
-			objTest.set(8, CommonMethods.readTestData("TD_Rejected", "comment"));
+			Element2.sendKeys(CommonMethods.readTestData("TD_Rejected_Submit", "comment"));
+			objTest.set(8, CommonMethods.readTestData("TD_Rejected_Submit", "comment"));
 			log.info("After objTest.set(8, ");
 
 			UploadAttachment();

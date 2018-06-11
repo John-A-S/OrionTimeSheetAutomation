@@ -89,10 +89,10 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 	public void Test_IfEditTimeSheetPage_Isdisplayed() throws InterruptedException {
 		log.info("Inside Test_IfEditTimeSheetPage_Isdisplayed");
 
-		strMonth = CommonMethods.readTestData("TD_Preapproved", "PreApprovedTimeSheet");
+		strMonth = CommonMethods.readTestData("TD_Preapproved_Cancel", "PreApprovedTimeSheet");
 		log.info("Get report period details from the test data input file. " + strMonth);
 
-		rptPeriod = CommonMethods.readTestData("TD_Preapproved", "PreApprovedTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Preapproved_Cancel", "PreApprovedTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 
 		SetTimePeriod();
@@ -142,7 +142,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 			 * This may be most probably due to Angular JS code since we are able to download files in Linux/Jenkins 
 			 * from other sites :-(
 
-			if (ChkTestFileisCancelled() && !(strExistingComment.equals(CommonMethods.readTestData("TD_Preapproved", "comment")))) {
+			if (ChkTestFileisCancelled() && !(strExistingComment.equals(CommonMethods.readTestData("TD_Preapproved_Cancel", "comment")))) {
       			assertTrue(true);
 			*/
 			strCurrentComment = ReadCurrentData();
@@ -245,7 +245,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 			CommonMethods.ScrollScreenToElement(driver, jse,
 					".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input");
 			
-			String strComment = CommonMethods.readTestData("TD_Preapproved", "comment");
+			String strComment = CommonMethods.readTestData("TD_Preapproved_Cancel", "comment");
 			WebElement Element1 = TimeSheetEditPage.grd_txtComment(driver);
 			Element1.clear();
 			Element1.sendKeys(strComment);

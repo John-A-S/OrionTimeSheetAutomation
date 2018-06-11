@@ -288,38 +288,38 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 					".//*[@id='timeSheet_save_form']/div/div/div/div[3]/div/div/table/tbody/tr/td[4]/input");
 
 			// populate default value to the test data
-			objTest.add(0, CommonMethods.readTestData("TD_New", "company"));
+			objTest.add(0, CommonMethods.readTestData("TD_New_Save", "company"));
 
 			Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			String strSun = CommonMethods.readTestData("TD_New", "sun");
+			String strSun = CommonMethods.readTestData("TD_New_Save", "sun");
 			Element.sendKeys(strSun);
 			objTest.add(1, strSun);
 
 			Element = TimeSheetEditPage.grd_ColMonday(driver);
 			Element.clear();
-			String strMon = CommonMethods.readTestData("TD_New", "mon");
+			String strMon = CommonMethods.readTestData("TD_New_Save", "mon");
 			Element.sendKeys(strMon);
 			objTest.add(2, strMon);
 
 			// populate default value to the test data
-			objTest.add(3, CommonMethods.readTestData("TD_New", "tue"));
+			objTest.add(3, CommonMethods.readTestData("TD_New_Save", "tue"));
 
 			// populate default value to the test data
-			objTest.add(4, CommonMethods.readTestData("TD_New", "wed"));
+			objTest.add(4, CommonMethods.readTestData("TD_New_Save", "wed"));
 
 			// populate default value to the test data
-			objTest.add(5, CommonMethods.readTestData("TD_New", "thu"));
+			objTest.add(5, CommonMethods.readTestData("TD_New_Save", "thu"));
 
 			// populate default value to the test data
-			objTest.add(6, CommonMethods.readTestData("TD_New", "fri"));
+			objTest.add(6, CommonMethods.readTestData("TD_New_Save", "fri"));
 
 			// populate default value to the test data
-			objTest.add(7, CommonMethods.readTestData("TD_New", "sat"));
+			objTest.add(7, CommonMethods.readTestData("TD_New_Save", "sat"));
 
 			Element = TimeSheetEditPage.grd_txtComment(driver);
 			Element.clear();
-			String strComment = CommonMethods.readTestData("TD_New", "comment"); 
+			String strComment = CommonMethods.readTestData("TD_New_Save", "comment"); 
 			Element.sendKeys(strComment);
 			objTest.add(8, strComment);
 

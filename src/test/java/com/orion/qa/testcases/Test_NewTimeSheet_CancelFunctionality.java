@@ -200,15 +200,15 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 
 			Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			Element.sendKeys(CommonMethods.readTestData("TD_New", "sun"));
+			Element.sendKeys(CommonMethods.readTestData("TD_New_Cancel", "sun"));
 
 			Element = TimeSheetEditPage.grd_ColMonday(driver);
 			Element.clear();
-			Element.sendKeys(CommonMethods.readTestData("TD_New", "mon"));
+			Element.sendKeys(CommonMethods.readTestData("TD_New_Cancel", "mon"));
 
 			Element = TimeSheetEditPage.grd_txtComment(driver);
 			Element.clear();
-			Element.sendKeys(CommonMethods.readTestData("TD_New", "comment"));
+			Element.sendKeys(CommonMethods.readTestData("TD_New_Cancel", "comment"));
 
 			UploadAttachment();
 			log.info("Test data added to the screen");

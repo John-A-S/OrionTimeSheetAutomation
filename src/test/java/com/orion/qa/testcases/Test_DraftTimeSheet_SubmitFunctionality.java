@@ -96,11 +96,11 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 		log.debug("Verify draft timesheet exist or not");
 
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TD_Draft", "DraftTimeSheet");
+		String strPeriod = CommonMethods.readTestData("TD_Draft_Submit", "DraftTimeSheet");
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-		rptPeriod = CommonMethods.readTestData("TD_Draft", "DraftTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_Draft_Submit", "DraftTimeSheetRptPeriod");
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
 		clicklink(rptPeriod);
@@ -309,18 +309,18 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 
 			WebElement Element = TimeSheetEditPage.grd_ColSunday(driver);
 			Element.clear();
-			Element.sendKeys(CommonMethods.readTestData("TD_Draft", "sun"));
-			objTest.set(1, CommonMethods.readTestData("TD_Draft", "sun"));
+			Element.sendKeys(CommonMethods.readTestData("TD_Draft_Submit", "sun"));
+			objTest.set(1, CommonMethods.readTestData("TD_Draft_Submit", "sun"));
 
 			WebElement Element1 = TimeSheetEditPage.grd_ColMonday(driver);
 			Element1.clear();
-			Element1.sendKeys(CommonMethods.readTestData("TD_Draft", "mon"));
-			objTest.set(2, CommonMethods.readTestData("TD_Draft", "mon"));
+			Element1.sendKeys(CommonMethods.readTestData("TD_Draft_Submit", "mon"));
+			objTest.set(2, CommonMethods.readTestData("TD_Draft_Submit", "mon"));
 
 			WebElement Element2 = TimeSheetEditPage.grd_txtComment(driver);
 			Element2.clear();
-			Element2.sendKeys(CommonMethods.readTestData("TD_Draft", "comment"));
-			objTest.set(8, CommonMethods.readTestData("TD_Draft", "comment"));
+			Element2.sendKeys(CommonMethods.readTestData("TD_Draft_Submit", "comment"));
+			objTest.set(8, CommonMethods.readTestData("TD_Draft_Submit", "comment"));
 
 			UploadAttachment();
 			log.info("Test data added to the screen " + objTest.toString());
