@@ -40,8 +40,8 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality extends OrionBase{
 
 		} catch (Exception e) {
 			log.error("Exception in method InitObjects "+ e.getMessage());
-
 			e.printStackTrace();
+			assertEquals(false, true);
 		}
 	}
 
@@ -73,6 +73,7 @@ public class Test_SubmittedTimeSheet_SubmitFunctionality extends OrionBase{
 		} catch (Exception e) {
 			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
 			e.printStackTrace();
+			assertEquals(false, true);
 		}
 	}
 

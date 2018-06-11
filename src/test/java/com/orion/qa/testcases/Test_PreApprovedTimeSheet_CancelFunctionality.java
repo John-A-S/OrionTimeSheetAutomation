@@ -48,7 +48,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception in method InitObjects "+ e.getMessage());
-
+			assertEquals(false, true);
 		}
 	}
 
@@ -82,6 +82,7 @@ public class Test_PreApprovedTimeSheet_CancelFunctionality extends OrionBase {
 		} catch (Exception e) {
 			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
 			e.printStackTrace();
+			assertEquals(false, true);
 		}
 	}
 

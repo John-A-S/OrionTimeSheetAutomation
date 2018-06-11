@@ -46,6 +46,7 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 		} catch (Exception e) {
 			log.error("Exception in method InitObjects "+ e.getMessage());
 			e.printStackTrace();
+			assertEquals(false, true);
 		}
 	}
 
@@ -79,8 +80,8 @@ public class Test_PreApprovedTimeSheet_SaveFunctionality extends OrionBase{
 			}
 		} catch (Exception e) {
 			log.error("Exception in method Test_LoginToOrion_IsSuccess : "+ e.getMessage());
-
 			e.printStackTrace();
+			assertEquals(false, true);
 		}
 	}
 
