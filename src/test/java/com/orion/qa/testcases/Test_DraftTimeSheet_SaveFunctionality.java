@@ -28,6 +28,7 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 
 	int RowNumb;
 	boolean isAttachmntExist, isSameFiles, isAttachmentdisabled;
+	public String strPeriod;
 	public String rptPeriod;
 	
 	public Test_DraftTimeSheet_SaveFunctionality() {
@@ -160,6 +161,11 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 			log.info("Inside Test_IfDataSavedCorrectly method");
 
 			log.info("Re-open the report period to verify data is saved correctly");
+
+			Select period = new Select(driver.findElement(By.id("reportperiod")));
+			period.selectByVisibleText(strPeriod);
+			log.info("Get report period details from the test data input file. " + strPeriod );
+
 			
 			clicklink(rptPeriod);
 			objGridData.clear();

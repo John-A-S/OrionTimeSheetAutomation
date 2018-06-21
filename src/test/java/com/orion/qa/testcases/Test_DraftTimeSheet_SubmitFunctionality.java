@@ -29,6 +29,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 
 	int RowNumb;
 	boolean isAttachmntExist, isSameFiles, isAttachmentdisabled;
+	public String strPeriod;
 	public String rptPeriod;
 
 	public Test_DraftTimeSheet_SubmitFunctionality() {
@@ -98,7 +99,7 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 		log.debug("Verify draft timesheet exist or not");
 
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TD_Draft_Submit", "DraftTimeSheet");
+		strPeriod = CommonMethods.readTestData("TD_Draft_Submit", "DraftTimeSheet");
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
@@ -171,7 +172,11 @@ public class Test_DraftTimeSheet_SubmitFunctionality extends OrionBase{
 			log.info("Inside Test_IfDataSavedCorrectly method");
 
 			Thread.sleep(1000);
-			
+
+			Select period = new Select(driver.findElement(By.id("reportperiod")));
+			period.selectByVisibleText(strPeriod);
+			log.info("Get report period details from the test data input file. " + strPeriod );
+
 			clicklink(rptPeriod);
 			objGridData.clear();
 			log.info("Reading existing data to the object");

@@ -29,6 +29,7 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 
 	int RowNumb;
 	int AttachmentRowId;
+	public String strPeriod;
 	public String rptPeriod;
 	
 	public Test_DraftTimeSheet_CancelFunctionality() {
@@ -99,7 +100,7 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 		log.debug("Verify draft timesheet exist or not");
 		
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TD_Draft_Cancel", "DraftTimeSheet");
+		strPeriod = CommonMethods.readTestData("TD_Draft_Cancel", "DraftTimeSheet");
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
@@ -139,6 +140,10 @@ public class Test_DraftTimeSheet_CancelFunctionality extends OrionBase {
 			log.info("Inside Test_IfDatanotSaved method");
 			log.info("Calling Test_InjectTestDataandCancel");
 			Test_InjectTestDataandCancel();
+			
+			Select period = new Select(driver.findElement(By.id("reportperiod")));
+			period.selectByVisibleText(strPeriod);
+			log.info("Get report period details from the test data input file. " + strPeriod );
 			
 			clicklink(rptPeriod);
 			log.debug("Read existing data in the screen to the object to validate");
