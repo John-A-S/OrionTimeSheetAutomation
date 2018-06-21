@@ -24,6 +24,9 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 
 	int RowNumb;
 	int AttachmentRowId;
+	
+	public String rptPeriod;
+	public String strPeriod;
 
 	public Test_NewTimeSheet_CancelFunctionality() {
 		super();
@@ -89,6 +92,16 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 		log.debug("Click New TimeSheet");
 
 		clickNewTimeSheetlink();
+		
+		strPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheet");
+		log.info("Get report period details from the test data input file. " + strPeriod );
+
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		rptPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheetRptPeriod");
+		period.selectByVisibleText(rptPeriod);
+
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -116,19 +129,19 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 	public void Test_IfDatanotSaved() {
 		try {
 			log.info("Inside Test_IfDatanotSaved");
-			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
+/*			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
 			String NewReportPeriod = ele.getText();
-			
-			log.info("New timesheet is created for the period : " + NewReportPeriod);
+*/			
+			log.info("New timesheet is created for the period : " + rptPeriod);
 
 			Test_InjectTestDataandCancel();
 			try {
-				log.info("Click on the timesheet link : " + NewReportPeriod);
-				TimeSheetEditPage.grd_clickReportPeriodLink(driver, NewReportPeriod);
-				assertEquals(true, false, "New Time Period " + NewReportPeriod + " Exist.  FAILED");
+				log.info("Click on the timesheet link : " + rptPeriod);
+				TimeSheetEditPage.grd_clickReportPeriodLink(driver, rptPeriod);
+				assertEquals(true, false, "New Time Period " + rptPeriod + " Exist.  FAILED");
 			} catch (NoSuchElementException e) {
-				log.info("New Time Period "+ NewReportPeriod+ " not found. ");
+				log.info("New Time Period "+ rptPeriod+ " not found. ");
 				//log.error("Exception in Test_IfDatanotSaved method. New Time Period not found. "+e.getMessage());
 				assertEquals(false, false, "PASSED");
 			}

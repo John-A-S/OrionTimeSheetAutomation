@@ -28,6 +28,9 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 	ArrayList<String> objGridData;
 
 	String NewReportPeriod;
+	public String rptPeriod;
+	public String strPeriod;
+
 	int RowNumb;
 	boolean isAttachmntExist, isSameFiles, isAttachmentdisabled;
 
@@ -88,6 +91,16 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 	public void Test_IfNewTimeSheetPage_Isdisplayed() {
 		log.info("Inside Test_IfNewTimeSheetPage_Isdisplayed method");
 		clickNewTimeSheetlink();
+		
+		strPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheet");
+		log.info("Get report period details from the test data input file. " + strPeriod );
+
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		rptPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheetRptPeriod");
+		period.selectByVisibleText(rptPeriod);
+
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
+		
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -105,10 +118,12 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 		try {
 			log.info("Inside  Test_IfSubmitMessage_IsDisplayed" );
 				
-			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
+/*			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
 			NewReportPeriod = ele.getText();
 			log.info("New Report Period " + NewReportPeriod);
+*/
+			log.info("New Report Period " + rptPeriod);
 			InjectTestData();
 			log.debug("Submit button click");
 			TimeSheetEditPage.ScrollScreenToSubmitButtonAndClick(driver, jse);
@@ -139,10 +154,14 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 			log.info("Inside Test_IfDataSubmittedCorrectly to verify data is submitted correctly");
 
 			Thread.sleep(3000);
+			
+			Select period = new Select(driver.findElement(By.id("reportperiod")));
+			period.selectByVisibleText(strPeriod);
+			log.info("Get report period details from the test data input file. " + strPeriod );
 
 			try {
-				log.debug("Verfiy ReportPeriod "+ NewReportPeriod + ". Click link");
-				TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
+				log.debug("Verfiy ReportPeriod "+ rptPeriod + ". Click link");
+				TimeSheetMainPage.grd_clickReportPeriodLink(driver, rptPeriod).click();
 			} catch (NoSuchElementException e) {
 				log.error("Link "+NewReportPeriod+" not found.  Error :"+e.getMessage());
 				assertTrue(false);

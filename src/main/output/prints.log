@@ -172,3 +172,107 @@ Session ID: 11c450a7d5cb8d929255692b6071a435
 13:15:30.670 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Inside Close Browser
 13:15:31.405 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - Browser closed
 13:15:31.405 [main] INFO  Test_PreApprovedTimeSheet_SubmitFunctionality - ********** Test_PreApprovedTimeSheet_SubmitFunctionality END *************
+16:57:34.338 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside Orion base Init
+16:57:34.345 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Browser details : chrome; Parameter isDownloadReq is : true; Operating System is Windows
+16:57:34.345 [main] DEBUG Test_NewTimeSheet_CancelFunctionality - Setting Chrome driver property for Operating System : Windows
+16:57:39.399 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Deleted all cookies
+16:57:40.564 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Windows Maximized
+16:57:44.178 [main] INFO  Test_NewTimeSheet_CancelFunctionality - ********** Test_NewTimeSheet_CancelFunctionality START ************* 
+16:57:44.179 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside InitObjects
+16:57:44.504 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside Test_LoginToOrion_IsSuccess method
+16:57:44.504 [main] DEBUG Test_NewTimeSheet_CancelFunctionality - Setting User Credentials
+16:57:45.458 [main] DEBUG Test_NewTimeSheet_CancelFunctionality - Login button click
+16:57:46.422 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Login success
+16:57:46.430 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside Test_IfNewTimeSheetPage_Isdisplayed method
+16:57:46.430 [main] DEBUG Test_NewTimeSheet_CancelFunctionality - Click New TimeSheet
+16:57:46.431 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside clickNewTimeSheetlink
+16:57:46.431 [main] DEBUG Test_NewTimeSheet_CancelFunctionality - Initiate New TimeSheet button click
+16:57:46.724 [main] INFO  Test_NewTimeSheet_CancelFunctionality - New TimeSheet button clicked
+16:57:46.872 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Get report period details from the test data input file. May,2018
+16:57:47.524 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Get report period link details from the test data input file. 05/06/2018 - 05/12/2018
+16:57:48.610 [main] INFO  Test_NewTimeSheet_CancelFunctionality - New Time Sheet page is displayed
+16:57:48.615 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside Test_IfDatanotSaved
+16:57:48.615 [main] INFO  Test_NewTimeSheet_CancelFunctionality - New timesheet is created for the period : 05/06/2018 - 05/12/2018
+16:57:48.615 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside Test_InjectTestDataandCancel
+16:57:48.615 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside InjectTestData
+16:57:50.120 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside UploadAttachment
+16:57:50.488 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Upload success
+16:57:50.488 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Test data added to the screen
+16:57:50.488 [main] DEBUG Test_NewTimeSheet_CancelFunctionality - Navigate to Cancel button and click
+16:57:50.782 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Cancel button clicked
+16:57:50.782 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Click on the timesheet link : 05/06/2018 - 05/12/2018
+16:58:20.815 [main] INFO  Test_NewTimeSheet_CancelFunctionality - New Time Period 05/06/2018 - 05/12/2018 not found. 
+16:58:20.819 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside Test_LogoutfromOrion_IsSuccess
+16:58:20.819 [main] DEBUG Test_NewTimeSheet_CancelFunctionality - Identifying loginUserIcon for logout
+16:58:20.950 [main] DEBUG Test_NewTimeSheet_CancelFunctionality - Logout button click
+16:58:21.396 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Logout successfully
+16:58:21.398 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Inside Close Browser
+16:58:22.149 [main] INFO  Test_NewTimeSheet_CancelFunctionality - Browser closed
+16:58:22.149 [main] INFO  Test_NewTimeSheet_CancelFunctionality - ********** Test_NewTimeSheet_CancelFunctionality END *************
+16:58:22.193 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Inside Orion base Init
+16:58:22.194 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Browser details : chrome; Parameter isDownloadReq is : true; Operating System is Windows
+16:58:22.194 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Setting Chrome driver property for Operating System : Windows
+16:58:26.582 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Deleted all cookies
+16:58:27.741 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Windows Maximized
+16:58:30.694 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - ********** Test_NewTimeSheet_SubmitFunctionality START ************* 
+16:58:30.694 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Inside InitObjects
+16:58:30.867 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Inside Test_LoginToOrion_IsSuccess method
+16:58:30.867 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Setting User Credentials
+16:58:31.998 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Login button click
+16:58:32.211 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Login button clicked
+16:58:32.925 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Login success
+16:58:32.929 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Inside Test_IfNewTimeSheetPage_Isdisplayed method
+16:58:32.929 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - New Timesheet button click
+16:58:33.087 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - New timesheet button successfully clicked
+16:58:33.225 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Get report period details from the test data input file. May,2018
+16:58:33.784 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Get report period link details from the test data input file. 05/06/2018 - 05/12/2018
+16:58:34.865 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - New Time Sheet page is displayed
+16:58:34.868 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Inside  Test_IfSubmitMessage_IsDisplayed
+16:58:34.868 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - New Report Period 05/06/2018 - 05/12/2018
+16:58:34.868 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Sending test data to the fields
+16:58:36.892 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Test Data : [Cox Auto, 2, 3, 0, 0, 0, 0, 0, This is test data for new timesheet - submit functionality.]
+16:58:36.892 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Inside Upload Attachment
+16:58:36.892 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Add Attach button click
+16:58:37.150 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Add Attachment
+16:58:37.214 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Submit button click
+16:58:38.395 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Warning message: OK click
+16:58:39.579 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Timesheet submitted successfully: OK click
+16:58:39.679 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - TimeSheet submitted successfully
+16:58:39.686 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Inside Test_IfDataSubmittedCorrectly to verify data is submitted correctly
+16:58:42.854 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Get report period details from the test data input file. May,2018
+16:58:42.854 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Verfiy ReportPeriod 05/06/2018 - 05/12/2018. Click link
+16:58:44.002 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Comparing submitted & test data are equal!
+16:58:44.002 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Test Data [Cox Auto, 2, 3, 0, 0, 0, 0, 0, This is test data for new timesheet - submit functionality.]
+16:58:44.002 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Grid data [Cox Auto, 2, 3, 0, 0, 0, 0, 0, This is test data for new timesheet - submit functionality.]
+16:58:44.003 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Data compared successfully
+16:58:44.003 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Timesheet data submitted correctly
+16:58:44.005 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Inside Test_LogoutfromOrion_IsSuccess
+16:58:44.006 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Identifying loginUserIcon for logout
+16:58:44.140 [main] DEBUG Test_NewTimeSheet_SubmitFunctionality - Logout button click
+16:58:44.544 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Logout successfully
+16:58:44.545 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Inside Close Browser
+16:58:45.274 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - Browser closed
+16:58:45.274 [main] INFO  Test_NewTimeSheet_SubmitFunctionality - ********** Test_NewTimeSheet_SubmitFunctionality END *************
+16:58:45.288 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Orion base Init
+16:58:45.288 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Browser details : chrome; Parameter isDownloadReq is : true; Operating System is Windows
+16:58:45.288 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Setting Chrome driver property for Operating System : Windows
+16:58:49.875 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Deleted all cookies
+16:58:51.032 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Windows Maximized
+16:58:54.615 [main] INFO  Test_NewTimeSheet_SaveFunctionality - ********** Test_NewTimeSheet_SaveFunctionality START ************* 
+16:58:54.615 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside InitObjects
+16:58:54.791 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Test_LoginToOrion_IsSuccess method
+16:58:54.792 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Setting User Credentials
+16:58:55.162 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Login button click
+16:58:55.279 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Login button clicked
+16:58:55.600 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Login success
+16:58:55.603 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Test_IfNewTimeSheetPage_Isdisplayed method
+16:58:55.603 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - New Timesheet button click
+16:58:55.976 [main] INFO  Test_NewTimeSheet_SaveFunctionality - New timesheet button successfully clicked
+16:58:56.089 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Get report period details from the test data input file. May,2018
+16:59:56.455 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside JIRA Listener - onTestFailure method. Ready to create an issue due to test failure
+16:59:56.959 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Reading JIRA credentials from the input file to log defects
+16:59:57.707 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Creating defect in JIRA for the Project: TES
+17:00:00.615 [main] INFO  Test_NewTimeSheet_SaveFunctionality - New issue has been created in JIRA with Key : TES-58
+17:00:00.630 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Close Browser
+17:00:01.809 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Browser closed
+17:00:01.809 [main] INFO  Test_NewTimeSheet_SaveFunctionality - ********** Test_NewTimeSheet_SaveFunctionalitY END *************
