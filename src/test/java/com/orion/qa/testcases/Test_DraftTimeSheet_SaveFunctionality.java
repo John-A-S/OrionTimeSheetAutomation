@@ -97,7 +97,7 @@ public class Test_DraftTimeSheet_SaveFunctionality extends OrionBase{
 		log.debug("Verify draft timesheet exist or not");
 
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		String strPeriod = CommonMethods.readTestData("TD_Draft_Save", "DraftTimeSheet");
+		strPeriod = CommonMethods.readTestData("TD_Draft_Save", "DraftTimeSheet");
 		period.selectByVisibleText(strPeriod);
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
