@@ -1,0 +1,41 @@
+12:06:42.016 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Orion base Init
+12:06:42.024 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Browser details : chrome; Parameter isDownloadReq is : true; Operating System is Windows
+12:06:42.024 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Setting Chrome driver property for Operating System : Windows
+12:06:49.431 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Deleted all cookies
+12:06:50.582 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Windows Maximized
+12:06:53.305 [main] INFO  Test_NewTimeSheet_SaveFunctionality - ********** Test_NewTimeSheet_SaveFunctionality START ************* 
+12:06:53.305 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside InitObjects
+12:06:53.518 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Test_LoginToOrion_IsSuccess method
+12:06:53.518 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Setting User Credentials
+12:06:54.490 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Login button click
+12:06:54.692 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Login button clicked
+12:06:54.967 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Login success
+12:06:54.977 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Test_IfNewTimeSheetPage_Isdisplayed method
+12:06:54.977 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - New Timesheet button click
+12:06:55.935 [main] INFO  Test_NewTimeSheet_SaveFunctionality - New timesheet button successfully clicked
+12:06:56.076 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Get report period details from the test data input file. April,2018
+12:06:56.303 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Get report period link details from the test data input file. 04/15/2018 - 04/21/2018
+12:06:57.441 [main] INFO  Test_NewTimeSheet_SaveFunctionality - New Time Sheet page is displayed
+12:06:57.444 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Test_IfSaveMessage_IsDisplayed
+12:06:57.444 [main] INFO  Test_NewTimeSheet_SaveFunctionality - New timesheet is created for the period : 04/15/2018 - 04/21/2018
+12:06:57.444 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Sending test data to the fields
+12:06:59.009 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Upload Attachment
+12:06:59.009 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Add Attach button click
+12:06:59.350 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Add Attachment
+12:06:59.405 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Test data added to the application is : [Cox Auto, 7, 7, 0, 0, 0, 0, 0, This is test data for new timesheet - save functionality.]
+12:07:00.933 [main] INFO  Test_NewTimeSheet_SaveFunctionality - TimeSheet Saved successfully
+12:07:00.937 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Move the cursor to the TimeSheet link which is at the left of the screen
+12:07:01.052 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Verify Timesheet main page is displayed
+12:07:01.147 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Test_IfDataSavedCorrectly
+12:07:04.147 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Re-open the report period to verify data is saved correctly
+12:07:04.252 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Get report period details from the test data input file. April,2018
+12:07:05.397 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Test Data [Cox Auto, 7, 7, 0, 0, 0, 0, 0, This is test data for new timesheet - save functionality.]
+12:07:05.397 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Grid data [Cox Auto, 7, 7, 0, 0, 0, 0, 0, This is test data for new timesheet - save functionality.]
+12:07:05.397 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Data compared successfully
+12:07:05.400 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Test_LogoutfromOrion_IsSuccess
+12:07:05.400 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Identifying loginUserIcon for logout
+12:07:05.563 [main] DEBUG Test_NewTimeSheet_SaveFunctionality - Logout button click
+12:07:06.106 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Logout successfully
+12:07:06.108 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Inside Close Browser
+12:07:07.000 [main] INFO  Test_NewTimeSheet_SaveFunctionality - Browser closed
+12:07:07.000 [main] INFO  Test_NewTimeSheet_SaveFunctionality - ********** Test_NewTimeSheet_SaveFunctionalitY END *************

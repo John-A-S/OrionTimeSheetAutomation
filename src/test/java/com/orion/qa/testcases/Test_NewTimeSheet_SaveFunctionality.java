@@ -26,7 +26,10 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 	ArrayList<String> objTest;
 	ArrayList<String> objGridData;
 
-	String NewReportPeriod;
+	// String NewReportPeriod;
+	public String rptPeriod;
+	public String strPeriod;
+	
 	int RowNumb;
 	boolean isAttachmntExist, isSameFiles, isAttachmentdisabled;
 
@@ -92,6 +95,16 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 		log.info("Inside Test_IfNewTimeSheetPage_Isdisplayed method");
 
 		clickNewTimeSheetlink();
+		
+		strPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheet");
+		log.info("Get report period details from the test data input file. " + strPeriod );
+
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		rptPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheetRptPeriod");
+		period.selectByVisibleText(rptPeriod);
+
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
+		
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -110,11 +123,14 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 			log.info("Inside Test_IfSaveMessage_IsDisplayed" );
 
-			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
+/*			Select rptPeriod = new Select(TimeSheetEditPage.lbl_ReportDate(driver));
 			WebElement ele = rptPeriod.getFirstSelectedOption();
 			NewReportPeriod = ele.getText();
 			
 			log.info("New timesheet is created for the period : " + NewReportPeriod);
+*/
+
+			log.info("New timesheet is created for the period : " + rptPeriod);
 
 			InjectTestData();
 			
@@ -147,8 +163,14 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 
 			log.info("Inside Test_IfDataSavedCorrectly");
 			Thread.sleep(3000);
+			
+			log.info("Re-open the report period to verify data is saved correctly");
 
-			TimeSheetMainPage.grd_clickReportPeriodLink(driver, NewReportPeriod).click();
+			Select period = new Select(driver.findElement(By.id("reportperiod")));
+			period.selectByVisibleText(strPeriod);
+			log.info("Get report period details from the test data input file. " + strPeriod );
+
+			TimeSheetMainPage.grd_clickReportPeriodLink(driver, rptPeriod).click();
 
 			objGridData.clear();
 			objGridData = TimeSheetEditPage.ReadWeeklyDatafromGridtoElement(driver, wait, jse);

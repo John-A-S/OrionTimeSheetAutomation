@@ -119,7 +119,7 @@ public class OrionBase {
 
 					options = new ChromeOptions();
 					options.addArguments("--test-type");
-					options.addArguments("--headless");
+					//options.addArguments("--headless");
 					options.addArguments("--disable-extensions"); 
 
 					HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -139,7 +139,7 @@ public class OrionBase {
 					System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//main//input//chromedriver.exe");
 
 					options = new ChromeOptions();
-					options.addArguments("--headless");
+					//options.addArguments("--headless");
 
 					driver = new ChromeDriver(options);
 				}

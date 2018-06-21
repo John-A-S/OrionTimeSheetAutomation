@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-06-12T16:32:17Z" name="Orion TimeSheet Automation Test Suite" finished-at="2018-06-12T16:32:40Z" duration-ms="23308">
+  <suite started-at="2018-06-21T16:06:40Z" name="Orion TimeSheet Automation Test Suite" finished-at="2018-06-21T16:07:07Z" duration-ms="26591">
     <groups>
     </groups>
-    <test started-at="2018-06-12T16:32:17Z" name="OrionTimeSheet_Chrome_Test_DraftTimeSheet_SaveFunctionality" finished-at="2018-06-12T16:32:40Z" duration-ms="23308">
-      <class name="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality">
-        <test-method is-config="true" signature="InitObjects(java.lang.String, java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality@121314f7]" started-at="2018-06-12T12:32:17Z" name="InitObjects" finished-at="2018-06-12T12:32:29Z" duration-ms="12353" status="PASS">
+    <test started-at="2018-06-21T16:06:40Z" name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SaveFunctionality" finished-at="2018-06-21T16:07:07Z" duration-ms="26591">
+      <class name="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality">
+        <test-method is-config="true" signature="InitObjects(java.lang.String, java.lang.String)[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@2e3967ea]" started-at="2018-06-21T12:06:40Z" name="InitObjects" finished-at="2018-06-21T12:06:53Z" duration-ms="12878" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -16,14 +16,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[Test_DraftTimeSheet_SaveFunctionality]]>
+                <![CDATA[Test_NewTimeSheet_SaveFunctionality]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- InitObjects -->
-        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality@121314f7]" started-at="2018-06-12T12:32:29Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-06-12T12:32:30Z" duration-ms="1159" status="PASS">
+        <test-method signature="Test_LoginToOrion_IsSuccess(java.lang.String, java.lang.String)[pri:1, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@2e3967ea]" started-at="2018-06-21T12:06:53Z" name="Test_LoginToOrion_IsSuccess" data-provider="credentials" finished-at="2018-06-21T12:06:54Z" duration-ms="1462" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -39,31 +39,31 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LoginToOrion_IsSuccess -->
-        <test-method signature="Test_IfEditTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality@121314f7]" started-at="2018-06-12T12:32:30Z" name="Test_IfEditTimeSheetPage_Isdisplayed" finished-at="2018-06-12T12:32:32Z" depends-on-methods="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="1740" status="PASS">
+        <test-method signature="Test_IfNewTimeSheetPage_Isdisplayed()[pri:2, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@2e3967ea]" started-at="2018-06-21T12:06:54Z" name="Test_IfNewTimeSheetPage_Isdisplayed" finished-at="2018-06-21T12:06:57Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_LoginToOrion_IsSuccess" duration-ms="2468" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test_IfEditTimeSheetPage_Isdisplayed -->
-        <test-method signature="Test_IfSaveMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality@121314f7]" started-at="2018-06-12T12:32:32Z" name="Test_IfSaveMessage_IsDisplayed" finished-at="2018-06-12T12:32:38Z" depends-on-methods="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality.Test_IfEditTimeSheetPage_Isdisplayed" duration-ms="5535" status="PASS">
+        </test-method> <!-- Test_IfNewTimeSheetPage_Isdisplayed -->
+        <test-method signature="Test_IfSaveMessage_IsDisplayed()[pri:3, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@2e3967ea]" started-at="2018-06-21T12:06:57Z" name="Test_IfSaveMessage_IsDisplayed" finished-at="2018-06-21T12:07:00Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_IfNewTimeSheetPage_Isdisplayed" duration-ms="3491" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_IfSaveMessage_IsDisplayed -->
-        <test-method signature="Test_VerifyTimeSheetMainPageisDisplayed()[pri:4, instance:com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality@121314f7]" started-at="2018-06-12T12:32:38Z" name="Test_VerifyTimeSheetMainPageisDisplayed" finished-at="2018-06-12T12:32:38Z" depends-on-methods="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality.Test_IfSaveMessage_IsDisplayed" duration-ms="276" status="PASS">
+        <test-method signature="Test_VerifyTimeSheetMainPageisDisplayed()[pri:4, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@2e3967ea]" started-at="2018-06-21T12:07:00Z" name="Test_VerifyTimeSheetMainPageisDisplayed" finished-at="2018-06-21T12:07:01Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_IfSaveMessage_IsDisplayed" duration-ms="203" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_VerifyTimeSheetMainPageisDisplayed -->
-        <test-method signature="Test_IfDataSavedCorrectly()[pri:5, instance:com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality@121314f7]" started-at="2018-06-12T12:32:38Z" name="Test_IfDataSavedCorrectly" finished-at="2018-06-12T12:32:39Z" depends-on-methods="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality.Test_VerifyTimeSheetMainPageisDisplayed" duration-ms="993" status="PASS">
+        <test-method signature="Test_IfDataSavedCorrectly()[pri:5, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@2e3967ea]" started-at="2018-06-21T12:07:01Z" name="Test_IfDataSavedCorrectly" finished-at="2018-06-21T12:07:05Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_VerifyTimeSheetMainPageisDisplayed" duration-ms="4256" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_IfDataSavedCorrectly -->
-        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality@121314f7]" started-at="2018-06-12T12:32:39Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-06-12T12:32:39Z" depends-on-methods="com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality.Test_IfDataSavedCorrectly" duration-ms="406" status="PASS">
+        <test-method signature="Test_LogoutfromOrion_IsSuccess()[pri:6, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@2e3967ea]" started-at="2018-06-21T12:07:05Z" name="Test_LogoutfromOrion_IsSuccess" finished-at="2018-06-21T12:07:06Z" depends-on-methods="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality.Test_IfDataSavedCorrectly" duration-ms="707" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_LogoutfromOrion_IsSuccess -->
-        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality@121314f7]" started-at="2018-06-12T12:32:39Z" name="CloseObjects" finished-at="2018-06-12T12:32:40Z" duration-ms="617" status="PASS">
+        <test-method is-config="true" signature="CloseObjects()[pri:0, instance:com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality@2e3967ea]" started-at="2018-06-21T12:07:06Z" name="CloseObjects" finished-at="2018-06-21T12:07:07Z" duration-ms="892" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseObjects -->
-      </class> <!-- com.orion.qa.testcases.Test_DraftTimeSheet_SaveFunctionality -->
-    </test> <!-- OrionTimeSheet_Chrome_Test_DraftTimeSheet_SaveFunctionality -->
+      </class> <!-- com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality -->
+    </test> <!-- OrionTimeSheet_Chrome_Test_NewTimeSheet_SaveFunctionality -->
   </suite> <!-- Orion TimeSheet Automation Test Suite -->
 </testng-results>
