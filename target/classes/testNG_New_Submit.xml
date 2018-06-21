@@ -30,5 +30,16 @@
 			<class name="com.orion.qa.testcases.Test_NewTimeSheet_SubmitFunctionality" />
 		</classes>
 	</test>
+	
+	<!-- NEW TIMESHEET SAVE -->
+	 
+	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SaveFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_NewTimeSheet_SaveFunctionality" />
+		<classes>
+			<class name="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality" />
+		</classes>
+	</test>  
+	
 
 </suite>
