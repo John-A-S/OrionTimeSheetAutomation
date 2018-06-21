@@ -10,6 +10,16 @@
 		<listener class-name="com.orion.qa.Listeners.ExtentReportListener" />
 		<listener class-name="com.orion.qa.Listeners.TestNGtoJIRAListener" />
 	</listeners>
+	
+	<!-- NEW TIMESHEET CANCEL --> 
+	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_CancelFunctionality">
+		<parameter name="Browser" value="chrome" />
+		<parameter name="ClassName" value="Test_NewTimeSheet_CancelFunctionality" />
+		<classes>
+			<class name="com.orion.qa.testcases.Test_NewTimeSheet_CancelFunctionality" />
+		</classes>
+	</test>  
+	
 
 	<!-- NEW TIMESHEET SUBMIT -->
 	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SubmitFunctionality">

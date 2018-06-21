@@ -7,7 +7,7 @@
 
 	<!-- DONT CHANGE THE BELOW ORDER -->	
 	<!-- NEW TIMESHEET CANCEL -->   
-	
+	<!-- 
 	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_CancelFunctionality">
 		<parameter name="Browser" value="chrome" />
 		<parameter name="ClassName" value="Test_NewTimeSheet_CancelFunctionality" />
@@ -15,9 +15,9 @@
 			<class name="com.orion.qa.testcases.Test_NewTimeSheet_CancelFunctionality" />
 		</classes>
 	</test>  
-	
+	 -->
 	<!-- NEW TIMESHEET SAVE -->
-	
+	<!-- 
 	<test name="OrionTimeSheet_Chrome_Test_NewTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
 		<parameter name="ClassName" value="Test_NewTimeSheet_SaveFunctionality" />
@@ -25,7 +25,7 @@
 			<class name="com.orion.qa.testcases.Test_NewTimeSheet_SaveFunctionality" />
 		</classes>
 	</test>  
-	
+	 -->
 	<!-- DRAFT TIMESHEET SAVE -->  
 	<test name="OrionTimeSheet_Chrome_Test_DraftTimeSheet_SaveFunctionality">
 		<parameter name="Browser" value="chrome" />
