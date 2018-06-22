@@ -93,11 +93,11 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 
 		clickNewTimeSheetlink();
 		
-		strPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheet");
+		strPeriod = CommonMethods.readTestData("TD_New_Cancel", "NewTimeSheet");
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		rptPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_New_Cancel", "NewTimeSheetRptPeriod");
 		period.selectByVisibleText(rptPeriod);
 
 		log.info("Get report period link details from the test data input file. " + rptPeriod );
@@ -137,6 +137,11 @@ public class Test_NewTimeSheet_CancelFunctionality extends OrionBase {
 
 			Test_InjectTestDataandCancel();
 			try {
+				log.info("Select timesheet for the month : " +  strPeriod);
+				
+				Select period = new Select(driver.findElement(By.id("reportperiod")));
+				period.selectByVisibleText(strPeriod);
+
 				log.info("Click on the timesheet link : " + rptPeriod);
 				TimeSheetEditPage.grd_clickReportPeriodLink(driver, rptPeriod);
 				assertEquals(true, false, "New Time Period " + rptPeriod + " Exist.  FAILED");

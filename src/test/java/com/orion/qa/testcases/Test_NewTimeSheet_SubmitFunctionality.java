@@ -92,11 +92,11 @@ public class Test_NewTimeSheet_SubmitFunctionality extends OrionBase {
 		log.info("Inside Test_IfNewTimeSheetPage_Isdisplayed method");
 		clickNewTimeSheetlink();
 		
-		strPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheet");
+		strPeriod = CommonMethods.readTestData("TD_New_Submit", "NewTimeSheet");
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
 		Select period = new Select(driver.findElement(By.id("reportperiod")));
-		rptPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheetRptPeriod");
+		rptPeriod = CommonMethods.readTestData("TD_New_Submit", "NewTimeSheetRptPeriod");
 		period.selectByVisibleText(rptPeriod);
 
 		log.info("Get report period link details from the test data input file. " + rptPeriod );

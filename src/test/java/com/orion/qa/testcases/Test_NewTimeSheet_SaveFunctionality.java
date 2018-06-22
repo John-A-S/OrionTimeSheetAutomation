@@ -99,11 +99,13 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 		strPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheet");
 		log.info("Get report period details from the test data input file. " + strPeriod );
 
-		Select period = new Select(driver.findElement(By.id("reportperiod")));
+		
 		rptPeriod = CommonMethods.readTestData("TD_New_Save", "NewTimeSheetRptPeriod");
+		log.info("Get report period link details from the test data input file. " + rptPeriod );
+
+		Select period = new Select(driver.findElement(By.id("reportperiod")));
 		period.selectByVisibleText(rptPeriod);
 
-		log.info("Get report period link details from the test data input file. " + rptPeriod );
 		
 		try {
 			Thread.sleep(1000);
@@ -164,11 +166,11 @@ public class Test_NewTimeSheet_SaveFunctionality extends OrionBase {
 			log.info("Inside Test_IfDataSavedCorrectly");
 			Thread.sleep(3000);
 			
-			log.info("Re-open the report period to verify data is saved correctly");
+			log.info("Re-open the report period to verify data is saved correctly : "+ strPeriod);
 
 			Select period = new Select(driver.findElement(By.id("reportperiod")));
 			period.selectByVisibleText(strPeriod);
-			log.info("Get report period details from the test data input file. " + strPeriod );
+			log.info("Get report period details from the test data input file. " + rptPeriod );
 
 			TimeSheetMainPage.grd_clickReportPeriodLink(driver, rptPeriod).click();
 
