@@ -120,7 +120,7 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TESTED --> 
-						<suiteXmlFile>src/main/resources/testNG_New_Submit.xml</suiteXmlFile>
+						<suiteXmlFile>src/main/resources/testNG_New.xml</suiteXmlFile>
 						<suiteXmlFile>src/main/resources/testNG_Submit.xml</suiteXmlFile>
 						<suiteXmlFile>src/main/resources/testNG_Rejected.xml</suiteXmlFile>
 						<suiteXmlFile>src/main/resources/testNG_Approved.xml</suiteXmlFile> 
